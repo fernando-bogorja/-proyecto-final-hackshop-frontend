@@ -1,0 +1,29 @@
+.carousel {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel .carousel-content {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.carousel .carousel-content::-webkit-scrollbar {
+  display: none;
+}
+
+h2.carousel-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  width: 80%;
+}

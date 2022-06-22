@@ -1,0 +1,252 @@
+.chip {
+  /* Variables */
+  --danger: #b81105;
+  --danger-text: #fff;
+  --danger-hover: #860c03;
+  --danger-outline: #d40e003e;
+
+  --success: #03863a;
+  --success-text: #ffffff;
+  --success-hover: #03632b;
+  --success-outline: #03863937;
+
+  --warning: #f9f928;
+  --warning-text: #fff;
+
+  --info: #0295a1;
+  --info-text: #ffffff;
+  --info-hover: #027e8a;
+  --info-outline: #0294a12a;
+
+  --primary: #276df9;
+  --primary-text: #fff;
+  --primary-hover: #054ad5;
+  --primary-outline: #226bfe1a;
+
+  --neutral: #3c4049;
+  --neutral-text: #fff;
+  --neutral-hover: #25272d;
+  --neutral-outline: #3c404915;
+
+  width: 100%;
+  border-radius: 20px;
+  font-weight: 500;
+  width: 150px;
+  text-align: center;
+}
+
+.chip.sm {
+  padding: 0.2rem 0.3rem;
+  min-width: 40px;
+  max-width: 100px;
+  font-size: 0.8rem;
+}
+
+.chip.md {
+  padding: 0.6rem 0.6rem;
+  min-width: 40px;
+  max-width: 100px;
+  font-size: 0.9rem;
+}
+
+.chip.lg {
+  padding: 0.7rem 1rem;
+  min-width: 80px;
+  max-width: 200px;
+  font-size: 1rem;
+}
+
+.chip.solid:hover {
+  cursor: default;
+}
+
+.chip.solid.primary {
+  background-color: var(--primary);
+  color: var(--primary-text);
+  transition: 0.2s;
+}
+
+.chip.solid.primary:hover {
+  background-color: var(--primary-hover);
+  transition: 0.3s;
+}
+
+.chip.solid.success {
+  background-color: var(--success);
+  color: var(--success-text);
+  transition: 0.2s;
+}
+
+.chip.solid.success:hover {
+  background-color: var(--success-hover);
+  transition: 0.3s;
+}
+
+.chip.solid.warning {
+  background-color: var(--warning);
+  color: var(--warning-text);
+  transition: 0.2s;
+}
+
+.chip.solid.danger {
+  background-color: var(--danger);
+  color: var(--danger-text);
+  transition: 0.2s;
+}
+
+.chip.solid.danger:hover {
+  background-color: var(--danger-hover);
+  transition: 0.3s;
+}
+
+.chip.solid.info {
+  background-color: var(--info);
+  color: var(--info-text);
+  transition: 0.2s;
+}
+
+.chip.solid.info:hover {
+  background-color: var(--info-hover);
+  transition: 0.3s;
+}
+
+.chip.solid.neutral {
+  background-color: var(--neutral);
+  color: var(--neutral-text);
+  transition: 0.2s;
+}
+
+.chip.solid.neutral:hover {
+  background-color: var(--neutral-hover);
+  transition: 0.3s;
+}
+
+/* OUTLINE CHIP */
+.chip.outline {
+  border: 1px solid var(--neutral);
+  color: var(--neutral);
+  cursor: default;
+  transition: 0.2s;
+}
+
+.chip.outline.primary {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  transition: 0.2s;
+}
+
+.chip.outline.primary:hover {
+  background-color: var(--primary-outline);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.chip.outline.success {
+  border: 1px solid var(--success);
+  color: var(--success);
+  transition: 0.2s;
+}
+
+.chip.outline.success:hover {
+  background-color: var(--success-outline);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.chip.outline.warning {
+  border: 1px solid var(--warning);
+  color: var(--warning);
+  transition: 0.2s;
+}
+
+.chip.outline.danger {
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  transition: 0.2s;
+}
+
+.chip.outline.danger:hover {
+  background-color: var(--danger-outline);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.chip.outline.info {
+  border: 1px solid var(--info);
+  color: var(--info);
+  transition: 0.2s;
+}
+
+.chip.outline.info:hover {
+  background-color: var(--info-outline);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.chip.outline.neutral {
+  border: 1px solid var(--neutral);
+  color: var(--neutral);
+  transition: 0.2s;
+}
+
+.chip.outline.neutral:hover {
+  background-color: var(--neutral-outline);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+/* SOFT CHIP */
+.chip.soft {
+  background-color: var(--neutral-outline);
+  color: var(--neutral-hover);
+  border: 1px solid #eee;
+  transition: 0.2s;
+}
+
+.chip.soft.primary {
+  background-color: var(--primary-outline);
+  color: var(--primary-hover);
+  border: 1px solid #fff;
+  transition: 0.2s;
+}
+
+.chip.soft.primary:hover {
+  border: 1px solid var(--primary);
+  transition: 0.3s;
+}
+
+.chip.soft.success {
+  background-color: var(--success-outline);
+  color: var(--success-hover);
+  border: 1px solid #fff;
+  transition: 0.2s;
+}
+
+.chip.soft.success:hover {
+  border: 1px solid var(--success);
+  transition: 0.3s;
+}
+
+.chip.soft.info {
+  background-color: var(--info-outline);
+  color: var(--info-hover);
+  border: 1px solid #fff;
+  transition: 0.2s;
+}
+
+.chip.soft.info:hover {
+  border: 1px solid var(--info);
+  transition: 0.3s;
+}
+
+.chip.soft.danger {
+  background-color: var(--danger-outline);
+  color: var(--danger-hover);
+  border: 1px solid #fff;
+  transition: 0.2s;
+}
+
+.chip.soft.danger:hover {
+  border: 1px solid var(--danger);
+  transition: 0.3s;
+}

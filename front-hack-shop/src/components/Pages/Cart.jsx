@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { clearCart } from "../features/cartSlice";
+import { clearCart } from "../../redux/slices/cartSlice";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
   console.log(cart);
   useEffect(() => {
@@ -17,7 +17,7 @@ const Cart = () => {
   return (
     <div>
       <h1>Cart</h1>
-      {cart.cartItems.map((cartItem) => (
+      {cart.cartItems.map(cartItem => (
         <div>
           <p>{cartItem.name}</p>
           <p>Quantity: {cartItem.cartQuantity}</p>
