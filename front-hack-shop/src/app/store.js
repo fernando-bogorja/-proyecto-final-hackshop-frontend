@@ -1,14 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../counter/counterSlice";
-import productsReducer, { productsFetch } from "../features/productSlice";
+//import productsReducer, { productsFetch } from "../features/productSlice";
 import { productsApi } from "../features/productsApi";
-
+import cartSlice from "../features/cartSlice";
+//quitar products de store
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    products: productsReducer,
+    //products: productsReducer,
+    cart: cartSlice,
     [productsApi.reducerPath]: productsApi.reducer,
   },
 });
 
-store.dispatch(productsFetch());
+//store.dispatch(productsFetch());
+//store.dispatch(getTotals());
