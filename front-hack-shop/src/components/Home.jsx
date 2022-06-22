@@ -1,5 +1,5 @@
 import React from "react";
-import { productsApi, useGetAllProductsQuery } from "../features/productsApi";
+import { useGetAllProductsQuery } from "../features/productsApi";
 
 const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
@@ -16,7 +16,10 @@ const Home = () => {
             <div>
               {data?.map((product) => (
                 <div key={product.id}>
-                  <h3>{productsApi.name}</h3>
+                  <h3>{product.name}</h3>
+                  <div>
+                    <img src={product.images[0]} alt="" />
+                  </div>
                   <div>
                     <h6>{product.description}</h6>
                     <h6>${product.price}</h6>
