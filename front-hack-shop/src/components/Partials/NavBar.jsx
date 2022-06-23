@@ -16,6 +16,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
+import Container from "@mui/material/Container";
 
 const pages = [
   {
@@ -172,105 +173,107 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ backgroundColor: "#8e806a7c" }}>
-        <Toolbar sx={{ backgroundColor: "#8e806a7c", padding: "15px 0" }}>
-          <Typography
-            variant="h4"
-            noWrap
-            component="div"
-            sx={{
-              display: {
-                xs: "none",
-                sm: "block",
-                fontWeight: "700",
-              },
-            }}
-          >
-            <Link to="/" className="link-none">
-              <img
-                style={{ width: "100px" }}
-                srcSet={require("../../assets/reizen-logo.png")}
+    <Container maxWidth="xl">
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="fixed" sx={{ backgroundColor: "#8e806a7c" }}>
+          <Toolbar sx={{ backgroundColor: "#8e806a7c", padding: "15px 0" }}>
+            <Typography
+              variant="h4"
+              noWrap
+              component="div"
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "block",
+                  fontWeight: "700",
+                },
+              }}
+            >
+              <Link to="/" className="link-none">
+                <img
+                  style={{ width: "100px" }}
+                  srcSet={require("../../assets/reizen-logo.png")}
+                />
+              </Link>
+            </Typography>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                marginLeft: "20px",
+              }}
+            >
+              {pages.map((page) => (
+                <Link
+                  className="nav-link"
+                  to={`/${page.path.toLowerCase()}`}
+                  key={page.name}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.name}
+                </Link>
+              ))}
+            </Box>
+            <Box sx={{ flexGrow: 1 }} />
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
               />
-            </Link>
-          </Typography>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              marginLeft: "20px",
-            }}
-          >
-            {pages.map((page) => (
-              <Link
-                className="nav-link"
-                to={`/${page.path.toLowerCase()}`}
-                key={page.name}
-                sx={{ my: 2, color: "white", display: "block" }}
+            </Search>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit"
               >
-                {page.name}
-              </Link>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 1 }} />
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Link to="/cart" className="link-none">
-                <Badge badgeContent={cartTotalQuantity} color="warning">
-                  <ShoppingCartIcon />
+                <Link to="/cart" className="link-none">
+                  <Badge badgeContent={cartTotalQuantity} color="warning">
+                    <ShoppingCartIcon />
+                  </Badge>
+                </Link>
+              </IconButton>
+              <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="inherit"
+              >
+                <Badge>
+                  <NotificationsIcon />
                 </Badge>
-              </Link>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge>
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+              </IconButton>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+            </Box>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        {renderMobileMenu}
+        {renderMenu}
+      </Box>
+    </Container>
   );
 }

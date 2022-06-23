@@ -1,5 +1,6 @@
 import React from "react";
 import { useGetAllProductsQuery } from "../../redux/api-requests/products-req";
+import Container from "@mui/material/Container";
 
 //Components
 import Carousel from "../Miscellaneous/Carousel/Carousel";
@@ -10,7 +11,7 @@ const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
 
   return (
-    <div className="home-container">
+    <div className="div">
       {isLoading ? (
         <p>Loading...</p>
       ) : error ? (
@@ -19,31 +20,33 @@ const Home = () => {
         <>
           <div>
             <Header />
-            <Carousel category="Productos destacados">
-              {data.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </Carousel>
-            <Carousel category="Añadidos recientemente">
-              {data.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </Carousel>
-            <Carousel category="Añadidos recientemente">
-              {data.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </Carousel>
-            <Carousel category="Añadidos recientemente">
-              {data.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </Carousel>
-            <Carousel category="Añadidos recientemente">
-              {data.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </Carousel>
+            <Container maxWidth="xl">
+              <Carousel category="Productos destacados">
+                {data.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </Carousel>
+              <Carousel category="Añadidos recientemente">
+                {data.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </Carousel>
+              <Carousel category="Añadidos recientemente">
+                {data.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </Carousel>
+              <Carousel category="Añadidos recientemente">
+                {data.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </Carousel>
+              <Carousel category="Añadidos recientemente">
+                {data.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </Carousel>
+            </Container>
           </div>
         </>
       )}
