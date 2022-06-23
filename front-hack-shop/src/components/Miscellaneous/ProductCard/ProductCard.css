@@ -35,3 +35,29 @@
 .productCard span.price-unit {
   font-size: 0.7rem;
 }
+
+.productCard .infoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.productCard button.addToCart {
+  background-color: transparent;
+  color: rgb(92, 92, 92);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 50%;
+  outline: none;
+}
+
+.productCard button.addToCart:hover {
+  transform: scale(1.2);
+  color: rgb(138, 128, 100);
+  transition: 0.3s;
+}

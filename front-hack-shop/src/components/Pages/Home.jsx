@@ -1,26 +1,13 @@
 import React from "react";
-import {
-  productsApi,
-  useGetAllProductsQuery,
-} from "../../redux/api-requests/products-req";
-import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../redux/slices/cartSlice";
-import { useDispatch } from "react-redux";
+import { useGetAllProductsQuery } from "../../redux/api-requests/products-req";
 
 //Components
 import Carousel from "../Miscellaneous/Carousel/Carousel";
 import ProductCard from "../Miscellaneous/ProductCard/ProductCard";
+import Header from "../Partials/Header";
 
 const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const handleAddToCart = product => {
-    dispatch(addToCart(product)); //ejecutar el slice addToCart para agregar item al carrito
-    // console.log("---", window.localStorage.getItem("cartItems"));
-    navigate("/cart"); // redireccion a carrito
-  };
 
   return (
     <div className="home-container">
@@ -31,8 +18,23 @@ const Home = () => {
       ) : (
         <>
           <div>
-            <h1>All products Lists</h1>
+            <Header />
             <Carousel category="Productos destacados">
+              {data.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </Carousel>
+            <Carousel category="Añadidos recientemente">
+              {data.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </Carousel>
+            <Carousel category="Añadidos recientemente">
+              {data.map(product => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </Carousel>
+            <Carousel category="Añadidos recientemente">
               {data.map(product => (
                 <ProductCard key={product.id} product={product} />
               ))}

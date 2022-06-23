@@ -1,17 +1,30 @@
-import * as React from "react";
+/* Stylesheet */
+import "./ProductCard.css";
+/* Material */
+import Typography from "@mui/joy/Typography";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
-import IconButton from "@mui/joy/IconButton";
-import Typography from "@mui/joy/Typography";
+/* Material Icons */
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
-import "./ProductCard.css";
+/* Custom Components */
 import SuperChip from "../MiniChip/SuperChip";
+/* Hooks */
+import useCartHook from "../../../Hooks/Cart";
 
 export default function ProductCard({ product }) {
+  const [cart, addToCart] = useCartHook();
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    console.log(cart);
+  };
+
   return (
     <Card className="productCard">
-      <SuperChip variant="outline" color="danger" size="md">
+      <SuperChip variant="soft" color="danger" size="md">
         En el carrito
       </SuperChip>
       <IconButton
@@ -22,7 +35,6 @@ export default function ProductCard({ product }) {
       >
         <FavoriteBorderRoundedIcon />
       </IconButton>
-
       <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
         <img className="productImage" srcSet={product.images[0]} alt="" />
         <img className="hoverImage" srcSet={product.images[1]} alt="" />
@@ -45,10 +57,13 @@ export default function ProductCard({ product }) {
         <Typography level="body2"></Typography>
       </Box>
       <Box sx={{ display: "flex" }}>
-        <div>
+        <div className="infoContainer">
           <Typography fontSize="sm" fontWeight="bold" sx={{ color: "#8E806A" }}>
             <span className="price-unit">USD</span> {product.price}
           </Typography>
+          <button className="addToCart" onClick={handleAddToCart}>
+            <ShoppingCartIcon fontSize="small" />
+          </button>
         </div>
       </Box>
     </Card>
