@@ -6,15 +6,23 @@ import { Box } from "@mui/material";
 import Button from "@mui/joy/Button";
 import Typography from "@mui/joy/Typography";
 import { CssVarsProvider } from "@mui/joy";
+import Chip from "@mui/joy/Chip";
 
 export default function Cart() {
   const [cart, addToCart, removeFromCart, decreaseCart, clearCart] =
     useCartHook();
   return (
-    <div className="cart-container">
-      <CartItems items={cart.cartItems} />
-      <Resume items={cart.cartItems} clearCart={clearCart} />
-    </div>
+    <>
+      <Box sx={{ display: "flex", justifyContent: "center" }} mt={14}>
+        <Typography level="h2" fontWeight="bold" sx={{ color: "#8e806a" }}>
+          Carrito de compras
+        </Typography>
+      </Box>
+      <div className="cart-container">
+        <CartItems items={cart.cartItems} />
+        <Resume items={cart.cartItems} clearCart={clearCart} />
+      </div>
+    </>
   );
 }
 
@@ -64,8 +72,73 @@ const Resume = ({ items, clearCart }) => {
 
   return (
     <div className="resume-container">
-      <h1>USD {totalPrice}</h1>
-      <button onClick={clearCart}>Limpiar carrito</button>
+      {items.length > 0 &&
+        items.map(item => (
+          <Chip
+            variant="outlined"
+            color="neutral"
+            disabled
+            size="lg"
+            sx={{ minWidth: "80%", marginBottom: "10px" }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                textAlign: "center",
+                width: "100%",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  textAlign: "center",
+                  width: "30%",
+                }}
+              >
+                <Typography
+                  level="body2"
+                  fontSize="sm"
+                  fontWeight="thin"
+                  sx={{ color: "#000" }}
+                  mr={1}
+                >
+                  {item.name}
+                </Typography>
+                <Chip variant="soft" color="danger" size="sm">
+                  x{item.cartQuantity}
+                </Chip>
+              </Box>
+              <Chip variant="soft" color="neutral" size="sm">
+                Total: USD {item.price * item.cartQuantity}
+              </Chip>
+            </Box>
+          </Chip>
+        ))}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+          width: "80%",
+        }}
+      >
+        <Typography level="body2" fontSize="sm" fontWeight="thin">
+          Total: USD {totalPrice}
+        </Typography>
+        <Button
+          variant="soft"
+          color="neutral"
+          onClick={clearCart}
+          sx={{ marginLeft: "auto" }}
+        >
+          Realizar compra
+        </Button>
+      </Box>
     </div>
   );
 };
