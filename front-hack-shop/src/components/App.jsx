@@ -11,6 +11,7 @@ import UserIndex from "./Miscellaneous/DashBoard/user/UserIndex";
 import NewUserIndex from "./Miscellaneous/DashBoard/newUser/NewUserIndex";
 import ProductListIndex from "./Miscellaneous/DashBoard/productlist/ProductListIndex";
 import NewProductIndex from "./Miscellaneous/DashBoard/newProduct/NewProductIndex";
+import Product from "./Miscellaneous/DashBoard/product/Product";
 function App() {
   return (
     <div className="App">
@@ -24,6 +25,7 @@ function App() {
         <Route path="/newUser" element={<NewUserIndex />} />
         <Route path="/listproducts" element={<ProductListIndex />} />
         <Route path="/newProduct" element={<NewProductIndex />} />
+        <Route path="/theproduct/:productId" element={<Product />} />
       </Routes>
       <Footer />
     </div>
