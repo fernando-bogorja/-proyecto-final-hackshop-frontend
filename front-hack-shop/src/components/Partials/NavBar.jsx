@@ -191,7 +191,7 @@ export default function PrimarySearchAppBar() {
             >
               <Link to="/" className="link-none">
                 <img
-                  style={{ width: "100px" }}
+                  style={{ width: "100px", marginLeft: "35px" }}
                   srcSet={require("../../assets/reizen-logo.png")}
                 />
               </Link>
@@ -224,7 +224,9 @@ export default function PrimarySearchAppBar() {
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <Box
+              sx={{ display: { xs: "none", md: "flex", marginRight: "35px" } }}
+            >
               <IconButton
                 size="large"
                 aria-label="show 4 new mails"

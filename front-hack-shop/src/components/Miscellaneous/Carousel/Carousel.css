@@ -11,7 +11,7 @@
   justify-content: flex-start;
   flex-direction: row;
   align-items: center;
-  width: 80%;
+  width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
   border-radius: 5px;
@@ -25,5 +25,5 @@
 h2.carousel-title {
   font-size: 1.1rem;
   font-weight: bold;
-  width: 80%;
+  width: 95%;
 }
