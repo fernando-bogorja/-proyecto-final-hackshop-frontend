@@ -10,9 +10,17 @@ import { CssVarsProvider } from "@mui/joy";
 import TimeAgo from "timeago-react";
 import * as timeago from "timeago.js";
 import es from "timeago.js/lib/lang/es";
+import useCartHook from "../../../Hooks/Cart.js";
 timeago.register("es", es);
 
 export default function CartItem({ item }) {
+  const [cart, addToCart, removeFromCart, decreaseCart, clearCart] =
+    useCartHook();
+  const deleteProduct = () => {
+    console.log("deleteProduct");
+    removeFromCart(item);
+  };
+
   return (
     <CssVarsProvider>
       <Card
@@ -21,6 +29,7 @@ export default function CartItem({ item }) {
         sx={{
           margin: ".5rem 0",
           minWidth: "100%",
+          minHeight: "150px",
           gap: 2,
           "&:hover": {
             boxShadow: "md",
@@ -33,17 +42,23 @@ export default function CartItem({ item }) {
         </AspectRatio>
         <Box>
           <Box sx={{ ml: 0.5 }}>
-            <Typography level="h2" fontSize="lg" id="card-description">
+            <Chip
+              variant="outlined"
+              color="neutral"
+              size="sm"
+              sx={{ zIndex: "2" }}
+            >
+              <TimeAgo datetime={item.addedAt} locale="es" />
+            </Chip>
+            <Typography level="h2" fontSize="md">
               {item.name}
-              <Chip
-                color="danger"
-                variant="soft"
+              <Button
                 size="sm"
-                sx={{ margin: "0 10px" }}
+                variant="plain"
+                color="danger"
+                onClick={deleteProduct}
+                sx={{ zIndex: "2", ml: 1 }}
               >
-                Cantidad ({item.cartQuantity})
-              </Chip>
-              <Button size="sm" variant="plain" color="danger">
                 Eliminar
               </Button>
             </Typography>
@@ -53,23 +68,34 @@ export default function CartItem({ item }) {
               fontWeight="bold"
               mb={1}
             >
-              <Link
-                overlay
-                underline="none"
-                href="#interactive-card"
-                sx={{ color: "text.tertiary" }}
+              <Typography
+                fontSize="sm"
+                fontWeight="bold"
+                aria-describedby="card-description"
+                mb={1}
               >
                 USD {item.price}
-              </Link>
+              </Typography>
             </Typography>
-            <Chip
-              variant="outlined"
-              color="primary"
-              size="sm"
-              sx={{ pointerEvents: "none" }}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+              }}
             >
-              <TimeAgo datetime={item.addedAt} locale="es" />
-            </Chip>
+              <Chip
+                color="danger"
+                variant="soft"
+                size="sm"
+                sx={{ marginRight: "10px" }}
+              >
+                Cantidad ({item.cartQuantity})
+              </Chip>
+              <Chip variant="outlined" color="neutral" size="sm">
+                Categoria ({item.category})
+              </Chip>
+            </Box>
           </Box>
         </Box>
       </Card>

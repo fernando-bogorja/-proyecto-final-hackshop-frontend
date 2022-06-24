@@ -36,9 +36,7 @@ const Home = () => {
               {categories.map((category, index) => (
                 <Carousel key={index} category={category}>
                   {data
-                    .filter(
-                      product => product.description.Categoria === category
-                    )
+                    .filter(product => product.category === category)
                     .map(product => (
                       <ProductCard key={product._id} product={product} />
                     ))}
