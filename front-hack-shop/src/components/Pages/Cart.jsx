@@ -66,79 +66,69 @@ const CartItems = ({ items }) => {
 
 const Resume = ({ items, clearCart }) => {
   //Get the total price of the cart
-  const totalPrice = items
-    .reduce((acc, item) => acc + item.price * item.cartQuantity, 0)
-    .toFixed(2);
+  const totalPrice = items.reduce(
+    (acc, item) => acc + item.price * item.cartQuantity,
+    0
+  );
+  const total = {
+    name: "Total del carrito",
+    price: totalPrice,
+    cartQuantity: 1,
+  };
 
   return (
     <div className="resume-container">
       {items.length > 0 &&
-        items.map(item => (
-          <Chip
-            variant="outlined"
-            color="neutral"
-            disabled
-            size="lg"
-            sx={{ minWidth: "80%", marginBottom: "10px" }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                textAlign: "center",
-                width: "100%",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  textAlign: "center",
-                  width: "30%",
-                }}
-              >
-                <Typography
-                  level="body2"
-                  fontSize="sm"
-                  fontWeight="thin"
-                  sx={{ color: "#000" }}
-                  mr={1}
-                >
-                  {item.name}
-                </Typography>
-                <Chip variant="soft" color="danger" size="sm">
-                  x{item.cartQuantity}
-                </Chip>
-              </Box>
-              <Chip variant="soft" color="neutral" size="sm">
-                Total: USD {item.price * item.cartQuantity}
-              </Chip>
-            </Box>
-          </Chip>
-        ))}
+        items.map(item => <ItemChip item={item} color="neutral" />)}
+      <ItemChip item={total} color="danger" />
+    </div>
+  );
+};
+
+const ItemChip = ({ item, color }) => {
+  return (
+    <Chip
+      variant="outlined"
+      color={color}
+      disabled
+      size="lg"
+      sx={{ minWidth: "80%", marginBottom: "10px" }}
+    >
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          alignItems: "flex-end",
-          width: "80%",
+          alignItems: "center",
+          justifyContent: "space-between",
+          textAlign: "center",
+          width: "100%",
         }}
       >
-        <Typography level="body2" fontSize="sm" fontWeight="thin">
-          Total: USD {totalPrice}
-        </Typography>
-        <Button
-          variant="soft"
-          color="neutral"
-          onClick={clearCart}
-          sx={{ marginLeft: "auto" }}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            textAlign: "center",
+            width: "30%",
+          }}
         >
-          Realizar compra
-        </Button>
+          <Typography
+            level="body2"
+            fontSize="sm"
+            fontWeight="thin"
+            sx={{ color: "#000" }}
+            mr={1}
+          >
+            {item.name}
+          </Typography>
+          <Chip variant="soft" color="danger" size="sm">
+            x{item.cartQuantity}
+          </Chip>
+        </Box>
+        <Chip variant="soft" color={color} size="sm">
+          Total: USD {item.price * item.cartQuantity}
+        </Chip>
       </Box>
-    </div>
+    </Chip>
   );
 };
