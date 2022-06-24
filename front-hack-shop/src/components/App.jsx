@@ -10,6 +10,7 @@ import UserListIndex from "./Miscellaneous/DashBoard/userList/UserListIndex";
 import UserIndex from "./Miscellaneous/DashBoard/user/UserIndex";
 import NewUserIndex from "./Miscellaneous/DashBoard/newUser/NewUserIndex";
 import ProductListIndex from "./Miscellaneous/DashBoard/productlist/ProductListIndex";
+import NewProductIndex from "./Miscellaneous/DashBoard/newProduct/NewProductIndex";
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
         <Route path="/user/:userid" element={<UserIndex />} />
         <Route path="/newUser" element={<NewUserIndex />} />
         <Route path="/listproducts" element={<ProductListIndex />} />
+        <Route path="/newProduct" element={<NewProductIndex />} />
       </Routes>
       <Footer />
     </div>

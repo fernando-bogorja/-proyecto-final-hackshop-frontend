@@ -8,6 +8,8 @@
   font-size: 14px;
   font-weight: 600;
   padding: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 .productListButton {
   border-radius: 15px;

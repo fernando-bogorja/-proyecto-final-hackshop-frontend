@@ -16,9 +16,21 @@ const columns = [
     width: 160,
   },
   {
-    field: "description",
-    headerName: "Descripcion",
+    field: "images",
+    headerName: "Imagen",
     width: 300,
+    renderCell: (params) => {
+      return (
+        <div className="userListUser">
+          <img className="userListImage" src={params.row.images[0]} alt="" />
+        </div>
+      );
+    },
+  },
+  {
+    field: "stock",
+    headerName: "Stock",
+    width: 100,
   },
   {
     field: "action",
@@ -39,15 +51,15 @@ const columns = [
     },
   },
 ];
-//const handleDeleteUser = (userId) => {};
-
 const ProductList = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
-  console.log("name: ", useGetAllProductsQuery());
   return (
     <div className="productList">
       <div className="productListTitle">
         <h1>Lista de Productos</h1>
+        <Link to="/newProduct">
+          <button className="productListButton">Agregar Producto</button>
+        </Link>
       </div>
       {isLoading ? (
         <p>Loading...</p>
