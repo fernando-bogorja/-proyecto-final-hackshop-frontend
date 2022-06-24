@@ -34,17 +34,14 @@ const Home = () => {
             <Header />
             <Container maxWidth="xl">
               {categories.map((category, index) => (
-                <Carousel category={category}>
+                <Carousel key={index} category={category}>
                   {data
                     .filter(
                       product => product.description.Categoria === category
                     )
-                    .map(
-                      product => (
-                        console.log(product),
-                        (<ProductCard key={product._id} product={product} />)
-                      )
-                    )}
+                    .map(product => (
+                      <ProductCard key={product._id} product={product} />
+                    ))}
                 </Carousel>
               ))}
             </Container>

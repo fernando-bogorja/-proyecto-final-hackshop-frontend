@@ -5,6 +5,7 @@ import Typography from "@mui/joy/Typography";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
+import CssVarsProvider from "@mui/joy/styles/CssVarsProvider";
 /* Material Icons */
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -52,11 +53,10 @@ export default function ProductCard({ product }) {
         <Typography
           level="h2"
           fontSize="md"
-          sx={{ alignSelf: "flex-start", fontSize: ".8rem" }}
+          sx={{ alignSelf: "flex-start", fontSize: ".9rem" }}
         >
           {product.name}
         </Typography>
-        <Typography level="body2"></Typography>
       </Box>
       <Box sx={{ display: "flex" }}>
         <div className="infoContainer">
