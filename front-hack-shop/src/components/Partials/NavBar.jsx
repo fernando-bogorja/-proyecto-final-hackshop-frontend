@@ -42,6 +42,7 @@ const Search = styled("div")(({ theme }) => ({
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
+
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
@@ -116,6 +117,9 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Mi perfil</MenuItem>
+      <Link to="/dashboard" style={{ textDecoration: "none", color: "black" }}>
+        <MenuItem onClick={handleMenuClose}>Panel de Control</MenuItem>
+      </Link>
       <MenuItem onClick={handleMenuClose}>Cerrar sesión</MenuItem>
     </Menu>
   );
