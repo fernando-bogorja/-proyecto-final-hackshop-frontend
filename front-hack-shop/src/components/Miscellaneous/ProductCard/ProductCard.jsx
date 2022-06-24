@@ -16,17 +16,19 @@ import useCartHook from "../../../Hooks/Cart";
 
 export default function ProductCard({ product }) {
   const [cart, addToCart] = useCartHook();
+  const isInCart = cart.cartItems.some(item => item._id === product._id);
 
   const handleAddToCart = () => {
     addToCart(product);
-    console.log(cart);
   };
 
   return (
     <Card className="productCard">
-      <SuperChip variant="soft" color="danger" size="md">
-        En el carrito
-      </SuperChip>
+      {isInCart && (
+        <SuperChip variant="soft" color="danger" size="md">
+          En el carrito
+        </SuperChip>
+      )}
       <IconButton
         className="icon"
         aria-label="hearth Bahamas Islands"

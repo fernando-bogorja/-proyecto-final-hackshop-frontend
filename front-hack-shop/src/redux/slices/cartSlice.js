@@ -16,10 +16,12 @@ const cartSlice = createSlice({
       const itemIndex = state.cartItems.findIndex(
         (item) => item._id === action.payload._id
       );
+
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
+        tempProduct.addedAt = new Date();
         state.cartItems.push(tempProduct);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));

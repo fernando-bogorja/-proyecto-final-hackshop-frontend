@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Pages.css";
 import useCartHook from "../../Hooks/Cart";
 import CartItem from "../Miscellaneous/CartItem/CartItem";
+import { Box } from "@mui/material";
 
 export default function Cart() {
   const [cart, addToCart, removeFromCart, decreaseCart, clearCart] =
@@ -9,29 +10,31 @@ export default function Cart() {
   return (
     <div className="cart-container">
       <CartItems items={cart.cartItems} />
-      <Resume items={cart.cartItems} />
+      <Resume items={cart.cartItems} clearCart={clearCart} />
     </div>
   );
 }
 
 const CartItems = ({ items }) => {
   return (
-    <div className="cart-items-container">
+    <Box className="cart-items-container">
       {items.map(item => (
         <CartItem item={item} />
       ))}
-    </div>
+    </Box>
   );
 };
 
-const Resume = ({ items }) => {
-  const total = items.reduce((acc, item) => {
-    return acc + item.price;
-  }, 0);
+const Resume = ({ items, clearCart }) => {
+  //Get the total price of the cart
+  const totalPrice = items
+    .reduce((acc, item) => acc + item.price * item.cartQuantity, 0)
+    .toFixed(2);
 
   return (
     <div className="resume-container">
-      <h1>{total}</h1>
+      <h1>USD {totalPrice}</h1>
+      <button onClick={clearCart}>Limpiar carrito</button>
     </div>
   );
 };
