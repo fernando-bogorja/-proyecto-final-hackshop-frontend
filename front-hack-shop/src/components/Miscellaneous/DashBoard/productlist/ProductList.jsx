@@ -1,43 +1,24 @@
 import "./productList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { productsRows } from "../dummyData";
-import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useGetAllProductsQuery } from "../../../../redux/api-requests/products-req";
+import { Link } from "react-router-dom";
 const columns = [
-  { field: "id", headerName: "ID", width: 90 },
+  { field: "_id", headerName: "ID", width: 90 },
   {
-    field: "user",
-    headerName: "User",
+    field: "name",
+    headerName: "Name",
     width: 200,
-    renderCell: (params) => {
-      return (
-        <div className="userListUser">
-          <img className="userListImage" src={params.row.avatar} alt="" />
-          {params.row.name}
-        </div>
-      );
-    },
   },
   {
-    field: "email",
-    headerName: "Email",
+    field: "price",
+    headerName: "Price",
     width: 160,
   },
   {
-    field: "status",
-    headerName: "Status",
-    description: "This column has a value getter and is not sortable.",
-    sortable: true,
-    width: 120,
-  },
-  {
-    field: "transaction",
-    headerName: "Transaction",
-    description: "This column has a value getter and is not sortable.",
-    sortable: true,
-    width: 160,
+    field: "description",
+    headerName: "Descripcion",
+    width: 300,
   },
   {
     field: "action",
@@ -47,7 +28,7 @@ const columns = [
       return (
         <>
           <Link to={`/user/` + params.row.id}>
-            <button className="userListEdit">Edit</button>
+            <button className="productListButton">Edit</button>
           </Link>
           <DeleteOutlineIcon
             className="userListDelete"
@@ -58,18 +39,32 @@ const columns = [
     },
   },
 ];
+//const handleDeleteUser = (userId) => {};
+
 const ProductList = () => {
-  //const { data, error, isLoading } = useGetAllProductsQuery();
-  const [data, setData] = useState(productsRows);
+  const { data, error, isLoading } = useGetAllProductsQuery();
+  console.log("name: ", useGetAllProductsQuery());
   return (
     <div className="productList">
-      <DataGrid
-        rows={data}
-        diseableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        checkboxSelection
-      />
+      <div className="productListTitle">
+        <h1>Lista de Productos</h1>
+      </div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>An Error Occured...</p>
+      ) : (
+        <>
+          <DataGrid
+            rows={data}
+            getRowId={(row) => row._id}
+            diseableSelectionOnClick
+            columns={columns}
+            pageSize={8}
+            checkboxSelection
+          />
+        </>
+      )}
     </div>
   );
 };

@@ -5,7 +5,7 @@ const Featuredinf = () => {
   return (
     <div className="featured">
       <div className="featuredItem">
-        <div className="featuredTitle">Sales</div>
+        <div className="featuredTitle">Ventas</div>
         <div className="featuredMoneyContainer">
           <div className="featuredMoney">$4,415</div>
           <span className="featuredMoneyRate">
@@ -25,7 +25,7 @@ const Featuredinf = () => {
         <span className="featuredSub">Comparado con el mes pasado</span>
       </div>
       <div className="featuredItem">
-        <div className="featuredTitle">Revanue</div>
+        <div className="featuredTitle">Ingresos</div>
         <div className="featuredMoneyContainer">
           <div className="featuredMoney">$2,415</div>
           <span className="featuredMoneyRate">

@@ -42,7 +42,11 @@ const data2 = [
     label: "Usuarios",
     path: "/listusers",
   },
-  { icon: <Inventory2OutlinedIcon />, label: "Productos" },
+  {
+    icon: <Inventory2OutlinedIcon />,
+    label: "Productos",
+    path: "/listproducts",
+  },
   { icon: <AttachMoneyOutlinedIcon />, label: "Transacciones" },
   { icon: <EqualizerOutlinedIcon />, label: "Reportes" },
 ];
@@ -107,6 +111,7 @@ export default function SideBar() {
                 <ListItemText
                   sx={{ my: 0 }}
                   primary="Panel de Control"
+                  href="/dashboard"
                   primaryTypographyProps={{
                     fontSize: 20,
                     fontWeight: "medium",

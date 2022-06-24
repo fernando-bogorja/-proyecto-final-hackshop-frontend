@@ -3,3 +3,18 @@
   flex: 4;
   margin-left: 10px;
 }
+.productListTitle {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px;
+}
+.productListButton {
+  border-radius: 15px;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #e4cda7;
+  color: #615849;
+}
