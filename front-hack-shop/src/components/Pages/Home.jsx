@@ -20,6 +20,7 @@ const Loader = () => {
 
 const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
+  const categories = ["Butacas", "Mesas", "Bibliotecas", "Racks", "Sofás"];
 
   return (
     <div className="div">
@@ -32,31 +33,20 @@ const Home = () => {
           <div>
             <Header />
             <Container maxWidth="xl">
-              <Carousel category="Productos destacados">
-                {data.map(product => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </Carousel>
-              <Carousel category="Añadidos recientemente">
-                {data.map(product => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </Carousel>
-              <Carousel category="Añadidos recientemente">
-                {data.map(product => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </Carousel>
-              <Carousel category="Añadidos recientemente">
-                {data.map(product => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </Carousel>
-              <Carousel category="Añadidos recientemente">
-                {data.map(product => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </Carousel>
+              {categories.map((category, index) => (
+                <Carousel category={category}>
+                  {data
+                    .filter(
+                      product => product.description.Categoria === category
+                    )
+                    .map(
+                      product => (
+                        console.log(product),
+                        (<ProductCard key={product._id} product={product} />)
+                      )
+                    )}
+                </Carousel>
+              ))}
             </Container>
           </div>
         </>
