@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import Carousel from "../Miscellaneous/Carousel/Carousel";
 import ProductCard from "../Miscellaneous/ProductCard/ProductCard";
 import Header from "../Partials/Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Loader = () => {
   return (
@@ -22,6 +22,12 @@ const Loader = () => {
 const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
   const categories = ["Butacas", "Mesas", "Bibliotecas", "Racks", "Sofás"];
+  const navigate = useNavigate();
+
+  const handleAddToEdit = (product) => {
+    console.log("ELPROOOOOODUUCt", product);
+    navigate("/theproduct/:product");
+  };
 
   return (
     <div className="div">
@@ -39,8 +45,18 @@ const Home = () => {
                   {data
                     .filter((product) => product.category === category)
                     .map((product) => (
-                      <Link to={{ pathname: `theproduct/` + product._id }}>
-                        <ProductCard key={product._id} product={product} />
+                      <Link
+                        onClick={() => handleAddToEdit(product._id)}
+                        to="/"
+                        // to={{
+                        //   pathname: `theproduct/:` + product._id,
+                        // }}
+                      >
+                        <ProductCard
+                          onClick={() => console.log("asdasdasd")}
+                          key={product._id}
+                          product={product}
+                        />
                       </Link>
                     ))}
                 </Carousel>
