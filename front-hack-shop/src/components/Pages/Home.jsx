@@ -46,11 +46,11 @@ const Home = () => {
                     .filter((product) => product.category === category)
                     .map((product) => (
                       <Link
-                        onClick={() => handleAddToEdit(product._id)}
-                        to="/"
-                        // to={{
-                        //   pathname: `theproduct/:` + product._id,
-                        // }}
+                        //onClick={() => handleAddToEdit(product._id)}
+                        //to="/"
+                        to={{
+                          pathname: `theproduct/:` + product._id,
+                        }}
                       >
                         <ProductCard
                           onClick={() => console.log("asdasdasd")}
