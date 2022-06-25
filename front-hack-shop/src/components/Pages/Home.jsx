@@ -1,12 +1,13 @@
 import React from "react";
 import { useGetAllProductsQuery } from "../../redux/api-requests/products-req";
 import Container from "@mui/material/Container";
-
+//import { useState, useEffect } from "react";
+//import axios from "axios";
 //Components
 import Carousel from "../Miscellaneous/Carousel/Carousel";
 import ProductCard from "../Miscellaneous/ProductCard/ProductCard";
 import Header from "../Partials/Header";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Loader = () => {
   return (
@@ -18,17 +19,26 @@ const Loader = () => {
     </div>
   );
 };
-
 const Home = () => {
   const { data, error, isLoading } = useGetAllProductsQuery();
   const categories = ["Butacas", "Mesas", "Bibliotecas", "Racks", "Sofás"];
-  const navigate = useNavigate();
-
-  const handleAddToEdit = (product) => {
-    console.log("ELPROOOOOODUUCt", product);
-    navigate("/theproduct/:product");
+  /*
+//Llamada a la api por axios asi no se guarda en la store
+  let urlGet = "http://localhost:3001/api/products";
+  const [allProducts, setAllProducts] = useState([]);
+  const marta = async () => {
+    try {
+      const response = await axios.get(urlGet);
+      console.log("algo hace");
+      return setAllProducts(response.data.data);
+    } catch (err) {
+      console.log("Error: ", err);
+    }
   };
-
+  useEffect(() => {
+    marta();
+  }, []);
+*/
   return (
     <div className="div">
       {isLoading ? (
@@ -46,10 +56,8 @@ const Home = () => {
                     .filter((product) => product.category === category)
                     .map((product) => (
                       <Link
-                        //onClick={() => handleAddToEdit(product._id)}
-                        //to="/"
                         to={{
-                          pathname: `theproduct/:` + product._id,
+                          pathname: `theproduct/` + product._id,
                         }}
                       >
                         <ProductCard

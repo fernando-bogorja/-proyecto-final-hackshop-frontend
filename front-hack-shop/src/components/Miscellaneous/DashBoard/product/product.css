@@ -1,0 +1,9 @@
+.container {
+  margin-top: 100px;
+}
+
+.imagen {
+  object-fit: cover;
+  background: red;
+  background-color: beige;
+}
