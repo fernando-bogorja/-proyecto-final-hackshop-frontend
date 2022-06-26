@@ -56,17 +56,7 @@ const Home = () => {
                   {data
                     .filter((product) => product.category === category)
                     .map((product) => (
-                      <Link
-                        to={{
-                          pathname: `theproduct/` + product._id,
-                        }}
-                      >
-                        <ProductCard
-                          onClick={() => console.log("asdasdasd")}
-                          key={product._id}
-                          product={product}
-                        />
-                      </Link>
+                      <ProductCard key={product._id} product={product} />
                     ))}
                 </Carousel>
               ))}
