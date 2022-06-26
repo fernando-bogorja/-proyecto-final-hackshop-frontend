@@ -2,11 +2,11 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import Link from "@mui/material/Link";
 
 const Footer = () => {
   return (
-    <Box sx={{ flexGrow: 1, backgroundColor: "#8e806a7c", marginTop: "20px" }}>
+    <Box sx={{ flexGrow: 1, backgroundColor: "#8e806a7c" }}>
       <Grid item xs={3}>
         <Box
           style={{
@@ -23,54 +23,81 @@ const Footer = () => {
             srcSet={require("../../assets/reizen-logo.png")}
           />
           <div style={{ paddingTop: "15px" }} className="div">
-            <Link to="" className="link-none" style={{ marginLeft: "8px" }}>
+            <Link
+              href=""
+              className="link-none"
+              style={{ marginLeft: "8px", color: "white" }}
+            >
               <Instagram />
             </Link>
 
-            <Link to="" className="link-none" style={{ marginLeft: "8px" }}>
+            <Link
+              href=""
+              className="link-none"
+              style={{ marginLeft: "8px", color: "white" }}
+            >
               <LinkedIn />
             </Link>
-            <Link to="" className="link-none" style={{ marginLeft: "8px" }}>
+            <Link
+              href=""
+              className="link-none"
+              style={{ marginLeft: "8px", color: "white" }}
+            >
               <Facebook />
             </Link>
-            <Link to="" className="link-none" style={{ marginLeft: "8px" }}>
+            <Link
+              href=""
+              className="link-none"
+              style={{ marginLeft: "8px", color: "white" }}
+            >
               <Twitter />
             </Link>
           </div>
-          <div className="div">
-            <ul
+          <div className="div" style={{ paddingTop: "15px" }}>
+            <Link
+              className="link-none"
+              href="/"
               style={{
-                display: "flex",
-                flexDirection: "row",
-                listStyle: "none",
                 color: "white",
-                paddingTop: "10px",
+                textDecoration: "none",
+                paddingLeft: "10px",
               }}
             >
-              <li style={{ marginLeft: "15px" }}>
-                <Link className="link-none" to="/">
-                  HOME
-                </Link>
-              </li>
-              <li style={{ marginLeft: "15px" }}>
-                {" "}
-                <Link className="link-none" to="/">
-                  SOBRE NOSOTROS
-                </Link>
-              </li>
-              <li style={{ marginLeft: "15px" }}>
-                {" "}
-                <Link className="link-none" to="/">
-                  BLOG
-                </Link>
-              </li>
-              <li style={{ marginLeft: "15px" }}>
-                {" "}
-                <Link className="link-none" to="/">
-                  CONTACTO
-                </Link>
-              </li>
-            </ul>
+              HOME
+            </Link>{" "}
+            <Link
+              className="link-none"
+              href="/about"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                paddingLeft: "10px",
+              }}
+            >
+              SOBRE NOSOTROS
+            </Link>{" "}
+            <Link
+              className="link-none"
+              href="/"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                paddingLeft: "10px",
+              }}
+            >
+              BLOG
+            </Link>{" "}
+            <Link
+              className="link-none"
+              href="/contact"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                paddingLeft: "10px",
+              }}
+            >
+              CONTACTO
+            </Link>
           </div>
         </Box>
       </Grid>

@@ -12,12 +12,14 @@ import NewUserIndex from "./Miscellaneous/DashBoard/newUser/NewUserIndex";
 import ProductListIndex from "./Miscellaneous/DashBoard/productlist/ProductListIndex";
 import NewProductIndex from "./Miscellaneous/DashBoard/newProduct/NewProductIndex";
 import Product from "./Miscellaneous/DashBoard/product/Product";
+import AboutUs from "./Pages/AboutUs";
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/listusers" element={<UserListIndex />} />
