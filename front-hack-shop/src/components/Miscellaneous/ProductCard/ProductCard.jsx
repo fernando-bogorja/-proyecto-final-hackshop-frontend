@@ -14,10 +14,11 @@ import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded
 import SuperChip from "../MiniChip/SuperChip";
 /* Hooks */
 import useCartHook from "../../../Hooks/Cart";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   const [cart, addToCart] = useCartHook();
-  const isInCart = cart.cartItems.some(item => item._id === product._id);
+  const isInCart = cart.cartItems.some((item) => item._id === product._id);
 
   const handleAddToCart = () => {
     addToCart(product);
@@ -38,10 +39,16 @@ export default function ProductCard({ product }) {
       >
         <FavoriteBorderRoundedIcon />
       </IconButton>
-      <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
-        <img className="productImage" srcSet={product.images[0]} alt="" />
-        <img className="hoverImage" srcSet={product.images[1]} alt="" />
-      </AspectRatio>
+      <Link
+        to={{
+          pathname: `theproduct/` + product._id,
+        }}
+      >
+        <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
+          <img className="productImage" srcSet={product.images[0]} alt="" />
+          <img className="hoverImage" srcSet={product.images[1]} alt="" />
+        </AspectRatio>
+      </Link>
       <Box
         sx={{
           display: "flex",

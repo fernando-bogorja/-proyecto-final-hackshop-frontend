@@ -8,25 +8,28 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { convertLength } from "@mui/material/styles/cssUtils";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import PersonIcon from "@mui/icons-material/Person";
 import CheckIcon from "@mui/icons-material/Check";
-import { Star } from "@mui/icons-material";
 import { Button } from "@mui/material";
+import { ImageList, ImageListItem } from "@mui/material";
+import useCartHook from "../../../../Hooks/Cart";
+
 function Product() {
   let params = useParams({});
   let urlGet = "http://localhost:3001/api/products/get?id=" + params.productId;
   //Definimos estado de Product
   const [product, setProduct] = useState([]);
   const [productImages, setProductImages] = useState([]);
+  const [actualImg, setActualImg] = useState([]);
+  const [cart, addToCart] = useCartHook();
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
+
   const marta = async () => {
     try {
       const response = await axios.get(urlGet);
@@ -38,10 +41,15 @@ function Product() {
       console.log("Error: ", err);
     }
   };
+  let pochoclo;
   useEffect(() => {
     marta();
-  }, []);
+    setActualImg(productImages[0]);
+  }, [(pochoclo = productImages[0])]);
 
+  const handleClickForChangeImage = (img) => {
+    return setActualImg(img);
+  };
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -58,16 +66,19 @@ function Product() {
             <List
               sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
             >
-              <ListItemAvatar>
-                {productImages.map((img) => (
-                  <Avatar
-                    style={{ width: "100%" }}
-                    className="imagen"
-                    alt=""
-                    src={img}
-                  />
+              <ImageList cols={1} rowHeight={164}>
+                {productImages.map((item) => (
+                  <ImageListItem key={item}>
+                    <img
+                      onClick={() => handleClickForChangeImage(item)}
+                      src={`${item}?w=164&h=164&fit=crop&auto=format`}
+                      srcSet={`${item}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                      alt={productImages[0]}
+                      loading="lazy"
+                    />
+                  </ImageListItem>
                 ))}
-              </ListItemAvatar>
+              </ImageList>
             </List>
           </Item>
         </Grid>
@@ -75,13 +86,18 @@ function Product() {
           <Box
             component="img"
             sx={{
-              height: 233,
+              height: 500,
               width: 350,
+              minHeight: "350px",
+              minWidth: "350px",
               maxHeight: { xs: 233, md: 167 },
               maxWidth: { xs: 350, md: 250 },
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
-            alt="The house from the offer."
-            src={productImages[0]}
+            alt={pochoclo}
+            src={actualImg}
           />
           <Box sx={{ textAlign: "center" }}>
             <h4>Descripción</h4>
@@ -145,7 +161,11 @@ function Product() {
                   Certifications: BSCI & SMECTA
                 </p>
               </Typography>
-              <Button variant="contained" disableElevation>
+              <Button
+                onClick={() => handleAddToCart()}
+                variant="contained"
+                disableElevation
+              >
                 Agregar al Carrito
               </Button>
             </Container>

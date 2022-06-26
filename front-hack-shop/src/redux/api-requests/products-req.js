@@ -8,7 +8,7 @@ export const productsApi = createApi({
       query: () => "products",
     }),
     getSingleProduct: builder.mutation({
-      mutation: (id) => `products/get?_id=${id}`,
+      mutation: (id) => `products/get?id=${id}`,
     }),
   }),
 });

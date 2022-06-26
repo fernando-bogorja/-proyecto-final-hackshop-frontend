@@ -7,7 +7,6 @@ import Container from "@mui/material/Container";
 import Carousel from "../Miscellaneous/Carousel/Carousel";
 import ProductCard from "../Miscellaneous/ProductCard/ProductCard";
 import Header from "../Partials/Header";
-import { Link } from "react-router-dom";
 
 const Loader = () => {
   return (
@@ -55,17 +54,7 @@ const Home = () => {
                   {data
                     .filter((product) => product.category === category)
                     .map((product) => (
-                      <Link
-                        to={{
-                          pathname: `theproduct/` + product._id,
-                        }}
-                      >
-                        <ProductCard
-                          onClick={() => console.log("asdasdasd")}
-                          key={product._id}
-                          product={product}
-                        />
-                      </Link>
+                      <ProductCard key={product._id} product={product} />
                     ))}
                 </Carousel>
               ))}
