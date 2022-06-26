@@ -13,9 +13,15 @@ import ProductListIndex from "./Miscellaneous/DashBoard/productlist/ProductListI
 import NewProductIndex from "./Miscellaneous/DashBoard/newProduct/NewProductIndex";
 import Product from "./Miscellaneous/DashBoard/product/Product";
 import AboutUs from "./Pages/AboutUs";
+import SignIn from "./Pages/Signin";
 function App() {
   return (
     <div className="App">
+      {/* SIGNIN / SIGNUP ROUTES */}
+      <Routes>
+        <Route path="/signin" element={<SignIn />} />
+      </Routes>
+
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
