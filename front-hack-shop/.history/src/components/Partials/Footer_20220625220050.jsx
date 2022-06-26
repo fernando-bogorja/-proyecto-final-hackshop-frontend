@@ -6,7 +6,7 @@ import Link from "@mui/material/Link";
 
 const Footer = () => {
   return (
-    <Box sx={{ flexGrow: 1, backgroundColor: "#8e806a7c", marginBottom: 0 }}>
+    <Box sx={{ flexGrow: 1, backgroundColor: "#8e806a7c" }}>
       <Grid item xs={3}>
         <Box
           style={{
@@ -21,7 +21,6 @@ const Footer = () => {
           <img
             style={{ width: "150px" }}
             srcSet={require("../../assets/reizen-logo.png")}
-            alt="logo"
           />
           <div style={{ paddingTop: "15px" }} className="div">
             <Link

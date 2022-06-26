@@ -8,7 +8,7 @@ import Carousel from "../Miscellaneous/Carousel/Carousel";
 import ProductCard from "../Miscellaneous/ProductCard/ProductCard";
 import Header from "../Partials/Header";
 import { Link } from "react-router-dom";
-import BannerPhotos from "../Miscellaneous/BannerPhotos/BannerPhotos";
+import BannerFotos from "../Miscellaneous/BannerPhotos/BannerFotos";
 
 const Loader = () => {
   return (
@@ -70,8 +70,8 @@ const Home = () => {
                     ))}
                 </Carousel>
               ))}
+              <BannerFotos />
             </Container>
-            <BannerPhotos />
           </div>
         </>
       )}

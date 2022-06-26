@@ -70,8 +70,8 @@ const Home = () => {
                     ))}
                 </Carousel>
               ))}
+              <BannerPhotos />
             </Container>
-            <BannerPhotos />
           </div>
         </>
       )}
