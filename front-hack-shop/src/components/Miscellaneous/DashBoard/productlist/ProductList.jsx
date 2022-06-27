@@ -1,7 +1,7 @@
 import "./productList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { useGetAllProductsQuery } from "../../../../redux/api-requests/products-req";
+import useGetProducts from "../../../../Hooks/useGetProducts";
 import { Link } from "react-router-dom";
 const columns = [
   { field: "_id", headerName: "ID", width: 90 },
@@ -19,7 +19,7 @@ const columns = [
     field: "images",
     headerName: "Imagen",
     width: 300,
-    renderCell: (params) => {
+    renderCell: params => {
       return (
         <div className="userListUser">
           <img className="userListImage" src={params.row.images[0]} alt="" />
@@ -36,7 +36,7 @@ const columns = [
     field: "action",
     headerName: "Action",
     width: 150,
-    renderCell: (params) => {
+    renderCell: params => {
       return (
         <>
           <Link to={`/user/` + params.row.id}>
@@ -52,7 +52,7 @@ const columns = [
   },
 ];
 const ProductList = () => {
-  const { data, error, isLoading } = useGetAllProductsQuery();
+  const [data, categories, isLoading] = useGetProducts();
   return (
     <div className="productList">
       <div className="productListTitle">
@@ -63,13 +63,11 @@ const ProductList = () => {
       </div>
       {isLoading ? (
         <p>Loading...</p>
-      ) : error ? (
-        <p>An Error Occured...</p>
       ) : (
         <>
           <DataGrid
             rows={data}
-            getRowId={(row) => row._id}
+            getRowId={row => row._id}
             diseableSelectionOnClick
             columns={columns}
             pageSize={8}

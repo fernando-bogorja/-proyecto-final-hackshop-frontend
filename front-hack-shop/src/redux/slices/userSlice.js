@@ -11,9 +11,11 @@ const userSlice = createSlice({
     reducers: {
         setUser: (state, action) => {
             state.token = action.payload.token;
+            state.data = action.payload.user;
         },
         logoutUser: (state, action) => {
-            state = null;
+            state.token = null;
+            state.data = null;
         }
     },
 });

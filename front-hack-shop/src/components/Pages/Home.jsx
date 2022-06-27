@@ -21,8 +21,8 @@ const Loader = () => {
   );
 };
 const Home = () => {
-  const categories = ["Butacas", "Mesas", "Bibliotecas", "Racks", "Sofás"];
-  const [products, isLoading] = useGetProducts();
+  const [products, categories, isLoading] = useGetProducts();
+  console.log(useGetProducts());
   return (
     <div className="div">
       {isLoading ? (
@@ -31,17 +31,19 @@ const Home = () => {
         <>
           <div>
             <Header />
-            <Container maxWidth="xl">
-              {categories.map((category, index) => (
-                <Carousel key={index} category={category}>
-                  {products
-                    .filter((product) => product.category === category)
-                    .map((product) => (
-                      <ProductCard key={product._id} product={product} />
-                    ))}
-                </Carousel>
-              ))}
-            </Container>
+            <React.Suspense fallback={<Loader />}>
+              <Container maxWidth="xl">
+                {categories.map(category => (
+                  <Carousel key={category.id} category={category.name}>
+                    {products
+                      .filter(product => product.category._id === category._id)
+                      .map(product => (
+                        <ProductCard product={product} />
+                      ))}
+                  </Carousel>
+                ))}
+              </Container>
+            </React.Suspense>
             <BannerPhotos />
           </div>
         </>

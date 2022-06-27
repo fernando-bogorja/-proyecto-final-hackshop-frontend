@@ -17,6 +17,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
 import Container from "@mui/material/Container";
+import useUserHook from "../../Hooks/User";
 
 const pages = [
   {
@@ -79,14 +80,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const { cartTotalQuantity } = useSelector(state => state.cart);
+  const [user, handleSetUser, handleLogoutUser] = useUserHook();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
+  const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -99,8 +102,13 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
+  const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const handleLogout = () => {
+    handleLogoutUser();
+    handleMenuClose();
   };
 
   const menuId = "primary-search-account-menu";
@@ -124,7 +132,7 @@ export default function PrimarySearchAppBar() {
       <Link to="/dashboard" style={{ textDecoration: "none", color: "black" }}>
         <MenuItem onClick={handleMenuClose}>Panel de Control</MenuItem>
       </Link>
-      <MenuItem onClick={handleMenuClose}>Cerrar sesión</MenuItem>
+      <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
     </Menu>
   );
 
@@ -211,7 +219,7 @@ export default function PrimarySearchAppBar() {
                 marginLeft: "20px",
               }}
             >
-              {pages.map((page) => (
+              {pages.map(page => (
                 <Link
                   className="nav-link"
                   to={`/${page.path.toLowerCase()}`}
@@ -265,6 +273,16 @@ export default function PrimarySearchAppBar() {
                 color="inherit"
               >
                 <AccountCircle />
+              </IconButton>
+              <IconButton
+                size="large"
+                edge="end"
+                color="inherit"
+                disableRipple={true}
+              >
+                <Typography ml={1} variant="p" fontSize={14} color="inherit">
+                  {user.data.name} {user.data.lastName}
+                </Typography>
               </IconButton>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
