@@ -14,14 +14,18 @@ import NewProductIndex from "./Miscellaneous/DashBoard/newProduct/NewProductInde
 import Product from "./Miscellaneous/DashBoard/product/Product";
 import AboutUs from "./Pages/AboutUs";
 import SignIn from "./Pages/Signin";
+import { useSelector } from "react-redux";
 function App() {
+  const user = useSelector(state => state.user);
+  if (!user.token) {
+    return <SignIn />;
+  }
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
       <Routes>
         <Route path="/signin" element={<SignIn />} />
       </Routes>
-
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
