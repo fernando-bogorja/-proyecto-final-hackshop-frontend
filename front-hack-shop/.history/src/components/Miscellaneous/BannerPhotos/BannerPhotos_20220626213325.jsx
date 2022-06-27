@@ -37,46 +37,6 @@ function BannerFotos() {
     <>
       <Box
         sx={{
-          width: "100%",
-          height: "600px",
-          marginBottom: "500px",
-          position: "relative",
-        }}
-      >
-        <Box
-          sx={{
-            width: "85%",
-            height: "600px",
-            marginBottom: "600px",
-            marginTop: "200px",
-            marginLeft: "100px",
-            backgroundColor: "rgba(219, 209, 200, 0.5)",
-            position: "absolute",
-          }}
-        ></Box>
-        <Box
-          sx={{
-            width: "85%",
-            height: "450px",
-            marginBottom: "500px",
-            marginTop: "300px",
-            backgroundColor: "rgba(212, 209, 202, 0.85)",
-            position: "absolute",
-          }}
-        ></Box>
-        <Box
-          sx={{
-            width: "85%",
-            height: "450px",
-            marginBottom: "500px",
-            marginTop: "300px",
-            backgroundColor: "rgba(212, 209, 202, 0.85)",
-            position: "absolute",
-          }}
-        ></Box>
-      </Box>
-      {/* <Box
-        sx={{
           width: "90%",
           height: 400,
           marginBottom: "50%",
@@ -86,10 +46,10 @@ function BannerFotos() {
         <ImageList variant="quilted" cols={4} gap={"3rem"}>
           <ImageListItem
             sx={{
-              width: "300px",
+              width: "200px",
               height: "600px",
-              background: `url(${itemData[0].img})`,
-              backgroundPosition: "55px 25px",
+              objectFit: "cover",
+              objectPosition: "30% 5%",
             }}
           >
             <img
@@ -99,7 +59,7 @@ function BannerFotos() {
             />
           </ImageListItem>
         </ImageList>
-      </Box> */}
+      </Box>
     </>
   );
 }

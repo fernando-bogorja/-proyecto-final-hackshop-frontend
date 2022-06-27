@@ -45,7 +45,7 @@ function BannerFotos() {
       >
         <Box
           sx={{
-            width: "85%",
+            width: "90%",
             height: "600px",
             marginBottom: "600px",
             marginTop: "200px",
@@ -60,17 +60,7 @@ function BannerFotos() {
             height: "450px",
             marginBottom: "500px",
             marginTop: "300px",
-            backgroundColor: "rgba(212, 209, 202, 0.85)",
-            position: "absolute",
-          }}
-        ></Box>
-        <Box
-          sx={{
-            width: "85%",
-            height: "450px",
-            marginBottom: "500px",
-            marginTop: "300px",
-            backgroundColor: "rgba(212, 209, 202, 0.85)",
+            backgroundColor: "rgba(212, 209, 202, 0.5)",
             position: "absolute",
           }}
         ></Box>

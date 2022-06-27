@@ -64,16 +64,6 @@ function BannerFotos() {
             position: "absolute",
           }}
         ></Box>
-        <Box
-          sx={{
-            width: "85%",
-            height: "450px",
-            marginBottom: "500px",
-            marginTop: "300px",
-            backgroundColor: "rgba(212, 209, 202, 0.85)",
-            position: "absolute",
-          }}
-        ></Box>
       </Box>
       {/* <Box
         sx={{
