@@ -38,7 +38,7 @@ function App() {
         <Route path="/listproducts" element={<ProductListIndex />} />
         <Route path="/newProduct" element={<NewProductIndex />} />
         <Route path="/theproduct/:productId" element={<Product />} />
-        <Route path="/sillanegra" element={<Allscenes />} />
+        {/* <Route path="/sillanegra" element={<Allscenes />} /> */}
       </Routes>
       <Footer />
     </div>
