@@ -79,14 +79,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-  const { cartTotalQuantity } = useSelector(state => state.cart);
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = event => {
+  const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -99,7 +99,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = event => {
+  const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -211,7 +211,7 @@ export default function PrimarySearchAppBar() {
                 marginLeft: "20px",
               }}
             >
-              {pages.map(page => (
+              {pages.map((page) => (
                 <Link
                   className="nav-link"
                   to={`/${page.path.toLowerCase()}`}

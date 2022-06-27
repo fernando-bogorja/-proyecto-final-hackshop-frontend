@@ -14,6 +14,7 @@ import NewProductIndex from "./Miscellaneous/DashBoard/newProduct/NewProductInde
 import Product from "./Miscellaneous/DashBoard/product/Product";
 import AboutUs from "./Pages/AboutUs";
 import SignIn from "./Pages/Signin";
+import Allscenes from "./Renders/Allscenes";
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,7 @@ function App() {
         <Route path="/listproducts" element={<ProductListIndex />} />
         <Route path="/newProduct" element={<NewProductIndex />} />
         <Route path="/theproduct/:productId" element={<Product />} />
+        <Route path="/sillanegra" element={<Allscenes />} />
       </Routes>
       <Footer />
     </div>
