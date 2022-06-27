@@ -16,7 +16,7 @@ import AboutUs from "./Pages/AboutUs";
 import SignIn from "./Pages/Signin";
 import { useSelector } from "react-redux";
 function App() {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(state => state.user);
   if (!user.token) {
     return <SignIn />;
   }
@@ -38,7 +38,6 @@ function App() {
         <Route path="/listproducts" element={<ProductListIndex />} />
         <Route path="/newProduct" element={<NewProductIndex />} />
         <Route path="/theproduct/:productId" element={<Product />} />
-        <Route path="/sillanegra" element={<Allscenes />} />
       </Routes>
       <Footer />
     </div>

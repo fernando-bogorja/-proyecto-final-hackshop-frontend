@@ -1,17 +1,12 @@
 import * as React from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
-import Link from "@mui/joy/Link";
 import Card from "@mui/joy/Card";
 import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
 import Button from "@mui/joy/Button";
 import { CssVarsProvider } from "@mui/joy";
-import TimeAgo from "timeago-react";
-import * as timeago from "timeago.js";
-import es from "timeago.js/lib/lang/es";
 import useCartHook from "../../../Hooks/Cart.js";
-timeago.register("es", es);
 
 export default function CartItem({ item }) {
   const [cart, addToCart, removeFromCart, decreaseCart, clearCart] =
@@ -48,7 +43,7 @@ export default function CartItem({ item }) {
               size="sm"
               sx={{ zIndex: "2" }}
             >
-              <TimeAgo datetime={item.addedAt} locale="es" />
+              Hace 5 minutos
             </Chip>
             <Typography level="h2" fontSize="md">
               {item.name}
