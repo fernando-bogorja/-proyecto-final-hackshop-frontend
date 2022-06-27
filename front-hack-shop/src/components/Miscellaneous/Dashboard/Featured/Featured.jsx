@@ -1,7 +1,7 @@
-import "./Featuredinf.css";
+import "./Featured.css";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
-const Featuredinf = () => {
+export default function Featured(props) {
   return (
     <div className="featured">
       <div className="featuredItem">
@@ -36,6 +36,4 @@ const Featuredinf = () => {
       </div>
     </div>
   );
-};
-
-export default Featuredinf;
+}
