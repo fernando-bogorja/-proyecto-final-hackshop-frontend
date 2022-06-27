@@ -11,7 +11,7 @@ import AboutUs from "./Pages/AboutUs";
 import SignIn from "./Pages/Signin";
 import { useSelector } from "react-redux";
 function App() {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   if (!user.token) {
     return <SignIn />;
   }
