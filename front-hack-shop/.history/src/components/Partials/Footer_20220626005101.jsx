@@ -6,7 +6,7 @@ import Link from "@mui/material/Link";
 
 const Footer = () => {
   return (
-    <Box sx={{ flexGrow: 1, backgroundColor: "#8e806a7c", marginBottom: 0 }}>
+    <Box sx={{ flexGrow: 1, backgroundColor: "#8e806a7c" }}>
       <Grid item xs={3}>
         <Box
           style={{
