@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "@mui/material/Container";
+import { Container, Box } from "@mui/material";
 //import { useState, useEffect } from "react";
 //import axios from "axios";
 //Components
@@ -29,7 +29,7 @@ const Home = () => {
         <Loader />
       ) : (
         <>
-          <div>
+          <Box sx={{ flexGrow: 1 }}>
             <Header />
             <React.Suspense fallback={<Loader />}>
               <Container maxWidth="xl">
@@ -46,8 +46,8 @@ const Home = () => {
                 ))}
               </Container>
             </React.Suspense>
-            <BannerPhotos />
-          </div>
+            {/* <BannerPhotos /> */}
+          </Box>
         </>
       )}
     </div>

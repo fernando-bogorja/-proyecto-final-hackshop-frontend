@@ -4,7 +4,6 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import Link from "@mui/material/Link";
-import { width } from "@mui/system";
 
 const Footer = () => {
   return (
