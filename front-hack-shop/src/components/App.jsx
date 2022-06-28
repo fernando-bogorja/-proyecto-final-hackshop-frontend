@@ -6,10 +6,13 @@ import DashboardMain from "./Miscellaneous/Dashboard/views/Main/Main";
 import Cart from "./Pages/Cart";
 import NavBar from "./Partials/NavBar";
 import Footer from "./Partials/Footer";
+import Product from "./Pages/Product";
 import Dashboard from "./Miscellaneous/Dashboard/Dashboard";
 import AboutUs from "./Pages/AboutUs";
+import Product3d from "./Pages/Product3d";
 import SignIn from "./Pages/Signin";
 import { useSelector } from "react-redux";
+import { Container } from "@mui/material";
 function App() {
   const user = useSelector((state) => state.user);
   if (!user.token) {
@@ -17,21 +20,25 @@ function App() {
   }
   return (
     <div className="App">
-      {/* SIGNIN / SIGNUP ROUTES */}
-      <Routes>
-        <Route path="/signin" element={<SignIn />} />
-      </Routes>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route
-          path="/dashboard"
-          element={<Dashboard component={<DashboardMain />} />}
-        />
-        <Route path="/dashboard/products" element={<Dashboard />} />
-      </Routes>
+      <Container maxWidth="xl">
+        {/* SIGNIN / SIGNUP ROUTES */}
+        <Routes>
+          <Route path="/signin" element={<SignIn />} />
+        </Routes>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product/:productId" element={<Product />} />
+          <Route path="/3ditem" element={<Product3d />} />
+          <Route
+            path="/dashboard"
+            element={<Dashboard component={<DashboardMain />} />}
+          />
+          <Route path="/dashboard/products" element={<Dashboard />} />
+        </Routes>
+      </Container>
       <Footer />
     </div>
   );

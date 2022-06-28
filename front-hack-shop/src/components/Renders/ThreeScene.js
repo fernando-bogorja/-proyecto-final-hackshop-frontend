@@ -15,7 +15,7 @@ const ThreeScene = ({ children }) => {
       <Canvas
         camera={{
           position: [3.5, 1.1, 1],
-          zoom: 1.5,
+          zoom: 3,
         }}
       >
         {children}

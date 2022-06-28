@@ -33,11 +33,13 @@ const Home = () => {
             <Header />
             <React.Suspense fallback={<Loader />}>
               <Container maxWidth="xl">
-                {categories.map(category => (
-                  <Carousel key={category.id} category={category.name}>
+                {categories.map((category) => (
+                  <Carousel key={category._id} category={category.name}>
                     {products
-                      .filter(product => product.category._id === category._id)
-                      .map(product => (
+                      .filter(
+                        (product) => product.category._id === category._id
+                      )
+                      .map((product) => (
                         <ProductCard product={product} />
                       ))}
                   </Carousel>

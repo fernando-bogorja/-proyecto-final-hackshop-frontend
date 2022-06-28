@@ -1,12 +1,16 @@
 import { combineReducers } from "redux";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
 import cartSlice from "./cartSlice";
 import userSlice from "./userSlice";
+import checkoutSlice from "./checkOutSlice";
 
 const rootReducer = combineReducers({
   cart: cartSlice,
   user: userSlice,
+  checkout: checkoutSlice,
 });
 
 export default rootReducer;
+/*
+token : checkout
+userSlice:  userCheckout
+*/

@@ -41,7 +41,7 @@ export default function ProductCard({ product }) {
       </IconButton>
       <Link
         to={{
-          pathname: `theproduct/` + product._id,
+          pathname: `product/` + product._id,
         }}
       >
         <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>

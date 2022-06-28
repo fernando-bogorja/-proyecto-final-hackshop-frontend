@@ -88,7 +88,7 @@ export default function CartItem({ item }) {
                 Cantidad ({item.cartQuantity})
               </Chip>
               <Chip variant="outlined" color="neutral" size="sm">
-                Categoria ({item.category})
+                Categoria ({item.category.name})
               </Chip>
             </Box>
           </Box>
