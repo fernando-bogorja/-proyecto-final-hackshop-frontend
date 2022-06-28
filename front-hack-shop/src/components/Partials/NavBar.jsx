@@ -17,6 +17,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
 import Container from "@mui/material/Container";
+import useUserHook from "../../Hooks/User";
 
 const pages = [
   {
@@ -80,6 +81,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function PrimarySearchAppBar() {
   const { cartTotalQuantity } = useSelector(state => state.cart);
+  const [user, handleSetUser, handleLogoutUser] = useUserHook();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -103,6 +106,11 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleLogout = () => {
+    handleLogoutUser();
+    handleMenuClose();
+  };
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -124,7 +132,7 @@ export default function PrimarySearchAppBar() {
       <Link to="/dashboard" style={{ textDecoration: "none", color: "black" }}>
         <MenuItem onClick={handleMenuClose}>Panel de Control</MenuItem>
       </Link>
-      <MenuItem onClick={handleMenuClose}>Cerrar sesión</MenuItem>
+      <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
     </Menu>
   );
 
@@ -265,6 +273,16 @@ export default function PrimarySearchAppBar() {
                 color="inherit"
               >
                 <AccountCircle />
+              </IconButton>
+              <IconButton
+                size="large"
+                edge="end"
+                color="inherit"
+                disableRipple={true}
+              >
+                <Typography ml={1} variant="p" fontSize={14} color="inherit">
+                  {user.data.name} {user.data.lastName}
+                </Typography>
               </IconButton>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>

@@ -1,33 +1,75 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import Link from "@mui/material/Link";
-import { Container } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { width } from "@mui/system";
 
 const Footer = () => {
   return (
-    <Container
-      maxWidth="2000px"
-      style={styled.container}
-      sx={{ height: "10rem", position: "absolute", marginBottom: 0 }}
-    >
+    <>
       <Box
         sx={{
+          display: "flex",
           flexGrow: 1,
           backgroundColor: "#8e806a7c",
+          marginBottom: 0,
         }}
       >
-        <Grid item xs={3}>
+        <Grid
+          item
+          xs={3}
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            paddingTop: "1rem",
+            paddingBottom: "1rem",
+          }}
+        >
+          <Box style={{ paddingLeft: "80px" }}>
+            <label
+              style={{
+                color: "white",
+                textAlign: "center",
+              }}
+              htmlFor=""
+            >
+              <div style={{ paddingBottom: "10px", fontSize: "20px" }}>
+                Suscríbite y recibí todas nuestras novedades!
+              </div>
+            </label>
+            <form action="" style={{ marginTop: "30px" }}>
+              <input
+                style={{
+                  border: "2px solid white ",
+                  paddingLeft: "25px",
+                  marginTop: "10px",
+                  borderRadius: "5px",
+                  height: "37px",
+                  width: "250px",
+                }}
+                type="email"
+                placeholder="Ingresa tu e-mail"
+              />{" "}
+              <Button
+                style={{ backgroundColor: "#8e806a7c", color: "white" }}
+                variant="contained"
+              >
+                Suscribirme
+              </Button>
+            </form>
+          </Box>
           <Box
             style={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
               alignItems: "center",
               paddingTop: "1rem",
               paddingBottom: "1rem",
+              paddingLeft: "100px",
+              fontSize: "20px",
             }}
           >
             <img
@@ -39,9 +81,12 @@ const Footer = () => {
               <Link
                 href=""
                 className="link-none"
-                style={{ marginLeft: "8px", color: "white" }}
+                style={{
+                  marginLeft: "8px",
+                  color: "white",
+                }}
               >
-                <Instagram />
+                <Instagram sx={{ fontSize: "40px" }} />
               </Link>
 
               <Link
@@ -49,24 +94,24 @@ const Footer = () => {
                 className="link-none"
                 style={{ marginLeft: "8px", color: "white" }}
               >
-                <LinkedIn />
+                <LinkedIn sx={{ fontSize: "40px" }} />
               </Link>
               <Link
                 href=""
                 className="link-none"
                 style={{ marginLeft: "8px", color: "white" }}
               >
-                <Facebook />
+                <Facebook sx={{ fontSize: "40px" }} />
               </Link>
               <Link
                 href=""
                 className="link-none"
                 style={{ marginLeft: "8px", color: "white" }}
               >
-                <Twitter />
+                <Twitter sx={{ fontSize: "40px" }} />
               </Link>
             </div>
-            <div className="div" style={{ paddingTop: "15px" }}>
+            <div className="div" style={{ paddingTop: "5px" }}>
               <Link
                 className="link-none"
                 href="/"
@@ -76,7 +121,7 @@ const Footer = () => {
                   paddingLeft: "10px",
                 }}
               >
-                HOME
+                Home
               </Link>{" "}
               <Link
                 className="link-none"
@@ -87,7 +132,7 @@ const Footer = () => {
                   paddingLeft: "10px",
                 }}
               >
-                SOBRE NOSOTROS
+                Sobre nosotros
               </Link>{" "}
               <Link
                 className="link-none"
@@ -98,7 +143,7 @@ const Footer = () => {
                   paddingLeft: "10px",
                 }}
               >
-                BLOG
+                Blog
               </Link>{" "}
               <Link
                 className="link-none"
@@ -109,13 +154,43 @@ const Footer = () => {
                   paddingLeft: "10px",
                 }}
               >
-                CONTACTO
+                Contacto
               </Link>
+            </div>
+          </Box>
+          <Box style={{ marginLeft: "170px" }}>
+            <div
+              style={{
+                color: "white",
+                textAlign: "center",
+                fontSize: "20px",
+                paddingTop: "8px",
+                marginRight: "30px",
+              }}
+            >
+              Medios de pago
+            </div>
+            <div style={{ paddingTop: "35px" }}>
+              <img
+                style={{ width: "50px", marginRight: "20px" }}
+                srcSet={require("../../assets/logos/icon-mastercard.png")}
+                alt="logo"
+              />
+              <img
+                style={{ width: "50px", marginRight: "20px" }}
+                srcSet={require("../../assets/logos/icon-visa.png")}
+                alt="logo"
+              />
+              <img
+                style={{ width: "50px", marginRight: "20px" }}
+                srcSet={require("../../assets/logos/icon-paypal.png")}
+                alt="logo"
+              />
             </div>
           </Box>
         </Grid>
       </Box>
-    </Container>
+    </>
   );
 };
 
