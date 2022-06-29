@@ -16,6 +16,7 @@ import { Button } from "@mui/material";
 import { ImageList, ImageListItem } from "@mui/material";
 import useCartHook from "../../Hooks/Cart";
 import { Link } from "react-router-dom";
+import AppButton from "../Miscellaneous/AppButtons/AppButton";
 
 function Product() {
   let params = useParams({});
@@ -56,55 +57,64 @@ function Product() {
   }));
 
   return (
-    <Container maxWidth="xl" sx={{ height: "71vh", marginTop: 15 }}>
-      {console.log("asdasdasdasd")}
-      <Grid sx={{ width: "100%" }} container spacing={2} columns={16}>
-        <Grid item xs={2}>
-          <Item>
-            <List
-              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
-            >
-              <ImageList cols={1} rowHeight={164}>
-                {productImages.map((item) => (
-                  <ImageListItem key={item}>
-                    <img
-                      onClick={() => handleClickForChangeImage(item)}
-                      src={`${item}?w=164&h=164&fit=crop&auto=format`}
-                      srcSet={`${item}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                      alt={productImages[0]}
-                      loading="lazy"
-                    />
-                  </ImageListItem>
-                ))}
-              </ImageList>
-            </List>
-          </Item>
-        </Grid>
-        <Grid item xs={7}>
-          <Box
-            component="img"
-            sx={{
-              height: 500,
-              width: 350,
-              minHeight: "350px",
-              minWidth: "350px",
-              maxHeight: { xs: 233, md: 167 },
-              maxWidth: { xs: 350, md: 250 },
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            alt={pochoclo}
-            src={actualImg}
-          />
-          <Box sx={{ textAlign: "center" }}>
-            <h4>Descripción</h4>
-            <p>{product.description}</p>
-          </Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Item>
-            <Container>
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      sx={{
+        width: "100%",
+      }}
+    >
+      <Box display="flex" alignItems="center" sx={{ width: "90%" }}>
+        <Grid sx={{ width: "100%" }} container spacing={2} columns={12}>
+          <Grid item xs={1}>
+            <Box>
+              <List
+                sx={{
+                  width: "100%",
+                  maxWidth: 360,
+                }}
+              >
+                <ImageList cols={1} rowHeight={164}>
+                  {productImages.map((item) => (
+                    <ImageListItem key={item}>
+                      <img
+                        onClick={() => handleClickForChangeImage(item)}
+                        src={`${item}?w=164&h=164&fit=crop&auto=format`}
+                        srcSet={`${item}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                        alt={productImages[0]}
+                        loading="lazy"
+                      />
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </List>
+            </Box>
+          </Grid>
+          <Grid item xs={5}>
+            <Box
+              component="img"
+              sx={{
+                height: 500,
+                width: 350,
+                minHeight: "350px",
+                minWidth: "350px",
+                maxHeight: { xs: 233, md: 167 },
+                maxWidth: { xs: 350, md: 250 },
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              alt={pochoclo}
+              src={actualImg}
+            />
+            <Box sx={{ textAlign: "center" }}>
+              <h4>Descripción</h4>
+              <p>{product.description}</p>
+            </Box>
+          </Grid>
+          <Grid item xs={6}>
+            <Box>
               <Typography
                 variant="h4"
                 align="center"
@@ -160,26 +170,26 @@ function Product() {
                 </p>
               </Typography>
               <Box sx={{ marginBottom: "10px" }}>
-                <Button
+                <AppButton
                   onClick={() => handleAddToCart()}
-                  variant="contained"
-                  disableElevation
+                  backgroundColor=" #ACA092"
+                  color="white"
                 >
                   Agregar al Carrito
-                </Button>
+                </AppButton>
               </Box>
               <Box>
-                <Link to="/3ditem">
-                  <Button variant="contained" disableElevation>
+                <Link to="/3ditem" className="link-none">
+                  <AppButton backgroundColor=" #ACA092" color="white">
                     Ver Producto en 3D
-                  </Button>
+                  </AppButton>
                 </Link>
               </Box>
-            </Container>
-          </Item>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Box>
+    </Box>
   );
 }
 

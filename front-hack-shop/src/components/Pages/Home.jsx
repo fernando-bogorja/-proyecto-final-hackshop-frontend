@@ -22,9 +22,9 @@ const Loader = () => {
 };
 const Home = () => {
   const [products, categories, isLoading] = useGetProducts();
-  console.log(useGetProducts());
+  // console.log(useGetProducts());
   return (
-    <div className="div">
+    <div>
       {isLoading ? (
         <Loader />
       ) : (
@@ -32,19 +32,15 @@ const Home = () => {
           <Box sx={{ flexGrow: 1 }}>
             <Header />
             <React.Suspense fallback={<Loader />}>
-              <Container maxWidth="xl">
-                {categories.map((category) => (
-                  <Carousel key={category._id} category={category.name}>
-                    {products
-                      .filter(
-                        (product) => product.category._id === category._id
-                      )
-                      .map((product) => (
-                        <ProductCard product={product} />
-                      ))}
-                  </Carousel>
-                ))}
-              </Container>
+              {categories.map((category) => (
+                <Carousel key={category._id} category={category.name}>
+                  {products
+                    .filter((product) => product.category._id === category._id)
+                    .map((product) => (
+                      <ProductCard product={product} />
+                    ))}
+                </Carousel>
+              ))}
             </React.Suspense>
             {/* <BannerPhotos /> */}
           </Box>

@@ -95,6 +95,8 @@ body {
   height: 80vh;
   display: block;
   margin-bottom: 50px;
+  width: 100%;
+  object-fit: contain;
 }
 .Header-background {
   position: absolute;
@@ -127,11 +129,11 @@ body {
   background: var(--color-2);
   bottom: 0;
 }
-.Header-content {
+/* .Header-content {
   text-align: center;
   padding: 4rem 4rem;
   margin: 0 auto;
-}
+} */
 @media (min-width: 58rem) {
   .Header-content {
     text-align: left;

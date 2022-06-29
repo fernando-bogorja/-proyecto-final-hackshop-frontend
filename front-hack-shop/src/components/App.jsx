@@ -37,7 +37,6 @@ function App() {
         />
         <Route path="/dashboard/products" element={<Dashboard />} />
       </Routes>
-
       <Footer />
     </div>
   );
