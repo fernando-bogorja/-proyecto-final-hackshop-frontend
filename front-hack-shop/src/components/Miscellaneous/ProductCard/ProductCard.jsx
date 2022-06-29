@@ -26,7 +26,7 @@ export default function ProductCard({ product }) {
   return (
     <Card className="productCard" sx={{ padding: "0", marginRight: "20px" }}>
       {isInCart ? (
-        <SuperChip variant="soft" color="danger" size="md">
+        <SuperChip variant="soft" color="dark" size="md">
           En el carrito
         </SuperChip>
       ) : (

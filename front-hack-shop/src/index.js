@@ -6,8 +6,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
 import "./styles/index.css";
 import { PersistGate } from "redux-persist/lib/integration/react";
+import { currentTheme as theme } from './theme';
 
 const container = document.getElementById("root");
+container.style.backgroundColor = theme.gray;
 const root = createRoot(container);
 
 root.render(

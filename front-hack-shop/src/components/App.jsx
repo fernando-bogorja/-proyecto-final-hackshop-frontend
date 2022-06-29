@@ -17,8 +17,8 @@ import Categories from "./Miscellaneous/Dashboard/Categories/Categories";
 import UserList from "./Miscellaneous/Dashboard/userList/UserList";
 import CreateUserForm from "./Miscellaneous/CreateUserForm/CreateUserForm";
 import CreateProductForm from "./Miscellaneous/CreateProductForm/CreateProductForm";
-
 import { useSelector } from "react-redux";
+import ContextMenu from "./Miscellaneous/ContextMenu/ContextMenu";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -32,6 +32,8 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
       </Routes>
       <NavBar />
+      <ContextMenu />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />

@@ -23,11 +23,11 @@
   height: 100%;
   width: 100%;
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.2s ease-in-out;
 }
 
 .hoverImage:hover {
-  transition: 0.2s;
+  transition: 0.25s ease-in-out;
   opacity: 0;
   cursor: pointer;
 }

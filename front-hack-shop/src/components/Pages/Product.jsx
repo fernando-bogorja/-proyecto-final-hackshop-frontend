@@ -25,6 +25,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@mui/material";
 import Model from "../Renders/Allscenes";
+import { currentTheme as theme } from "../../theme";
 
 function Product() {
   let { productId } = useParams();
@@ -54,7 +55,7 @@ function Product() {
     getProduct();
     setActualImg(productImages[0]);
   }, [(pochoclo = productImages[0])]);
-  const handleClickForChangeImage = img => {
+  const handleClickForChangeImage = (img) => {
     return setActualImg(img);
   };
 
@@ -74,7 +75,11 @@ function Product() {
           container
           spacing={2}
           columns={12}
-          sx={{ backgroundColor: "#fff", padding: "20px 0", width: "100%" }}
+          sx={{
+            backgroundColor: theme.white,
+            padding: "20px 0",
+            width: "100%",
+          }}
         >
           <Grid item xl={1} lg={1} md={2} sm={1} xs={3}>
             <Box height="100%">
@@ -105,7 +110,7 @@ function Product() {
                       width="100%"
                       height="100%"
                       style={{
-                        border: "2px solid #eaeaea",
+                        border: `2px solid ${theme.gray}`,
                         borderRadius: "50%",
                       }}
                     />
@@ -150,12 +155,16 @@ function Product() {
                     height: "100%",
                     width: "100%",
                     borderRadius: "15%",
-                    backgroundColor: "#eee",
+                    backgroundColor: theme.gray,
                   }}
                   onClick={() => setIs3D(!is3D)}
                 >
                   {" "}
-                  <FontAwesomeIcon icon={faCube} size="2x" color="#000" />
+                  <FontAwesomeIcon
+                    icon={faCube}
+                    size="2x"
+                    color={theme.black}
+                  />
                 </Button>
               </Box>
               <Typography variant="h5">Descripción</Typography>
@@ -185,7 +194,7 @@ function Product() {
                 justifyContent="flex-start"
                 alignItems="center"
               >
-                <FontAwesomeIcon icon={faStar} size="1x" color="#000" />
+                <FontAwesomeIcon icon={faStar} size="1x" color={theme.black} />
                 <Typography variant="body1">5.1</Typography>
               </Box>
               <Box
@@ -250,7 +259,7 @@ function Product() {
               >
                 <AppButton
                   onClick={() => handleAddToCart()}
-                  backgroundColor=" #000"
+                  backgroundColor={theme.black}
                   color="white"
                 >
                   Agregar al Carrito
@@ -320,12 +329,12 @@ const PriceBox = ({ price, discount }) => {
       my={2}
       mb={2}
     >
-      <Typography variant="h4" color="#000" fontFamily="inherit">
+      <Typography variant="h4" color={theme.black} fontFamily="inherit">
         ${price}
       </Typography>
       <Typography
         variant="body1"
-        color="#000"
+        color={theme.black}
         fontFamily="inherit"
         textAlign="right"
       >
