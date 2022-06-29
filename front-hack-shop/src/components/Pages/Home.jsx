@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "@mui/material/Container";
+import { Container, Box } from "@mui/material";
 //import { useState, useEffect } from "react";
 //import axios from "axios";
 //Components
@@ -23,30 +23,28 @@ const Loader = () => {
 };
 const Home = () => {
   const [products, categories, isLoading] = useGetProducts();
-  console.log(useGetProducts());
+  // console.log(useGetProducts());
   return (
-    <div className="div">
+    <div>
       {isLoading ? (
         <Loader />
       ) : (
         <>
-          <div>
+          <Box sx={{ flexGrow: 1 }}>
             <Header />
             <React.Suspense fallback={<Loader />}>
-              <Container maxWidth="xl">
-                {categories.map(category => (
-                  <Carousel key={category._id} category={category.name}>
-                    {products
-                      .filter(product => product.category._id === category._id)
-                      .map(product => (
-                        <ProductCard product={product} />
-                      ))}
-                  </Carousel>
-                ))}
-              </Container>
+              {categories.map(category => (
+                <Carousel key={category._id} category={category.name}>
+                  {products
+                    .filter(product => product.category._id === category._id)
+                    .map(product => (
+                      <ProductCard product={product} />
+                    ))}
+                </Carousel>
+              ))}
             </React.Suspense>
-            <BannerPhotos />
-          </div>
+            {/* <BannerPhotos /> */}
+          </Box>
         </>
       )}
     </div>

@@ -192,15 +192,32 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Container maxWidth="xl">
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed" sx={{ backgroundColor: "#8e806a7c" }}>
-          <Toolbar sx={{ backgroundColor: "#8e806a7c", padding: "15px 0" }}>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar
+        position="fixed"
+        sx={{ backgroundColor: "#8e806a7c", height: "5.5rem" }}
+      >
+        <Toolbar
+          sx={{
+            backgroundColor: "#8e806a7c",
+            padding: "15px 0",
+            height: "5.5rem",
+          }}
+        >
+          <Container
+            maxWidth="xl"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              // padding: 0,
+            }}
+          >
             <Typography
               variant="h4"
               noWrap
               component="div"
               sx={{
+                alignItems: "flex-end",
                 display: {
                   xs: "none",
                   sm: "block",
@@ -210,7 +227,7 @@ export default function PrimarySearchAppBar() {
             >
               <Link to="/" className="link-none">
                 <img
-                  style={{ width: "100px", marginLeft: "35px" }}
+                  style={{ width: "100px" }}
                   srcSet={require("../../assets/reizen-logo.png")}
                 />
               </Link>
@@ -219,7 +236,6 @@ export default function PrimarySearchAppBar() {
               sx={{
                 flexGrow: 1,
                 display: { xs: "none", md: "flex" },
-                marginLeft: "20px",
               }}
             >
               {pages.map((page) => (
@@ -243,9 +259,7 @@ export default function PrimarySearchAppBar() {
                 inputProps={{ "aria-label": "search" }}
               />
             </Search>
-            <Box
-              sx={{ display: { xs: "none", md: "flex", marginRight: "35px" } }}
-            >
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <IconButton
                 size="large"
                 aria-label="show 4 new mails"
@@ -300,11 +314,11 @@ export default function PrimarySearchAppBar() {
                 <MoreIcon />
               </IconButton>
             </Box>
-          </Toolbar>
-        </AppBar>
-        {renderMobileMenu}
-        {renderMenu}
-      </Box>
-    </Container>
+          </Container>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
+    </Box>
   );
 }
