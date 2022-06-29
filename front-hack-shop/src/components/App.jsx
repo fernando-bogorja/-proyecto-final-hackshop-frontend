@@ -12,10 +12,13 @@ import AboutUs from "./Pages/AboutUs";
 import Product3d from "./Pages/Product3d";
 import SignIn from "./Pages/Signin";
 import Checkout from "./Pages/Checkout";
+import ProductList from "./Miscellaneous/ProductList/ProductList";
+import Categories from "./Miscellaneous/Dashboard/Categories/Categories";
+import UserList from "./Miscellaneous/Dashboard/UserList/UserList";
 import { useSelector } from "react-redux";
 
 function App() {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   if (!user.token) {
     return <SignIn />;
   }
@@ -38,6 +41,18 @@ function App() {
             element={<Dashboard component={<DashboardMain />} />}
           />
           <Route path="/checkout" element={<Checkout />} />
+          <Route
+            path="/dashboard/products"
+            element={<Dashboard component={<ProductList />} />}
+          />
+          <Route
+            path="/dashboard/categories"
+            element={<Dashboard component={<Categories />} />}
+          />
+          <Route
+            path="/dashboard/users"
+            element={<Dashboard component={<UserList />} />}
+          />
           <Route path="/dashboard/products" element={<Dashboard />} />
         </Routes>
       </Container>

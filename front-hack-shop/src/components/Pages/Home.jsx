@@ -7,7 +7,6 @@ import Carousel from "../Miscellaneous/Carousel/Carousel";
 import ProductCard from "../Miscellaneous/ProductCard/ProductCard";
 import Header from "../Partials/Header";
 import useGetProducts from "../../Hooks/useGetProducts";
-import { Link } from "react-router-dom";
 import BannerPhotos from "../Miscellaneous/BannerPhotos/BannerPhotos";
 import Typography from "@mui/material/Typography";
 

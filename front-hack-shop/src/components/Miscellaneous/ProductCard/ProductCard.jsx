@@ -5,7 +5,6 @@ import Typography from "@mui/joy/Typography";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import Card from "@mui/joy/Card";
-import CssVarsProvider from "@mui/joy/styles/CssVarsProvider";
 /* Material Icons */
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
