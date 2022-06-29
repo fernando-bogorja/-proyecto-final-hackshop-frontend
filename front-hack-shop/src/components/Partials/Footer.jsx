@@ -4,59 +4,80 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import AppButton from "../Miscellaneous/AppButtons/AppButton";
+import Typography from "@mui/material/Typography";
+import { TextField } from "@mui/material";
 
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import Link from "@mui/material/Link";
 
 const Footer = () => {
   return (
-    <footer>
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      padding={2}
+      sx={{
+        width: "100%",
+        backgroundColor: "#000",
+        height: "100%",
+        zIndex: "1300",
+      }}
+    >
       <Box
         display="flex"
-        justifyContent="center"
         alignItems="center"
         sx={{
-          width: "100%",
-          backgroundColor: "#000",
-          height: "200px",
+          width: "90%",
+          height: "100%",
+          zIndex: "1300",
         }}
       >
-        <Box
-          display="flex"
+        <Grid
+          spacing={2}
+          container
           alignItems="center"
-          sx={{ width: "90%", height: "100%" }}
+          justifyContent="space-between"
         >
           <Grid
-            spacing={2}
-            container
-            alignItems="center"
-            justifyContent="space-between"
+            item
+            sx={{
+              display: { xs: "block", sm: "none", xs: "none", md: "block" },
+            }}
+            md={3}
+            lg={4}
+            xl={4}
           >
-            <Grid item xs={12} sm={3} md={2} lg={4} xl={4}>
-              <Box sx={{ color: "white", borderBottom: "1px solid white" }}>
-                Suscribíte y recibí nuestras novedades!
+            <Typography variant="h6" fontSize={18} color="white">
+              Suscribíte y recibí nuestras novedades!
+            </Typography>
+            <Box display="flex" flexDirection="row" alignItems="center">
+              <TextField
+                id="outlined-basic"
+                label="Outlined"
+                variant="filled"
+                size="small"
+                sx={{
+                  backgroundColor: "white",
+                  borderRadius: "5px",
+                  width: "65%",
+                }}
+              />
+              <Box width="35%">
+                <AppButton backgroundColor=" #ACA092" color="white">
+                  Suscribirme
+                </AppButton>
               </Box>
-              <Box>
-                <form>
-                  <input
-                    type="email"
-                    placeholder="Ingresa tu e-mail"
-                    style={{
-                      border: "2px solid white",
-                      borderRadius: "5px",
-                    }}
-                  />
-                  <AppButton backgroundColor=" #ACA092" color="white">
-                    Suscribirme
-                  </AppButton>
-                </form>
-              </Box>
-            </Grid>
-            <Grid item xs={12} sm={3} md={2} lg={4} xl={4}>
-              <Box
-                className="box-icon-logo"
-                sx={{ borderBottom: "1px solid white" }}
-              >
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box className="box-icon-logo">
                 <img
                   style={{ width: "150px" }}
                   srcSet={require("../../assets/reizen-logo.png")}
@@ -65,7 +86,11 @@ const Footer = () => {
               </Box>
               <Box
                 className="box-icon-social-networks"
-                style={{ display: "flex", flexDirection: "row" }}
+                display="flex"
+                flexDirection="row"
+                justifyContent="center"
+                width="100%"
+                my={2}
               >
                 <Box>
                   <Link
@@ -74,7 +99,7 @@ const Footer = () => {
                       color: "white",
                     }}
                   >
-                    <Instagram />
+                    <Instagram fontSize="large" />
                   </Link>
                 </Box>
                 <Box>
@@ -84,7 +109,7 @@ const Footer = () => {
                       color: "white",
                     }}
                   >
-                    <LinkedIn />
+                    <LinkedIn fontSize="large" />
                   </Link>
                 </Box>
                 <Box>
@@ -94,7 +119,7 @@ const Footer = () => {
                       color: "white",
                     }}
                   >
-                    <Facebook />
+                    <Facebook fontSize="large" />
                   </Link>
                 </Box>
                 <Box>
@@ -104,15 +129,27 @@ const Footer = () => {
                       color: "white",
                     }}
                   >
-                    <Twitter />
+                    <Twitter fontSize="large" />
                   </Link>
                 </Box>
               </Box>
               <Box
                 className="box-links"
-                style={{ display: "flex", flexDirection: "row" }}
+                display="flex"
+                sx={{
+                  flexDirection: {
+                    xs: "column",
+                    sm: "row",
+                    md: "row",
+                    lg: "row",
+                    xl: "row",
+                  },
+                  alignItems: "center",
+                }}
+                justifyContent="space-between"
+                width="65%"
               >
-                <Box>
+                <Typography>
                   <Link
                     href="/"
                     style={{
@@ -122,8 +159,8 @@ const Footer = () => {
                   >
                     Home
                   </Link>
-                </Box>
-                <Box>
+                </Typography>
+                <Typography>
                   <Link
                     href="/about"
                     style={{
@@ -131,10 +168,10 @@ const Footer = () => {
                       textDecoration: "none",
                     }}
                   >
-                    Sobre nosotros
+                    Nosotros
                   </Link>
-                </Box>
-                <Box>
+                </Typography>
+                <Typography>
                   <Link
                     href="/"
                     style={{
@@ -144,8 +181,8 @@ const Footer = () => {
                   >
                     Blog
                   </Link>
-                </Box>
-                <Box>
+                </Typography>
+                <Typography>
                   <Link
                     href="/"
                     style={{
@@ -155,54 +192,71 @@ const Footer = () => {
                   >
                     Contacto
                   </Link>
-                </Box>
+                </Typography>
               </Box>
-            </Grid>
-            <Grid item xs={12} sm={3} md={2} lg={4} xl={4}>
-              <Box
-                sx={{
-                  borderBottom: "1px solid white",
-                  color: "white",
-                  textAlign: "center",
-                }}
-              >
-                Medios de pago
-              </Box>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={3} lg={4} xl={4}>
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="flex-end"
+            >
               <Box
                 className="box-payment-icons"
-                style={{
+                sx={{
                   display: "flex",
-                  flexDirection: "row",
+                  width: {
+                    xs: "100%",
+                    sm: "100%",
+                    md: "50%",
+                    lg: "50%",
+                    xl: "50%",
+                  },
+                  flexDirection: "column",
                   justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
-                <Box>
-                  <img
-                    style={{ width: "50px" }}
-                    srcSet={require("../../assets/logos/icon-mastercard.png")}
-                    alt="logo"
-                  />
-                </Box>
-                <Box>
-                  <img
-                    style={{ width: "50px" }}
-                    srcSet={require("../../assets/logos/icon-visa.png")}
-                    alt="logo"
-                  />
-                </Box>
-                <Box>
-                  <img
-                    style={{ width: "50px" }}
-                    srcSet={require("../../assets/logos/icon-paypal.png")}
-                    alt="logo"
-                  />
+                <Typography
+                  variant="h6"
+                  textAlign="center"
+                  fontSize={18}
+                  color="white"
+                >
+                  Medios de pago
+                </Typography>
+                {/* ICONOS */}
+                <Box display="flex" justifyContent="center" flexDirection="row">
+                  <Box>
+                    <img
+                      style={{ width: "50px" }}
+                      srcSet={require("../../assets/logos/icon-mastercard.png")}
+                      alt="logo"
+                    />
+                  </Box>
+                  <Box>
+                    <img
+                      style={{ width: "50px" }}
+                      srcSet={require("../../assets/logos/icon-visa.png")}
+                      alt="logo"
+                    />
+                  </Box>
+                  <Box>
+                    <img
+                      style={{ width: "50px" }}
+                      srcSet={require("../../assets/logos/icon-paypal.png")}
+                      alt="logo"
+                    />
+                  </Box>
                 </Box>
               </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Box>
+        </Grid>
       </Box>
-    </footer>
+    </Box>
   );
 };
 

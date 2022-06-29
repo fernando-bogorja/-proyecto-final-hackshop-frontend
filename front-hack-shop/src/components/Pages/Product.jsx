@@ -13,7 +13,16 @@ import useCartHook from "../../Hooks/Cart";
 import { Link } from "react-router-dom";
 import AppButton from "../Miscellaneous/AppButtons/AppButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCube, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCube,
+  faStar,
+  faMinimize,
+  faArrowsUpDown,
+  faArrowsLeftRight,
+  faEarthAmericas,
+  faCow,
+  faDollarSign,
+} from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@mui/material";
 import Model from "../Renders/Allscenes";
 
@@ -179,29 +188,54 @@ function Product() {
                 <FontAwesomeIcon icon={faStar} size="1x" color="#000" />
                 <Typography variant="body1">5.1</Typography>
               </Box>
-              <Typography
-                sx={{ textAlign: "justify", fontWeight: 600 }}
-                variant="subtitle2"
-                align="center"
-                color="textPrimary"
-                paragraph
-              >
-                Detalles del producto
-              </Typography>
               <Box
                 width="100%"
                 display="flex"
                 justifyContent="flex-start"
                 flexDirection="column"
+                mt={4}
               >
-                <DetailBox label="Tapicería" value={product.upholstery} />
-                <DetailBox label="Tamaño" value={product.size} />
-                <DetailBox label="Hecho en" value={product.made_in} />
-                <DetailBox label="Largo" value={product.length} />
-                <DetailBox label="Profundidad" value={product.depth} />
-                <DetailBox label="Altura" value={product.tall} />
+                <Typography
+                  sx={{ textAlign: "justify", fontWeight: 600 }}
+                  variant="subtitle2"
+                  align="center"
+                  color="textPrimary"
+                  paragraph
+                >
+                  Detalles del producto
+                </Typography>
+                <DetailBox
+                  icon={faCow}
+                  label="Tapizado"
+                  value={product.upholstery}
+                />
+                <DetailBox
+                  icon={faMinimize}
+                  label="Tamaño"
+                  value={product.size}
+                />
+                <DetailBox
+                  icon={faEarthAmericas}
+                  label="Hecho en"
+                  value={product.made_in}
+                />
+                <DetailBox
+                  icon={faArrowsLeftRight}
+                  label="Largo"
+                  value={product.length}
+                />
+                <DetailBox
+                  icon={faCube}
+                  label="Profundidad"
+                  value={product.depth}
+                />
+                <DetailBox
+                  icon={faArrowsUpDown}
+                  label="Altura"
+                  value={product.tall}
+                />
               </Box>
-
+              <PriceBox price={product.price} />
               <Typography
                 sx={{ textAlign: "justify", fontWeight: 600 }}
                 variant="subtitle2"
@@ -209,7 +243,7 @@ function Product() {
                 color="textPrimary"
                 paragraph
               ></Typography>
-              <Box>
+              <Box display="flex" justifyContent="flex-end" width="80%">
                 <AppButton
                   onClick={() => handleAddToCart()}
                   backgroundColor=" #000"
@@ -226,18 +260,68 @@ function Product() {
   );
 }
 
-const DetailBox = ({ label, value }) => {
+const DetailBox = ({ label, value, icon }) => {
   return (
     <Box
       display="flex"
       justifyContent="flex-start"
       alignItems="center"
-      width="100%"
+      width="80%"
+      sx={{
+        borderBottom: "1px solid #000",
+      }}
+      mb={2}
     >
-      <Typography variant="body1" fontWeight="bold">
-        {label}:
+      <Box
+        width="50%"
+        display="flex"
+        flexDirection="row"
+        justifyContent="flex-start"
+        alignItems="center"
+      >
+        <Box
+          width="20px"
+          height="20px"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <FontAwesomeIcon icon={icon} size="1x" color="#464646" />
+        </Box>
+        <Typography
+          variant="body1"
+          fontWeight="bold"
+          sx={{ marginLeft: "10px" }}
+          color="#464646"
+        >
+          {label}:
+        </Typography>
+      </Box>
+      <Box width="50%" textAlign="right">
+        <Typography variant="body1" color="#888">
+          {value}
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
+const PriceBox = ({ price, discount }) => {
+  return (
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      width="80%"
+      my={2}
+      mb={2}
+    >
+      <Typography variant="h4" color="#000" fontFamily="inherit">
+        ${price}
       </Typography>
-      <Typography variant="body1">{value}</Typography>
+      <Typography variant="body1" color="#000" fontFamily="inherit">
+        O 3 pagos de ${(price / 3).toFixed(2)}
+      </Typography>
     </Box>
   );
 };
