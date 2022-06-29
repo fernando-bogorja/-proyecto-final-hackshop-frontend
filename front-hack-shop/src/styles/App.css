@@ -15,10 +15,13 @@
 }
 body {
   font-family: "Varela Round", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .App {
-  width: 100%;
+  flex-grow: 1;
 }
 
 .loader {

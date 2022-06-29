@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 function AppButton({ backgroundColor, color, children, onClick }) {
   return (
     <Button
-      style={{ backgroundColor: backgroundColor, color: color }}
+      style={{ backgroundColor: "#000", color: color }}
       variant="contained"
       onClick={onClick}
     >

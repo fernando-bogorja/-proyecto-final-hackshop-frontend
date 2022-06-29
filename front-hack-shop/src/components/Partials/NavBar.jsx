@@ -83,7 +83,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const { cartTotalQuantity } = useSelector(state => state.cart);
   const [user, handleSetUser, handleLogoutUser] = useUserHook();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -92,7 +92,7 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
+  const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -105,7 +105,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
+  const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -195,11 +195,11 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: "#8e806a7c", height: "5.5rem" }}
+        sx={{ backgroundColor: "#000", height: "5.5rem" }}
       >
         <Toolbar
           sx={{
-            backgroundColor: "#8e806a7c",
+            backgroundColor: "#000",
             padding: "15px 0",
             height: "5.5rem",
           }}
@@ -238,7 +238,7 @@ export default function PrimarySearchAppBar() {
                 display: { xs: "none", md: "flex" },
               }}
             >
-              {pages.map((page) => (
+              {pages.map(page => (
                 <Link
                   className="nav-link"
                   to={`/${page.path.toLowerCase()}`}
@@ -266,7 +266,7 @@ export default function PrimarySearchAppBar() {
                 color="inherit"
               >
                 <Link to="/cart" className="link-none">
-                  <Badge badgeContent={cartTotalQuantity} color="warning">
+                  <Badge badgeContent={cartTotalQuantity} color="error">
                     <FontAwesomeIcon icon={faCartShopping} size="xs" />
                   </Badge>
                 </Link>

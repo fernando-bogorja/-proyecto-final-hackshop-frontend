@@ -18,44 +18,42 @@ import UserList from "./Miscellaneous/Dashboard/UserList/UserList";
 import { useSelector } from "react-redux";
 
 function App() {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(state => state.user);
   if (!user.token) {
     return <SignIn />;
   }
   return (
     <div className="App">
-      <Container maxWidth="xl">
-        {/* SIGNIN / SIGNUP ROUTES */}
-        <Routes>
-          <Route path="/signin" element={<SignIn />} />
-        </Routes>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/product/:productId" element={<Product />} />
-          <Route path="/3ditem" element={<Product3d />} />
-          <Route
-            path="/dashboard"
-            element={<Dashboard component={<DashboardMain />} />}
-          />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route
-            path="/dashboard/products"
-            element={<Dashboard component={<ProductList />} />}
-          />
-          <Route
-            path="/dashboard/categories"
-            element={<Dashboard component={<Categories />} />}
-          />
-          <Route
-            path="/dashboard/users"
-            element={<Dashboard component={<UserList />} />}
-          />
-          <Route path="/dashboard/products" element={<Dashboard />} />
-        </Routes>
-      </Container>
+      {/* SIGNIN / SIGNUP ROUTES */}
+      <Routes>
+        <Route path="/signin" element={<SignIn />} />
+      </Routes>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/3ditem" element={<Product3d />} />
+        <Route
+          path="/dashboard"
+          element={<Dashboard component={<DashboardMain />} />}
+        />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/dashboard/products"
+          element={<Dashboard component={<ProductList />} />}
+        />
+        <Route
+          path="/dashboard/categories"
+          element={<Dashboard component={<Categories />} />}
+        />
+        <Route
+          path="/dashboard/users"
+          element={<Dashboard component={<UserList />} />}
+        />
+        <Route path="/dashboard/products" element={<Dashboard />} />
+      </Routes>
       <Footer />
     </div>
   );
