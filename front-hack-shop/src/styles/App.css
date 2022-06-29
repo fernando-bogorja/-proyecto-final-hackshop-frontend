@@ -24,11 +24,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #eaeaea;
 }
 
 .App {
-  flex-grow: 1;
 }
 
 .loader {
@@ -86,9 +84,16 @@ body {
   }
 }
 
-.link-none {
-  text-decoration: none;
-  color: #fff;
+.link-none:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.link-none:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
 }
 
 .nav-link {
@@ -106,6 +111,7 @@ body {
   display: block;
   width: 100%;
   object-fit: contain;
+  z-index: 1000;
 }
 .Header-background {
   position: absolute;
@@ -203,4 +209,37 @@ body {
 
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
   color: var(--color-3) !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #a2a2a2;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(70, 70, 70);
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(107, 107, 107);
+  transition: 0.3s;
+}
+
+.logout {
+  color: #fff;
+  background-color: rgb(181, 37, 37);
+}
+
+.logout-hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(142, 0, 0) !important;
 }

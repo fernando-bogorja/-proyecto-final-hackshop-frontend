@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import AppButton from "../Miscellaneous/AppButtons/AppButton";
 import Typography from "@mui/material/Typography";
 import { TextField } from "@mui/material";
+import { currentTheme as theme } from "../../theme";
 
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import Link from "@mui/material/Link";
@@ -19,7 +20,7 @@ const Footer = () => {
       padding={2}
       sx={{
         width: "100%",
-        backgroundColor: "#000",
+        backgroundColor: theme.black,
         height: "100%",
         zIndex: "1300",
       }}

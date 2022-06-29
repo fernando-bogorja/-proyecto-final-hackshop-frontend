@@ -23,6 +23,8 @@ import {
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { currentTheme as theme } from "../../theme";
+
 const pages = [
   {
     name: "Inicio",
@@ -199,7 +201,7 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: "#000", height: "5.5rem" }}
+        sx={{ backgroundColor: theme.black, height: "5.5rem" }}
       >
         <Toolbar
           sx={{
