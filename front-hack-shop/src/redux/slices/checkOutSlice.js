@@ -2,7 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 //import axios from "axios";
 
 const initialState = {
-  chekout: {},
+  address: {
+    phone: "",
+    line_one: "",
+    line_two: "",
+    city: "",
+    department: "",
+    zipCode: "",
+    country: "",
+  },
+  payment: {},
+  cart: [],
 };
 
 /*
@@ -13,13 +23,15 @@ const userCheckout = createSlice({
   name: "userCheckout",
   initialState,
   reducers: {
-    setData: (state, action) => {
-      state.chekout = action.payload.chekout;
-      //state.data = action.payload.userCheckout;
+    setPayment: (state, action) => {
+      state.payment = action.payload;
     },
+    setAddress: (state, action) => {
+      state.address = action.payload;
+    }
   },
 });
 
-export const { setData } = userCheckout.actions;
+export const { setPayment, setAddress } = userCheckout.actions;
 
 export default userCheckout.reducer;

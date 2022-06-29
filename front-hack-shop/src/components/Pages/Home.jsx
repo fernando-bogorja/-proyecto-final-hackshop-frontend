@@ -9,6 +9,7 @@ import Header from "../Partials/Header";
 import useGetProducts from "../../Hooks/useGetProducts";
 import { Link } from "react-router-dom";
 import BannerPhotos from "../Miscellaneous/BannerPhotos/BannerPhotos";
+import Typography from "@mui/material/Typography";
 
 const Loader = () => {
   return (
@@ -33,13 +34,11 @@ const Home = () => {
             <Header />
             <React.Suspense fallback={<Loader />}>
               <Container maxWidth="xl">
-                {categories.map((category) => (
+                {categories.map(category => (
                   <Carousel key={category._id} category={category.name}>
                     {products
-                      .filter(
-                        (product) => product.category._id === category._id
-                      )
-                      .map((product) => (
+                      .filter(product => product.category._id === category._id)
+                      .map(product => (
                         <ProductCard product={product} />
                       ))}
                   </Carousel>

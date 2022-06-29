@@ -185,3 +185,11 @@ body {
   box-shadow: 0 1.75rem 2.5rem -0.2rem rgba(50, 0, 100, 0.125);
   transform: scale(1.025);
 }
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: var(--color-3) !important;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+  color: var(--color-3) !important;
+}

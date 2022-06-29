@@ -7,6 +7,8 @@ import Button from "@mui/joy/Button";
 import Typography from "@mui/joy/Typography";
 import { CssVarsProvider } from "@mui/joy";
 import Chip from "@mui/joy/Chip";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cart() {
   const [cart, addToCart, removeFromCart, decreaseCart, clearCart] =
@@ -81,6 +83,12 @@ const Resume = ({ items, clearCart }) => {
       {items.length > 0 &&
         items.map(item => <ItemChip item={item} color="neutral" />)}
       <ItemChip item={total} color="danger" />
+      <div className="resume-buttons-container">
+        <Link to="/checkout" className="resume-button">
+          <FontAwesomeIcon icon={faCartShopping} size="1x" />
+          Checkout
+        </Link>
+      </div>
     </div>
   );
 };

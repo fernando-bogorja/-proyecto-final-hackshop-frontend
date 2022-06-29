@@ -11,13 +11,16 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
 import Container from "@mui/material/Container";
 import useUserHook from "../../Hooks/User";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCartShopping,
+  faBell,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 
 const pages = [
   {
@@ -156,7 +159,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <ShoppingCartIcon />
+            <FontAwesomeIcon icon={faCartShopping} size="xs" />
           </Badge>
         </IconButton>
         <p>Messages</p>
@@ -168,7 +171,7 @@ export default function PrimarySearchAppBar() {
           color="inherit"
         >
           <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+            <FontAwesomeIcon icon={faBell} size="xs" />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -181,7 +184,7 @@ export default function PrimarySearchAppBar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <FontAwesomeIcon icon={faUser} size="xs" />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -250,7 +253,7 @@ export default function PrimarySearchAppBar() {
               >
                 <Link to="/cart" className="link-none">
                   <Badge badgeContent={cartTotalQuantity} color="warning">
-                    <ShoppingCartIcon />
+                    <FontAwesomeIcon icon={faCartShopping} size="xs" />
                   </Badge>
                 </Link>
               </IconButton>
@@ -260,7 +263,7 @@ export default function PrimarySearchAppBar() {
                 color="inherit"
               >
                 <Badge>
-                  <NotificationsIcon />
+                  <FontAwesomeIcon icon={faBell} size="xs" />
                 </Badge>
               </IconButton>
               <IconButton
@@ -272,7 +275,7 @@ export default function PrimarySearchAppBar() {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <AccountCircle />
+                <FontAwesomeIcon icon={faUser} size="xs" />
               </IconButton>
               <IconButton
                 size="large"

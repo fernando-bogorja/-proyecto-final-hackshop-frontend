@@ -57,3 +57,30 @@
   background-color: rgb(250, 250, 250);
   border-radius: 10px;
 }
+
+.resume-buttons-container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.resume-buttons-container > .resume-button {
+  padding: 14px 25px;
+  color: #8e806a;
+  background-color: rgb(250, 250, 250);
+  border: 1px solid #c3b091;
+  border-radius: 10px;
+  margin: 0 2px;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.resume-buttons-container > .resume-button:hover {
+  background-color: #c0b199;
+  color: #eee;
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: 0.2s;
+}

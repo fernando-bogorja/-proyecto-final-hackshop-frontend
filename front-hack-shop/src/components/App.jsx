@@ -11,10 +11,11 @@ import Dashboard from "./Miscellaneous/Dashboard/Dashboard";
 import AboutUs from "./Pages/AboutUs";
 import Product3d from "./Pages/Product3d";
 import SignIn from "./Pages/Signin";
+import Checkout from "./Pages/Checkout";
 import { useSelector } from "react-redux";
 import { Container } from "@mui/material";
 function App() {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(state => state.user);
   if (!user.token) {
     return <SignIn />;
   }
@@ -36,6 +37,7 @@ function App() {
             path="/dashboard"
             element={<Dashboard component={<DashboardMain />} />}
           />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/dashboard/products" element={<Dashboard />} />
         </Routes>
       </Container>
