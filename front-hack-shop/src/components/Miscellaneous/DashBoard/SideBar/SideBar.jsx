@@ -24,6 +24,11 @@ const categories = [
     link: "/dashboard/products",
   },
   {
+    name: "Agregar Producto",
+    icon: <ShoppingBag />,
+    link: "/dashboard/createProductForm",
+  },
+  {
     name: "Categorias",
     icon: <Class />,
     link: "/dashboard/categories",
@@ -32,6 +37,11 @@ const categories = [
     name: "Usuarios",
     icon: <Group />,
     link: "/dashboard/users",
+  },
+  {
+    name: "Agregar Usuario",
+    icon: <Group />,
+    link: "/dashboard/createUserForm",
   },
 ];
 
