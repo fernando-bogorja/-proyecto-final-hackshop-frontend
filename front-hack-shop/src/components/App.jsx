@@ -15,6 +15,9 @@ import Checkout from "./Pages/Checkout";
 import ProductList from "./Miscellaneous/ProductList/ProductList";
 import Categories from "./Miscellaneous/Dashboard/Categories/Categories";
 import UserList from "./Miscellaneous/Dashboard/UserList/UserList";
+import CreateUserForm from "./Miscellaneous/CreateUserForm/CreateUserForm";
+import CreateProductForm from "./Miscellaneous/CreateProductForm/CreateProductForm";
+
 import { useSelector } from "react-redux";
 
 function App() {
@@ -51,6 +54,14 @@ function App() {
         <Route
           path="/dashboard/users"
           element={<Dashboard component={<UserList />} />}
+        />
+        <Route
+          path="/dashboard/createUserForm"
+          element={<Dashboard component={<CreateUserForm />} />}
+        />
+        <Route
+          path="/dashboard/createProductForm"
+          element={<Dashboard component={<CreateProductForm />} />}
         />
         <Route path="/dashboard/products" element={<Dashboard />} />
       </Routes>
