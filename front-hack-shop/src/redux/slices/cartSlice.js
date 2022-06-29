@@ -21,7 +21,7 @@ const cartSlice = createSlice({
         state.cartItems[itemIndex].cartQuantity += 1;
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
-        tempProduct.addedAt = new Date();
+        tempProduct.addedAt = new Date().toLocaleDateString();
         state.cartItems.push(tempProduct);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));

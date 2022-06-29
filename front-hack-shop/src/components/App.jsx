@@ -14,14 +14,14 @@ import SignIn from "./Pages/Signin";
 import Checkout from "./Pages/Checkout";
 import ProductList from "./Miscellaneous/ProductList/ProductList";
 import Categories from "./Miscellaneous/Dashboard/Categories/Categories";
-import UserList from "./Miscellaneous/Dashboard/UserList/UserList";
+import UserList from "./Miscellaneous/Dashboard/userList/UserList";
 import CreateUserForm from "./Miscellaneous/CreateUserForm/CreateUserForm";
 import CreateProductForm from "./Miscellaneous/CreateProductForm/CreateProductForm";
 
 import { useSelector } from "react-redux";
 
 function App() {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   if (!user.token) {
     return <SignIn />;
   }
