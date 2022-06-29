@@ -15,7 +15,6 @@
   overflow-y: hidden;
   overflow-x: scroll;
   border-radius: 5px;
-  padding: 10px;
 }
 
 .carousel .carousel-content::-webkit-scrollbar {

@@ -70,13 +70,13 @@ function Product() {
     >
       <Box display="flex" alignItems="center" sx={{ width: "80%" }}>
         <Grid
-          sx={{ width: "100%" }}
           justifyContent="center"
           container
           spacing={2}
           columns={12}
+          sx={{ backgroundColor: "#fff", padding: "20px 0", width: "100%" }}
         >
-          <Grid item xl={1} lg={1} md={2} sm={4} xs={12}>
+          <Grid item xl={1} lg={1} md={2} sm={1} xs={3}>
             <Box height="100%">
               <List
                 sx={{
@@ -102,10 +102,10 @@ function Product() {
                       src={item}
                       srcSet={item}
                       alt={productImages[index]}
-                      width="60%"
-                      height="60%"
+                      width="100%"
+                      height="100%"
                       style={{
-                        border: "2px solid #000",
+                        border: "2px solid #eaeaea",
                         borderRadius: "50%",
                       }}
                     />
@@ -114,7 +114,7 @@ function Product() {
               </List>
             </Box>
           </Grid>
-          <Grid item xl={5} lg={5} md={10} sm={6} xs={12}>
+          <Grid item xl={7} lg={7} md={10} sm={11} xs={9}>
             <Box
               sx={{
                 height: "100%",
@@ -243,7 +243,11 @@ function Product() {
                 color="textPrimary"
                 paragraph
               ></Typography>
-              <Box display="flex" justifyContent="flex-end" width="80%">
+              <Box
+                display="flex"
+                justifyContent="flex-end"
+                width={{ xs: "97%", xl: "85%" }}
+              >
                 <AppButton
                   onClick={() => handleAddToCart()}
                   backgroundColor=" #000"
@@ -266,7 +270,7 @@ const DetailBox = ({ label, value, icon }) => {
       display="flex"
       justifyContent="flex-start"
       alignItems="center"
-      width="80%"
+      width={{ xs: "97%", xl: "85%" }}
       sx={{
         borderBottom: "1px solid #000",
       }}
@@ -312,14 +316,19 @@ const PriceBox = ({ price, discount }) => {
       display="flex"
       justifyContent="space-between"
       alignItems="center"
-      width="80%"
+      width={{ xs: "97%", xl: "85%" }}
       my={2}
       mb={2}
     >
       <Typography variant="h4" color="#000" fontFamily="inherit">
         ${price}
       </Typography>
-      <Typography variant="body1" color="#000" fontFamily="inherit">
+      <Typography
+        variant="body1"
+        color="#000"
+        fontFamily="inherit"
+        textAlign="right"
+      >
         O 3 pagos de ${(price / 3).toFixed(2)}
       </Typography>
     </Box>

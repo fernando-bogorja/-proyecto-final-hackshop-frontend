@@ -20,6 +20,7 @@ import {
   faCartShopping,
   faBell,
   faUser,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
 const pages = [
@@ -55,6 +56,9 @@ const Search = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(3),
     width: "auto",
+  },
+  [theme.breakpoints.down("sm")]: {
+    display: "none",
   },
 }));
 
@@ -199,31 +203,21 @@ export default function PrimarySearchAppBar() {
       >
         <Toolbar
           sx={{
-            backgroundColor: "#000",
-            padding: "15px 0",
+            backgroundColor: "transparent",
             height: "5.5rem",
           }}
         >
-          <Container
-            maxWidth="xl"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              // padding: 0,
-            }}
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            width="100%"
           >
-            <Typography
-              variant="h4"
-              noWrap
-              component="div"
-              sx={{
-                alignItems: "flex-end",
-                display: {
-                  xs: "none",
-                  sm: "block",
-                  fontWeight: "700",
-                },
-              }}
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              width="80%"
             >
               <Link to="/" className="link-none">
                 <img
@@ -231,90 +225,91 @@ export default function PrimarySearchAppBar() {
                   srcSet={require("../../assets/reizen-logo.png")}
                 />
               </Link>
-            </Typography>
-            <Box
-              sx={{
-                flexGrow: 1,
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              {pages.map(page => (
-                <Link
-                  className="nav-link"
-                  to={`/${page.path.toLowerCase()}`}
-                  key={page.name}
-                  sx={{ my: 2, color: "white", display: "block" }}
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                }}
+                ml={2}
+              >
+                {pages.map(page => (
+                  <Link
+                    className="nav-link"
+                    to={`/${page.path.toLowerCase()}`}
+                    key={page.name}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    {page.name}
+                  </Link>
+                ))}
+              </Box>
+              <Box sx={{ flexGrow: 1 }} />
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="show 4 new mails"
+                  color="inherit"
                 >
-                  {page.name}
-                </Link>
-              ))}
-            </Box>
-            <Box sx={{ flexGrow: 1 }} />
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="inherit"
-              >
-                <Link to="/cart" className="link-none">
-                  <Badge badgeContent={cartTotalQuantity} color="error">
-                    <FontAwesomeIcon icon={faCartShopping} size="xs" />
+                  <Link to="/cart" className="link-none">
+                    <Badge badgeContent={cartTotalQuantity} color="error">
+                      <FontAwesomeIcon icon={faCartShopping} size="xs" />
+                    </Badge>
+                  </Link>
+                </IconButton>
+                <IconButton
+                  size="large"
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                >
+                  <Badge>
+                    <FontAwesomeIcon icon={faBell} size="xs" />
                   </Badge>
-                </Link>
-              </IconButton>
-              <IconButton
-                size="large"
-                aria-label="show 17 new notifications"
-                color="inherit"
-              >
-                <Badge>
-                  <FontAwesomeIcon icon={faBell} size="xs" />
-                </Badge>
-              </IconButton>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <FontAwesomeIcon icon={faUser} size="xs" />
-              </IconButton>
-              <IconButton
-                size="large"
-                edge="end"
-                color="inherit"
-                disableRipple={true}
-              >
-                <Typography ml={1} variant="p" fontSize={14} color="inherit">
-                  {user.data.name} {user.data.lastName}
-                </Typography>
-              </IconButton>
+                </IconButton>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <FontAwesomeIcon icon={faUser} size="xs" />
+                </IconButton>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  color="inherit"
+                  disableRipple={true}
+                >
+                  <Typography ml={1} variant="p" fontSize={14} color="inherit">
+                    {user.data.name} {user.data.lastName}
+                  </Typography>
+                </IconButton>
+              </Box>
+              <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <FontAwesomeIcon icon={faBars} size="xs" />
+                </IconButton>
+              </Box>
             </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </Box>
-          </Container>
+          </Box>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

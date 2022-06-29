@@ -17,16 +17,20 @@ import { Link } from "react-router-dom";
 
 export default function ProductCard({ product }) {
   const [cart, addToCart] = useCartHook();
-  const isInCart = cart.cartItems.some((item) => item._id === product._id);
+  const isInCart = cart.cartItems.some(item => item._id === product._id);
 
   const handleAddToCart = () => {
     addToCart(product);
   };
 
   return (
-    <Card className="productCard">
-      {isInCart && (
+    <Card className="productCard" sx={{ padding: "0", marginRight: "20px" }}>
+      {isInCart ? (
         <SuperChip variant="soft" color="danger" size="md">
+          En el carrito
+        </SuperChip>
+      ) : (
+        <SuperChip variant="soft" color="transparent" size="md">
           En el carrito
         </SuperChip>
       )}

@@ -28,7 +28,7 @@ const Footer = () => {
         display="flex"
         alignItems="center"
         sx={{
-          width: "90%",
+          width: "80%",
           height: "100%",
           zIndex: "1300",
         }}
@@ -54,7 +54,7 @@ const Footer = () => {
             <Box display="flex" flexDirection="row" alignItems="center">
               <TextField
                 id="outlined-basic"
-                label="Outlined"
+                label="Correo electrónico"
                 variant="filled"
                 size="small"
                 sx={{

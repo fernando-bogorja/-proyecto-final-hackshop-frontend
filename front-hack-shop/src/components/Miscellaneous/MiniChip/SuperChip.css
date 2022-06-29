@@ -249,3 +249,20 @@
   border: 1px solid var(--danger);
   transition: 0.3s;
 }
+
+.chip.soft.transparent {
+  background-color: transparent;
+  color: transparent;
+  border: 1px solid transparent;
+}
+
+.chip.chip.soft.chip.soft.transparent:hover {
+  cursor: default;
+  user-select: none;
+}
+
+.chip.chip.soft.chip.soft.transparent::selection {
+  background-color: transparent;
+  color: transparent;
+  border: 1px solid transparent;
+}

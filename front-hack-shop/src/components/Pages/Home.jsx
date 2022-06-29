@@ -33,13 +33,28 @@ const Home = () => {
             <Header />
             <React.Suspense fallback={<Loader />}>
               {categories.map(category => (
-                <Carousel key={category._id} category={category.name}>
-                  {products
-                    .filter(product => product.category._id === category._id)
-                    .map(product => (
-                      <ProductCard product={product} />
-                    ))}
-                </Carousel>
+                <Box
+                  width="100%"
+                  display="flex"
+                  justifyContent="center"
+                  key={category.id}
+                  py={3}
+                  sx={{
+                    backgroundColor: "#fff",
+                  }}
+                >
+                  <Box width="80%" sx={{ borderRadius: "5px" }}>
+                    <Carousel key={category._id} category={category.name}>
+                      {products
+                        .filter(
+                          product => product.category._id === category._id
+                        )
+                        .map(product => (
+                          <ProductCard product={product} />
+                        ))}
+                    </Carousel>
+                  </Box>
+                </Box>
               ))}
             </React.Suspense>
             {/* <BannerPhotos /> */}
