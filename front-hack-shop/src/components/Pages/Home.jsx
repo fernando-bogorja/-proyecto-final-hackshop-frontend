@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Box } from "@mui/material";
+import { Box } from "@mui/material";
 //import { useState, useEffect } from "react";
 //import axios from "axios";
 //Components
@@ -57,7 +57,7 @@ const Home = () => {
                 </Box>
               ))}
             </React.Suspense>
-            {/* <BannerPhotos /> */}
+            <BannerPhotos />
           </Box>
         </>
       )}

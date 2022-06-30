@@ -1,6 +1,6 @@
 import { Box, Typography, Grid } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import "@fontsource/montserrat";
+import "@fontsource/arima-madurai";
+import { currentTheme as theme } from "../../../theme";
 
 function BannerFotos() {
   // const itemData = [
@@ -34,253 +34,315 @@ function BannerFotos() {
   //   },
   // ];
 
-  const Item = styled(Box)(({ theme }) => ({
-    backgroundColor: "transparent",
-    // ...theme.typography.body2,
-    // padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
-
   return (
     <>
       <Box
-        xs={3}
-        md={6}
-        lg={9}
-        xl={12}
-        className="Contain"
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100%",
-          height: "600px",
-          // border: "1px solid red",
-          marginBottom: "500px",
-          marginTop: "200px",
-          position: "relative",
-        }}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="100%"
       >
         <Box
-          className="timberwolf"
-          sx={{
-            width: "80%",
-            height: "650px",
-            marginBottom: "600px",
-            // marginLeft: "-100px",
-            backgroundColor: "rgba(219, 209, 200, 0.5)",
-            position: "absolute",
-          }}
-        ></Box>
-        <Box
-          xs={3}
-          md={6}
-          lg={12}
-          className="timberwolf-2"
-          sx={{
-            width: "85%",
-            height: "450px",
-            marginBottom: "500px",
-            marginTop: "100px",
-            // marginLeft: "-320px",
-            backgroundColor: "rgba(212, 209, 202, 0.85)",
-            position: "absolute",
-          }}
-        ></Box>
-        <Box
-          className="fotos"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            zIndex: "5",
-            width: "130rem",
-            // border: "2px solid blue",
-          }}
+          width="100%"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          // border="1px solid pink"
+          my="5%"
         >
-          {/* xs, extra-small: 0px
-  	          sm, small: 600px
-              md, medium: 900px
-              lg, large: 1200px
-              xl, extra-large: 1536px */}
-
-          <Grid
+          <Box
+            width="100%"
+            className="fotos"
             sx={{
               display: "flex",
-              justifyContent: "flex-start",
-              width: "90rem",
+              justifyContent: "center",
+              zIndex: "5",
+              paddingX: { xs: "10%", sm: "none" },
+              // border: "2px solid blue",
             }}
-            container
-            spacing={3}
-            columns={{ xs: 3, md: 6, lg: 9, xl: 12 }}
           >
-            <Grid item xs={3} sx={{ marginBottom: 0 }}>
-              <Item
-                className="Foto1"
-                sx={{
-                  zIndex: 5,
-                  width: "20rem",
-                  height: "550px",
-                  marginTop: "70px",
-                  background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw433eddd7/images/productsets/1512503.jpg??auto=format&fit=crop&w=800)`,
-                  backgroundPosition: "20rem 0",
-                  backgroundSize: "300% 100%",
-                }}
-              >
-                <Typography variant="h6" color="white">
-                  Todos los Espacios
+            <Grid
+              container
+              spacing={8}
+              columns={{ xs: 3, sm: 6, md: 6, lg: 9, xl: 12 }}
+              display="flex"
+              justifyContent="center"
+              paddingLeft={"0 !important"}
+              margin={0}
+            >
+              <Grid item width="100%" padding={"0 !important"}>
+                <Typography
+                  variant="h4"
+                  color="Grey"
+                  fontFamily={theme.fonts.title}
+                >
+                  Selecciona por Categoría
                 </Typography>
-              </Item>
-            </Grid>
+              </Grid>
+              {/* column 1 */}
+              <Grid
+                width="21rem"
+                display="flex"
+                justifyContent="center"
+                item
+                xs={3}
+                marginTop={{ xs: 0, sm: 0, md: 0, lg: "2.5rem", xl: "2.5rem" }}
+                padding={"0 !important"}
+              >
+                <Box
+                  className="Foto1"
+                  zIndex={5}
+                  width="21rem"
+                  height="46rem"
+                  sx={{
+                    background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw433eddd7/images/productsets/1512503.jpg??auto=format&fit=crop&w=800)`,
+                    backgroundPosition: "21rem 0",
+                    backgroundSize: "300% 100%",
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    color="white"
+                    fontFamily={theme.fonts.title}
+                    marginLeft="1rem"
+                  >
+                    Todos los Espacios
+                  </Typography>
+                </Box>
+              </Grid>
 
-            {/* column 2 y 3 */}
-            <Grid item xs={3}>
-              <Item
-                className="fotosBoxVert1"
-                sx={{
-                  zIndex: 5,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "30px",
-                  width: "20rem",
-                  marginTop: "130px",
-                  // border: "1px solid red",
-                }}
+              {/* column 2  */}
+              <Grid
+                item
+                xs={3}
+                paddingTop={{ xs: "0rem !important" }}
+                margin={0}
+                display="flex"
+                justifyContent="center"
+                paddingLeft={"0 !important"}
               >
                 <Box
-                  className="Foto2"
-                  sx={{
-                    zIndex: 5,
-                    width: "20rem",
-                    height: "20rem",
-                    background: `url(https://f.fcdn.app/imgs/1bfe18/www.kavehome.com.uy/kaveuy/a20d/webp/recursos/48/600x0/banner-3.jpg?auto=format&fit=crop&w=800)`,
-                    backgroundPosition: "20rem 0px",
-                    backgroundSize: "100% 100%",
+                  className="BoxVert1"
+                  width="21rem"
+                  zIndex={5}
+                  display="flex"
+                  flexDirection="column"
+                  gap="4rem"
+                  marginTop={{
+                    xs: "4rem",
+                    sm: "4rem",
+                    md: 0,
+                    lg: "7rem",
+                    xl: "7rem",
                   }}
                 >
-                  Foto 2{" "}
+                  <Box
+                    className="Foto2"
+                    zIndex={5}
+                    width="21rem"
+                    height="21rem"
+                    sx={{
+                      background: `url(https://f.fcdn.app/imgs/1bfe18/www.kavehome.com.uy/kaveuy/a20d/webp/recursos/48/600x0/banner-3.jpg?auto=format&fit=crop&w=800)`,
+                      backgroundPosition: "21rem 0px",
+                      backgroundSize: "100% 100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      color="white"
+                      fontFamily={theme.fonts.title}
+                      marginLeft="1rem"
+                    >
+                      Recibidor
+                    </Typography>
+                  </Box>
+                  <Box
+                    className="Foto3"
+                    zIndex={5}
+                    width="100%"
+                    height="21rem"
+                    sx={{
+                      background: `url(https://f.fcdn.app/imgs/90a7ed/www.kavehome.com.uy/kaveuy/ccde/webp/recursos/49/600x0/banner-4-vo2.jpg?auto=format&fit=crop&w=800)`,
+                      backgroundPosition: "21rem 0px",
+                      backgroundSize: "100% 100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      color="white"
+                      fontFamily={theme.fonts.title}
+                      marginLeft="1rem"
+                    >
+                      Living
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box
-                  className="Foto3"
-                  sx={{
-                    zIndex: 5,
-                    // backgroundColor: "red",
-                    width: "20rem",
-                    height: "20rem",
-                    background: `url(https://f.fcdn.app/imgs/90a7ed/www.kavehome.com.uy/kaveuy/ccde/webp/recursos/49/600x0/banner-4-vo2.jpg?auto=format&fit=crop&w=800)`,
-                    backgroundPosition: "20rem 0px",
-                    backgroundSize: "100% 100%",
-                  }}
-                >
-                  Foto 3{" "}
-                </Box>
-              </Item>
-            </Grid>
+              </Grid>
 
-            {/* column 4 y 5 */}
-            <Grid item xs={3}>
-              <Item
-                className="fotosBoxVert2"
-                sx={{
-                  zIndex: 5,
-                  // backgroundColor: "red",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "30px",
-                  width: "20rem",
-                  maxHeight: "700px",
-                  marginTop: "30px",
-                  // border: "1px solid red",
-                }}
+              {/* column 3 */}
+              <Grid
+                item
+                xs={3}
+                padding={0}
+                paddingTop={{ xs: "0rem !important" }}
+                display="flex"
+                justifyContent="center"
+                paddingLeft={"0 !important"}
               >
                 <Box
-                  className="Foto4"
-                  sx={{
-                    zIndex: 5,
-                    // backgroundColor: "red",
-                    width: "20rem",
-                    height: "550px",
-                    background: `url(https://f.fcdn.app/imgs/6c396f/www.kavehome.com.uy/kaveuy/a5a7/webp/recursos/47/600x0/banner.jpg?auto=format&fit=crop&w=800)`,
-                    backgroundPosition: "20rem 0px",
-                    backgroundSize: "100% 100%",
-                  }}
+                  className="BoxVert2"
+                  width="21rem"
+                  zIndex={5}
+                  display="flex"
+                  flexDirection="column"
+                  gap="4rem"
+                  marginTop={{ xs: "4rem", sm: 0, md: "4rem", lg: 0, xl: 0 }}
                 >
-                  Foto 4{" "}
+                  <Box
+                    className="Foto4"
+                    width="21rem"
+                    height="21rem"
+                    sx={{
+                      background: `url(https://f.fcdn.app/imgs/6c396f/www.kavehome.com.uy/kaveuy/a5a7/webp/recursos/47/600x0/banner.jpg?auto=format&fit=crop&w=800)`,
+                      backgroundPosition: "21rem 0px",
+                      backgroundSize: "100% 100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      color="white"
+                      fontFamily={theme.fonts.title}
+                      marginLeft="1rem"
+                    >
+                      Comedor
+                    </Typography>
+                  </Box>
+                  <Box
+                    className="Foto5"
+                    width="100%"
+                    height="21rem"
+                    sx={{
+                      background: `url(https://f.fcdn.app/imgs/74aa80/www.kavehome.com.uy/kaveuy/9a1d/webp/recursos/50/600x0/banner-copia.jpg?auto=format&fit=crop&w=800)`,
+                      backgroundPosition: "21rem 0px",
+                      backgroundSize: "100% 100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      color="white"
+                      fontFamily={theme.fonts.title}
+                      marginLeft="1rem"
+                    >
+                      Exterior
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box
-                  className="Foto5"
-                  sx={{
-                    zIndex: 5,
-                    // backgroundColor: "red",
-                    width: "20rem",
-                    height: "550px",
-                    background: `url(https://f.fcdn.app/imgs/74aa80/www.kavehome.com.uy/kaveuy/9a1d/webp/recursos/50/600x0/banner-copia.jpg?auto=format&fit=crop&w=800)`,
-                    backgroundPosition: "20rem 0px",
-                    backgroundSize: "100% 100%",
-                  }}
-                >
-                  Foto 5{" "}
-                </Box>
-              </Item>
-            </Grid>
-            {/* column 6 y 7 */}
-            <Grid item xs={3}>
-              <Item
-                className="fotosBoxVert3"
-                sx={{
-                  zIndex: 5,
-                  // backgroundColor: "red",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "30px",
-                  width: "21rem",
-                  maxHeight: "42rem",
-                  marginTop: "30px",
-                  // border: "1px solid red",
-                }}
+              </Grid>
+              {/* column 4 */}
+              <Grid
+                item
+                xs={3}
+                paddingTop={{ xs: "0 !important" }}
+                margin={"0 !important"}
+                display="flex"
+                justifyContent={"center !important"}
+                alignItems={"start !important"}
+                padding={"0 !important"}
               >
                 <Box
-                  className="Foto6"
-                  sx={{
-                    zIndex: 5,
-                    width: "21rem",
-                    height: "21rem",
-                    background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw644288a9/images/productsets/1685510.jpg?sw=1600?auto=format&fit=crop&w=800)`,
-                    backgroundPosition: "-80px 0px",
-                    backgroundSize: "200% 100%",
+                  className="BoxVert3"
+                  width={{
+                    xs: "21rem",
+                    sm: "21rem",
+                    md: "21rem",
+                    lg: "46rem",
+                    xl: "21rem",
+                  }}
+                  zIndex={5}
+                  display="flex"
+                  justifyContent={"flex-end !important"}
+                  gap="4rem"
+                  // paddingTop={{ xs: "0rem" }}
+                  marginTop={{
+                    xs: "4rem",
+                    sm: "4rem",
+                    md: "4rem",
+                    lg: "4rem",
+                    xl: "0rem",
+                  }}
+                  flexDirection={{
+                    xs: "column",
+                    sm: "column",
+                    md: "column",
+                    lg: "row",
+                    xl: "column",
                   }}
                 >
-                  Foto 6{" "}
+                  <Box
+                    className="Foto6"
+                    width="21rem"
+                    height="21rem"
+                    sx={{
+                      background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw644288a9/images/productsets/1685510.jpg?sw=1600?auto=format&fit=crop&w=800)`,
+                      backgroundPosition: "-80px 0px",
+                      backgroundSize: "200% 100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      color="white"
+                      fontFamily={theme.fonts.title}
+                      marginLeft="1rem"
+                    >
+                      Dormitorio
+                    </Typography>
+                  </Box>
+                  <Box
+                    className="Foto7"
+                    width={{
+                      xs: "21rem",
+                      sm: "21rem",
+                      md: "21rem",
+                      lg: "21rem",
+                      xl: "12rem",
+                    }}
+                    minHeight={{
+                      xs: "21rem",
+                      sm: "21rem",
+                      md: "21rem",
+                      lg: "12rem",
+                      xl: "12rem",
+                    }}
+                    sx={{
+                      background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8b138f9f/images/productsets/1481921.jpg?sw=1200?auto=format&fit=crop&w=800)`,
+                      backgroundPosition: "-50px 0px",
+                      backgroundSize: "170% 100%",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      color="white"
+                      fontFamily={theme.fonts.title}
+                      marginLeft="1rem"
+                    >
+                      Oficina
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box
-                  className="Foto7"
-                  sx={{
-                    zIndex: 5,
-                    // backgroundColor: "red",
-                    maxWidth: "12rem",
-                    maxHeight: "12rem",
-                    height: "550px",
-                    background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8b138f9f/images/productsets/1481921.jpg?sw=1200?auto=format&fit=crop&w=800)`,
-                    backgroundPosition: "-50px 0px",
-                    backgroundSize: "170% 100%",
-                  }}
-                >
-                  Foto 7{" "}
-                </Box>
-              </Item>
+              </Grid>
             </Grid>
-          </Grid>
+          </Box>
         </Box>
       </Box>
-
-      {/* background: `url(${itemData[0].img})`,
-            
-            <img
-              srcSet={itemData[0].img}
-              alt={itemData[0].title}
-              loading="lazy"
-            /> */}
     </>
   );
 }
 
 export default BannerFotos;
+
+/*     xs, extra-small: 0px - 600px
+       sm, small: 600px - 900px
+       md, medium: 900px -1200px
+       lg, large: 1200px -1536px
+       xl, extra-large: 1536px */

@@ -80,7 +80,7 @@ const Footer = () => {
             >
               <Box className="box-icon-logo">
                 <img
-                  style={{ width: "150px" }}
+                  style={{ width: "100px" }}
                   srcSet={require("../../assets/reizen-logo.png")}
                   alt="logo"
                 />

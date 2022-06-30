@@ -1,0 +1,7 @@
+{
+  "workbench.localHistory.enabled": false,
+  "editor.codeLens": false,
+  "files.exclude": {
+    "**/.history": true
+  }
+}
