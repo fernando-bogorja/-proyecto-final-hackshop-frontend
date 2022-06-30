@@ -19,7 +19,8 @@ import CreateUserForm from "./Miscellaneous/CreateUserForm/CreateUserForm";
 import CreateProductForm from "./Miscellaneous/CreateProductForm/CreateProductForm";
 import { useSelector } from "react-redux";
 import ContextMenu from "./Miscellaneous/ContextMenu/ContextMenu";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const user = useSelector((state) => state.user);
   if (!user.token) {
@@ -28,12 +29,12 @@ function App() {
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
+      <ToastContainer />
       <Routes>
         <Route path="/signin" element={<SignIn />} />
       </Routes>
       <NavBar />
       <ContextMenu />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />

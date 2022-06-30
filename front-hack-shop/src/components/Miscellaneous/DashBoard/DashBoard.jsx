@@ -12,7 +12,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import Toolbar from "@mui/material/Toolbar";
-import Sidebar from "./Sidebar/SideBar";
+import Sidebar from "./Sidebar/Sidebar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";

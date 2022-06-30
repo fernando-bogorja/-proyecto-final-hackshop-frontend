@@ -14,10 +14,11 @@ import SuperChip from "../MiniChip/SuperChip";
 /* Hooks */
 import useCartHook from "../../../Hooks/Cart";
 import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ProductCard({ product }) {
   const [cart, addToCart] = useCartHook();
-  const isInCart = cart.cartItems.some(item => item._id === product._id);
+  const isInCart = cart.cartItems.some((item) => item._id === product._id);
 
   const handleAddToCart = () => {
     addToCart(product);
