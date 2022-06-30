@@ -1,8 +1,11 @@
+import "@fontsource/abhaya-libre";
+
 const theme = {
     light: {
         black: "#000",
         white: "#fff",
-        gray: "#eaeaea",
+        gray: "rgb(245,245,245)",
+        test: "rgb(245,245,245)",
         fonts: {
             title: "Abhaya Libre",
         },
