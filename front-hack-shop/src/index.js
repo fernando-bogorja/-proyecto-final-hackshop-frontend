@@ -9,7 +9,7 @@ import { PersistGate } from "redux-persist/lib/integration/react";
 import { currentTheme as theme } from './theme';
 
 const container = document.getElementById("root");
-container.style.backgroundColor = theme.gray;
+container.style.backgroundColor = theme.test;
 const root = createRoot(container);
 
 root.render(

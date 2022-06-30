@@ -20,7 +20,7 @@ const cartSlice = createSlice({
 
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
-        toast.info(
+        toast.success(
           `Agregada otra unidad de ${state.cartItems[itemIndex].name} al carrito`,
           { position: "bottom-center", theme: "dark" }
         );
@@ -28,7 +28,7 @@ const cartSlice = createSlice({
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         tempProduct.addedAt = new Date().toLocaleDateString();
         state.cartItems.push(tempProduct);
-        toast.success(`${action.payload.name} agregado al carrito`, {
+        toast.success(`${action.payload.name} ha sido agregado al carrito`, {
           position: "bottom-center",
           theme: "dark",
         });
@@ -38,7 +38,7 @@ const cartSlice = createSlice({
     clearCart(state, action) {
       state.cartItems = [];
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      toast.error(`Carrito Limpio`, {
+      toast.error(`Se ha limpiado el carrito`, {
         position: "bottom-center",
         theme: "dark",
       });
@@ -49,7 +49,7 @@ const cartSlice = createSlice({
       );
       state.cartItems = nextCartItems;
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      toast.error(`${action.payload.name} ha sido quitado del Carrito`, {
+      toast.error(`${action.payload.name} ha sido eliminado del carrito`, {
         position: "bottom-center",
         theme: "dark",
       });
@@ -60,7 +60,7 @@ const cartSlice = createSlice({
       );
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
-        toast.info(`Reducida una unidad de ${action.payload.name}`, {
+        toast.error(`Reducida una unidad de ${action.payload.name}`, {
           position: "bottom-center",
         });
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
@@ -68,32 +68,25 @@ const cartSlice = createSlice({
           (cartItem) => cartItem._id !== action.payload._id
         );
         state.cartItems = nextCartItems;
-        toast.error(`${action.payload.name} ha sido removido del Carrito`, {
+        toast.error(`${action.payload.name} ha sido removido del carrito`, {
           position: "bottom-center",
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     getTotals(state, action) {
-      let { total, quantity } = state.cartItems.reduce(
-        (cartTotal, cartItem) => {
-          const { price, cartQuantity } = cartItem;
-          const itemTotal = price * cartQuantity;
-          cartTotal.total += itemTotal;
-          cartTotal.quantity += cartQuantity;
-          return cartTotal;
-        },
-        {
-          total: 0,
-          quantity: 0,
-        }
-      );
-      state.cartTotalQuantity = quantity;
-      state.cartTotalAmount = total;
+      state.cartTotalQuantity = 0;
+      state.cartTotalAmount = 0;
+      /* Loop through the cart items and get the total values */
+      state.cartItems.forEach((cartItem) => {
+        /* Add the quantity of each item to the total quantity */
+        state.cartTotalQuantity += cartItem.cartQuantity;
+        /* Add the price of each item to the total amount */
+        state.cartTotalAmount += cartItem.cartQuantity * cartItem.price;
+      });
     },
-  },
+  }
 });
-
 export const { addToCart, clearCart, getTotals, removeFromCart, decreaseCart } =
   cartSlice.actions;
 
