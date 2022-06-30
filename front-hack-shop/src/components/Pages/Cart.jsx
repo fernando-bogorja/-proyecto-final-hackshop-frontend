@@ -1,9 +1,15 @@
 import "./Pages.css";
+import { Link } from "react-router-dom";
 import useCartHook from "../../Hooks/Cart";
 import { Box, Button } from "@mui/material";
 import Typography from "@mui/joy/Typography";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faMinus,
+  faXmark,
+  faArrowRightLong,
+} from "@fortawesome/free-solid-svg-icons";
 import { Grid } from "@mui/material";
 import { currentTheme as theme } from "../../theme";
 
@@ -45,6 +51,7 @@ export default function Cart() {
             </Box>
           </Grid>
           <Box
+            minHeight="600px"
             maxHeight="600px"
             my={2}
             sx={{
@@ -211,6 +218,12 @@ const CheckoutContainer = ({ cart }) => {
         <Box width="100%" display="flex" justifyContent="space-between">
           <Typography fontSize={20}>Subtotal</Typography>
           <Typography fontSize={20}>USD {cart.cartTotalAmount}</Typography>
+        </Box>
+        <Box width="100%" display="flex" justifyContent="space-between">
+          <Link to="/checkout" style={{ width: "100%" }}>
+            <Typography fontSize={20}>CHECKOUT</Typography>
+            <FontAwesomeIcon icon={faArrowRightLong} />
+          </Link>
         </Box>
       </Box>
     </Box>

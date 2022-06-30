@@ -6,7 +6,6 @@ import {
     removeFromCart,
 } from "../redux/slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 
 export default function useCartHook() {
     const cart = useSelector((state) => state.cart);
