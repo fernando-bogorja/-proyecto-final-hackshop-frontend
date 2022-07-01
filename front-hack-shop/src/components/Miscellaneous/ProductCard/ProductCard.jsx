@@ -15,10 +15,11 @@ import SuperChip from "../MiniChip/SuperChip";
 import useCartHook from "../../../Hooks/Cart";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import { currentTheme as theme, effects } from "../../../theme";
 
 export default function ProductCard({ product }) {
   const [cart, addToCart] = useCartHook();
-  const isInCart = cart.cartItems.some((item) => item._id === product._id);
+  const isInCart = cart.cartItems.some(item => item._id === product._id);
 
   const handleAddToCart = () => {
     addToCart(product);
@@ -48,7 +49,11 @@ export default function ProductCard({ product }) {
           pathname: `product/` + product._id,
         }}
       >
-        <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
+        <AspectRatio
+          minHeight="120px"
+          maxHeight="200px"
+          sx={{ my: 2, borderRadius: "10px" }}
+        >
           <img className="productImage" srcSet={product.images[0]} alt="" />
           <img className="hoverImage" srcSet={product.images[1]} alt="" />
         </AspectRatio>
@@ -71,7 +76,11 @@ export default function ProductCard({ product }) {
       </Box>
       <Box sx={{ display: "flex" }}>
         <div className="infoContainer">
-          <Typography fontSize="sm" fontWeight="bold" sx={{ color: "#8E806A" }}>
+          <Typography
+            fontSize="sm"
+            fontWeight="bold"
+            sx={{ color: theme.black }}
+          >
             <span className="price-unit">USD</span> {product.price}
           </Typography>
           <button className="addToCart" onClick={handleAddToCart}>

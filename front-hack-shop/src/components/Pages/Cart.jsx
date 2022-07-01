@@ -61,7 +61,7 @@ export default function Cart() {
             }}
           >
             {cart.cartItems.map(article => (
-              <Grid item xs={12} md={12} lg={12}>
+              <Grid item xs={12} md={12} lg={12} key={article._id}>
                 <ArticleCard article={article} />
               </Grid>
             ))}
@@ -207,22 +207,38 @@ const ArticleCard = ({ article }) => {
 
 const CheckoutContainer = ({ cart }) => {
   return (
-    <Box width="50%" display="flex" justifyContent="center">
+    <Box width="50%" display="flex" justifyContent="flex-end">
       <Box
         width="75%"
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
-        alignItems="center"
+        alignItems="flex-end"
       >
         <Box width="100%" display="flex" justifyContent="space-between">
           <Typography fontSize={20}>Subtotal</Typography>
           <Typography fontSize={20}>USD {cart.cartTotalAmount}</Typography>
         </Box>
-        <Box width="100%" display="flex" justifyContent="space-between">
-          <Link to="/checkout" style={{ width: "100%" }}>
-            <Typography fontSize={20}>CHECKOUT</Typography>
-            <FontAwesomeIcon icon={faArrowRightLong} />
+        <Box
+          width="100%"
+          display="flex"
+          justifyContent="space-between"
+          bgcolor={theme.black}
+          color={theme.white}
+        >
+          <Link
+            to="/checkout"
+            className="link-none"
+            style={{ width: "100%", padding: "20px" }}
+          >
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Typography fontSize={20}>CHECKOUT</Typography>
+              <FontAwesomeIcon icon={faArrowRightLong} />
+            </Box>
           </Link>
         </Box>
       </Box>

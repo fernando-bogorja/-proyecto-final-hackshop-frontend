@@ -25,7 +25,7 @@ h2.carousel-title {
   font-size: 1.2rem;
   font-weight: bold;
   width: 95%;
-  color: rgb(88, 88, 88);
+  color: rgb(54, 54, 54);
 }
 
 h4.carousel-subtitle {
@@ -45,5 +45,5 @@ h4.carousel-subtitle {
   width: 20%;
   margin-left: 2.4em;
   height: 2px;
-  background-color: rgb(195, 165, 126);
+  background-color: #000;
 }

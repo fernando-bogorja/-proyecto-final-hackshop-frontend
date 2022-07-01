@@ -87,13 +87,11 @@ body {
 .link-none:link {
   text-decoration: inherit;
   color: inherit;
-  cursor: auto;
 }
 
 .link-none:visited {
   text-decoration: inherit;
   color: inherit;
-  cursor: auto;
 }
 
 .nav-link {
@@ -121,28 +119,11 @@ body {
   height: 100%;
   transform-origin: 0px 0px;
   overflow: hidden;
+  background-repeat: no-repeat;
   z-index: -1;
-  background-image: url("https://images6.alphacoders.com/103/thumb-1920-1035008.jpg");
-  background-position: 20% 70%;
-}
-
-.Header-background::before,
-.Header-background::after {
-  display: block;
-  position: absolute;
-  content: "";
-  width: 80%;
-  height: 33.333333333333336%;
-  opacity: 0.3;
-  filter: blur(15px);
-}
-.Header-background::before {
-  background: var(--color-1);
-  right: 0;
-}
-.Header-background::after {
-  background: var(--color-2);
-  bottom: 0;
+  background-image: url("../assets/header-image.png");
+  background-color: #000;
+  background-position: 20% 60%;
 }
 /* .Header-content {
   text-align: center;
@@ -242,4 +223,13 @@ body {
 .logout-hover {
   color: rgb(255, 255, 255);
   background-color: rgb(142, 0, 0) !important;
+}
+
+.zoomOnHover {
+  transition: 0.3s;
+}
+
+.zoomOnHover:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
 }

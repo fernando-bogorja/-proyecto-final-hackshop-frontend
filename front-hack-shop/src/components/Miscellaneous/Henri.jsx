@@ -76,7 +76,9 @@ export default function BasicModal() {
                 En este hermoso bootcamp 🙋🏻‍♀️
               </Animator>
               - Laia Organa -
-              <Animator animation={MoveOut(1000, 0)}>Pato Donalds ✋🏻</Animator>
+              <Animator animation={MoveOut(1000, 0)}>
+                De Parte De TODOS ✋🏻
+              </Animator>
               <Animator animation={MoveOut(-1000, 0)}>
                 Nos vemos SIEMPRE 💛
               </Animator>

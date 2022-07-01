@@ -55,7 +55,7 @@ function Product() {
     getProduct();
     setActualImg(productImages[0]);
   }, [(pochoclo = productImages[0])]);
-  const handleClickForChangeImage = (img) => {
+  const handleClickForChangeImage = img => {
     return setActualImg(img);
   };
 
@@ -101,6 +101,7 @@ function Product() {
                       width: "100%",
                       height: "100%",
                     }}
+                    key={index}
                   >
                     <img
                       onClick={() => handleClickForChangeImage(item)}

@@ -2,6 +2,7 @@ import {
     setUser,
     logoutUser
 } from '../redux/slices/userSlice';
+import global from '../global';
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
@@ -11,7 +12,7 @@ export default function useUserHook() {
     const dispatch = useDispatch();
 
     const handleSetUser = user => {
-        axios.post("http://localhost:3001/api/user/login", user).then(res => {
+        axios.post(`${global.api}/user/login`, user).then(res => {
             dispatch(setUser({ token: res.data.data.token, user: res.data.data.user }));
         });
     }

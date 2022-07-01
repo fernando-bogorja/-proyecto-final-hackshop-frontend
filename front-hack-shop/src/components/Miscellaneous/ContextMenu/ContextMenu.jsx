@@ -27,6 +27,7 @@ export default function ContextMenu() {
       anchorPoint={anchorPoint}
       onClose={() => toggleMenu(false)}
       menuClassName="context-menu"
+      style={{ zIndex: 11000 }}
     >
       <MenuItem href="/profile" className="link-none">
         Mi perfil

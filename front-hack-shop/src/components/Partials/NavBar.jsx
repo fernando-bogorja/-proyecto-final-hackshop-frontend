@@ -11,9 +11,7 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
-import Container from "@mui/material/Container";
 import useUserHook from "../../Hooks/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,75 +21,18 @@ import {
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { currentTheme as theme } from "../../theme";
+import { currentTheme as theme, effects } from "../../theme";
 
 const pages = [
-  {
-    name: "Inicio",
-    path: "",
-  },
-  {
-    name: "Carrito",
-    path: "cart",
-  },
-  {
-    name: "Perfil",
-    path: "profile",
-  },
   {
     name: "Dashboard",
     path: "dashboard",
   },
 ];
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: "10px",
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-  [theme.breakpoints.down("sm")]: {
-    display: "none",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
-
 export default function PrimarySearchAppBar() {
   const { cartTotalQuantity } = useSelector((state) => state.cart);
   const [user, handleSetUser, handleLogoutUser] = useUserHook();
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -164,11 +105,13 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <FontAwesomeIcon icon={faCartShopping} size="xs" />
-          </Badge>
+          <Link to="/cart" className="link-none">
+            <Badge badgeContent={cartTotalQuantity} color="error">
+              <FontAwesomeIcon icon={faCartShopping} size="xs" />
+            </Badge>
+          </Link>
         </IconButton>
-        <p>Messages</p>
+        <p>Carrito</p>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -176,11 +119,11 @@ export default function PrimarySearchAppBar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge color="error">
             <FontAwesomeIcon icon={faBell} size="xs" />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>Notificaciones</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -192,7 +135,7 @@ export default function PrimarySearchAppBar() {
         >
           <FontAwesomeIcon icon={faUser} size="xs" />
         </IconButton>
-        <p>Profile</p>
+        <p>Perfil</p>
       </MenuItem>
     </Menu>
   );
@@ -239,31 +182,26 @@ export default function PrimarySearchAppBar() {
                     className="nav-link"
                     to={`/${page.path.toLowerCase()}`}
                     key={page.name}
-                    sx={{ my: 2, color: "white", display: "block" }}
+                    sx={{ my: 2, display: "block" }}
                   >
-                    {page.name}
+                    <Typography color={theme.white}>{page.name}</Typography>
                   </Link>
                 ))}
               </Box>
               <Box sx={{ flexGrow: 1 }} />
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ "aria-label": "search" }}
-                />
-              </Search>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <IconButton
                   size="large"
                   aria-label="show 4 new mails"
                   color="inherit"
                 >
-                  <Link to="/cart" className="link-none">
+                  <Link to="/cart" className={`link-none ${effects.zoom}`}>
                     <Badge badgeContent={cartTotalQuantity} color="error">
-                      <FontAwesomeIcon icon={faCartShopping} size="xs" />
+                      <FontAwesomeIcon
+                        icon={faCartShopping}
+                        color={theme.white}
+                        size="xs"
+                      />
                     </Badge>
                   </Link>
                 </IconButton>
@@ -272,11 +210,16 @@ export default function PrimarySearchAppBar() {
                   aria-label="show 17 new notifications"
                   color="inherit"
                 >
-                  <Badge>
-                    <FontAwesomeIcon icon={faBell} size="xs" />
+                  <Badge className={effects.zoom}>
+                    <FontAwesomeIcon
+                      icon={faBell}
+                      color={theme.white}
+                      size="xs"
+                    />
                   </Badge>
                 </IconButton>
                 <IconButton
+                  className={effects.zoom}
                   size="large"
                   edge="end"
                   aria-label="account of current user"
@@ -285,7 +228,11 @@ export default function PrimarySearchAppBar() {
                   onClick={handleProfileMenuOpen}
                   color="inherit"
                 >
-                  <FontAwesomeIcon icon={faUser} size="xs" />
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    color={theme.white}
+                    size="xs"
+                  />
                 </IconButton>
                 <IconButton
                   size="large"
@@ -294,7 +241,25 @@ export default function PrimarySearchAppBar() {
                   disableRipple={true}
                 >
                   <Typography ml={1} variant="p" fontSize={14} color="inherit">
-                    {user.data.name} {user.data.lastName}
+                    {/* if user is logged in, show his name */}
+                    {user.data ? (
+                      <Link
+                        to="#"
+                        onClick={handleProfileMenuOpen}
+                        className="link-none"
+                      >
+                        <Typography color={theme.white}>
+                          {" "}
+                          {user.data.name + " " + user.data.lastName}{" "}
+                        </Typography>
+                      </Link>
+                    ) : (
+                      <Link to="/signin" className="link-none">
+                        <Typography color={theme.white}>
+                          Iniciar sesión
+                        </Typography>
+                      </Link>
+                    )}
                   </Typography>
                 </IconButton>
               </Box>

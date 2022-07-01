@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import global from "../global";
 
 export default function useGetProducts() {
     const [products, setProducts] = useState([]);
@@ -8,12 +9,12 @@ export default function useGetProducts() {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const products = await axios.get("http://localhost:3001/api/products");
+            const products = await axios.get(`${global.api}/products`);
             setProducts(products.data);
             setLoading(false);
         };
         const fetchCategories = async () => {
-            const categories = await axios.get("http://localhost:3001/api/category/");
+            const categories = await axios.get(`${global.api}/category`);
             setCategories(categories.data);
             setLoading(false);
         };
