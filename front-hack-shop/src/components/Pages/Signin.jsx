@@ -28,7 +28,7 @@ export default function SignIn() {
     //window.location.reload(false);
   };
 
-  if (user.data) {
+  if (!user) {
     return <Navigate to="/" />;
   }
 

@@ -61,7 +61,7 @@ export default function Cart() {
             }}
           >
             {cart.cartItems.map(article => (
-              <Grid item xs={12} md={12} lg={12}>
+              <Grid item xs={12} md={12} lg={12} key={article._id}>
                 <ArticleCard article={article} />
               </Grid>
             ))}

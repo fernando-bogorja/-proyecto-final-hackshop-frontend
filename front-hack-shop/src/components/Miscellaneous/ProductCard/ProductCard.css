@@ -13,6 +13,10 @@
   z-index: 2;
 }
 
+.productCard img {
+  border-radius: 10px;
+}
+
 .productCard img.productImage {
   object-fit: scale-down;
 }

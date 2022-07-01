@@ -12,8 +12,11 @@ const theme = {
   },
   dark: {
     black: "#000",
-    white: "#212121",
+    white: "#6f6f70",
     gray: "#141414",
+    fonts: {
+      title: "Abhaya Libre",
+    },
   }
 }
 

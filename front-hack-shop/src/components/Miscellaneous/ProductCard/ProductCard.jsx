@@ -49,7 +49,11 @@ export default function ProductCard({ product }) {
           pathname: `product/` + product._id,
         }}
       >
-        <AspectRatio minHeight="120px" maxHeight="200px" sx={{ my: 2 }}>
+        <AspectRatio
+          minHeight="120px"
+          maxHeight="200px"
+          sx={{ my: 2, borderRadius: "10px" }}
+        >
           <img className="productImage" srcSet={product.images[0]} alt="" />
           <img className="hoverImage" srcSet={product.images[1]} alt="" />
         </AspectRatio>

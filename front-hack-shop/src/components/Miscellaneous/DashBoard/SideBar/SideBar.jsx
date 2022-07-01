@@ -26,32 +26,32 @@ import { currentTheme as theme, effects } from "../../../../theme";
 const categories = [
   {
     name: "Inicio",
-    icon: <FontAwesomeIcon icon={faHouse} />,
+    icon: <FontAwesomeIcon icon={faHouse} color={theme.white} />,
     link: "/dashboard",
   },
   {
     name: "Lista de productos",
-    icon: <FontAwesomeIcon icon={faWallet} />,
+    icon: <FontAwesomeIcon icon={faWallet} color={theme.white} />,
     link: "/dashboard/products",
   },
   {
     name: "Agregar producto",
-    icon: <FontAwesomeIcon icon={faPlus} />,
+    icon: <FontAwesomeIcon icon={faPlus} color={theme.white} />,
     link: "/dashboard/createProductForm",
   },
   {
     name: "Categorias",
-    icon: <FontAwesomeIcon icon={faBriefcase} />,
+    icon: <FontAwesomeIcon icon={faBriefcase} color={theme.white} />,
     link: "/dashboard/categories",
   },
   {
     name: "Lista de usuarios",
-    icon: <FontAwesomeIcon icon={faUsers} />,
+    icon: <FontAwesomeIcon icon={faUsers} color={theme.white} />,
     link: "/dashboard/users",
   },
   {
     name: "Agregar usuario",
-    icon: <FontAwesomeIcon icon={faUserPlus} />,
+    icon: <FontAwesomeIcon icon={faUserPlus} color={theme.white} />,
     link: "/dashboard/createUserForm",
   },
 ];
@@ -69,7 +69,7 @@ export default function Sidebar(props) {
         fontSize={13}
         fontWeight="bolder"
         textAlign={"left"}
-        color="#fff"
+        color={theme.white}
         noWrap
       >
         ADMIN PANEL

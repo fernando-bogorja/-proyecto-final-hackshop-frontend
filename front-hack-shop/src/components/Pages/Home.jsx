@@ -9,6 +9,7 @@ import Header from "../Partials/Header";
 import useGetProducts from "../../Hooks/useGetProducts";
 import BannerPhotos from "../Miscellaneous/BannerPhotos/BannerPhotos";
 import Typography from "@mui/material/Typography";
+import { currentTheme as theme, effects } from "../../theme";
 
 const Loader = () => {
   return (
@@ -32,7 +33,7 @@ const Home = () => {
           <Box sx={{ flexGrow: 1 }}>
             <Header />
             <React.Suspense fallback={<Loader />}>
-              {categories.map((category) => (
+              {categories.map(category => (
                 <Box
                   width="100%"
                   display="flex"
@@ -40,17 +41,18 @@ const Home = () => {
                   key={category.id}
                   py={3}
                   sx={{
-                    backgroundColor: "#fff",
+                    backgroundColor: theme.white,
                   }}
+                  key={category._id}
                 >
                   <Box width="80%" sx={{ borderRadius: "5px" }}>
-                    <Carousel key={category._id} category={category.name}>
+                    <Carousel key={category.name} category={category.name}>
                       {products
                         .filter(
-                          (product) => product.category._id === category._id
+                          product => product.category._id === category._id
                         )
-                        .map((product) => (
-                          <ProductCard product={product} />
+                        .map(product => (
+                          <ProductCard key={product._id} product={product} />
                         ))}
                     </Carousel>
                   </Box>

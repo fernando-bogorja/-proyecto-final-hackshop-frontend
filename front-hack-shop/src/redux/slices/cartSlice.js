@@ -48,7 +48,7 @@ const cartSlice = createSlice({
       );
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
-        toast.error(`Se restó una unidad del articulo al producto (${state.cartItems[itemIndex].cartQuantity})`, toastConfig);
+        toast(`Se restó una unidad del articulo al producto (${state.cartItems[itemIndex].cartQuantity})`, toastConfig);
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.cartItems.filter(
           (cartItem) => cartItem._id !== action.payload._id
