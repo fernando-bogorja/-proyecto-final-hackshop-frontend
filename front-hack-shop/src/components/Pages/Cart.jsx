@@ -9,6 +9,7 @@ import {
   faMinus,
   faXmark,
   faArrowRightLong,
+  faArrowLeftLong,
 } from "@fortawesome/free-solid-svg-icons";
 import { Grid } from "@mui/material";
 import { currentTheme as theme } from "../../theme";
@@ -53,6 +54,7 @@ export default function Cart() {
           <Box
             minHeight="600px"
             maxHeight="600px"
+            width="100%"
             my={2}
             sx={{
               borderRadius: "10px",
@@ -60,17 +62,61 @@ export default function Cart() {
               overflowX: "hidden",
             }}
           >
-            {cart.cartItems.map(article => (
-              <Grid item xs={12} md={12} lg={12} key={article._id}>
-                <ArticleCard article={article} />
+            {cart.cartItems.length > 0 ? (
+              cart.cartItems.map(article => (
+                <Grid item xs={12} md={12} lg={12} key={article._id}>
+                  <ArticleCard article={article} />
+                </Grid>
+              ))
+            ) : (
+              <Grid item xs={12} md={12} lg={12} flexDirection="column">
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  width="100%"
+                >
+                  <img
+                    src={require("../../assets/empty-cart.gif")}
+                    alt="empty cart"
+                    style={{ width: "25%" }}
+                  />
+                  <Typography py={3} level="h3" fontSize={25}>
+                    Oops, todo muy vacío por aquí
+                  </Typography>
+                  <Link
+                    to="/"
+                    className="link-none"
+                    style={{
+                      backgroundColor: theme.black,
+                      color: theme.white,
+                      width: "20%",
+                      padding: "20px",
+                      borderRadius: "10px",
+                      ":hover": { backgroundColor: theme.black_hover },
+                    }}
+                  >
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                      sx={{}}
+                    >
+                      <Typography fontSize={20}>IR A LA TIENDA</Typography>
+                    </Box>
+                  </Link>
+                </Box>
               </Grid>
-            ))}
+            )}
           </Box>
-          <Grid item xs={12}>
-            <Box width="100%" display="flex" justifyContent="flex-end">
-              <CheckoutContainer cart={cart} />
-            </Box>
-          </Grid>
+          {cart.cartItems.length > 0 && (
+            <Grid item xs={12}>
+              <Box width="100%" display="flex" justifyContent="flex-end">
+                <CheckoutContainer cart={cart} />
+              </Box>
+            </Grid>
+          )}
         </Grid>
       </Box>
     </Box>
@@ -219,17 +265,13 @@ const CheckoutContainer = ({ cart }) => {
           <Typography fontSize={20}>Subtotal</Typography>
           <Typography fontSize={20}>USD {cart.cartTotalAmount}</Typography>
         </Box>
-        <Box
-          width="100%"
-          display="flex"
-          justifyContent="space-between"
-          bgcolor={theme.black}
-          color={theme.white}
-        >
+        <Box width="100%" display="flex" justifyContent="space-between">
           <Link
             to="/checkout"
             className="link-none"
             style={{
+              backgroundColor: theme.black,
+              color: theme.white,
               width: "100%",
               padding: "20px",
               borderRadius: "10px",
