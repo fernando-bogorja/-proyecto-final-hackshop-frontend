@@ -56,7 +56,7 @@ export default function Form() {
     (
       <React.Fragment>
         <Typography variant="h6" gutterBottom>
-          Datos de Usuario
+          Agrega un Producto
         </Typography>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>

@@ -21,6 +21,7 @@ import { useSelector } from "react-redux";
 import ContextMenu from "./Miscellaneous/ContextMenu/ContextMenu";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Henri from "./Miscellaneous/Henri";
 function App() {
   const user = useSelector((state) => state.user);
   if (!user.token) {
@@ -67,6 +68,7 @@ function App() {
           element={<Dashboard component={<CreateProductForm />} />}
         />
         <Route path="/dashboard/products" element={<Dashboard />} />
+        <Route path="/henri" element={<Henri />} />
       </Routes>
       <Footer />
     </div>

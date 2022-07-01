@@ -20,6 +20,7 @@ import { Button } from "@mui/material";
 import ThreeScene from "./ThreeScene";
 import { OrbitControls } from "@react-three/drei";
 import Sillanegra from "./Sillanegra/Sillanegra";
+import Couch from "./Couch";
 //import LivingRoom from "./LivingRoom";
 //import Piso from "./Piso";
 //import Dino from "./Dino";
@@ -39,13 +40,14 @@ function Model() {
     <ThreeScene>
       {/* <Newliving /> */}
       <OrbitControls autoRotate />
-      <ambientLight intensity={0.3} />
-      <pointLight position={[-35, 35, 0]} intensity={1.4} />
-      <pointLight position={[35, 35, 0]} intensity={1.4} />
+      <ambientLight intensity={0.1} />
+      <pointLight position={[-35, 35, 0]} intensity={0.5} />
+      <pointLight position={[35, 35, 0]} intensity={0.5} />
       {/* <color attach="background" args={["#fffff"]} /> */}
       {/* <Sphere color={"orange"} position={[-2, 0, 0]} />
     <Sphere color={"red"} position={[2, 0, 0]} /> */}
-      <Sillanegra />
+      {/* <Sillanegra /> */}
+      <Couch />
       {/* <LivingRoom position={[-100, -50, -9]} /> */}
       {/* <Werehouse /> */}
       {/* <Dino position={[-100, -50, -9]} />

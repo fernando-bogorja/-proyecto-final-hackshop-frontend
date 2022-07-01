@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 //import Sillanegra from "./Sillanegra/Sillanegra";
 //import Sillalu2 from "./Sillalu2";
-//import Couch from "./Couch";
+import Couch from "./Couch";
 function Allscenes() {
   return (
     <Canvas
@@ -20,7 +20,7 @@ function Allscenes() {
       <pointLight position={[-35, 35, 0]} intensity={1.4} />
       <pointLight position={[35, 35, 0]} intensity={1.4} />
       <Suspense fallback={null}>
-        {/* <Couch position={[0.025, -0.9, 1]} /> */}
+        <Couch position={[0.025, -0.9, 1]} />
         <Sillanegra position={[-2, -0.9, 0]} />
         <Sillanegra position={[0.025, -0.9, 3]} />
         <Sillanegra position={[1.025, -0.9, 2]} />

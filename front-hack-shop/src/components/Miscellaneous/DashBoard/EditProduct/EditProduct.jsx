@@ -48,8 +48,8 @@ export default function EditProduct({ product }) {
     ),
     (
       <React.Fragment>
-        <Typography variant="h6" gutterBottom>
-          Datos de Usuario
+        <Typography textAlign="center" variant="h6" gutterBottom>
+          Datos de Producto
         </Typography>
         <form>
           <Grid container spacing={3}>
