@@ -83,14 +83,17 @@ export default function Sidebar(props) {
                 backgroundColor: theme.black_hover,
               },
             }}
+            href={category.link}
             disablePadding
           >
             <ListItemButton>
               <ListItemIcon>{category.icon}</ListItemIcon>
-              <ListItemText
-                primary={category.name}
-                sx={{ color: theme.white }}
-              />
+              <Link className="link-none" to={category.link}>
+                <ListItemText
+                  primary={category.name}
+                  sx={{ color: theme.white }}
+                />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}

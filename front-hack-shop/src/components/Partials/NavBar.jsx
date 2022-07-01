@@ -25,25 +25,13 @@ import { currentTheme as theme, effects } from "../../theme";
 
 const pages = [
   {
-    name: "Inicio",
-    path: "",
-  },
-  {
-    name: "Carrito",
-    path: "cart",
-  },
-  {
-    name: "Perfil",
-    path: "profile",
-  },
-  {
     name: "Dashboard",
     path: "dashboard",
   },
 ];
 
 export default function PrimarySearchAppBar() {
-  const { cartTotalQuantity } = useSelector(state => state.cart);
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
   const [user, handleSetUser, handleLogoutUser] = useUserHook();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -51,7 +39,7 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = event => {
+  const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -64,7 +52,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = event => {
+  const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -189,7 +177,7 @@ export default function PrimarySearchAppBar() {
                 }}
                 ml={2}
               >
-                {pages.map(page => (
+                {pages.map((page) => (
                   <Link
                     className="nav-link"
                     to={`/${page.path.toLowerCase()}`}

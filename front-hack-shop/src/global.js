@@ -1,6 +1,6 @@
 const global = {
-    //Api url
-    api: "http://192.168.1.8:3001/api/",
-}
+  //Api url
+  api: "http://localhost:3001/api/",
+};
 
 export default global;
