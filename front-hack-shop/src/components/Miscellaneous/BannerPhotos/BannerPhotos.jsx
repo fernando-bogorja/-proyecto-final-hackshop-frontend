@@ -42,6 +42,7 @@ function BannerFotos() {
         justifyContent="center"
         alignItems="center"
         width="100%"
+        backgroundColor={theme.gray}
       >
         <Box
           width="100%"
@@ -450,7 +451,7 @@ function BannerFotos() {
                       ></Box>
                       <figcaption className="figcaption7">
                         <Typography
-                          className="text7"
+                          className="text"
                           variant="h5"
                           color="#000"
                           fontFamily={theme.fonts.title}

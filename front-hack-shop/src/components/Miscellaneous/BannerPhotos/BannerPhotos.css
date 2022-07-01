@@ -165,7 +165,7 @@ figure.effect-chico .text {
   padding: 20% 0 20px 0;
 }
 
-.figcaption7 {
+.figcaption7:hover {
   position: absolute;
   top: 70px;
   right: -24px;
@@ -177,7 +177,7 @@ figure.effect-chico .text {
   transform: scale(1.1);
 }
 
-figure.effect-chico7 .figcaption7::before {
+figure.effect-chico7 .figcaption7:hover {
   opacity: 1;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
