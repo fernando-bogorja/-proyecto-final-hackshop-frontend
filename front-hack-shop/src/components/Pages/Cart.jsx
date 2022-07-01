@@ -229,12 +229,18 @@ const CheckoutContainer = ({ cart }) => {
           <Link
             to="/checkout"
             className="link-none"
-            style={{ width: "100%", padding: "20px" }}
+            style={{
+              width: "100%",
+              padding: "20px",
+              borderRadius: "10px",
+              ":hover": { backgroundColor: theme.black_hover },
+            }}
           >
             <Box
               display="flex"
               justifyContent="space-between"
               alignItems="center"
+              sx={{}}
             >
               <Typography fontSize={20}>CHECKOUT</Typography>
               <FontAwesomeIcon icon={faArrowRightLong} />

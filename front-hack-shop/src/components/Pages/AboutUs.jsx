@@ -46,7 +46,7 @@ const AboutUs = () => {
                 borderRadius="10px"
                 textAlign="justify"
               >
-                <Typography component="body1">
+                <Typography variant="body1">
                   Esta página es el resultado final para nuestro proyecto del
                   Coding Bootcamp. Durante 3 arduas semanas, el equipo, decidió
                   optar como temática, la estructuración de una página web,
@@ -76,7 +76,7 @@ const AboutUs = () => {
                 borderRadius="10px"
                 textAlign="justify"
               >
-                <Typography component="body1">
+                <Typography variant="body1">
                   Durante los ultimos días del proyecto, se fueron puliendo
                   funcionalidades como por ejemplo, las del carrito de compras,
                   así como tambíen, todo lo relacionado al responsive de las
