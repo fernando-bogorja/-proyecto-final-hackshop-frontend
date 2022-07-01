@@ -1,16 +1,15 @@
 .grid {
   position: relative;
   margin: 0 auto;
-  /* padding: 1em 0 0em; */
+  padding: 1em 0 0;
   max-width: 21rem;
-
   list-style: none;
   text-align: center;
 }
 .grid7 {
   position: relative;
   margin: 0;
-  /* padding: 1em 0 0em; */
+  padding: 0;
   max-width: 9rem;
 
   list-style: none;
@@ -110,9 +109,20 @@ figure.effect-chico .foto {
   -webkit-transform: scale(1.12);
   transform: scale(1.12);
 }
+figure.effect-chico7 .foto7 {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(1.12);
+  transform: scale(1.12);
+}
 
 figure.effect-chico:hover .foto {
   opacity: 0.5;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+figure.effect-chico7:hover .foto7 {
+  opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
@@ -132,6 +142,17 @@ figure.effect-chico figcaption::before {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+figure.effect-chico7 .figcaption7::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+
+  content: "";
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
 figure.effect-chico figcaption::before,
 figure.effect-chico p {
@@ -146,17 +167,35 @@ figure.effect-chico .text {
 
 .figcaption7 {
   position: absolute;
-  top: 90px;
+  top: 70px;
   right: -24px;
-  bottom: 50px;
+  bottom: 30px;
   left: 20px;
-  border: 1px solid #000;
+  border: 1px solid rgb(114, 113, 113);
   content: "";
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
+figure.effect-chico7 .figcaption7::before {
+  opacity: 1;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
 figure.effect-chico .figcaptio7 {
+  padding: 0;
+  width: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 10%;
+  font-weight: 700;
+  top: 90px;
+  right: 6rem;
+}
+
+figure.effect-chico7 .figcaptio7 {
   padding: 0;
   width: 12rem;
   display: flex;

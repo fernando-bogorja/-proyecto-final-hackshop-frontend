@@ -378,7 +378,7 @@ function BannerFotos() {
                   <Box
                     gap="4rem"
                     className="grid"
-                    paddingTop={{ lg: "4rem" }}
+                    paddingTop={0}
                     sx={{
                       position: "relative",
                       margin: "0",
@@ -424,9 +424,9 @@ function BannerFotos() {
                       textAlign: "center",
                     }}
                   >
-                    <figure className="effect-chico">
+                    <figure className="effect-chico7">
                       <Box
-                        className="foto"
+                        className="foto7"
                         width={{
                           xs: "21rem",
                           sm: "21rem",
@@ -441,7 +441,7 @@ function BannerFotos() {
                           lg: "12rem",
                           xl: "12rem",
                         }}
-                        marginTop="4rem"
+                        marginTop="3rem"
                         sx={{
                           background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8b138f9f/images/productsets/1481921.jpg?sw=1200?auto=format&fit=crop&w=800)`,
                           backgroundPosition: "-50px 0px",
