@@ -1,6 +1,7 @@
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, Link } from "@mui/material";
 import "@fontsource/arima-madurai";
 import { currentTheme as theme } from "../../../theme";
+import "./BannerPhotos.css";
 
 function BannerFotos() {
   // const itemData = [
@@ -91,24 +92,41 @@ function BannerFotos() {
                 padding={"0 !important"}
               >
                 <Box
-                  className="Foto1"
-                  zIndex={5}
-                  width="21rem"
-                  height="46rem"
+                  className="grid"
                   sx={{
-                    background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw433eddd7/images/productsets/1512503.jpg??auto=format&fit=crop&w=800)`,
-                    backgroundPosition: "21rem 0",
-                    backgroundSize: "300% 100%",
+                    position: "absolute",
+                    margin: "0 auto",
+                    padding: " 1em 0 4em ",
+                    maxWidth: "1000px",
+                    listStyle: "none",
+                    textAlign: "center",
                   }}
                 >
-                  <Typography
-                    variant="h5"
-                    color="white"
-                    fontFamily={theme.fonts.title}
-                    marginLeft="1rem"
-                  >
-                    Todos los Espacios
-                  </Typography>
+                  <figure className="effect-chico">
+                    <Box
+                      className="foto"
+                      zIndex={5}
+                      width="21rem"
+                      height="46rem"
+                      sx={{
+                        background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw433eddd7/images/productsets/1512503.jpg??auto=format&fit=crop&w=800)`,
+                        backgroundPosition: "21rem 0",
+                        backgroundSize: "300% 100%",
+                      }}
+                    ></Box>
+                    <figcaption>
+                      <Typography
+                        className="text"
+                        variant="h5"
+                        color="white"
+                        fontFamily={theme.fonts.title}
+                        marginLeft="1rem"
+                      >
+                        Todos los <span>Espacios</span>
+                      </Typography>
+                      <p>Explora todos nuestros diseños.</p>
+                    </figcaption>
+                  </figure>
                 </Box>
               </Grid>
 
@@ -138,44 +156,80 @@ function BannerFotos() {
                   }}
                 >
                   <Box
-                    className="Foto2"
-                    zIndex={5}
-                    width="21rem"
-                    height="21rem"
+                    className="grid"
                     sx={{
-                      background: `url(https://f.fcdn.app/imgs/1bfe18/www.kavehome.com.uy/kaveuy/a20d/webp/recursos/48/600x0/banner-3.jpg?auto=format&fit=crop&w=800)`,
-                      backgroundPosition: "21rem 0px",
-                      backgroundSize: "100% 100%",
+                      position: "relative",
+                      margin: "0 auto",
+                      // padding: "1em 0 4em",
+                      maxWidth: "1000px",
+                      listStyle: "none",
+                      textAlign: "center",
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      color="white"
-                      fontFamily={theme.fonts.title}
-                      marginLeft="1rem"
-                    >
-                      Recibidor
-                    </Typography>
+                    <figure className="effect-chico">
+                      <Box
+                        className="foto"
+                        zIndex={5}
+                        width="21rem"
+                        height="21rem"
+                        sx={{
+                          background: `url(https://f.fcdn.app/imgs/1bfe18/www.kavehome.com.uy/kaveuy/a20d/webp/recursos/48/600x0/banner-3.jpg?auto=format&fit=crop&w=800)`,
+                          backgroundPosition: "21rem 0px",
+                          backgroundSize: "100% 100%",
+                        }}
+                      >
+                        <figcaption>
+                          <Typography
+                            className="text"
+                            variant="h5"
+                            color="white"
+                            fontFamily={theme.fonts.title}
+                            marginLeft="1rem"
+                          >
+                            Recibidor
+                          </Typography>
+                          <p>Explora todos nuestros diseños.</p>
+                        </figcaption>
+                      </Box>
+                    </figure>
                   </Box>
+                  {/* foto 3 */}
                   <Box
-                    className="Foto3"
-                    zIndex={5}
-                    width="100%"
-                    height="21rem"
+                    className="grid"
                     sx={{
-                      background: `url(https://f.fcdn.app/imgs/90a7ed/www.kavehome.com.uy/kaveuy/ccde/webp/recursos/49/600x0/banner-4-vo2.jpg?auto=format&fit=crop&w=800)`,
-                      backgroundPosition: "21rem 0px",
-                      backgroundSize: "100% 100%",
+                      position: "relative",
+                      margin: "0 auto",
+                      maxWidth: "1000px",
+                      listStyle: "none",
+                      textAlign: "center",
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      color="white"
-                      fontFamily={theme.fonts.title}
-                      marginLeft="1rem"
-                    >
-                      Living
-                    </Typography>
+                    <figure className="effect-chico">
+                      <Box
+                        className="foto"
+                        zIndex={5}
+                        width="21rem"
+                        height="21rem"
+                        sx={{
+                          background: `url(https://f.fcdn.app/imgs/90a7ed/www.kavehome.com.uy/kaveuy/ccde/webp/recursos/49/600x0/banner-4-vo2.jpg?auto=format&fit=crop&w=800)`,
+                          backgroundPosition: "21rem 0px",
+                          backgroundSize: "100% 100%",
+                        }}
+                      >
+                        <figcaption>
+                          <Typography
+                            className="text"
+                            variant="h5"
+                            color="white"
+                            fontFamily={theme.fonts.title}
+                            marginLeft="1rem"
+                          >
+                            Living
+                          </Typography>
+                          <p>Explora todos nuestros diseños.</p>
+                        </figcaption>
+                      </Box>
+                    </figure>
                   </Box>
                 </Box>
               </Grid>
@@ -199,59 +253,100 @@ function BannerFotos() {
                   gap="4rem"
                   marginTop={{ xs: "4rem", sm: 0, md: "4rem", lg: 0, xl: 0 }}
                 >
+                  {/* foto 4*/}
                   <Box
-                    className="Foto4"
-                    width="21rem"
-                    height="21rem"
+                    className="grid"
                     sx={{
-                      background: `url(https://f.fcdn.app/imgs/6c396f/www.kavehome.com.uy/kaveuy/a5a7/webp/recursos/47/600x0/banner.jpg?auto=format&fit=crop&w=800)`,
-                      backgroundPosition: "21rem 0px",
-                      backgroundSize: "100% 100%",
+                      position: "relative",
+                      margin: "0 auto",
+                      maxWidth: "1000px",
+                      listStyle: "none",
+                      textAlign: "center",
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      color="white"
-                      fontFamily={theme.fonts.title}
-                      marginLeft="1rem"
-                    >
-                      Comedor
-                    </Typography>
+                    <figure className="effect-chico">
+                      <Box
+                        className="foto"
+                        width="21rem"
+                        height="21rem"
+                        sx={{
+                          background: `url(https://f.fcdn.app/imgs/6c396f/www.kavehome.com.uy/kaveuy/a5a7/webp/recursos/47/600x0/banner.jpg?auto=format&fit=crop&w=800)`,
+                          backgroundPosition: "21rem 0px",
+                          backgroundSize: "100% 100%",
+                        }}
+                      >
+                        <figcaption>
+                          <Typography
+                            className="text"
+                            variant="h5"
+                            color="white"
+                            fontFamily={theme.fonts.title}
+                            marginLeft="1rem"
+                          >
+                            Comedor
+                          </Typography>
+                          <p>Explora todos nuestros diseños.</p>
+                        </figcaption>
+                      </Box>
+                    </figure>
                   </Box>
+
+                  {/* foto 5*/}
                   <Box
-                    className="Foto5"
-                    width="100%"
-                    height="21rem"
+                    className="grid"
                     sx={{
-                      background: `url(https://f.fcdn.app/imgs/74aa80/www.kavehome.com.uy/kaveuy/9a1d/webp/recursos/50/600x0/banner-copia.jpg?auto=format&fit=crop&w=800)`,
-                      backgroundPosition: "21rem 0px",
-                      backgroundSize: "100% 100%",
+                      position: "relative",
+                      margin: "0 auto",
+                      maxWidth: "1000px",
+                      listStyle: "none",
+                      textAlign: "center",
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      color="white"
-                      fontFamily={theme.fonts.title}
-                      marginLeft="1rem"
-                    >
-                      Exterior
-                    </Typography>
+                    <figure className="effect-chico">
+                      <Box
+                        className="foto"
+                        width="21rem"
+                        height="21rem"
+                        sx={{
+                          background: `url(https://f.fcdn.app/imgs/74aa80/www.kavehome.com.uy/kaveuy/9a1d/webp/recursos/50/600x0/banner-copia.jpg?auto=format&fit=crop&w=800)`,
+                          backgroundPosition: "21rem 0px",
+                          backgroundSize: "100% 100%",
+                        }}
+                      >
+                        <figcaption>
+                          <Typography
+                            className="text"
+                            variant="h5"
+                            color="white"
+                            fontFamily={theme.fonts.title}
+                            marginLeft="1rem"
+                          >
+                            Exterior
+                          </Typography>
+                          <p>Explora todos nuestros diseños.</p>
+                        </figcaption>
+                      </Box>
+                    </figure>
                   </Box>
                 </Box>
               </Grid>
+
               {/* column 4 */}
               <Grid
                 item
                 xs={3}
+                width="21rem"
                 paddingTop={{ xs: "0 !important" }}
                 margin={"0 !important"}
                 display="flex"
                 justifyContent={"center !important"}
                 alignItems={"start !important"}
                 padding={"0 !important"}
+                gap="4rem"
               >
                 <Box
                   className="BoxVert3"
+                  gap="4rem"
                   width={{
                     xs: "21rem",
                     sm: "21rem",
@@ -259,16 +354,16 @@ function BannerFotos() {
                     lg: "46rem",
                     xl: "21rem",
                   }}
+                  height="46rem"
                   zIndex={5}
                   display="flex"
-                  justifyContent={"flex-end !important"}
-                  gap="4rem"
-                  // paddingTop={{ xs: "0rem" }}
+                  justifyContent={"flex-start !important"}
+                  paddingTop={{ xs: "0rem" }}
                   marginTop={{
                     xs: "4rem",
                     sm: "4rem",
                     md: "4rem",
-                    lg: "4rem",
+                    lg: "0rem",
                     xl: "0rem",
                   }}
                   flexDirection={{
@@ -279,55 +374,91 @@ function BannerFotos() {
                     xl: "column",
                   }}
                 >
+                  {/* foto 6 */}
                   <Box
-                    className="Foto6"
-                    width="21rem"
-                    height="21rem"
+                    gap="4rem"
+                    className="grid"
+                    paddingTop={{ lg: "4rem" }}
                     sx={{
-                      background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw644288a9/images/productsets/1685510.jpg?sw=1600?auto=format&fit=crop&w=800)`,
-                      backgroundPosition: "-80px 0px",
-                      backgroundSize: "200% 100%",
+                      position: "relative",
+                      margin: "0",
+                      height: "21rem",
+                      width: "21rem",
+                      listStyle: "none",
+                      textAlign: "center",
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      color="white"
-                      fontFamily={theme.fonts.title}
-                      marginLeft="1rem"
-                    >
-                      Dormitorio
-                    </Typography>
+                    <figure className="effect-chico">
+                      <Box
+                        className="foto"
+                        width="21rem"
+                        height="21rem"
+                        sx={{
+                          background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw644288a9/images/productsets/1685510.jpg?sw=1600?auto=format&fit=crop&w=800)`,
+                          backgroundPosition: "-80px 0px",
+                          backgroundSize: "200% 100%",
+                        }}
+                      ></Box>
+                      <figcaption>
+                        <Typography
+                          className="text"
+                          variant="h5"
+                          color="white"
+                          fontFamily={theme.fonts.title}
+                        >
+                          Dormitorio
+                        </Typography>
+                        <p>Explora todos nuestros diseños.</p>
+                      </figcaption>
+                    </figure>
                   </Box>
+
+                  {/* foto 7 */}
                   <Box
-                    className="Foto7"
-                    width={{
-                      xs: "21rem",
-                      sm: "21rem",
-                      md: "21rem",
-                      lg: "21rem",
-                      xl: "12rem",
-                    }}
-                    minHeight={{
-                      xs: "21rem",
-                      sm: "21rem",
-                      md: "21rem",
-                      lg: "12rem",
-                      xl: "12rem",
-                    }}
+                    className="grid7 "
                     sx={{
-                      background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8b138f9f/images/productsets/1481921.jpg?sw=1200?auto=format&fit=crop&w=800)`,
-                      backgroundPosition: "-50px 0px",
-                      backgroundSize: "170% 100%",
+                      position: "relative",
+                      margin: "0 ",
+                      // maxWidth: "1000px",
+                      listStyle: "none",
+                      textAlign: "center",
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      color="white"
-                      fontFamily={theme.fonts.title}
-                      marginLeft="1rem"
-                    >
-                      Oficina
-                    </Typography>
+                    <figure className="effect-chico">
+                      <Box
+                        className="foto"
+                        width={{
+                          xs: "21rem",
+                          sm: "21rem",
+                          md: "21rem",
+                          lg: "12rem",
+                          xl: "12rem",
+                        }}
+                        minHeight={{
+                          xs: "21rem",
+                          sm: "21rem",
+                          md: "21rem",
+                          lg: "12rem",
+                          xl: "12rem",
+                        }}
+                        marginTop="4rem"
+                        sx={{
+                          background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8b138f9f/images/productsets/1481921.jpg?sw=1200?auto=format&fit=crop&w=800)`,
+                          backgroundPosition: "-50px 0px",
+                          backgroundSize: "170% 100%",
+                        }}
+                      ></Box>
+                      <figcaption className="figcaption7">
+                        <Typography
+                          className="text7"
+                          variant="h5"
+                          color="#000"
+                          fontFamily={theme.fonts.title}
+                        >
+                          Oficina
+                        </Typography>
+                      </figcaption>
+                    </figure>
                   </Box>
                 </Box>
               </Grid>
