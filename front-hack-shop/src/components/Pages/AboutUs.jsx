@@ -1,227 +1,148 @@
-import { Container, Box } from "@mui/system";
+import { Box } from "@mui/system";
 import { GitHub } from "@mui/icons-material";
-import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import { Grid } from "@mui/material";
+import { currentTheme as theme } from "../../theme";
+
 const AboutUs = () => {
   return (
-    <Container
-      maxWidth="xl"
-      sx={{ backgroundColor: "#8e806a7c", height: "100vh" }}
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      my={15}
+      sx={{
+        width: "100%",
+        height: "100%",
+      }}
     >
-      <Box>
-        {" "}
-        <h1
-          style={{
-            textAlign: "center",
-            paddingTop: "7rem",
-            textShadow: "2px 2px rgb(0,0,0,0.22)",
-            color: "rgb(255,255,255)",
-          }}
-        >
-          Sobre nosotros
-        </h1>
-        <p
-          style={{
-            textShadow: "2px 2px rgb(0,0,0,0.22)",
-            color: "rgb(255,255,255)",
-            paddingTop: "1rem",
-            textAlign: "center",
-          }}
-        >
-          {" "}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-          animi et dolor reiciendis laborum molestias aliquid debitis est aut
-          iusto consequatur assumenda obcaecati libero ullam alias, facilis
-          cumque, accusantium ad! Iure ex laudantium vitae, libero temporibus
-          quo dolor perferendis aperiam perspiciatis rem commodi magnam
-          repellendus ratione debitis. Omnis cumque voluptatum incidunt minus
-          tempore consectetur! Debitis impedit distinctio reprehenderit vitae,
-          inventore eligendi corrupti ullam quis deleniti earum. Dolore
-          recusandae quo maxime! Earum ratione laudantium nemo repellat quia
-          magnam saepe error, impedit, repudiandae eius, aspernatur laboriosam
-          optio. Ut ab eum odio, minus sit sunt aspernatur. Doloremque dolorum
-          illo sed, consequatur quos perspiciatis hic iste nesciunt nobis odit
-          sapiente deserunt dignissimos autem voluptas optio expedita enim
-          voluptatum maiores ullam velit reiciendis fugit quam! Voluptatem,
-          totam molestias modi, officia sed consequuntur earum aspernatur
-          impedit exercitationem quisquam itaque, officiis culpa! Possimus
-          aliquid repellat exercitationem nobis. Voluptatum vel quidem
-          distinctio iure, fugit eligendi ullam ratione modi dolor architecto
-          eum ad consectetur nulla deserunt est placeat libero, nihil omnis unde
-          animi molestias doloremque id quas enim! Ullam esse nostrum deleniti.
-          Expedita animi eaque reprehenderit, accusamus laborum cumque? Nesciunt
-          adipisci, nemo corporis vel eius nostrum sint expedita beatae possimus
-          amet. Reprehenderit ab temporibus delectus accusamus illo.
-        </p>
+      <Box sx={{ width: "80%" }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Box width="100%" bgcolor={theme.white} borderRadius="10px">
+              <Typography
+                component="h2"
+                fontSize={30}
+                textAlign="center"
+                borderBottom="2px solid "
+              >
+                ¡Nuestro proyecto!
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box
+              width="100%"
+              display="flex"
+              flexWrap="wrap"
+              justifyContent="space-between"
+            >
+              <Box
+                px={2}
+                width={{ xs: "100%", md: "49%" }}
+                py={{ xs: 2, md: 0 }}
+                minHeight="300px"
+                bgcolor={theme.white}
+                borderRadius="10px"
+                textAlign="justify"
+              >
+                <Typography component="body1">
+                  Esta página es el resultado final para nuestro proyecto del
+                  Coding Bootcamp. Durante 3 arduas semanas, el equipo, decidió
+                  optar como temática, la estructuración de una página web,
+                  acerca de venta de muebles, de diferentes categorías. Como
+                  todo nuevo proyecto, se estuvo desde el primer minuto,
+                  decidiendo que era lo mas conveniente, desde layouts creados
+                  en figma, sacando ideas de páginas similares en cuanto a la
+                  tematica y sus contenidos. A la hora de pasar todo esto al
+                  codigo, el equipo siempre estuvo en constante comunicación,
+                  mediante discord, herramienta fundamental que empleamos para
+                  así estar conectados y poder tomar decisiones. Por momentos
+                  optamos por el asignamiento de diferentes tareas para cada uno
+                  del equipo, así como también, en otras etapas, la
+                  implementacíon de perprograming, ya que en determinadas
+                  circunstancias, alguno del equipo en particular, que se
+                  encontraba con mayor facilidad, para poder realizar alguna
+                  tarea en especifico, explicara para que todos pudiesemos
+                  aprender un poco más durante la aplicación de codigo.
+                </Typography>
+              </Box>
+              <Box
+                px={2}
+                width={{ xs: "100%", md: "49%" }}
+                py={{ xs: 2, md: 0 }}
+                minHeight="300px"
+                bgcolor={theme.white}
+                borderRadius="10px"
+                textAlign="justify"
+              >
+                <Typography component="body1">
+                  Durante los ultimos días del proyecto, se fueron puliendo
+                  funcionalidades como por ejemplo, las del carrito de compras,
+                  así como tambíen, todo lo relacionado al responsive de las
+                  vistas, para una mejor experiencia del usuario. Fue realmente
+                  una experiencia muy linda y gratificante, contentos del
+                  resultado que pudimos lograr. Muchas gracias por tomarse el
+                  tiempo de leer toda esta pequeña gran parte de lo que fue la
+                  experiencia de nuestro proyecto final. Esperemos que este sea
+                  el primero, de muchos proyectos por venir! <br /> Lucía
+                  Rodríguez
+                  <br />
+                  Felipe Fontana <br /> Federico Gorriaran <br /> Fernando
+                  Bogorja
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Box
+              width="100%"
+              display="flex"
+              justifyContent="center"
+              flexWrap="wrap"
+              bgcolor={theme.white}
+              borderRadius="10px"
+            >
+              <PeopleCard
+                name="Pepita Organa"
+                image={require("../../assets/linkedin-profile-example-3.png")}
+              />
+              <PeopleCard
+                name="Pepita Organa"
+                image={require("../../assets/linkedin-profile-example-3.png")}
+              />
+              <PeopleCard
+                name="Pepita Organa"
+                image={require("../../assets/linkedin-profile-example-3.png")}
+              />
+              <PeopleCard
+                name="Pepita Organa"
+                image={require("../../assets/linkedin-profile-example-3.png")}
+              />
+              <PeopleCard
+                name="Pepita Organa"
+                image={require("../../assets/linkedin-profile-example-3.png")}
+              />
+            </Box>
+          </Grid>
+        </Grid>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: "3rem",
-        }}
-      >
-        <div
-          className="div"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "10px",
-          }}
-        >
-          <img
-            style={{
-              height: "200px",
-              marginLeft: "15px",
-              paddingTop: "15px",
-              borderRadius: "50%",
-            }}
-            srcSet={require("../../assets/linkedin-profile-example-3.png")}
-            alt=""
-          />
-          <Link
-            href="https://github.com/fernando-bogorja"
-            style={{
-              marginLeft: "8px",
-              marginTop: "5px",
-              display: "flex",
-              justifyContent: "center",
-              color: "white",
-            }}
-          >
-            <GitHub />
-          </Link>
-        </div>
-        <div
-          className="div"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "10px",
-          }}
-        >
-          <img
-            style={{
-              height: "200px",
-              marginLeft: "15px",
-              paddingTop: "15px",
-              borderRadius: "50%",
-            }}
-            srcSet={require("../../assets/linkedin-profile-example-3.png")}
-            alt=""
-          />
-          <Link
-            href=""
-            className="link-none"
-            style={{
-              marginLeft: "8px",
-              marginTop: "5px",
-              display: "flex",
-              justifyContent: "center",
-              color: "white",
-            }}
-          >
-            <GitHub />
-          </Link>
-        </div>
-        <div
-          className="div"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "10px",
-          }}
-        >
-          <img
-            style={{
-              height: "200px",
-              marginLeft: "15px",
-              paddingTop: "15px",
-              borderRadius: "50%",
-            }}
-            srcSet={require("../../assets/linkedin-profile-example-3.png")}
-            alt=""
-          />
-          <Link
-            href=""
-            className="link-none"
-            style={{
-              marginLeft: "8px",
-              marginTop: "5px",
-              display: "flex",
-              justifyContent: "center",
-              color: "white",
-            }}
-          >
-            <GitHub />
-          </Link>
-        </div>
-        <div
-          className="div"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "10px",
-          }}
-        >
-          <img
-            style={{
-              height: "200px",
-              marginLeft: "15px",
-              paddingTop: "15px",
-              borderRadius: "50%",
-            }}
-            srcSet={require("../../assets/linkedin-profile-example-3.png")}
-            alt=""
-          />
-          <Link
-            href=""
-            className="link-none"
-            style={{
-              marginLeft: "8px",
-              marginTop: "5px",
-              display: "flex",
-              justifyContent: "center",
-              color: "white",
-            }}
-          >
-            <GitHub />
-          </Link>
-        </div>
-        <div
-          className="div"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "10px",
-          }}
-        >
-          <img
-            style={{
-              height: "200px",
-              marginLeft: "15px",
-              paddingTop: "15px",
-              borderRadius: "50%",
-            }}
-            srcSet={require("../../assets/linkedin-profile-example-3.png")}
-            alt=""
-          />
-          <Link
-            href=""
-            className="link-none"
-            style={{
-              marginLeft: "8px",
-              marginTop: "5px",
-              display: "flex",
-              justifyContent: "center",
-              color: "white",
-            }}
-          >
-            <GitHub />
-          </Link>
-        </div>
-      </Box>
-    </Container>
+    </Box>
   );
 };
-
+const PeopleCard = ({ image, name }) => {
+  return (
+    <Box margin={2}>
+      <img
+        style={{ borderRadius: "50%" }}
+        width="150px"
+        srcSet={image}
+        alt=""
+      />
+      <Typography textAlign="center" component="h5">
+        {name}
+      </Typography>
+    </Box>
+  );
+};
 export default AboutUs;

@@ -17,12 +17,12 @@ const theme = {
     fonts: {
       title: "Abhaya Libre",
     },
-  }
-}
+  },
+};
 
 const effects = {
   zoom: "zoomOnHover",
-}
+};
 
 const toastConfig = {
   position: "bottom-right",
@@ -33,7 +33,7 @@ const toastConfig = {
   draggable: true,
   progress: undefined,
   theme: "dark",
-}
+};
 
 const currentTheme = theme.light;
 
