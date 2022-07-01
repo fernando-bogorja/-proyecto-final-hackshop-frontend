@@ -22,6 +22,7 @@ import ContextMenu from "./Miscellaneous/ContextMenu/ContextMenu";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Henri from "./Miscellaneous/Henri";
+import AboutPopUp from "./Partials/AboutPopUp";
 function App() {
   const user = useSelector((state) => state.user);
   return (
@@ -29,6 +30,7 @@ function App() {
       {/* SIGNIN / SIGNUP ROUTES */}
       <ToastContainer />
       <ContextMenu />
+      <AboutPopUp />
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
