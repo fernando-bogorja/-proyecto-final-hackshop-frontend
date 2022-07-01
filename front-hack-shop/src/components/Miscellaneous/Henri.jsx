@@ -1,8 +1,10 @@
 import * as React from "react";
+/*
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+*/
 import {
   Animator,
   ScrollContainer,
@@ -16,12 +18,12 @@ import {
   MoveOut,
   Sticky,
   StickyIn,
-  StickyOut,
-  Zoom,
+  //StickyOut,
+  //Zoom,
   ZoomIn,
   ZoomOut,
-  ZoomInScrollOut,
-  FadeUp,
+  //ZoomInScrollOut,
+  //FadeUp,
 } from "react-scroll-motion";
 
 const style = {
@@ -37,24 +39,24 @@ const style = {
 };
 
 export default function BasicModal() {
-  const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
-  const ZoomOutScrollIn = batch(StickyIn(), ZoomIn(), ZoomOut());
-  const FadeUp = batch(Fade(), Move(), Sticky());
+  //const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
+  //const ZoomOutScrollIn = batch(StickyIn(), ZoomIn(), ZoomOut());
+  // const FadeUp = batch(Fade(), Move(), Sticky());
   const Zoom = batch(Fade(), Sticky(), ZoomOut());
   return (
     <div>
       <ScrollContainer>
         <ScrollPage>
           {/* <Animator animation={ZoomInScrollOut}> */}
-          <Animator animation={ZoomOutScrollIn}>
-            <span style={{ fontSize: "30px" }}>
+          <Animator animation={Zoom}>
+            <span style={{ fontSize: "10px" }}>
               Te animas a hacer un firulais de zoom?✨
             </span>
           </Animator>
         </ScrollPage>
         <ScrollPage>
           <Animator animation={Zoom}>
-            <span style={{ fontSize: "40px" }}>
+            <span style={{ fontSize: "30px" }}>
               Gracias Por Tantas Milanesas ⛅️
             </span>
           </Animator>
@@ -77,7 +79,7 @@ export default function BasicModal() {
               </Animator>
               - Laia Organa -
               <Animator animation={MoveOut(1000, 0)}>
-                De Parte De TODOS ✋🏻
+                Gracias a TODOS los profes ✋🏻
               </Animator>
               <Animator animation={MoveOut(-1000, 0)}>
                 Nos vemos SIEMPRE 💛
@@ -92,7 +94,8 @@ export default function BasicModal() {
             </span>
             <br />
             <span style={{ fontSize: "30px" }}>
-              Felipe Fontana, Lucia Rodriguez, Fer y Federico Gorriarán
+              Felipe Fontana, Lucia Rodriguez, Fernando Bogorja y Federico
+              Gorriarán
             </span>
           </Animator>
         </ScrollPage>

@@ -28,8 +28,8 @@ import Model from "../Renders/Allscenes";
 import { currentTheme as theme } from "../../theme";
 
 function Product() {
-  let { productId } = useParams();
-  let urlGet = "http://localhost:3001/api/products/get?id=" + productId;
+  let { slug } = useParams();
+  let urlGet = "http://localhost:3001/api/products/get?slug=" + slug;
   const [product, setProduct] = useState([]);
   const [productImages, setProductImages] = useState([]);
   const [actualImg, setActualImg] = useState([]);
@@ -45,6 +45,7 @@ function Product() {
       console.log("Error: ", err);
     }
   };
+  console.log("product", product);
   const handleAddToCart = () => {
     addToCart(product);
   };
@@ -55,7 +56,7 @@ function Product() {
     getProduct();
     setActualImg(productImages[0]);
   }, [(pochoclo = productImages[0])]);
-  const handleClickForChangeImage = img => {
+  const handleClickForChangeImage = (img) => {
     return setActualImg(img);
   };
 

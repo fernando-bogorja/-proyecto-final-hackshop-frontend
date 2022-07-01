@@ -7,12 +7,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Home, ShoppingBag, Class, Group, PlusOne } from "@mui/icons-material";
+//import { Home, ShoppingBag, Class, Group, PlusOne } from "@mui/icons-material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUsers,
   faHouse,
-  faShoppingBag,
+  // faShoppingBag,
   faPlus,
   faUserPlus,
   faWallet,

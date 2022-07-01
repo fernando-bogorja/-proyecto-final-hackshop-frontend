@@ -19,7 +19,7 @@ import { currentTheme as theme, effects } from "../../../theme";
 
 export default function ProductCard({ product }) {
   const [cart, addToCart] = useCartHook();
-  const isInCart = cart.cartItems.some(item => item._id === product._id);
+  const isInCart = cart.cartItems.some((item) => item._id === product._id);
 
   const handleAddToCart = () => {
     addToCart(product);
@@ -46,7 +46,7 @@ export default function ProductCard({ product }) {
       </IconButton>
       <Link
         to={{
-          pathname: `product/` + product._id,
+          pathname: `product/` + product.slug,
         }}
       >
         <AspectRatio

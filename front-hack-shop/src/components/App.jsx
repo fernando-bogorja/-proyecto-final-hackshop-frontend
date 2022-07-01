@@ -23,7 +23,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Henri from "./Miscellaneous/Henri";
 function App() {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
@@ -34,7 +34,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/product/:slug" element={<Product />} />
         <Route path="/signin" element={<SignIn />} />
         <Route
           path="/dashboard"

@@ -24,7 +24,7 @@ export default function EditProduct({ product }) {
   });
   const [error, setError] = useState("");
 
-  const validateInput = value => {
+  const validateInput = (value) => {
     //regex only for letters and numbers
     const regex = /^[a-zA-Z0-9]+$/;
     if (value.length > 0) {
@@ -33,7 +33,7 @@ export default function EditProduct({ product }) {
     return false;
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
@@ -54,7 +54,7 @@ export default function EditProduct({ product }) {
             {/* Address Begin*/}
             <Grid item xs={12}>
               <Typography variant="h6" fontSize={20}>
-                Datos de Usuario
+                Datos de Producto
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6}>

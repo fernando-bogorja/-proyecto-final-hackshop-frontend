@@ -33,12 +33,11 @@ const Home = () => {
           <Box sx={{ flexGrow: 1 }}>
             <Header />
             <React.Suspense fallback={<Loader />}>
-              {categories.map(category => (
+              {categories.map((category) => (
                 <Box
                   width="100%"
                   display="flex"
                   justifyContent="center"
-                  key={category.id}
                   py={3}
                   sx={{
                     backgroundColor: theme.white,
@@ -49,9 +48,9 @@ const Home = () => {
                     <Carousel key={category.name} category={category.name}>
                       {products
                         .filter(
-                          product => product.category._id === category._id
+                          (product) => product.category._id === category._id
                         )
-                        .map(product => (
+                        .map((product) => (
                           <ProductCard key={product._id} product={product} />
                         ))}
                     </Carousel>
