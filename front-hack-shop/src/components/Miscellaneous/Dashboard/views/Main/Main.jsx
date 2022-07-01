@@ -10,7 +10,6 @@ export default function DashboardMain() {
     <>
       <Featured />
       <Chart data={userData} title="Usuarios registrados" grid dataKey="name" />
-      <Box mt={2}></Box>
     </>
   );
 }

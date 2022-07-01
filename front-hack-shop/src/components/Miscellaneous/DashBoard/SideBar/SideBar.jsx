@@ -7,40 +7,51 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Home, ShoppingBag, Class, Group } from "@mui/icons-material";
+import { Home, ShoppingBag, Class, Group, PlusOne } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUsers,
+  faHouse,
+  faShoppingBag,
+  faPlus,
+  faUserPlus,
+  faWallet,
+  faBriefcase,
+} from "@fortawesome/free-solid-svg-icons";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
+import { currentTheme as theme, effects } from "../../../../theme";
 
 const categories = [
   {
     name: "Inicio",
-    icon: <Home />,
+    icon: <FontAwesomeIcon icon={faHouse} />,
     link: "/dashboard",
   },
   {
-    name: "Productos",
-    icon: <ShoppingBag />,
+    name: "Lista de productos",
+    icon: <FontAwesomeIcon icon={faWallet} />,
     link: "/dashboard/products",
   },
   {
-    name: "Agregar Producto",
-    icon: <ShoppingBag />,
+    name: "Agregar producto",
+    icon: <FontAwesomeIcon icon={faPlus} />,
     link: "/dashboard/createProductForm",
   },
   {
     name: "Categorias",
-    icon: <Class />,
+    icon: <FontAwesomeIcon icon={faBriefcase} />,
     link: "/dashboard/categories",
   },
   {
-    name: "Usuarios",
-    icon: <Group />,
+    name: "Lista de usuarios",
+    icon: <FontAwesomeIcon icon={faUsers} />,
     link: "/dashboard/users",
   },
   {
-    name: "Agregar Usuario",
-    icon: <Group />,
+    name: "Agregar usuario",
+    icon: <FontAwesomeIcon icon={faUserPlus} />,
     link: "/dashboard/createUserForm",
   },
 ];
@@ -65,14 +76,21 @@ export default function Sidebar(props) {
       </Typography>
       <List>
         {categories.map((category, index) => (
-          <ListItem key={category.name} disablePadding>
+          <ListItem
+            key={category.name}
+            sx={{
+              ":hover": {
+                backgroundColor: theme.black_hover,
+              },
+            }}
+            disablePadding
+          >
             <ListItemButton>
-              <Link to={category.link} className="link-none">
-                <ListItemIcon sx={{ color: "#fff !important" }}>
-                  {category.icon}
-                  {category.name}
-                </ListItemIcon>
-              </Link>
+              <ListItemIcon>{category.icon}</ListItemIcon>
+              <ListItemText
+                primary={category.name}
+                sx={{ color: theme.white }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -111,7 +129,7 @@ export default function Sidebar(props) {
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,
-            backgroundColor: "#000",
+            backgroundColor: theme.black,
             marginTop: "85px",
           },
         }}

@@ -45,7 +45,7 @@
 
 .productCard button.addToCart {
   background-color: transparent;
-  color: rgb(92, 92, 92);
+  color: rgb(56, 56, 56);
   border: none;
   border-radius: 5px;
   padding: 0.5rem;
@@ -58,6 +58,6 @@
 
 .productCard button.addToCart:hover {
   transform: scale(1.2);
-  color: rgb(138, 128, 100);
+  color: rgb(0, 0, 0);
   transition: 0.3s;
 }

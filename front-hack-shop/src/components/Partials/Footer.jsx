@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import AppButton from "../Miscellaneous/AppButtons/AppButton";
 import Typography from "@mui/material/Typography";
 import { TextField } from "@mui/material";
-import { currentTheme as theme } from "../../theme";
+import { currentTheme as theme, effects } from "../../theme";
 
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import Link from "@mui/material/Link";
@@ -65,9 +65,7 @@ const Footer = () => {
                 }}
               />
               <Box width="35%">
-                <AppButton backgroundColor=" #ACA092" color="white">
-                  Suscribirme
-                </AppButton>
+                <AppButton color="white">Suscribirme</AppButton>
               </Box>
             </Box>
           </Grid>
@@ -150,47 +148,23 @@ const Footer = () => {
                 justifyContent="space-between"
                 width="65%"
               >
-                <Typography>
-                  <Link
-                    href="/"
-                    style={{
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
+                <Typography color={theme.white} className={effects.zoom}>
+                  <Link href="/" className={`link-none`}>
                     Home
                   </Link>
                 </Typography>
-                <Typography>
-                  <Link
-                    href="/about"
-                    style={{
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
+                <Typography color={theme.white} className={effects.zoom}>
+                  <Link href="/about" className={`link-none`}>
                     Nosotros
                   </Link>
                 </Typography>
-                <Typography>
-                  <Link
-                    href="/"
-                    style={{
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
+                <Typography color={theme.white} className={effects.zoom}>
+                  <Link href="/" className={`link-none`}>
                     Blog
                   </Link>
                 </Typography>
-                <Typography>
-                  <Link
-                    href="/"
-                    style={{
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
+                <Typography color={theme.white} className={effects.zoom}>
+                  <Link href="/" className={`link-none`}>
                     Contacto
                   </Link>
                 </Typography>
@@ -235,6 +209,7 @@ const Footer = () => {
                       style={{ width: "50px" }}
                       srcSet={require("../../assets/logos/icon-mastercard.png")}
                       alt="logo"
+                      className={effects.zoom}
                     />
                   </Box>
                   <Box>
@@ -242,6 +217,7 @@ const Footer = () => {
                       style={{ width: "50px" }}
                       srcSet={require("../../assets/logos/icon-visa.png")}
                       alt="logo"
+                      className={effects.zoom}
                     />
                   </Box>
                   <Box>
@@ -249,6 +225,7 @@ const Footer = () => {
                       style={{ width: "50px" }}
                       srcSet={require("../../assets/logos/icon-paypal.png")}
                       alt="logo"
+                      className={effects.zoom}
                     />
                   </Box>
                 </Box>

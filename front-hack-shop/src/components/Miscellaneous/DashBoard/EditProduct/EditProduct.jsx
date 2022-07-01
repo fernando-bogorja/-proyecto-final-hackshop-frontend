@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import { Divider } from "@mui/material";
 import { useState, useEffect } from "react";
 import { InputLabel, Select, MenuItem } from "@mui/material";
+import { Box } from "@mui/system";
 
 export default function EditProduct({ product }) {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ export default function EditProduct({ product }) {
   });
   const [error, setError] = useState("");
 
-  const validateInput = (value) => {
+  const validateInput = value => {
     //regex only for letters and numbers
     const regex = /^[a-zA-Z0-9]+$/;
     if (value.length > 0) {
@@ -32,7 +33,7 @@ export default function EditProduct({ product }) {
     return false;
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
@@ -47,14 +48,16 @@ export default function EditProduct({ product }) {
       </Typography>
     ),
     (
-      <React.Fragment>
-        <Typography textAlign="center" variant="h6" gutterBottom>
-          Datos de Producto
-        </Typography>
+      <Box display="flex" justifyContent="center" width="100%">
         <form>
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             {/* Address Begin*/}
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={12}>
+              <Typography variant="h6" fontSize={20}>
+                Datos de Usuario
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <TextField
                 required
                 id="name"
@@ -67,20 +70,7 @@ export default function EditProduct({ product }) {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={12}>
-              <TextField
-                required
-                id="description"
-                name="description"
-                label="Descripción"
-                fullWidth
-                value={formData.description}
-                autoComplete=""
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 required
                 id="price"
@@ -94,49 +84,20 @@ export default function EditProduct({ product }) {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 required
-                id="stock"
-                name="stock"
-                label="Stock"
+                id="description"
+                name="description"
+                label="Descripción"
                 fullWidth
-                type="number"
-                value={formData.stock}
+                value={formData.description}
                 autoComplete=""
                 variant="standard"
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={12}>
-              <TextField
-                required
-                id="upholstery"
-                name="upholstery"
-                label="Material"
-                fullWidth
-                type="text"
-                value={formData.upholstery}
-                autoComplete=""
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={12}>
-              <TextField
-                required
-                id="size"
-                name="size"
-                label="Tamaño"
-                fullWidth
-                type="text"
-                value={formData.size}
-                autoComplete=""
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 required
                 id="made_in"
@@ -150,7 +111,49 @@ export default function EditProduct({ product }) {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={12} sm={4}>
+              <TextField
+                required
+                id="size"
+                name="size"
+                label="Tamaño"
+                fullWidth
+                type="text"
+                value={formData.size}
+                autoComplete=""
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <TextField
+                required
+                id="upholstery"
+                name="upholstery"
+                label="Material"
+                fullWidth
+                type="text"
+                value={formData.upholstery}
+                autoComplete=""
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <TextField
+                required
+                id="stock"
+                name="stock"
+                label="Stock"
+                fullWidth
+                type="number"
+                value={formData.stock}
+                autoComplete=""
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
               <TextField
                 required
                 id="length"
@@ -163,20 +166,7 @@ export default function EditProduct({ product }) {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={12}>
-              <TextField
-                required
-                id="depth"
-                name="depth"
-                label="Profundidad"
-                fullWidth
-                value={formData.depth}
-                autoComplete=""
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={12}>
+            <Grid item xs={12} sm={4}>
               <TextField
                 required
                 id="tall"
@@ -184,6 +174,19 @@ export default function EditProduct({ product }) {
                 label="Altura"
                 fullWidth
                 value={formData.tall}
+                autoComplete=""
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <TextField
+                required
+                id="depth"
+                name="depth"
+                label="Profundidad"
+                fullWidth
+                value={formData.depth}
                 autoComplete=""
                 variant="standard"
                 onChange={handleChange}
@@ -221,7 +224,7 @@ export default function EditProduct({ product }) {
             </Grid>
           </Grid>
         </form>
-      </React.Fragment>
+      </Box>
     )
   );
 }

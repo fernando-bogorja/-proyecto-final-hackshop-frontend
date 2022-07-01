@@ -7,7 +7,7 @@ import Cart from "./Pages/Cart";
 import NavBar from "./Partials/NavBar";
 import Footer from "./Partials/Footer";
 import Product from "./Pages/Product";
-import Dashboard from "./Miscellaneous/Dashboard/Dashboard";
+import Dashboard from "./Miscellaneous/Dashboard/DashBoard";
 import AboutUs from "./Pages/AboutUs";
 import Product3d from "./Pages/Product3d";
 import SignIn from "./Pages/Signin";
@@ -23,49 +23,49 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Henri from "./Miscellaneous/Henri";
 function App() {
-  const user = useSelector((state) => state.user);
-  if (!user.token) {
-    return <SignIn />;
-  }
+  const user = useSelector(state => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
       <ToastContainer />
-      <Routes>
-        <Route path="/signin" element={<SignIn />} />
-      </Routes>
-      <NavBar />
       <ContextMenu />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product/:productId" element={<Product />} />
-        <Route path="/3ditem" element={<Product3d />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route
           path="/dashboard"
-          element={<Dashboard component={<DashboardMain />} />}
+          element={
+            <Dashboard component={<DashboardMain />} token={user.token} />
+          }
         />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout />} token={user.token} />
         <Route
           path="/dashboard/products"
-          element={<Dashboard component={<ProductList />} />}
+          element={<Dashboard component={<ProductList />} token={user.token} />}
         />
         <Route
           path="/dashboard/categories"
-          element={<Dashboard component={<Categories />} />}
+          element={<Dashboard component={<Categories />} token={user.token} />}
         />
         <Route
           path="/dashboard/users"
-          element={<Dashboard component={<UserList />} />}
+          element={<Dashboard component={<UserList />} token={user.token} />}
         />
         <Route
           path="/dashboard/createUserForm"
-          element={<Dashboard component={<CreateUserForm />} />}
+          element={
+            <Dashboard component={<CreateUserForm />} token={user.token} />
+          }
         />
         <Route
           path="/dashboard/createProductForm"
-          element={<Dashboard component={<CreateProductForm />} />}
+          element={
+            <Dashboard component={<CreateProductForm />} token={user.token} />
+          }
         />
         <Route path="/dashboard/products" element={<Dashboard />} />
         <Route path="/henri" element={<Henri />} />

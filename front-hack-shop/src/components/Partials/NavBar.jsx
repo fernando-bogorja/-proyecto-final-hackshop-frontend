@@ -11,9 +11,7 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
-import Container from "@mui/material/Container";
 import useUserHook from "../../Hooks/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,7 +21,7 @@ import {
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { currentTheme as theme } from "../../theme";
+import { currentTheme as theme, effects } from "../../theme";
 
 const pages = [
   {
@@ -89,16 +87,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const { cartTotalQuantity } = useSelector(state => state.cart);
   const [user, handleSetUser, handleLogoutUser] = useUserHook();
-
+  console.log(user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
+  const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -111,7 +109,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
+  const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -164,11 +162,13 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <FontAwesomeIcon icon={faCartShopping} size="xs" />
-          </Badge>
+          <Link to="/cart" className="link-none">
+            <Badge badgeContent={cartTotalQuantity} color="error">
+              <FontAwesomeIcon icon={faCartShopping} size="xs" />
+            </Badge>
+          </Link>
         </IconButton>
-        <p>Messages</p>
+        <p>Carrito</p>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -176,11 +176,11 @@ export default function PrimarySearchAppBar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
+          <Badge color="error">
             <FontAwesomeIcon icon={faBell} size="xs" />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <p>Notificaciones</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -192,7 +192,7 @@ export default function PrimarySearchAppBar() {
         >
           <FontAwesomeIcon icon={faUser} size="xs" />
         </IconButton>
-        <p>Profile</p>
+        <p>Perfil</p>
       </MenuItem>
     </Menu>
   );
@@ -234,7 +234,7 @@ export default function PrimarySearchAppBar() {
                 }}
                 ml={2}
               >
-                {pages.map((page) => (
+                {pages.map(page => (
                   <Link
                     className="nav-link"
                     to={`/${page.path.toLowerCase()}`}
@@ -261,7 +261,7 @@ export default function PrimarySearchAppBar() {
                   aria-label="show 4 new mails"
                   color="inherit"
                 >
-                  <Link to="/cart" className="link-none">
+                  <Link to="/cart" className={`link-none ${effects.zoom}`}>
                     <Badge badgeContent={cartTotalQuantity} color="error">
                       <FontAwesomeIcon icon={faCartShopping} size="xs" />
                     </Badge>
@@ -272,11 +272,12 @@ export default function PrimarySearchAppBar() {
                   aria-label="show 17 new notifications"
                   color="inherit"
                 >
-                  <Badge>
+                  <Badge className={effects.zoom}>
                     <FontAwesomeIcon icon={faBell} size="xs" />
                   </Badge>
                 </IconButton>
                 <IconButton
+                  className={effects.zoom}
                   size="large"
                   edge="end"
                   aria-label="account of current user"
@@ -294,7 +295,14 @@ export default function PrimarySearchAppBar() {
                   disableRipple={true}
                 >
                   <Typography ml={1} variant="p" fontSize={14} color="inherit">
-                    {user.data.name} {user.data.lastName}
+                    {/* if user is logged in, show his name */}
+                    {user.data ? (
+                      user.data.name + " " + user.data.lastName
+                    ) : (
+                      <Link to="/signin" className="link-none">
+                        Iniciar sesión
+                      </Link>
+                    )}
                   </Typography>
                 </IconButton>
               </Box>

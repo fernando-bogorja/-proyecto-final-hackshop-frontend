@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { toast } from "react-toastify";
+import { toastConfig } from "../../theme";
 
 const initialState = {
     token: null
@@ -12,10 +13,12 @@ const userSlice = createSlice({
         setUser: (state, action) => {
             state.token = action.payload.token;
             state.data = action.payload.user;
+            toast(`Bienvenido ${state.data.name}`, toastConfig);
         },
         logoutUser: (state, action) => {
             state.token = null;
             state.data = null;
+            toast(`Sesión cerrada`, toastConfig);
         }
     },
 });

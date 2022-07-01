@@ -12,23 +12,23 @@ export default function ProductList() {
   const [products] = useGetProducts();
   const [temp, setTemp] = useState({});
 
-  const handleClick = (params) => {
+  const handleClick = params => {
     setTemp(params);
   };
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 220 },
     {
       field: "name",
-      headerName: "Name",
-      width: 150,
+      headerName: "Nombre del producto",
+      width: 500,
       editable: true,
     },
     {
       field: "images",
-      headerName: "Image",
+      headerName: "Imágen",
       width: 60,
-      renderCell: (params) => {
+      renderCell: params => {
         return (
           <div>
             <img
@@ -42,9 +42,9 @@ export default function ProductList() {
     },
     {
       field: "action",
-      headerName: "Action",
-      width: 150,
-      renderCell: (params) => {
+      headerName: "Acciones",
+      width: 400,
+      renderCell: params => {
         return (
           <>
             {/* <Link to={`/user/` + params.row.id}> */}
@@ -68,27 +68,41 @@ export default function ProductList() {
 
   return (
     <Grid container spacing={2}>
-      <Grid justifyContent="center" flexDirection="column" item xs={12} lg={6}>
+      <Grid
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        item
+        xs={12}
+      >
         <Box
           display="flex"
           justifyContent="center"
           sx={{ height: "100%", width: "100%" }}
         >
-          <DataGrid
-            rows={products}
-            columns={columns}
-            getRowId={(row) => row._id}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
-            checkboxSelection
-            disableSelectionOnClick
-            sx={{ minHeight: { xs: "650px" } }}
-          />
+          <Box width="80%" height="100%">
+            <DataGrid
+              rows={products}
+              columns={columns}
+              getRowId={row => row._id}
+              pageSize={12}
+              rowsPerPageOptions={[10]}
+              checkboxSelection
+              disableSelectionOnClick
+              sx={{ minHeight: { xs: "650px" } }}
+            />
+          </Box>
         </Box>
       </Grid>
-      <Grid item xs={12} lg={6}>
-        <Box sx={{ height: "100%", width: "100%" }}>
-          <EditProduct product={temp} />
+      <Grid item xs={12}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          sx={{ height: "100%", width: "100%" }}
+        >
+          <Box width="80%" height="100%">
+            <EditProduct product={temp} />
+          </Box>
         </Box>
       </Grid>
     </Grid>
