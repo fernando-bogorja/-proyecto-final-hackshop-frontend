@@ -24,99 +24,97 @@ export default function SignIn() {
       password: data.get("password"),
     };
     handleSetUser(send);
-    //reload the page
-    //window.location.reload(false);
   };
 
-  if (!user) {
-    return <Navigate to="/" />;
-  }
-
-  return (
-    <Box width="100%" my={20} display="flex" justifyContent="center">
-      <Box
-        width="80%"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="502px"
-      >
-        <Grid container>
-          <Grid item xs={12}>
-            <Box width="100%" display="flex" justifyContent="center">
-              <Typography
-                component="h3"
-                fontSize={{ xs: "28px", md: "40px" }}
-                fontFamily={theme.fonts.title}
-              >
-                Inicia sesión para continuar
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} justifyContent="center">
-            <Box width="100%" display="flex" justifyContent="center">
-              <Box
-                width={{ sx: "100%", md: "60%", lg: "45%", xl: "30%" }}
-                display="flex"
-                justifyContent="center"
-              >
-                <form onSubmit={handleSubmit} style={{ width: "100%" }}>
-                  <FormControl sx={{ mb: "30px" }} fullWidth>
-                    <TextField
-                      required
-                      type={"email"}
-                      id="email"
-                      name="email"
-                      label="Correo electrónico"
-                      fullWidth
-                      autoComplete="email"
-                      variant="standard"
-                    />
-                  </FormControl>
-                  <FormControl sx={{ mb: "50px" }} fullWidth>
-                    <TextField
-                      required
-                      type={"password"}
-                      id="password"
-                      name="password"
-                      label="Contraseña"
-                      fullWidth
-                      autoComplete="password"
-                      variant="standard"
-                    />
-                  </FormControl>
-                  <FormControl fullWidth>
-                    <Button
-                      fullWidth
-                      type="submit"
-                      sx={{
-                        backgroundColor: theme.black,
-                        color: theme.white,
-                        py: "10px",
-                        ":hover": {
-                          backgroundColor: theme.black_hover,
-                        },
-                      }}
-                    >
-                      Iniciar sesión
-                    </Button>
-                  </FormControl>
-                  <Box
-                    mt={2}
-                    width="100%"
-                    display="flex"
-                    justifyContent="center"
-                  >
-                    <Link href="/signup" variant="body2" color={theme.black}>
-                      ¿No tienes una cuenta?
-                    </Link>
-                  </Box>
-                </form>
+  if (user.data) {
+    return <Navigate to="/profile" />;
+  } else {
+    return (
+      <Box width="100%" my={20} display="flex" justifyContent="center">
+        <Box
+          width="80%"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          minHeight="502px"
+        >
+          <Grid container>
+            <Grid item xs={12}>
+              <Box width="100%" display="flex" justifyContent="center">
+                <Typography
+                  component="h3"
+                  fontSize={{ xs: "28px", md: "40px" }}
+                  fontFamily={theme.fonts.title}
+                >
+                  Inicia sesión para continuar
+                </Typography>
               </Box>
-            </Box>
+            </Grid>
+            <Grid item xs={12} justifyContent="center">
+              <Box width="100%" display="flex" justifyContent="center">
+                <Box
+                  width={{ sx: "100%", md: "60%", lg: "45%", xl: "30%" }}
+                  display="flex"
+                  justifyContent="center"
+                >
+                  <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+                    <FormControl sx={{ mb: "30px" }} fullWidth>
+                      <TextField
+                        required
+                        type={"email"}
+                        id="email"
+                        name="email"
+                        label="Correo electrónico"
+                        fullWidth
+                        autoComplete="email"
+                        variant="standard"
+                      />
+                    </FormControl>
+                    <FormControl sx={{ mb: "50px" }} fullWidth>
+                      <TextField
+                        required
+                        type={"password"}
+                        id="password"
+                        name="password"
+                        label="Contraseña"
+                        fullWidth
+                        autoComplete="password"
+                        variant="standard"
+                      />
+                    </FormControl>
+                    <FormControl fullWidth>
+                      <Button
+                        fullWidth
+                        type="submit"
+                        sx={{
+                          backgroundColor: theme.black,
+                          color: theme.white,
+                          py: "10px",
+                          ":hover": {
+                            backgroundColor: theme.black_hover,
+                          },
+                        }}
+                      >
+                        Iniciar sesión
+                      </Button>
+                    </FormControl>
+                    <Box
+                      mt={2}
+                      width="100%"
+                      display="flex"
+                      justifyContent="center"
+                    >
+                      <Link href="/signup" variant="body2" color={theme.black}>
+                        ¿No tienes una cuenta?
+                      </Link>
+                    </Box>
+                  </form>
+                </Box>
+              </Box>
+            </Grid>
           </Grid>
-        </Grid>
+        </Box>
       </Box>
-    </Box>
-  );
+    );
+  }
 }

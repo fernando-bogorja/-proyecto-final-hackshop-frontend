@@ -9,8 +9,8 @@ import Footer from "./Partials/Footer";
 import Product from "./Pages/Product";
 import Dashboard from "./Miscellaneous/Dashboard/DashBoard";
 import AboutUs from "./Pages/AboutUs";
-import Product3d from "./Pages/Product3d";
 import SignIn from "./Pages/Signin";
+import Signup from "./Pages/Signup";
 import Checkout from "./Pages/Checkout";
 import ProductList from "./Miscellaneous/ProductList/ProductList";
 import Categories from "./Miscellaneous/Dashboard/Categories/Categories";
@@ -23,8 +23,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Henri from "./Miscellaneous/Henri";
 import AboutPopUp from "./Partials/AboutPopUp";
+import Profile from "./Pages/Profile";
+import NotFound from "./Pages/NotFound";
+
 function App() {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(state => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
@@ -38,6 +41,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/product/:slug" element={<Product />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
         <Route
           path="/dashboard"
           element={
@@ -71,6 +76,7 @@ function App() {
         />
         <Route path="/dashboard/products" element={<Dashboard />} />
         <Route path="/henri" element={<Henri />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
