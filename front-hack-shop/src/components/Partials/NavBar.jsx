@@ -1,16 +1,13 @@
 import { useSelector } from "react-redux";
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import useUserHook from "../../Hooks/User";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,7 +28,7 @@ const pages = [
 ];
 
 export default function PrimarySearchAppBar() {
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const { cartTotalQuantity } = useSelector(state => state.cart);
   const [user, handleSetUser, handleLogoutUser] = useUserHook();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -39,7 +36,7 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
+  const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -52,7 +49,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
+  const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -144,7 +141,7 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: "transparent", height: "5.5rem" }}
+        sx={{ backgroundColor: theme.black, height: "5.5rem" }}
       >
         <Toolbar
           sx={{
@@ -166,6 +163,7 @@ export default function PrimarySearchAppBar() {
             >
               <Link to="/" className="link-none">
                 <img
+                  alt="logo"
                   style={{ width: "160px" }}
                   srcSet={require("../../assets/reizen-logo.png")}
                 />
@@ -179,7 +177,7 @@ export default function PrimarySearchAppBar() {
                 }}
                 ml={2}
               >
-                {pages.map((page) => (
+                {pages.map(page => (
                   <Link
                     className="nav-link"
                     to={`/${page.path.toLowerCase()}`}
@@ -229,14 +227,14 @@ export default function PrimarySearchAppBar() {
                   aria-haspopup="true"
                   onClick={handleProfileMenuOpen}
                   color="inherit"
-                  marginLeft={10}
+                  ml={10}
                 >
                   <FontAwesomeIcon
                     width="50px"
                     icon={faUser}
                     color={theme.white}
                     size="xs"
-                    marginLeft={10}
+                    ml={10}
                   />
                 </IconButton>
                 <IconButton

@@ -7,7 +7,7 @@ export default function Header() {
       sx={{
         backgroundImage: `url(${require("../../assets/header-img.png")})`,
         backgroundSize: "cover",
-        backgroundColor: "#000",
+        backgroundColor: theme.black,
       }}
       width="100%"
       height="100vh"
@@ -32,21 +32,21 @@ export default function Header() {
               fontFamily="Bodoni Moda"
               fontSize="10rem"
               lineHeight="0.95"
-              letterSpacing={"-0.01562em"}
+              letterSpacing="-0.01562em"
             >
               Elegancia para tu hogar
             </Typography>
           </Box>
           <Box
             className="text-sofa"
-            width={{ xs: "40%", xl: "13%" }}
+            width={{ xs: "100%", sm: "60%", xl: "13%" }}
+            mt={{ xs: 5, xl: 0 }}
             display="flex"
             justifyContent={{ xs: "flex-start", xl: "flex-end" }}
           >
             <Typography
               variant="p"
               textAlign={{ xs: "left", xl: "right" }}
-              text
               fontFamily="Raleway"
               color="rgba(128, 128, 128, 0.9)"
             >
