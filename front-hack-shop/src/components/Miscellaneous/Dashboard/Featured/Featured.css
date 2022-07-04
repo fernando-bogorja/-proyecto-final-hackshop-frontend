@@ -1,0 +1,74 @@
+.featured-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.featured {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.featuredItem {
+  flex: 1;
+  margin: 0px 20px;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.featuredTitle {
+  font-size: 20px;
+}
+.featuredMoneyContainer {
+  margin: 10px 10px;
+  display: flex;
+  align-items: center;
+}
+.featuredMoney {
+  font-size: 30px;
+  font-weight: 600;
+}
+.featuredMoneyRate {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.featuredIcon {
+  font-size: 14px;
+  margin-left: 5px;
+  color: green;
+}
+.featuredIcon.negative {
+  color: red;
+}
+.featuredSub {
+  font-size: 15px;
+  color: gray;
+}
+
+/* Media Queries */
+/* Max width 1180 and min width 600 */
+@media (max-width: 1180px) and (min-width: 600px) {
+  .featured {
+    flex-direction: column;
+  }
+  .featuredItem {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+
+/* Max width of 600 */
+@media (max-width: 600px) {
+  .featured {
+    flex-direction: column;
+    width: 100%;
+  }
+  .featuredItem {
+    margin: 20px;
+    padding: 20px;
+  }
+}

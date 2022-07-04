@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+:root {
+  --color-1: #ffe6bc;
+  --color-2: #e4cda7;
+  --color-3: #8e806a;
+  --color-5: #8e806a7c;
+  --color-4: #c3b091;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: #000;
+  color: #fff;
+}
+
+body {
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App {
+}
+
+.loader {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 3px solid #000;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+.link-none:link {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.link-none:visited {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  /* text-transform: uppercase; */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0.5rem;
+}
+
+.Button {
+  padding: 0.8rem 2.5rem;
+  border: 0;
+  color: var(--color-3);
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0 1.75rem 2rem -0.4rem rgba(50, 0, 100, 0.15);
+}
+.Button:hover {
+  box-shadow: 0 1.75rem 3rem 0rem rgba(50, 0, 100, 0.1);
+  transform: scale(1.05);
+}
+.Button:active {
+  box-shadow: 0 1.75rem 2.5rem -0.2rem rgba(50, 0, 100, 0.125);
+  transform: scale(1.025);
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: var(--color-3) !important;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+  color: var(--color-3) !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #a2a2a2;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(70, 70, 70);
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(107, 107, 107);
+  transition: 0.3s;
+}
+
+.logout {
+  color: #fff;
+  background-color: rgb(181, 37, 37);
+}
+
+.logout-hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(142, 0, 0) !important;
+}
+
+.zoomOnHover {
+  transition: 0.3s;
+}
+
+.zoomOnHover:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}

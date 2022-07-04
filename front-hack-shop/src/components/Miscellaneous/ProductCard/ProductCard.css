@@ -1,0 +1,67 @@
+/* PRODUCT CARD */
+.productCard {
+  min-width: 320px;
+  box-shadow: none;
+  margin: 5px;
+}
+
+.productCard .icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: rgb(92, 92, 92);
+  z-index: 2;
+}
+
+.productCard img {
+  border-radius: 10px;
+}
+
+.productCard img.productImage {
+  object-fit: scale-down;
+}
+
+.hoverImage {
+  position: absolute;
+  object-fit: scale-down;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: 0.2s ease-in-out;
+}
+
+.hoverImage:hover {
+  transition: 0.25s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.productCard span.price-unit {
+  font-size: 0.7rem;
+}
+
+.productCard .infoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.productCard button.addToCart {
+  background-color: transparent;
+  color: rgb(56, 56, 56);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 50%;
+  outline: none;
+}
+
+.productCard button.addToCart:hover {
+  transform: scale(1.2);
+  color: rgb(0, 0, 0);
+  transition: 0.3s;
+}

@@ -1,0 +1,49 @@
+.carousel {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel .carousel-content {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  width: 95%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  border-radius: 5px;
+}
+
+.carousel .carousel-content::-webkit-scrollbar {
+  display: none;
+}
+
+h2.carousel-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 95%;
+  color: rgb(54, 54, 54);
+}
+
+h4.carousel-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  width: 95%;
+  color: rgb(175, 175, 175);
+}
+
+.carousel .divider {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.carousel .divider .line {
+  width: 20%;
+  margin-left: 2.4em;
+  height: 2px;
+  background-color: #000;
+}
