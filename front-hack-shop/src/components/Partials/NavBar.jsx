@@ -144,7 +144,7 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: theme.black, height: "5.5rem" }}
+        sx={{ backgroundColor: "transparent", height: "5.5rem" }}
       >
         <Toolbar
           sx={{
@@ -166,7 +166,7 @@ export default function PrimarySearchAppBar() {
             >
               <Link to="/" className="link-none">
                 <img
-                  style={{ width: "100px" }}
+                  style={{ width: "160px" }}
                   srcSet={require("../../assets/reizen-logo.png")}
                 />
               </Link>
@@ -174,6 +174,8 @@ export default function PrimarySearchAppBar() {
                 sx={{
                   flexGrow: 1,
                   display: { xs: "none", md: "flex" },
+                  justifyContent: "flex-end",
+                  width: "70%",
                 }}
                 ml={2}
               >
@@ -190,50 +192,6 @@ export default function PrimarySearchAppBar() {
               </Box>
               <Box sx={{ flexGrow: 1 }} />
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <IconButton
-                  size="large"
-                  aria-label="show 4 new mails"
-                  color="inherit"
-                >
-                  <Link to="/cart" className={`link-none ${effects.zoom}`}>
-                    <Badge badgeContent={cartTotalQuantity} color="error">
-                      <FontAwesomeIcon
-                        icon={faCartShopping}
-                        color={theme.white}
-                        size="xs"
-                      />
-                    </Badge>
-                  </Link>
-                </IconButton>
-                <IconButton
-                  size="large"
-                  aria-label="show 17 new notifications"
-                  color="inherit"
-                >
-                  <Badge className={effects.zoom}>
-                    <FontAwesomeIcon
-                      icon={faBell}
-                      color={theme.white}
-                      size="xs"
-                    />
-                  </Badge>
-                </IconButton>
-                <IconButton
-                  className={effects.zoom}
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-controls={menuId}
-                  aria-haspopup="true"
-                  onClick={handleProfileMenuOpen}
-                  color="inherit"
-                >
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    color={theme.white}
-                    size="xs"
-                  />
-                </IconButton>
                 <IconButton
                   size="large"
                   edge="end"
@@ -261,6 +219,54 @@ export default function PrimarySearchAppBar() {
                       </Link>
                     )}
                   </Typography>
+                </IconButton>
+                <IconButton
+                  className={effects.zoom}
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                  marginLeft={10}
+                >
+                  <FontAwesomeIcon
+                    width="50px"
+                    icon={faUser}
+                    color={theme.white}
+                    size="xs"
+                    marginLeft={10}
+                  />
+                </IconButton>
+                <IconButton
+                  size="large"
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                >
+                  <Badge className={effects.zoom}>
+                    <FontAwesomeIcon
+                      icon={faBell}
+                      color={theme.white}
+                      size="xs"
+                      width="20px"
+                    />
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  size="large"
+                  aria-label="show 4 new mails"
+                  color="inherit"
+                >
+                  <Link to="/cart" className={`link-none ${effects.zoom}`}>
+                    <Badge badgeContent={cartTotalQuantity} color="error">
+                      <FontAwesomeIcon
+                        icon={faCartShopping}
+                        color={theme.white}
+                        size="xs"
+                      />
+                    </Badge>
+                  </Link>
                 </IconButton>
               </Box>
               <Box sx={{ display: { xs: "flex", md: "none" } }}>

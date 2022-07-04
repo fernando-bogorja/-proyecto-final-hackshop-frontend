@@ -66,7 +66,7 @@ function BannerFotos() {
           >
             <Grid
               container
-              spacing={8}
+              spacing={{ xs: 3, sm: 3, md: 3, lg: 4, xl: 8 }}
               columns={{ xs: 3, sm: 6, md: 6, lg: 9, xl: 12 }}
               display="flex"
               justifyContent="center"

@@ -7,7 +7,7 @@ const theme = {
     gray: "rgb(245,245,245)",
     black_hover: "#575757",
     fonts: {
-      title: "Abhaya Libre",
+      title: "Bodoni Moda",
     },
   },
   dark: {
@@ -15,7 +15,7 @@ const theme = {
     white: "#6f6f70",
     gray: "#141414",
     fonts: {
-      title: "Abhaya Libre",
+      title: "Bodoni Moda",
     },
   },
 };

@@ -47,7 +47,7 @@ function AboutPopUp() {
         sx={{
           transform: "rotate(-90deg)",
           right: 0,
-          top: "200px",
+          top: "130px",
           lineHeight: "50px",
           zIndex: "10001",
           transformOrigin: "bottom right",
