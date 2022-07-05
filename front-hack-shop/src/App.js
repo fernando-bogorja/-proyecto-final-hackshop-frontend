@@ -27,7 +27,7 @@ import Profile from "./Pages/Profile";
 import NotFound from "./Pages/NotFound";
 
 function App() {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
@@ -75,7 +75,6 @@ function App() {
           }
         />
         <Route path="/dashboard/products" element={<Dashboard />} />
-        <Route path="/henri" element={<Henri />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
