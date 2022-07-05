@@ -21,7 +21,6 @@ import { useSelector } from "react-redux";
 import ContextMenu from "./miscellaneous/ContextMenu/ContextMenu";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Henri from "./miscellaneous/Henri";
 import AboutPopUp from "./partials/AboutPopUp";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
@@ -77,6 +76,7 @@ function App() {
         <Route path="/dashboard/products" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
       <Footer />
     </div>
   );
