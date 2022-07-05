@@ -1,5 +1,5 @@
 import useUserHook from "../../Hooks/User";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import { currentTheme as theme } from "../../theme";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -7,8 +7,9 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function createData(id, address, status, date, total) {
   return { id, address, status, date, total };
@@ -142,11 +143,13 @@ export default function Profile() {
                 py={{ md: 10, xs: 0 }}
               >
                 <InfoContainer information={personalInformation} />
-                {shippingInformation && (
+                {shippingInformation ? (
                   <InfoContainer
                     information={shippingInformation}
                     user={user}
                   />
+                ) : (
+                  <NoAddress />
                 )}
               </Box>
             </Grid>
@@ -207,6 +210,47 @@ const InfoContainer = ({ information, user }) => {
             </Typography>
           </Box>
         ))}
+      </Box>
+    </Box>
+  );
+};
+
+const NoAddress = () => {
+  return (
+    <Box width={{ xs: "100%", sm: "50%", md: "100%" }} mb={4}>
+      <Typography variant="h5" textAlign="left" fontFamily={theme.fonts.title}>
+        Dirección de facturación
+      </Typography>
+      <Box maxWidth="80%">
+        <Typography level="body1" variant="p" textAlign="left">
+          Parece que no tienes una dirección de facturación asociada a tu
+          cuenta.
+        </Typography>
+      </Box>
+      <Box width="100%" mt={2}>
+        <Link
+          to="/profile/address"
+          style={{
+            padding: "10px",
+            borderRadius: "10px",
+            backgroundColor: theme.black,
+            "&:hover": { backgroundColor: theme.black_hover },
+          }}
+          className="link-none"
+        >
+          <Typography
+            variant="button"
+            sx={{
+              color: theme.white,
+              fontFamily: theme.fonts.title,
+              fontSize: 16,
+              textTransform: "none",
+            }}
+          >
+            <FontAwesomeIcon icon={faPlus} size="xs" />
+            Agregar dirección
+          </Typography>
+        </Link>
       </Box>
     </Box>
   );

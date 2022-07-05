@@ -220,11 +220,23 @@ const ArticleCard = ({ article }) => {
           alignItems="center"
           sx={{ borderTop: `10px solid ${theme.gray}` }}
         >
-          <FontAwesomeIcon icon={faMinus} />
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => decreaseCart(article)}
+          >
+            <FontAwesomeIcon icon={faMinus} />
+          </Button>
           <Typography m={2} fontSize={20}>
             {article.cartQuantity}
           </Typography>
-          <FontAwesomeIcon icon={faPlus} />
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => addToCart(article)}
+          >
+            <FontAwesomeIcon icon={faPlus} />
+          </Button>
         </Box>
         <Box
           width="100%"
@@ -253,15 +265,19 @@ const ArticleCard = ({ article }) => {
 
 const CheckoutContainer = ({ cart }) => {
   return (
-    <Box width="50%" display="flex" justifyContent="flex-end">
+    <Box
+      width={{ xs: "100%", sm: "50%" }}
+      display="flex"
+      justifyContent="flex-end"
+    >
       <Box
-        width="75%"
+        width={{ xs: "100%", sm: "75%", lg: "50%", xl: "40%" }}
         display="flex"
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="flex-end"
       >
-        <Box width="100%" display="flex" justifyContent="space-between">
+        <Box width="100%" display="flex" my={2} justifyContent="space-between">
           <Typography fontSize={20}>Subtotal</Typography>
           <Typography fontSize={20}>USD {cart.cartTotalAmount}</Typography>
         </Box>

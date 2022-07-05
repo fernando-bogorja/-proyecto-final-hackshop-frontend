@@ -18,6 +18,9 @@ const userSlice = createSlice({
         registerUser: (state, action) => {
             toast(`Usuario registrado con éxito`, toastConfig);
         },
+        addAddress: (state, action) => {
+            toast(`Dirección agregada con éxito`, toastConfig);
+        },
         logoutUser: (state, action) => {
             state.token = null;
             state.data = null;
@@ -26,6 +29,6 @@ const userSlice = createSlice({
     },
 });
 
-export const { setUser, logoutUser, registerUser } = userSlice.actions;
+export const { setUser, logoutUser, registerUser, addAddress } = userSlice.actions;
 
 export default userSlice.reducer;

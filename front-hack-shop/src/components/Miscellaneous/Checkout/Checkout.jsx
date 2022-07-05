@@ -6,10 +6,7 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import Form from "./Form";
-import Review from "./Review";
 
-const steps = ["Datos de envío", "Datos de facturación", "Revisión"];
 export default function Checkout() {
   return (
     <React.Fragment>
@@ -27,9 +24,7 @@ export default function Checkout() {
                 Checkout
               </Typography>
             </Box>
-            <Box p={2}>
-              <Form />
-            </Box>
+            <Box p={2}></Box>
           </Paper>
         </Box>
       </Container>

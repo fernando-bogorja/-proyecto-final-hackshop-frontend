@@ -25,6 +25,7 @@ import Henri from "./Miscellaneous/Henri";
 import AboutPopUp from "./Partials/AboutPopUp";
 import Profile from "./Pages/Profile";
 import NotFound from "./Pages/NotFound";
+import Address from "./Pages/Address";
 
 function App() {
   const user = useSelector(state => state.user);
@@ -43,6 +44,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/address" element={<Address />} />
         <Route
           path="/dashboard"
           element={

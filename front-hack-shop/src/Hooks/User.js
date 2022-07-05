@@ -1,7 +1,8 @@
 import {
     setUser,
     logoutUser,
-    registerUser
+    registerUser,
+    addAddress
 } from '../redux/slices/userSlice';
 import global from '../global';
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +15,8 @@ export default function useUserHook() {
 
     const handleSetUser = user => {
         axios.post(`${global.api}/user/login`, user).then(res => {
-            dispatch(setUser({ token: res.data.data.token, user: res.data.data.user }));
+            console.log(res.data);
+            dispatch(setUser({ token: res.data.token, user: res.data.data.user }));
         });
     }
 
@@ -24,9 +26,15 @@ export default function useUserHook() {
         });
     }
 
+    const handleAddAddress = address => {
+        axios.post(`${global.api}/address/create`, address).then(res => {
+            dispatch(addAddress());
+        });
+    }
+
     const handleLogoutUser = () => {
         dispatch(logoutUser());
     }
 
-    return [user, handleSetUser, handleLogoutUser, handleSignup];
+    return [user, handleSetUser, handleLogoutUser, handleSignup, handleAddAddress];
 }
