@@ -7,7 +7,6 @@ import AppButton from "../miscellaneous/AppButtons/AppButton";
 import Typography from "@mui/material/Typography";
 import { TextField } from "@mui/material";
 import { currentTheme as theme, effects } from "../../theme";
-
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import Link from "@mui/material/Link";
 
@@ -18,10 +17,10 @@ const Footer = () => {
       justifyContent="center"
       alignItems="center"
       padding={2}
+      marginTop="auto"
       sx={{
         width: "100%",
         backgroundColor: theme.black,
-        height: "100%",
         zIndex: "1300",
       }}
     >

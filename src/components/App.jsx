@@ -31,53 +31,59 @@ function App() {
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
-      <ToastContainer />
-      <ContextMenu />
-      <AboutPopUp />
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product/:slug" element={<Product />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/address" element={<Address />} />
-        <Route
-          path="/dashboard"
-          element={
-            <Dashboard component={<DashboardMain />} token={user.token} />
-          }
-        />
-        <Route path="/checkout" element={<Checkout />} token={user.token} />
-        <Route
-          path="/dashboard/products"
-          element={<Dashboard component={<ProductList />} token={user.token} />}
-        />
-        <Route
-          path="/dashboard/categories"
-          element={<Dashboard component={<Categories />} token={user.token} />}
-        />
-        <Route
-          path="/dashboard/users"
-          element={<Dashboard component={<UserList />} token={user.token} />}
-        />
-        <Route
-          path="/dashboard/createUserForm"
-          element={
-            <Dashboard component={<CreateUserForm />} token={user.token} />
-          }
-        />
-        <Route
-          path="/dashboard/createProductForm"
-          element={
-            <Dashboard component={<CreateProductForm />} token={user.token} />
-          }
-        />
-        <Route path="/dashboard/products" element={<Dashboard />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="div">
+        <ToastContainer />
+        <ContextMenu />
+        <AboutPopUp />
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product/:slug" element={<Product />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/address" element={<Address />} />
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard component={<DashboardMain />} token={user.token} />
+            }
+          />
+          <Route path="/checkout" element={<Checkout />} token={user.token} />
+          <Route
+            path="/dashboard/products"
+            element={
+              <Dashboard component={<ProductList />} token={user.token} />
+            }
+          />
+          <Route
+            path="/dashboard/categories"
+            element={
+              <Dashboard component={<Categories />} token={user.token} />
+            }
+          />
+          <Route
+            path="/dashboard/users"
+            element={<Dashboard component={<UserList />} token={user.token} />}
+          />
+          <Route
+            path="/dashboard/createUserForm"
+            element={
+              <Dashboard component={<CreateUserForm />} token={user.token} />
+            }
+          />
+          <Route
+            path="/dashboard/createProductForm"
+            element={
+              <Dashboard component={<CreateProductForm />} token={user.token} />
+            }
+          />
+          <Route path="/dashboard/products" element={<Dashboard />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
