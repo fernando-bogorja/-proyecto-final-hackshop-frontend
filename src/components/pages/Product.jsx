@@ -26,10 +26,11 @@ import {
 import { Button } from "@mui/material";
 import Model from "../renders/Allscenes";
 import { currentTheme as theme } from "../../theme";
+import global from "../../global";
 
 function Product() {
   let { slug } = useParams();
-  let urlGet = "http://localhost:3001/api/products/get?slug=" + slug;
+  let urlGet = `${global.api}/products/get?slug=` + slug;
   const [product, setProduct] = useState([]);
   const [productImages, setProductImages] = useState([]);
   const [actualImg, setActualImg] = useState([]);
@@ -41,11 +42,8 @@ function Product() {
       const response = await axios.get(urlGet);
       setProductImages(response.data.data.images);
       return setProduct(response.data.data);
-    } catch (err) {
-      console.log("Error: ", err);
-    }
+    } catch (err) {}
   };
-  console.log("product", product);
   const handleAddToCart = () => {
     addToCart(product);
   };
@@ -56,7 +54,7 @@ function Product() {
     getProduct();
     setActualImg(productImages[0]);
   }, [(pochoclo = productImages[0])]);
-  const handleClickForChangeImage = (img) => {
+  const handleClickForChangeImage = img => {
     return setActualImg(img);
   };
 

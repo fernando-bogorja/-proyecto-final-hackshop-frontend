@@ -1,6 +1,6 @@
 const global = {
   //Api url
-  api: "http://localhost:3001/api/",
+  api: "https://hackshop-backend.vercel.app/api",
 };
 
 export default global;
