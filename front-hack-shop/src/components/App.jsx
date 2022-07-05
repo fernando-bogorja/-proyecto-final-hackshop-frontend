@@ -7,7 +7,7 @@ import Cart from "./Pages/Cart";
 import NavBar from "./Partials/NavBar";
 import Footer from "./Partials/Footer";
 import Product from "./Pages/Product";
-import Dashboard from "./Miscellaneous/Dashboard/DashBoard";
+import Dashboard from "./Miscellaneous/Dashboard/Dashboard";
 import AboutUs from "./Pages/AboutUs";
 import SignIn from "./Pages/Signin";
 import Signup from "./Pages/Signup";
@@ -21,14 +21,13 @@ import { useSelector } from "react-redux";
 import ContextMenu from "./Miscellaneous/ContextMenu/ContextMenu";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Henri from "./Miscellaneous/Henri";
 import AboutPopUp from "./Partials/AboutPopUp";
 import Profile from "./Pages/Profile";
 import NotFound from "./Pages/NotFound";
 import Address from "./Pages/Address";
 
 function App() {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
@@ -77,7 +76,6 @@ function App() {
           }
         />
         <Route path="/dashboard/products" element={<Dashboard />} />
-        <Route path="/henri" element={<Henri />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
