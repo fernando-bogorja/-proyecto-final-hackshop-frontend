@@ -26,6 +26,7 @@ export default function Signup() {
       phone: data.get("phone"),
       email: data.get("email"),
       password: data.get("password"),
+      isAdmin: asAdmin,
     };
     handleSignup(send);
   };
