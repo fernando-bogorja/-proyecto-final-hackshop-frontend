@@ -27,7 +27,8 @@ import NotFound from "./pages/NotFound";
 import Address from "./pages/Address";
 
 function App() {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(state => state.user);
+  console.log(user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
