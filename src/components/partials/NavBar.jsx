@@ -141,7 +141,7 @@ export default function PrimarySearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: theme.black, height: "5.5rem" }}
+        sx={{ backgroundColor: theme.black30, height: "5.5rem" }}
       >
         <Toolbar
           sx={{
@@ -158,16 +158,18 @@ export default function PrimarySearchAppBar() {
             <Box
               display="flex"
               alignItems="center"
-              justifyContent="center"
+              justifyContent="flex-end"
               width="80%"
             >
-              <Link to="/" className="link-none">
-                <img
-                  alt="logo"
-                  style={{ width: "160px" }}
-                  srcSet={require("../../assets/reizen-logo.png")}
-                />
-              </Link>
+              <Box width={{ xs: "130px", xl: "160px" }}>
+                <Link to="/" className="link-none">
+                  <img
+                    style={{ width: "100%" }}
+                    alt="logo"
+                    srcSet={require("../../assets/reizen-logo.png")}
+                  />
+                </Link>
+              </Box>
               <Box
                 sx={{
                   flexGrow: 1,
@@ -227,7 +229,7 @@ export default function PrimarySearchAppBar() {
                   aria-haspopup="true"
                   onClick={handleProfileMenuOpen}
                   color="inherit"
-                  ml={10}
+                  ml={11}
                 >
                   <FontAwesomeIcon
                     width="50px"
