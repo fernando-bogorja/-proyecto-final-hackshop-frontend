@@ -7,7 +7,7 @@ const theme = {
     white: "#fff",
     gray: "rgb(245,245,245)",
     black_hover: "#575757",
-    text: "#696969",
+    text: "rgba(128, 128, 128, 0.9)",
     fonts: {
       title: "Bodoni Moda",
     },

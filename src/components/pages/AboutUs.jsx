@@ -1,37 +1,78 @@
 import { Box } from "@mui/system";
-import { GitHub, LinkedIn } from "@mui/icons-material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
-import { currentTheme as theme } from "../../theme";
+import { currentTheme as theme, effects } from "../../theme";
 
 const AboutUs = () => {
   return (
     <Box
       display="flex"
-      justifyContent="center"
+      flexDirection="column"
+      justifyContent="flex-start"
       alignItems="center"
-      my={15}
       sx={{
         width: "100%",
         height: "100%",
       }}
     >
+      {" "}
+      <Box
+        py={20}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        width="100%"
+        height="100vh"
+        bgcolor={theme.white}
+        sx={{
+          backgroundImage: `url(${require("../../assets/header-aboutus.png")})`,
+          backgroundSize: "cover",
+          backgroundColor: "black",
+        }}
+      >
+        <Typography
+          component="h4"
+          fontSize={50}
+          textAlign="center"
+          paddingBottom="30px"
+          color={theme.white}
+          fontFamily={theme.fonts.title}
+          fontWeight="bold"
+        >
+          ¡Sobre este proyecto!
+        </Typography>
+        <Box width="80%" display="flex" justifyContent="space-between">
+          <PeopleCard
+            name="Lucía Rodriguez"
+            image={require("../../assets/linkedin-lu.png")}
+            linkedin=""
+            github=""
+          />
+          <PeopleCard
+            name="Felipe Fontana"
+            image={require("../../assets/linkedin-feli.png")}
+            linkedin="felipefontana/"
+            github="elFonTii/"
+          />
+          <PeopleCard
+            name="Federico Gorriaran"
+            image={require("../../assets/linkedin-profile-example-3.png")}
+            linkedin=""
+            github=""
+          />
+          <PeopleCard
+            name="Fernando Bogorja"
+            image={require("../../assets/linkedin-fer.png")}
+            linkedin="fernando-bogorja-rodriguez/"
+            github="fernando-bogorja"
+          />
+        </Box>
+      </Box>
       <Box sx={{ width: "80%" }}>
         <Grid container spacing={5}>
-          <Grid item xs={12}>
-            <Box width="100%" bgcolor={theme.white} borderRadius="10px">
-              <Typography
-                component="h4"
-                fontSize={50}
-                textAlign="center"
-                borderBottom="2px solid "
-                paddingBottom="50px"
-              >
-                ¡Sobre este proyecto!
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} my={20}>
             <Box
               className="box-header"
               width="100%"
@@ -39,37 +80,9 @@ const AboutUs = () => {
               justifyContent="center"
               flexWrap="wrap"
               borderRadius="10px"
-            >
-              <Box
-                width="100%"
-                display="flex"
-                sx={{
-                  backgroundImage: `url(${require("../../assets/header-aboutus.png")})`,
-                  backgroundSize: "cover",
-                  backgroundColor: "black",
-                  "&:after": { content: "''", backgroundColor: "white" },
-                }}
-              >
-                <PeopleCard
-                  name="Lucía Rodriguez"
-                  image={require("../../assets/linkedin-lucia.JPG")}
-                />
-                <PeopleCard
-                  name="Fernando Bogorja"
-                  image={require("../../assets/linkedin-fernando-bogorja.png")}
-                />
-                <PeopleCard
-                  name="Pepita Organa"
-                  image={require("../../assets/linkedin-profile-example-3.png")}
-                />
-                <PeopleCard
-                  name="Pepita Organa"
-                  image={require("../../assets/linkedin-profile-example-3.png")}
-                />
-              </Box>
-            </Box>
+            ></Box>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} my={20}>
             <Box
               width="100%"
               display="flex"
@@ -88,17 +101,14 @@ const AboutUs = () => {
               >
                 <Box maxWidth="80%">
                   {" "}
-                  <Typography variant="body1">
+                  <Typography variant="body1" color={theme.text}>
                     Esta página es el producto final que surge como resultado de
-                    nuestro proceso de aprendizaje dentro del Coding Bootcamp.
-                    <br />
-                    Hack Academy
-                    <br />
-                    Como consigna se nos solicitó la implementación de un sitio
-                    e-commerce, para el cual el equipo tomó como temática la
-                    venta de muebles de diseño. Durante 3 arduas semanas, los 4
-                    integrantes del equipo, le dedicaron mas de 150 hs de
-                    trabajo c/u.
+                    nuestro proceso de aprendizaje dentro del Coding Bootcamp,
+                    de Hack Academy. Como consigna se nos solicitó la
+                    implementación de un sitio e-commerce, para el cual el
+                    equipo tomó como temática la venta de muebles de diseño.
+                    Durante 3 arduas semanas, los 4 integrantes del equipo, le
+                    dedicaron mas de 150 hs de trabajo c/u.
                   </Typography>
                 </Box>
               </Box>
@@ -120,7 +130,7 @@ const AboutUs = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} my={20}>
             <Box
               width="100%"
               display="flex"
@@ -150,7 +160,11 @@ const AboutUs = () => {
               >
                 {" "}
                 <Typography variant="h4">El inicio del proyecto</Typography>
-                <Typography sx={{ lineHeight: "30px" }} variant="body1">
+                <Typography
+                  color={theme.text}
+                  sx={{ lineHeight: "30px" }}
+                  variant="body1"
+                >
                   Layouts creados en figma, sacando ideas de páginas similares
                   en cuanto a la temática y sus contenidos. A la hora de pasar
                   todo esto al codigo, el equipo siempre estuvo en constante
@@ -175,7 +189,7 @@ const AboutUs = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} my={20}>
             <Box
               width="100%"
               display="flex"
@@ -191,8 +205,7 @@ const AboutUs = () => {
                 textAlign="justify"
               >
                 <Typography variant="h4">Proceso final</Typography>
-                <Typography variant="body1">
-                  {" "}
+                <Typography variant="body1" color={theme.text}>
                   Durante los ultimos dias del proyecto, se fueron puliendo
                   funcionalidades como por ejemplo, las del carrito de compras,
                   así como también, todo lo relacionado al responsive de las
@@ -218,7 +231,7 @@ const AboutUs = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} my={20}>
             <Box
               width="100%"
               display="flex"
@@ -241,8 +254,7 @@ const AboutUs = () => {
                 borderRadius="10px"
                 textAlign="justify"
               >
-                <Typography variant="body1">
-                  {" "}
+                <Typography variant="body1" color={theme.text}>
                   Fue realmente una experiencia muy linda y gratificante,
                   contentos del resultado que pudimos lograr. Muchas gracias por
                   tomarse el tiempo de leer toda esta pequeña gran parte de lo
@@ -252,7 +264,7 @@ const AboutUs = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} my={20}>
             <Box
               width="100%"
               display="flex"
@@ -272,21 +284,61 @@ const AboutUs = () => {
     </Box>
   );
 };
-const PeopleCard = ({ image, name }) => {
+const PeopleCard = ({ image, name, linkedin, github }) => {
   return (
-    <Box margin={2}>
+    <Box padding={2} margin={2} sx={{ borderRadius: "8px" }}>
       <img
-        style={{ borderRadius: "50%" }}
+        style={{ borderRadius: "50%", marginBottom: "20px" }}
         width="250px"
         srcSet={image}
         alt=""
       />
-      <Typography textAlign="center" component="h5">
+      <Typography
+        textAlign="center"
+        variant="h6"
+        fontSize="25px"
+        color={theme.white}
+        fontFamily={theme.fonts.title}
+        fontWeight="bold"
+      >
         {name}
       </Typography>
-      <Box>
-        {" "}
-        <GitHub /> <LinkedIn />
+      <Typography
+        textAlign="center"
+        variant="body1"
+        color={theme.white}
+        fontWeight="thin"
+        py={2}
+      >
+        Fullstack Developer Jr
+      </Typography>
+      <Box
+        display="flex"
+        width="100%"
+        justifyContent="center"
+        marginTop={2}
+        marginBottom={2}
+      >
+        <a
+          href={`https://www.linkedin.com/in/${linkedin}`}
+          className="link-none"
+        >
+          <FontAwesomeIcon
+            className={effects.zoom}
+            style={{ marginRight: "15px" }}
+            icon={faLinkedin}
+            size="2x"
+            color={theme.white}
+          />
+        </a>
+        <a href={`https://github.com/${github}`} className="link-none">
+          <FontAwesomeIcon
+            className={effects.zoom}
+            icon={faGithubSquare}
+            size="2x"
+            color={theme.white}
+          />
+        </a>
       </Box>
     </Box>
   );
