@@ -147,7 +147,7 @@ function BannerFotos() {
             // backgroundColor="blue"
             textAlign="center"
             marginTop={{
-              sx: "4rem",
+              xs: "4rem",
               sm: "4rem",
               md: "4rem",
               lg: "4rem",
@@ -212,7 +212,7 @@ function BannerFotos() {
             justifyContent="space-between"
             // backgroundColor="blue"
             textAlign="center"
-            marginTop={{ sx: "4rem", sm: "4rem", md: "4rem", xl: "0rem" }}
+            marginTop={{ xs: "4rem", sm: "4rem", md: "4rem", xl: "0rem" }}
             sx={{ width: "21rem", height: "46rem" }}
           >
             <figure className="effect-chico">
@@ -287,7 +287,7 @@ function BannerFotos() {
             // backgroundColor="blue"
             textAlign="center"
             marginTop={{
-              sx: "4rem",
+              xs: "4rem",
               sm: "4rem",
               md: "4rem",
               lg: "4rem",
