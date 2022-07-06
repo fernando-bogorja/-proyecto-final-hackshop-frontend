@@ -23,16 +23,23 @@ export default function Header() {
           justifyContent="space-between"
         >
           <Box className="title" width={{ xs: "100%", xl: "60%" }}>
-            <Typography variant="p" fontSize="1rem">
+            <Typography
+              variant="p"
+              fontSize="1rem"
+              fontFamily="Raleway"
+              color="rgba(128, 128, 128, 0.9)"
+              sx={{ fontWeight: "500" }}
+            >
               INTERIOR-EXTERIOR
             </Typography>
             <Typography
               variant="h1"
               color="rgb(255,255,255)"
               fontFamily="Bodoni Moda"
-              fontSize="10rem"
+              fontSize={{ xs: "5rem", sm: "6rem", md: "7.7rem", xl: "10rem" }}
               lineHeight="0.95"
               letterSpacing="-0.01562em"
+              sx={{ paddingBottom: "2rem", paddingTop: "4rem" }}
             >
               Elegancia para tu hogar
             </Typography>
@@ -45,10 +52,11 @@ export default function Header() {
             justifyContent={{ xs: "flex-start", xl: "flex-end" }}
           >
             <Typography
-              variant="p"
               textAlign={{ xs: "left", xl: "right" }}
               fontFamily="Raleway"
               color="rgba(128, 128, 128, 0.9)"
+              fontSize={{ xs: "1rem", xl: "1.1rem" }}
+              sx={{ paddingY: "1rem", fontSize: "1.1rem", fontWeight: "800" }}
             >
               Un espacio elegante nos hace querer pasar mas tiempo en él. Por
               eso creamos diseños interesantes, que con los colores adecuados,

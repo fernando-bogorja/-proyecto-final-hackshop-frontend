@@ -1,17 +1,7 @@
+/* *, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; } // required */
+
 .grid {
   position: relative;
-  margin: 0 auto;
-  padding: 1em 0 0;
-  max-width: 21rem;
-  list-style: none;
-  text-align: center;
-}
-.grid7 {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  max-width: 9rem;
-
   list-style: none;
   text-align: center;
 }
@@ -21,34 +11,26 @@
   position: relative;
   float: left;
   overflow: hidden;
-  /* margin: 10px 1%; */
-  min-width: 50px;
-  max-width: 70px;
+  min-width: 11.5rem;
+  max-width: 21rem;
+  max-height: 48rem;
   /* width: 48%; */
-  /* background: #3085a3; */
-  text-align: center;
+  background: #3085a3;
   cursor: pointer;
 }
 
-.grid.figure.text7 {
-  font-size: 0.5em;
-  max-width: 8rem;
-}
-
-.grid figure {
+.grid figure .foto {
   position: relative;
   display: block;
   min-height: 100%;
-  max-width: 350px;
+  max-width: 100%;
   opacity: 0.8;
-  text-align: center;
-  margin-right: 0;
 }
 
 .grid figure figcaption {
-  padding: 0;
-
-  /* text-transform: uppercase; */
+  padding: 2em;
+  color: rgb(30, 30, 30);
+  text-transform: uppercase;
   font-size: 1.25em;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -69,35 +51,27 @@
 }
 
 /* Anchor will cover the whole item by default */
-.grid figure figcaption > a {
-  z-index: 1000;
-  text-indent: 200%;
-  white-space: nowrap;
-  font-size: 0;
-  opacity: 0;
+
+.grid figure h5 {
+  word-spacing: -0.15em;
+  font-weight: 300;
 }
 
-.grid figure .text {
-  word-spacing: 0.5em;
-  font-weight: 400;
-  color: #000;
+.grid figure h5 span {
+  font-weight: 800;
 }
 
-.grid figure span {
-  font-weight: 700;
-}
-
-.grid figure .text,
+.grid figure h5,
 .grid figure p {
   margin: 0;
 }
 
 .grid figure p {
   letter-spacing: 1px;
-  font-size: 70%;
-  margin-top: 5em;
-  text-align: center;
+  font-size: 68.5%;
 }
+
+/* Individual effects */
 
 /*---------------*/
 /***** Chico *****/
@@ -109,26 +83,15 @@ figure.effect-chico .foto {
   -webkit-transform: scale(1.12);
   transform: scale(1.12);
 }
-figure.effect-chico7 .foto7 {
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: scale(1.12);
-  transform: scale(1.12);
-}
 
 figure.effect-chico:hover .foto {
   opacity: 0.5;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-figure.effect-chico7:hover .foto7 {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
 
 figure.effect-chico figcaption {
-  padding: 0;
+  padding: 3em;
 }
 
 figure.effect-chico figcaption::before {
@@ -137,18 +100,7 @@ figure.effect-chico figcaption::before {
   right: 30px;
   bottom: 30px;
   left: 30px;
-  border: 1px solid #000;
-  content: "";
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-figure.effect-chico7 .figcaption7::before {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  bottom: 30px;
-  left: 30px;
-
+  border: 1px solid rgb(30, 30, 30);
   content: "";
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
@@ -161,55 +113,13 @@ figure.effect-chico p {
   transition: opacity 0.35s, transform 0.35s;
 }
 
-figure.effect-chico .text {
+figure.effect-chico h5 {
   padding: 20% 0 20px 0;
 }
 
-.figcaption7:hover {
-  position: absolute;
-  top: 70px;
-  right: -24px;
-  bottom: 30px;
-  left: 20px;
-  border: 1px solid rgb(114, 113, 113);
-  content: "";
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-figure.effect-chico7 .figcaption7:hover {
-  opacity: 1;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-}
-
-figure.effect-chico .figcaptio7 {
-  padding: 0;
-  width: 12rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-bottom: 10%;
-  font-weight: 700;
-  top: 90px;
-  right: 6rem;
-}
-
-figure.effect-chico7 .figcaptio7 {
-  padding: 0;
-  width: 12rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-bottom: 10%;
-  font-weight: 700;
-  top: 90px;
-  right: 6rem;
-}
-
 figure.effect-chico p {
-  margin: 4em 0em;
-
+  margin: 0 auto;
+  max-width: 200px;
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
 }
@@ -225,7 +135,7 @@ figure.effect-chico:hover p {
   .grid figure {
     display: inline-block;
     float: none;
-    margin: 10px auto;
+
     width: 100%;
   }
 }

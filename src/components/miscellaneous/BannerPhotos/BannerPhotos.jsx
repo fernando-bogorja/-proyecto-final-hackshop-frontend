@@ -1,473 +1,364 @@
-import { Box, Typography, Grid, Link } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import "@fontsource/arima-madurai";
 import { currentTheme as theme } from "../../../theme";
 import "./BannerPhotos.css";
 
 function BannerFotos() {
-  // const itemData = [
-  //   {
-  //     img: "https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw433eddd7/images/productsets/1512503.jpg?sw=1600",
-  //     title: "Todos los Espacios",
-  //   },
-  //   {
-  //     img: "https://f.fcdn.app/imgs/1bfe18/www.kavehome.com.uy/kaveuy/a20d/webp/recursos/48/600x0/banner-3.jpg",
-  //     title: "Recibidor",
-  //   },
-  //   {
-  //     img: "https://f.fcdn.app/imgs/90a7ed/www.kavehome.com.uy/kaveuy/ccde/webp/recursos/49/600x0/banner-4-vo2.jpg",
-  //     title: "Living",
-  //   },
-  //   {
-  //     img: "https://f.fcdn.app/imgs/6c396f/www.kavehome.com.uy/kaveuy/a5a7/webp/recursos/47/600x0/banner.jpg",
-  //     title: "Comedor",
-  //   },
-  //   {
-  //     img: "https://f.fcdn.app/imgs/74aa80/www.kavehome.com.uy/kaveuy/9a1d/webp/recursos/50/600x0/banner-copia.jpg",
-  //     title: "Exterior",
-  //   },
-  //   {
-  //     img: "https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw644288a9/images/productsets/1685510.jpg?sw=1600",
-  //     title: "Dormitorio",
-  //   },
-  //   {
-  //     img: "https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8b138f9f/images/productsets/1481921.jpg?sw=1200",
-  //     title: "Oficina",
-  //   },
-  // ];
+  const photo1 = {
+    id: 1,
+    img: "https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw433eddd7/images/productsets/1512503.jpg?sw=1600",
+    title: "Todos los Espacios",
+    width: "21rem",
+    height: "46rem",
+    backgroundPosition: "21rem 0",
+    backgroundSize: "cover",
+  };
+  const item = [
+    {
+      id: 2,
+      img: "https://f.fcdn.app/imgs/1bfe18/www.kavehome.com.uy/kaveuy/a20d/webp/recursos/48/600x0/banner-3.jpg",
+      title: "Recibidor",
+      width: "100%",
+      height: "21rem",
+      backgroundPosition: "21rem 0px",
+      backgroundSize: "cover",
+    },
+    {
+      id: 3,
+      img: "https://f.fcdn.app/imgs/90a7ed/www.kavehome.com.uy/kaveuy/ccde/webp/recursos/49/600x0/banner-4-vo2.jpg",
+      title: "Living",
+      width: "21rem",
+      height: "21rem",
+      backgroundPosition: "21rem 0px",
+      backgroundSize: "cover",
+    },
+    {
+      id: 4,
+      img: "https://f.fcdn.app/imgs/6c396f/www.kavehome.com.uy/kaveuy/a5a7/webp/recursos/47/600x0/banner.jpg",
+      title: "Comedor",
+      width: "21rem",
+      height: "21rem",
+      backgroundPosition: "21rem 0px",
+      backgroundSize: "cover",
+    },
+    {
+      id: 5,
+      img: "https://f.fcdn.app/imgs/74aa80/www.kavehome.com.uy/kaveuy/9a1d/webp/recursos/50/600x0/banner-copia.jpg",
+      title: "Exterior",
+      width: "21rem",
+      height: "21rem",
+      backgroundPosition: "21rem 0px",
+      backgroundSize: "cover",
+    },
+    {
+      id: 6,
+      img: "https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw644288a9/images/productsets/1685510.jpg?sw=1600",
+      title: "Dormitorio",
+      width: "21rem",
+      height: "21rem",
+      backgroundPosition: "-80px 0px",
+      backgroundSize: "cover",
+    },
+    {
+      id: 7,
+      img: "https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8b138f9f/images/productsets/1481921.jpg?sw=1200",
+      title: "Oficina",
+      width: "11.5rem",
+      height: "11.5rem",
+      backgroundPosition: "-50px 0px",
+      backgroundSize: "cover",
+    },
+  ];
 
   return (
-    <>
+    <Box
+      width="100%"
+      display="flex"
+      flexDirection="row"
+      justifyContent="center"
+      alignItems="center"
+      backgroundColor={theme.gray}
+      my="3%"
+      py="5rem"
+    >
       <Box
         display="flex"
-        justifyContent="center"
+        flexDirection="column"
         alignItems="center"
-        width="100%"
-        backgroundColor={theme.gray}
+        justifyContent="center"
+        width="78%"
+        height="100%"
+        // backgroundColor="yellow"
       >
-        <Box
+        <Box display="flex" alignSelf="flex-start">
+          <Typography variant="h4" color="gray" fontFamily={theme.fonts.title}>
+            Selecciona por Categoría
+          </Typography>
+        </Box>
+        <Grid
+          container
           width="100%"
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          // border="1px solid pink"
-          my="5%"
+          columns={{ xs: 12, sm: 3 }}
+          justifyContent="space-around"
+          // gap={{ xs: 0, xl: "1rem" }}
+          // backgroundColor="red"
         >
+          {/* column 1 */}
           <Box
-            width="100%"
-            className="fotos"
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              zIndex: "5",
-              paddingX: { xs: "10%", sm: "none" },
-              // border: "2px solid blue",
+            className="grid"
+            display="flex"
+            flexDirection="column"
+            justifyContent="flex-end"
+            // backgroundColor="blue"
+            sx={{ width: "21rem", height: "50rem" }}
+          >
+            <figure className="effect-chico">
+              <Box
+                className="foto foto1"
+                width={photo1.width}
+                height={photo1.height}
+                textAlign="center"
+                sx={{
+                  background: `url(${photo1.img})`,
+                  backgroundPosition: photo1.backgroundPosition,
+                  backgroundSize: photo1.backgroundSize,
+                }}
+              >
+                <figcaption>
+                  <Typography
+                    className="text"
+                    variant="h5"
+                    color="rgb(30, 30, 30)"
+                    fontFamily={theme.fonts.title}
+                  >
+                    Todos los Espacios
+                  </Typography>
+                  <p>Explora todos nuestros diseños.</p>
+                </figcaption>
+              </Box>
+            </figure>
+          </Box>
+          {/* column 2 */}
+          <Box
+            className="grid"
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+            // backgroundColor="blue"
+            textAlign="center"
+            marginTop={{
+              xs: "4rem",
+              sm: "4rem",
+              md: "4rem",
+              lg: "4rem",
+              xl: "8rem",
+            }}
+            sx={{ width: "21rem", height: "46rem" }}
+          >
+            <figure className="effect-chico">
+              <Box
+                className="foto foto2"
+                width={item[0].width}
+                height={item[0].height}
+                sx={{
+                  background: `url(${item[0].img})`,
+                  backgroundPosition: item[0].backgroundPosition,
+                  backgroundSize: item[0].backgroundSize,
+                }}
+              >
+                <figcaption>
+                  <Typography
+                    className="text"
+                    variant="h5"
+                    color="rgb(30, 30, 30)"
+                    fontFamily={theme.fonts.title}
+                  >
+                    Recibidor
+                  </Typography>
+                  <p>Explora todos nuestros diseños.</p>
+                </figcaption>
+              </Box>
+            </figure>
+            <figure className="effect-chico">
+              <Box
+                className="foto foto3"
+                width={item[1].width}
+                height={item[1].height}
+                sx={{
+                  background: `url(${item[1].img})`,
+                  backgroundPosition: item[1].backgroundPosition,
+                  backgroundSize: item[1].backgroundSize,
+                }}
+              >
+                <figcaption>
+                  <Typography
+                    className="text"
+                    variant="h5"
+                    color="rgb(30, 30, 30)"
+                    fontFamily={theme.fonts.title}
+                  >
+                    Living
+                  </Typography>
+                  <p>Explora todos nuestros diseños.</p>
+                </figcaption>
+              </Box>
+            </figure>
+          </Box>
+          {/* column 3 */}
+          <Box
+            className="grid"
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+            // backgroundColor="blue"
+            textAlign="center"
+            marginTop={{ xs: "4rem", sm: "4rem", md: "4rem", xl: "0rem" }}
+            sx={{ width: "21rem", height: "46rem" }}
+          >
+            <figure className="effect-chico">
+              <Box
+                className=" foto foto4"
+                width={item[2].width}
+                height={item[2].height}
+                sx={{
+                  background: `url(${item[2].img})`,
+                  backgroundPosition: item[2].backgroundPosition,
+                  backgroundSize: item[2].backgroundSize,
+                }}
+              >
+                <figcaption>
+                  <Typography
+                    className="text"
+                    variant="h5"
+                    color="rgb(30, 30, 30)"
+                    fontFamily={theme.fonts.title}
+                  >
+                    Comedor
+                  </Typography>
+                  <p>Explora todos nuestros diseños.</p>
+                </figcaption>
+              </Box>
+            </figure>
+            <figure className="effect-chico">
+              <Box
+                className="foto foto5"
+                width={item[3].width}
+                height={item[3].height}
+                sx={{
+                  background: `url(${item[3].img})`,
+                  backgroundPosition: item[3].backgroundPosition,
+                  backgroundSize: item[3].backgroundSize,
+                }}
+              >
+                <figcaption>
+                  <Typography
+                    className="text"
+                    variant="h5"
+                    color="rgb(30, 30, 30)"
+                    fontFamily={theme.fonts.title}
+                  >
+                    Exterior
+                  </Typography>
+                  <p>Explora todos nuestros diseños.</p>
+                </figcaption>
+              </Box>
+            </figure>
+          </Box>
+          {/* column 4 */}
+          <Box
+            className="grid"
+            width={{
+              xs: "21rem",
+              sm: "21rem",
+              md: "21rem",
+              lg: "21rem",
+              xl: "21rem",
+            }}
+            height={{ xs: "46rem", md: "46rem", lg: "46rem", xl: "46rem" }}
+            display="flex"
+            flexDirection={{
+              xs: "column",
+              sm: "column",
+              md: "column",
+              lg: "column",
+              xl: "column",
+            }}
+            justifyContent="space-between"
+            // backgroundColor="blue"
+            textAlign="center"
+            marginTop={{
+              xs: "4rem",
+              sm: "4rem",
+              md: "4rem",
+              lg: "4rem",
+              xl: "0rem",
             }}
           >
-            <Grid
-              container
-              spacing={{ xs: 3, sm: 3, md: 3, lg: 4, xl: 8 }}
-              columns={{ xs: 3, sm: 6, md: 6, lg: 9, xl: 12 }}
-              display="flex"
-              justifyContent="center"
-              paddingLeft={"0 !important"}
-              margin={0}
-            >
-              <Grid item width="100%" padding={"0 !important"}>
-                <Typography
-                  variant="h4"
-                  color="Grey"
-                  fontFamily={theme.fonts.title}
-                >
-                  Selecciona por Categoría
-                </Typography>
-              </Grid>
-              {/* column 1 */}
-              <Grid
-                width="21rem"
-                display="flex"
-                justifyContent="center"
-                item
-                xs={3}
-                marginTop={{ xs: 0, sm: 0, md: 0, lg: "2.5rem", xl: "2.5rem" }}
-                padding={"0 !important"}
+            <figure className="effect-chico">
+              <Box
+                className="foto foto6"
+                width={item[4].width}
+                height={item[4].height}
+                sx={{
+                  background: `url(${item[4].img})`,
+                  backgroundPosition: item[4].backgroundPosition,
+                  backgroundSize: item[4].backgroundSize,
+                }}
               >
-                <Box
-                  className="grid"
-                  sx={{
-                    position: "absolute",
-                    margin: "0 auto",
-                    padding: " 1em 0 4em ",
-                    maxWidth: "1000px",
-                    listStyle: "none",
-                    textAlign: "center",
-                  }}
-                >
-                  <figure className="effect-chico">
-                    <Box
-                      className="foto"
-                      zIndex={5}
-                      width="21rem"
-                      height="46rem"
-                      sx={{
-                        background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw433eddd7/images/productsets/1512503.jpg??auto=format&fit=crop&w=800)`,
-                        backgroundPosition: "21rem 0",
-                        backgroundSize: "300% 100%",
-                      }}
-                    ></Box>
-                    <figcaption>
-                      <Typography
-                        className="text"
-                        variant="h5"
-                        color="white"
-                        fontFamily={theme.fonts.title}
-                        marginLeft="1rem"
-                      >
-                        Todos los <span>Espacios</span>
-                      </Typography>
-                      <p>Explora todos nuestros diseños.</p>
-                    </figcaption>
-                  </figure>
-                </Box>
-              </Grid>
-
-              {/* column 2  */}
-              <Grid
-                item
-                xs={3}
-                paddingTop={{ xs: "0rem !important" }}
-                margin={0}
-                display="flex"
-                justifyContent="center"
-                paddingLeft={"0 !important"}
-              >
-                <Box
-                  className="BoxVert1"
-                  width="21rem"
-                  zIndex={5}
-                  display="flex"
-                  flexDirection="column"
-                  gap="4rem"
-                  marginTop={{
-                    xs: "4rem",
-                    sm: "4rem",
-                    md: 0,
-                    lg: "7rem",
-                    xl: "7rem",
-                  }}
-                >
-                  <Box
-                    className="grid"
-                    sx={{
-                      position: "relative",
-                      margin: "0 auto",
-                      // padding: "1em 0 4em",
-                      maxWidth: "1000px",
-                      listStyle: "none",
-                      textAlign: "center",
-                    }}
+                <figcaption>
+                  <Typography
+                    className="text"
+                    variant="h5"
+                    fontFamily={theme.fonts.title}
                   >
-                    <figure className="effect-chico">
-                      <Box
-                        className="foto"
-                        zIndex={5}
-                        width="21rem"
-                        height="21rem"
-                        sx={{
-                          background: `url(https://f.fcdn.app/imgs/1bfe18/www.kavehome.com.uy/kaveuy/a20d/webp/recursos/48/600x0/banner-3.jpg?auto=format&fit=crop&w=800)`,
-                          backgroundPosition: "21rem 0px",
-                          backgroundSize: "100% 100%",
-                        }}
-                      >
-                        <figcaption>
-                          <Typography
-                            className="text"
-                            variant="h5"
-                            color="white"
-                            fontFamily={theme.fonts.title}
-                            marginLeft="1rem"
-                          >
-                            Recibidor
-                          </Typography>
-                          <p>Explora todos nuestros diseños.</p>
-                        </figcaption>
-                      </Box>
-                    </figure>
-                  </Box>
-                  {/* foto 3 */}
-                  <Box
-                    className="grid"
-                    sx={{
-                      position: "relative",
-                      margin: "0 auto",
-                      maxWidth: "1000px",
-                      listStyle: "none",
-                      textAlign: "center",
-                    }}
-                  >
-                    <figure className="effect-chico">
-                      <Box
-                        className="foto"
-                        zIndex={5}
-                        width="21rem"
-                        height="21rem"
-                        sx={{
-                          background: `url(https://f.fcdn.app/imgs/90a7ed/www.kavehome.com.uy/kaveuy/ccde/webp/recursos/49/600x0/banner-4-vo2.jpg?auto=format&fit=crop&w=800)`,
-                          backgroundPosition: "21rem 0px",
-                          backgroundSize: "100% 100%",
-                        }}
-                      >
-                        <figcaption>
-                          <Typography
-                            className="text"
-                            variant="h5"
-                            color="white"
-                            fontFamily={theme.fonts.title}
-                            marginLeft="1rem"
-                          >
-                            Living
-                          </Typography>
-                          <p>Explora todos nuestros diseños.</p>
-                        </figcaption>
-                      </Box>
-                    </figure>
-                  </Box>
-                </Box>
-              </Grid>
-
-              {/* column 3 */}
-              <Grid
-                item
-                xs={3}
-                padding={0}
-                paddingTop={{ xs: "0rem !important" }}
-                display="flex"
-                justifyContent="center"
-                paddingLeft={"0 !important"}
-              >
+                    Dormitorio
+                  </Typography>
+                  <p>Explora todos nuestros diseños.</p>
+                </figcaption>
+              </Box>
+            </figure>
+            <Box width="21rem" height="21rem">
+              <figure className="effect-chico">
                 <Box
-                  className="BoxVert2"
-                  width="21rem"
-                  zIndex={5}
-                  display="flex"
-                  flexDirection="column"
-                  gap="4rem"
-                  marginTop={{ xs: "4rem", sm: 0, md: "4rem", lg: 0, xl: 0 }}
-                >
-                  {/* foto 4*/}
-                  <Box
-                    className="grid"
-                    sx={{
-                      position: "relative",
-                      margin: "0 auto",
-                      maxWidth: "1000px",
-                      listStyle: "none",
-                      textAlign: "center",
-                    }}
-                  >
-                    <figure className="effect-chico">
-                      <Box
-                        className="foto"
-                        width="21rem"
-                        height="21rem"
-                        sx={{
-                          background: `url(https://f.fcdn.app/imgs/6c396f/www.kavehome.com.uy/kaveuy/a5a7/webp/recursos/47/600x0/banner.jpg?auto=format&fit=crop&w=800)`,
-                          backgroundPosition: "21rem 0px",
-                          backgroundSize: "100% 100%",
-                        }}
-                      >
-                        <figcaption>
-                          <Typography
-                            className="text"
-                            variant="h5"
-                            color="white"
-                            fontFamily={theme.fonts.title}
-                            marginLeft="1rem"
-                          >
-                            Comedor
-                          </Typography>
-                          <p>Explora todos nuestros diseños.</p>
-                        </figcaption>
-                      </Box>
-                    </figure>
-                  </Box>
-
-                  {/* foto 5*/}
-                  <Box
-                    className="grid"
-                    sx={{
-                      position: "relative",
-                      margin: "0 auto",
-                      maxWidth: "1000px",
-                      listStyle: "none",
-                      textAlign: "center",
-                    }}
-                  >
-                    <figure className="effect-chico">
-                      <Box
-                        className="foto"
-                        width="21rem"
-                        height="21rem"
-                        sx={{
-                          background: `url(https://f.fcdn.app/imgs/74aa80/www.kavehome.com.uy/kaveuy/9a1d/webp/recursos/50/600x0/banner-copia.jpg?auto=format&fit=crop&w=800)`,
-                          backgroundPosition: "21rem 0px",
-                          backgroundSize: "100% 100%",
-                        }}
-                      >
-                        <figcaption>
-                          <Typography
-                            className="text"
-                            variant="h5"
-                            color="white"
-                            fontFamily={theme.fonts.title}
-                            marginLeft="1rem"
-                          >
-                            Exterior
-                          </Typography>
-                          <p>Explora todos nuestros diseños.</p>
-                        </figcaption>
-                      </Box>
-                    </figure>
-                  </Box>
-                </Box>
-              </Grid>
-
-              {/* column 4 */}
-              <Grid
-                item
-                xs={3}
-                width="21rem"
-                paddingTop={{ xs: "0 !important" }}
-                margin={"0 !important"}
-                display="flex"
-                justifyContent={"center !important"}
-                alignItems={"start !important"}
-                padding={"0 !important"}
-                gap="4rem"
-              >
-                <Box
-                  className="BoxVert3"
-                  gap="4rem"
+                  className="foto foto7"
                   width={{
                     xs: "21rem",
-                    sm: "21rem",
                     md: "21rem",
-                    lg: "46rem",
-                    xl: "21rem",
+                    lg: "21rem",
+                    xl: `${item[5].width}`,
                   }}
-                  height="46rem"
-                  zIndex={5}
-                  display="flex"
-                  justifyContent={"flex-start !important"}
-                  paddingTop={{ xs: "0rem" }}
-                  marginTop={{
-                    xs: "4rem",
-                    sm: "4rem",
-                    md: "4rem",
-                    lg: "0rem",
-                    xl: "0rem",
+                  height={{
+                    xs: "21rem",
+                    md: "21rem",
+                    lg: "21rem",
+                    xl: `${item[5].height}`,
                   }}
-                  flexDirection={{
-                    xs: "column",
-                    sm: "column",
-                    md: "column",
-                    lg: "row",
-                    xl: "column",
+                  sx={{
+                    background: `url(${item[5].img})`,
+                    backgroundPosition: item[5].backgroundPosition,
+                    backgroundSize: item[5].backgroundSize,
                   }}
                 >
-                  {/* foto 6 */}
-                  <Box
-                    gap="4rem"
-                    className="grid"
-                    paddingTop={0}
-                    sx={{
-                      position: "relative",
-                      margin: "0",
-                      height: "21rem",
-                      width: "21rem",
-                      listStyle: "none",
-                      textAlign: "center",
-                    }}
-                  >
-                    <figure className="effect-chico">
-                      <Box
-                        className="foto"
-                        width="21rem"
-                        height="21rem"
-                        sx={{
-                          background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw644288a9/images/productsets/1685510.jpg?sw=1600?auto=format&fit=crop&w=800)`,
-                          backgroundPosition: "-80px 0px",
-                          backgroundSize: "200% 100%",
-                        }}
-                      ></Box>
-                      <figcaption>
-                        <Typography
-                          className="text"
-                          variant="h5"
-                          color="white"
-                          fontFamily={theme.fonts.title}
-                        >
-                          Dormitorio
-                        </Typography>
-                        <p>Explora todos nuestros diseños.</p>
-                      </figcaption>
-                    </figure>
-                  </Box>
-
-                  {/* foto 7 */}
-                  <Box
-                    className="grid7 "
-                    sx={{
-                      position: "relative",
-                      margin: "0 ",
-                      // maxWidth: "1000px",
-                      listStyle: "none",
-                      textAlign: "center",
-                    }}
-                  >
-                    <figure className="effect-chico7">
-                      <Box
-                        className="foto7"
-                        width={{
-                          xs: "21rem",
-                          sm: "21rem",
-                          md: "21rem",
-                          lg: "12rem",
-                          xl: "12rem",
-                        }}
-                        minHeight={{
-                          xs: "21rem",
-                          sm: "21rem",
-                          md: "21rem",
-                          lg: "12rem",
-                          xl: "12rem",
-                        }}
-                        marginTop="3rem"
-                        sx={{
-                          background: `url(https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8b138f9f/images/productsets/1481921.jpg?sw=1200?auto=format&fit=crop&w=800)`,
-                          backgroundPosition: "-50px 0px",
-                          backgroundSize: "170% 100%",
-                        }}
-                      ></Box>
-                      <figcaption className="figcaption7">
-                        <Typography
-                          className="text"
-                          variant="h5"
-                          color="#000"
-                          fontFamily={theme.fonts.title}
-                        >
-                          Oficina
-                        </Typography>
-                      </figcaption>
-                    </figure>
-                  </Box>
+                  <figcaption style={{ padding: "3rem" }}>
+                    <Typography
+                      className="text"
+                      variant="h6"
+                      color="rgb(30, 30, 30)"
+                      fontFamily={theme.fonts.title}
+                    >
+                      Oficina
+                    </Typography>
+                    <p style={{ textAlign: "center", paddingRight: "10px" }}>
+                      Explora todos nuestros diseños.
+                    </p>
+                  </figcaption>
                 </Box>
-              </Grid>
-            </Grid>
+              </figure>
+            </Box>
           </Box>
-        </Box>
+        </Grid>
       </Box>
-    </>
+    </Box>
   );
 }
 

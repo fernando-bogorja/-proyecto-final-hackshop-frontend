@@ -25,7 +25,7 @@ const Footer = () => {
         marginTop="auto"
         sx={{
           width: "100%",
-          backgroundColor: theme.black,
+          backgroundColor: theme.black30,
           zIndex: "1300",
         }}
       >

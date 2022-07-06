@@ -32,6 +32,7 @@ const Home = () => {
         <>
           <Box sx={{ flexGrow: 1 }}>
             <Header />
+            <BannerPhotos />
             <React.Suspense fallback={<Loader />}>
               {categories.map((category) => (
                 <Box
@@ -58,7 +59,6 @@ const Home = () => {
                 </Box>
               ))}
             </React.Suspense>
-            <BannerPhotos />
           </Box>
         </>
       )}
