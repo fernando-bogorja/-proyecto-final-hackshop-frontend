@@ -48,38 +48,28 @@ function App() {
           <Route path="/profile/address" element={<Address />} />
           <Route
             path="/dashboard"
-            element={
-              <Dashboard component={<DashboardMain />} token={user.token} />
-            }
+            element={<Dashboard component={<DashboardMain />} />}
           />
-          <Route path="/checkout" element={<Checkout />} token={user.token} />
+          <Route path="/checkout" element={<Checkout token={user.token} />} />
           <Route
             path="/dashboard/products"
-            element={
-              <Dashboard component={<ProductList />} token={user.token} />
-            }
+            element={<Dashboard component={<ProductList />} />}
           />
           <Route
             path="/dashboard/categories"
-            element={
-              <Dashboard component={<Categories />} token={user.token} />
-            }
+            element={<Dashboard component={<Categories />} />}
           />
           <Route
             path="/dashboard/users"
-            element={<Dashboard component={<UserList />} token={user.token} />}
+            element={<Dashboard component={<UserList />} />}
           />
           <Route
             path="/dashboard/createUserForm"
-            element={
-              <Dashboard component={<CreateUserForm />} token={user.token} />
-            }
+            element={<Dashboard component={<CreateUserForm />} />}
           />
           <Route
             path="/dashboard/createProductForm"
-            element={
-              <Dashboard component={<CreateProductForm />} token={user.token} />
-            }
+            element={<Dashboard component={<CreateProductForm />} />}
           />
           <Route path="/dashboard/products" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />

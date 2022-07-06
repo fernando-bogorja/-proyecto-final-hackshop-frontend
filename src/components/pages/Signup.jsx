@@ -1,7 +1,5 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -17,7 +15,7 @@ import FormControl from "@mui/material/FormControl";
 export default function Signup() {
   const [user, handleSetUser, handleLogout, handleSignup] = useUserHook();
   const [asAdmin, setAsAdmin] = React.useState(false);
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const send = {

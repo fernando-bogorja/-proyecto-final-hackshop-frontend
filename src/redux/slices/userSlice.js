@@ -25,10 +25,13 @@ const userSlice = createSlice({
             state.token = null;
             state.data = null;
             toast(`Sesión cerrada`, toastConfig);
+        },
+        handleError: (state, action) => {
+            toast(action.payload, toastConfig);
         }
     },
 });
 
-export const { setUser, logoutUser, registerUser, addAddress } = userSlice.actions;
+export const { setUser, logoutUser, registerUser, addAddress, handleError } = userSlice.actions;
 
 export default userSlice.reducer;

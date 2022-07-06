@@ -3,11 +3,11 @@ import {
   logoutUser,
   registerUser,
   addAddress,
+  handleError
 } from "../redux/slices/userSlice";
 import global from "../global";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 
 export default function useUserHook() {
   const user = useSelector((state) => state.user);
@@ -15,23 +15,35 @@ export default function useUserHook() {
 
   const handleSetUser = (user) => {
     axios.post(`${global.api}/user/login`, user).then((res) => {
-      console.log(res.data);
-      dispatch(setUser({ token: res.data.token, user: res.data.data.user }));
-    });
+      switch (res.status) {
+        case 200:
+          dispatch(setUser({ token: res.data.data.token, user: res.data.data.user }));
+          break;
+        default:
+          dispatch(handleError("Error al iniciar sesión"));
+          break;
+      }
+    }).catch((err) => {
+      console.log(err);
+      dispatch(handleError("Error al iniciar sesión"));
+    })
   };
 
   const handleSignup = (user) => {
     axios.post(`${global.api}/user/register`, user).then((res) => {
-      console.log(res.data);
       dispatch(
         registerUser({ token: res.data.data.token, user: res.data.data.user })
       );
-    });
+    }).catch(() => {
+      dispatch(handleError("Error al registrar usuario"));
+    })
   };
 
   const handleAddAddress = (address) => {
     axios.post(`${global.api}/address/create`, address).then((res) => {
       dispatch(addAddress());
+    }).catch(() => {
+      dispatch(handleError("Error al agregar dirección"));
     });
   };
 
