@@ -1,6 +1,7 @@
 import { Box, Typography, Grid } from "@mui/material";
 import "@fontsource/arima-madurai";
 import { currentTheme as theme } from "../../../theme";
+import { HashLink } from "react-router-hash-link";
 import "./BannerPhotos.css";
 
 function BannerFotos() {
@@ -18,7 +19,7 @@ function BannerFotos() {
       id: 2,
       img: "https://f.fcdn.app/imgs/1bfe18/www.kavehome.com.uy/kaveuy/a20d/webp/recursos/48/600x0/banner-3.jpg",
       title: "Recibidor",
-      width: "100%",
+      width: "21rem",
       height: "21rem",
       backgroundPosition: "21rem 0px",
       backgroundSize: "cover",
@@ -66,7 +67,7 @@ function BannerFotos() {
       width: "11.5rem",
       height: "11.5rem",
       backgroundPosition: "-50px 0px",
-      backgroundSize: "100% 100%",
+      backgroundSize: "cover",
     },
   ];
 
@@ -112,31 +113,33 @@ function BannerFotos() {
             // backgroundColor="blue"
             sx={{ width: "21rem", height: "50rem" }}
           >
-            <figure className="effect-chico">
-              <Box
-                className="foto foto1"
-                width={photo1.width}
-                height={photo1.height}
-                textAlign="center"
-                sx={{
-                  background: `url(${photo1.img})`,
-                  backgroundPosition: photo1.backgroundPosition,
-                  backgroundSize: photo1.backgroundSize,
-                }}
-              >
-                <figcaption>
-                  <Typography
-                    className="text"
-                    variant="h5"
-                    color="rgb(30, 30, 30)"
-                    fontFamily={theme.fonts.title}
-                  >
-                    Butacas
-                  </Typography>
-                  <p>Explora todos nuestros diseños.</p>
-                </figcaption>
-              </Box>
-            </figure>
+            <HashLink smooth to="/#Butacas">
+              <figure className="effect-chico">
+                <Box
+                  className="foto foto1"
+                  width={photo1.width}
+                  height={photo1.height}
+                  textAlign="center"
+                  sx={{
+                    background: `url(${photo1.img})`,
+                    backgroundPosition: photo1.backgroundPosition,
+                    backgroundSize: photo1.backgroundSize,
+                  }}
+                >
+                  <figcaption>
+                    <Typography
+                      className="text"
+                      variant="h5"
+                      color="rgb(30, 30, 30)"
+                      fontFamily={theme.fonts.title}
+                    >
+                      Butacas
+                    </Typography>
+                    <p>Explora todos nuestros diseños.</p>
+                  </figcaption>
+                </Box>
+              </figure>
+            </HashLink>
           </Box>
           {/* column 2 */}
           <Box
@@ -155,54 +158,58 @@ function BannerFotos() {
             }}
             sx={{ width: "21rem", height: "46rem" }}
           >
-            <figure className="effect-chico">
-              <Box
-                className="foto foto2"
-                width={item[0].width}
-                height={item[0].height}
-                sx={{
-                  background: `url(${item[0].img})`,
-                  backgroundPosition: item[0].backgroundPosition,
-                  backgroundSize: item[0].backgroundSize,
-                }}
-              >
-                <figcaption>
-                  <Typography
-                    className="text"
-                    variant="h5"
-                    color="rgb(30, 30, 30)"
-                    fontFamily={theme.fonts.title}
-                  >
-                    Racks
-                  </Typography>
-                  <p>Explora todos nuestros diseños.</p>
-                </figcaption>
-              </Box>
-            </figure>
-            <figure className="effect-chico">
-              <Box
-                className="foto foto3"
-                width={item[1].width}
-                height={item[1].height}
-                sx={{
-                  background: `url(${item[1].img})`,
-                  backgroundPosition: item[1].backgroundPosition,
-                  backgroundSize: item[1].backgroundSize,
-                }}
-              >
-                <figcaption>
-                  <Typography
-                    className="text"
-                    variant="h5"
-                    color="rgb(30, 30, 30)"
-                    fontFamily={theme.fonts.title}
-                  >
-                    Sofás
-                  </Typography>
-                  <p>Explora todos nuestros diseños.</p>
-                </figcaption>
-              </Box>
-            </figure>
+            <HashLink smooth to="/#Racks">
+              <figure className="effect-chico">
+                <Box
+                  className="foto foto2"
+                  width={item[0].width}
+                  height={item[0].height}
+                  sx={{
+                    background: `url(${item[0].img})`,
+                    backgroundPosition: item[0].backgroundPosition,
+                    backgroundSize: item[0].backgroundSize,
+                  }}
+                >
+                  <figcaption>
+                    <Typography
+                      className="text"
+                      variant="h5"
+                      color="rgb(30, 30, 30)"
+                      fontFamily={theme.fonts.title}
+                    >
+                      Racks
+                    </Typography>
+                    <p>Explora todos nuestros diseños.</p>
+                  </figcaption>
+                </Box>
+              </figure>
+            </HashLink>
+            <HashLink smooth to="/#Sofás">
+              <figure className="effect-chico">
+                <Box
+                  className="foto foto3"
+                  width={item[1].width}
+                  height={item[1].height}
+                  sx={{
+                    background: `url(${item[1].img})`,
+                    backgroundPosition: item[1].backgroundPosition,
+                    backgroundSize: item[1].backgroundSize,
+                  }}
+                >
+                  <figcaption>
+                    <Typography
+                      className="text"
+                      variant="h5"
+                      color="rgb(30, 30, 30)"
+                      fontFamily={theme.fonts.title}
+                    >
+                      Sofás
+                    </Typography>
+                    <p>Explora todos nuestros diseños.</p>
+                  </figcaption>
+                </Box>
+              </figure>
+            </HashLink>
           </Box>
           {/* column 3 */}
           <Box
@@ -215,30 +222,33 @@ function BannerFotos() {
             marginTop={{ xs: "4rem", sm: "4rem", md: "4rem", xl: "0rem" }}
             sx={{ width: "21rem", height: "46rem" }}
           >
-            <figure className="effect-chico">
-              <Box
-                className=" foto foto4"
-                width={item[2].width}
-                height={item[2].height}
-                sx={{
-                  background: `url(${item[2].img})`,
-                  backgroundPosition: item[2].backgroundPosition,
-                  backgroundSize: item[2].backgroundSize,
-                }}
-              >
-                <figcaption>
-                  <Typography
-                    className="text"
-                    variant="h5"
-                    color="rgb(30, 30, 30)"
-                    fontFamily={theme.fonts.title}
-                  >
-                    Mesas
-                  </Typography>
-                  <p>Explora todos nuestros diseños.</p>
-                </figcaption>
-              </Box>
-            </figure>
+            <HashLink smooth to="/#Mesas">
+              <figure className="effect-chico">
+                <Box
+                  className=" foto foto4"
+                  width={item[2].width}
+                  height={item[2].height}
+                  sx={{
+                    background: `url(${item[2].img})`,
+                    backgroundPosition: item[2].backgroundPosition,
+                    backgroundSize: item[2].backgroundSize,
+                  }}
+                >
+                  <figcaption>
+                    <Typography
+                      className="text"
+                      variant="h5"
+                      color="rgb(30, 30, 30)"
+                      fontFamily={theme.fonts.title}
+                    >
+                      Mesas
+                    </Typography>
+                    <p>Explora todos nuestros diseños.</p>
+                  </figcaption>
+                </Box>
+              </figure>
+            </HashLink>
+
             <figure className="effect-chico">
               <Box
                 className="foto foto5"
@@ -294,29 +304,31 @@ function BannerFotos() {
               xl: "0rem",
             }}
           >
-            <figure className="effect-chico">
-              <Box
-                className="foto foto6"
-                width={item[4].width}
-                height={item[4].height}
-                sx={{
-                  background: `url(${item[4].img})`,
-                  backgroundPosition: item[4].backgroundPosition,
-                  backgroundSize: item[4].backgroundSize,
-                }}
-              >
-                <figcaption>
-                  <Typography
-                    className="text"
-                    variant="h5"
-                    fontFamily={theme.fonts.title}
-                  >
-                    Bibliotecas
-                  </Typography>
-                  <p>Explora todos nuestros diseños.</p>
-                </figcaption>
-              </Box>
-            </figure>
+            <HashLink smooth to="/#Bibliotecas">
+              <figure className="effect-chico">
+                <Box
+                  className="foto foto6"
+                  width={item[4].width}
+                  height={item[4].height}
+                  sx={{
+                    background: `url(${item[4].img})`,
+                    backgroundPosition: item[4].backgroundPosition,
+                    backgroundSize: item[4].backgroundSize,
+                  }}
+                >
+                  <figcaption>
+                    <Typography
+                      className="text"
+                      variant="h5"
+                      fontFamily={theme.fonts.title}
+                    >
+                      Bibliotecas
+                    </Typography>
+                    <p>Explora todos nuestros diseños.</p>
+                  </figcaption>
+                </Box>
+              </figure>
+            </HashLink>
             <Box width="21rem" height="21rem">
               <figure className="effect-chico">
                 <Box
@@ -339,7 +351,7 @@ function BannerFotos() {
                     backgroundSize: item[5].backgroundSize,
                   }}
                 >
-                  <figcaption style={{ padding: "3rem" }}>
+                  <figcaption style={{ padding: "3rem", width: "11.5rem" }}>
                     <Typography
                       className="text"
                       variant="h6"

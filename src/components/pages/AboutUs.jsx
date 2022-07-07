@@ -43,7 +43,12 @@ const AboutUs = () => {
           ¡Sobre este proyecto!
         </Typography>
 
-        <Grid container width="100%" columns={{ xs: 12, sm: 3 }}>
+        <Grid
+          container
+          width="100%"
+          justifyContent="center"
+          columns={{ xs: 12, sm: 3 }}
+        >
           <Box
             width="80%"
             display="flex"

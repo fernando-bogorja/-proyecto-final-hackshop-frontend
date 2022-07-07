@@ -7,6 +7,7 @@ import { Divider } from "@mui/material";
 import { useState, useEffect } from "react";
 import { InputLabel, Select, MenuItem } from "@mui/material";
 import { Box } from "@mui/system";
+import { currentTheme as theme } from "../../../../theme";
 
 export default function EditProduct({ product }) {
   const [formData, setFormData] = useState({
@@ -217,7 +218,10 @@ export default function EditProduct({ product }) {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                sx={{
+                  backgroundColor: theme.black,
+                  "&:hover": { backgroundColor: theme.black_hover },
+                }}
               >
                 Confirmar Cambios en Edicion de Producto
               </Button>

@@ -4,6 +4,7 @@ const theme = {
   light: {
     black: "#000",
     black30: "rgb(30, 30, 30)",
+    transp: "transparent",
     white: "#fff",
     gray: "rgb(245,245,245)",
     black_hover: "#575757",

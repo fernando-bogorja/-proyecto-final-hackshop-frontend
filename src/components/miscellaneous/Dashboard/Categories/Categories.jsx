@@ -8,6 +8,7 @@ import { Divider } from "@mui/material";
 import { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { currentTheme as theme } from "../../../../theme";
 
 export default function Categories() {
   const [temp, setTemp] = useState({});
@@ -39,11 +40,31 @@ export default function Categories() {
               style={{ margin: "5px" }}
               size="small"
               variant="outlined"
+              sx={{
+                color: theme.black,
+                borderColor: theme.black,
+                "&:hover": {
+                  color: theme.black_hover,
+                  borderColor: theme.black_hover,
+                },
+              }}
             >
               Editar
             </Button>
             {/* </Link> */}
-            <Button size="small" variant="outlined">
+            <Button
+              size="small"
+              variant="outlined"
+              sx={{
+                color: theme.black,
+                borderColor: theme.black,
+
+                "&:hover": {
+                  color: theme.black_hover,
+                  borderColor: theme.black_hover,
+                },
+              }}
+            >
               Borrar
             </Button>
           </>
@@ -71,6 +92,17 @@ export default function Categories() {
             sx={{ minHeight: { xs: "650px" } }}
           />
         </Box>
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            width: "100%",
+            backgroundColor: theme.black,
+            "&:hover": { backgroundColor: theme.black_hover },
+          }}
+        >
+          Agregar Nueva Categoría
+        </Button>
       </Grid>
       <Grid item xs={12} lg={6}>
         <Box sx={{ height: "100%", width: "100%" }}>
@@ -97,53 +129,70 @@ function EditCategories({ categoryName }) {
 
   return (
     <React.Fragment>
-      <Grid container justifyContent="center" spacing={2}>
-        <Grid
+      <Box display="flex" justifyContent="center">
+        <Box
+          display="flex"
           justifyContent="center"
-          flexDirection="column"
-          item
-          xs={12}
-          lg={6}
+          sx={{
+            mt: "3rem",
+            height: "100%",
+            width: "70%",
+          }}
         >
-          <Box
-            display="flex"
-            justifyContent="center"
-            sx={{ height: "100%", width: "100%" }}
-          >
-            <Button type="submit" variant="contained" color="primary">
-              Agregar Nueva Categoría
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-      <Typography mt="10px" textAlign="center" variant="h6" gutterBottom>
-        Editar Categoría {formData.name}
-      </Typography>
-      <form>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={12}>
-            <TextField
-              required
-              id="name"
-              name="name"
-              label="Nombre"
-              fullWidth
-              value={formData.name}
-              autoComplete=""
-              variant="standard"
-              onChange={handleChange}
-            />
+          <Grid container width="100%">
+            <Box
+              width="100%"
+              justifyContent="center"
+              flexDirection="column"
+              item
+              xs={12}
+              lg={6}
+            >
+              <Typography
+                my="2rem"
+                textAlign="center"
+                variant="h6"
+                gutterBottom
+              >
+                Editar Categoría {formData.name}
+              </Typography>
+              <form>
+                <Grid container spacing={3}>
+                  <Grid item xs={12} sm={12}>
+                    <TextField
+                      required
+                      id="name"
+                      name="name"
+                      label="Nombre de Categoría"
+                      fullWidth
+                      value={formData.name}
+                      autoComplete=""
+                      variant="outlined"
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                </Grid>
+                <Divider />
+                <Grid justifyContent="center" container spacing={3} my={2}>
+                  <Grid item xs={12}>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      sx={{
+                        width: "100%",
+                        backgroundColor: theme.black,
+                        "&:hover": { backgroundColor: theme.black_hover },
+                      }}
+                    >
+                      Confirmar Cambios en Edicion de Categoría
+                    </Button>
+                  </Grid>
+                </Grid>
+              </form>
+            </Box>
           </Grid>
-        </Grid>
-        <Divider />
-        <Grid justifyContent="center" container spacing={3} my={2}>
-          <Grid item xs={6}>
-            <Button type="submit" fullWidth variant="contained" color="primary">
-              Confirmar Cambios en Edicion de Categoría
-            </Button>
-          </Grid>
-        </Grid>
-      </form>
+        </Box>
+      </Box>
     </React.Fragment>
   );
 }

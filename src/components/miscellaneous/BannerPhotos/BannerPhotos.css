@@ -15,7 +15,19 @@
   max-width: 21rem;
   max-height: 48rem;
   /* width: 48%; */
-  background: #3085a3;
+  /* background: #374d55; */
+  cursor: pointer;
+}
+
+.grid figure .foto7 {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  min-width: 11.5rem;
+  max-width: 21rem;
+  max-height: 48rem;
+  width: 48%;
+  /* background: rgba(55, 77, 85, 0.24); */
   cursor: pointer;
 }
 

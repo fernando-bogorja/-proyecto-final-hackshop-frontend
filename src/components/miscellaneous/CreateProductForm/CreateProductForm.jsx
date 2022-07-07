@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Divider } from "@mui/material";
 import { useState, useEffect } from "react";
+import { currentTheme as theme } from "../../../theme";
 import axios from "axios";
 export default function Form() {
   const [formData, setFormData] = useState({});
@@ -117,7 +118,10 @@ export default function Form() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                sx={{
+                  backgroundColor: theme.black,
+                  "&:hover": { backgroundColor: theme.black_hover },
+                }}
               >
                 Confirmar Crear Producto
               </Button>

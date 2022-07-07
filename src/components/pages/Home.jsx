@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Box } from "@mui/material";
 //import { useState, useEffect } from "react";
 //import axios from "axios";
 //Components
+import { NavLink } from "react-router-dom";
 import Carousel from "../miscellaneous/Carousel/Carousel";
 import ProductCard from "../miscellaneous/ProductCard/ProductCard";
 import Header from "../partials/Header";
@@ -22,20 +23,6 @@ const Loader = () => {
   );
 };
 
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
-// General scroll to element function
-
-const ScrollDemo = () => {
-  const myRef = useRef(null);
-  const executeScroll = () => scrollToRef(myRef);
-
-  return (
-    <>
-      <div ref={myRef}></div>
-      <button onClick={executeScroll}></button>
-    </>
-  );
-};
 const Home = () => {
   const [products, categories, isLoading] = useGetProducts();
   // console.log(useGetProducts());
@@ -60,8 +47,11 @@ const Home = () => {
                   }}
                   key={category._id}
                 >
-                  <ScrollDemo />
-                  <Box width="80%" sx={{ borderRadius: "5px" }}>
+                  <Box
+                    id={category.name}
+                    width="80%"
+                    sx={{ borderRadius: "5px" }}
+                  >
                     <Carousel key={category.name} category={category.name}>
                       {products
                         .filter(

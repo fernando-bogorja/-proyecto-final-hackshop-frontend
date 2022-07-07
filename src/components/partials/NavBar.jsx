@@ -19,6 +19,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { currentTheme as theme, effects } from "../../theme";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import "./NavBar.css";
 
 const pages = [
   {
@@ -137,15 +140,42 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+  let background;
+  const location = useLocation();
+  if (
+    location.pathname === "/cart" ||
+    location.pathname === "/profile" ||
+    location.pathname === "/profile/address" ||
+    location.pathname === "/signup" ||
+    location.pathname === "/dashboard" ||
+    location.pathname === "/dashboard/products" ||
+    location.pathname === "/dashboard/createProductForm" ||
+    location.pathname === "/dashboard/categories" ||
+    location.pathname === "/dashboard/users"
+  ) {
+    background = theme.black30;
+  }
+
+  const [color, setColor] = useState(false);
+  const changeColor = () => {
+    if (window.scrollY >= 800) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+  };
+  window.addEventListener("scroll", changeColor);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
+        className={color ? "navTransp navBlack" : "navTransp"}
         position="fixed"
-        sx={{ backgroundColor: theme.black30, height: "5.5rem" }}
+        sx={{ height: "5.5rem" }}
       >
         <Toolbar
           sx={{
-            backgroundColor: "transparent",
+            backgroundColor: { background },
             height: "5.5rem",
           }}
         >
