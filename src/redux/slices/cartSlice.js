@@ -31,8 +31,10 @@ const cartSlice = createSlice({
     },
     clearCart(state, action) {
       state.cartItems = [];
+      state.cartTotalAmount = 0;
+      state.cartTotalQuantity = 0;
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      toast(`Se ha limpiado el carrito`, toastConfig);
+      toast(`Compra realizada con éxito`, toastConfig);
     },
     removeFromCart(state, action) {
       const nextCartItems = state.cartItems.filter(

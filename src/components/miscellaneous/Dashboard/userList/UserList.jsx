@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import EditUser from "../../Dashboard/EditUser/EditUser";
+import { useNavigate } from "react-router-dom";
 
 export default function UserList() {
   const [users] = useGetUsers();
@@ -13,7 +14,7 @@ export default function UserList() {
   const handleClick = (params) => {
     setTemp(params);
   };
-
+  const navigate = useNavigate();
   const columns = [
     { field: "_id", headerName: "ID", width: 220 },
     {
@@ -45,7 +46,6 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-            {/* <Link to={`/user/` + params.row.id}> */}
             <Button
               onClick={() => handleClick(params.row)}
               style={{ margin: "5px" }}
@@ -54,7 +54,14 @@ export default function UserList() {
             >
               Editar
             </Button>
-            {/* </Link> */}
+            <Button
+              onClick={() => navigate("/orders")}
+              style={{ margin: "5px" }}
+              size="small"
+              variant="outlined"
+            >
+              Ordenes
+            </Button>
             <Button size="small" variant="outlined">
               Borrar
             </Button>
