@@ -6,15 +6,19 @@ import Button from "@mui/material/Button";
 import AppButton from "../miscellaneous/AppButtons/AppButton";
 import Typography from "@mui/material/Typography";
 import { TextField } from "@mui/material";
-import { currentTheme as theme, effects } from "../../theme";
+import { currentTheme as theme, effects, toastConfig } from "../../theme";
 import { Facebook, Instagram, LinkedIn, Twitter } from "@mui/icons-material";
 import Link from "@mui/material/Link";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Footer = () => {
   let location = useLocation();
   //console.log("PATHNAME", location.pathname);
   //const pathsWithOutFooter = ["/dashboard","/"]
+  const handleClick = () => {
+    toast.info("Gracias por Suscribirse");
+  };
   if (location.pathname === "/") {
     return (
       <Box
@@ -69,7 +73,9 @@ const Footer = () => {
                   }}
                 />
                 <Box width="35%">
-                  <AppButton color="white">Suscribirme</AppButton>
+                  <AppButton onClick={handleClick} color="white">
+                    Suscribirme
+                  </AppButton>
                 </Box>
               </Box>
             </Grid>
