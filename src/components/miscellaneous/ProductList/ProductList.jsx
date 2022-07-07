@@ -86,7 +86,7 @@ export default function ProductList() {
               columns={columns}
               getRowId={(row) => row._id}
               pageSize={12}
-              rowsPerPageOptions={[10]}
+              rowsPerPageOptions={[12]}
               checkboxSelection
               disableSelectionOnClick
               sx={{ minHeight: { xs: "650px" } }}

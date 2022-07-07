@@ -30,21 +30,21 @@ export default function Form() {
       validateInput(city) &&
       validateInput(zip) &&
       validateInput(country)
-    )
-      console.log("VALID");
+    );
     else {
+      //console.log("VALID");
       setError("Por favor, rellene todos los campos correctamente");
-      console.log("INVALID");
+      //console.log("INVALID");
     }
   };
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
-    console.log(formData);
+    // console.log(formData);
   };
 
   useEffect(() => {
-    console.log("Form data", formData);
+    //console.log("Form data", formData);
   }, [formData]);
 
   return (

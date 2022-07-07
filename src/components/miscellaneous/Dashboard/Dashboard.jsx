@@ -13,7 +13,7 @@ function Dashboard(props) {
   const { window, component, token } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [user] = useUserHook();
-  console.log("DASHBOARD");
+  //console.log("DASHBOARD");
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -21,7 +21,7 @@ function Dashboard(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
   if (!user.data.isAdmin) {
-    console.log("USER ES ADMINN???", user.data.isAdmin);
+    //console.log("USER ES ADMINN???", user.data.isAdmin);
     return <Navigate to="/signin" />;
   } else {
     return (

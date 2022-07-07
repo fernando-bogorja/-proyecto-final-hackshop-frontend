@@ -1,65 +1,54 @@
-import "./userList.css";
+import * as React from "react";
+import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { userRows } from "../dummyData";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import useGetUsers from "../../../../hooks/useGetUsers";
+import { useState, useEffect } from "react";
+import { Button } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import EditUser from "../../Dashboard/EditUser/EditUser";
 
-const UserList = () => {
-  const [data, setData] = useState(userRows);
-
-  const handleDeleteUser = (userId) => {
-    setData(data.filter((item) => item.id !== userId));
+export default function UserList() {
+  const [users] = useGetUsers();
+  const [temp, setTemp] = useState({});
+  const handleClick = (params) => {
+    setTemp(params);
   };
+
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 220 },
     {
-      field: "user",
-      headerName: "User",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            <img className="userListImage" src={params.row.avatar} alt="" />
-            {params.row.username}
-          </div>
-        );
-      },
-    },
-    // { field: "avatar", headerName: "Avatar", width: 200 },
-    {
-      field: "email",
-      headerName: "Email",
-      width: 160,
+      field: "name",
+      headerName: "Nombre",
+      width: 500,
+      editable: false,
     },
     {
-      field: "status",
-      headerName: "Status",
-      description: "This column has a value getter and is not sortable.",
-      sortable: true,
-      width: 120,
-    },
-    {
-      field: "transaction",
-      headerName: "Transaction",
-      description: "This column has a value getter and is not sortable.",
-      sortable: true,
-      width: 160,
+      field: "isAdmin",
+      headerName: "Administrador",
+      width: 100,
+      editable: false,
     },
     {
       field: "action",
-      headerName: "Action",
-      width: 150,
+      headerName: "Acciones",
+      width: 200,
+      editable: false,
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/user/` + params.row.id}>
-              <button className="userListEdit">Edit</button>
-            </Link>
-            <DeleteOutlineIcon
-              className="userListDelete"
-              onClick={() => handleDeleteUser(params.row.id)}
-            />
+            {/* <Link to={`/user/` + params.row.id}> */}
+            <Button
+              onClick={() => handleClick(params.row)}
+              style={{ margin: "5px" }}
+              size="small"
+              variant="outlined"
+            >
+              Editar
+            </Button>
+            {/* </Link> */}
+            <Button size="small" variant="outlined">
+              Borrar
+            </Button>
           </>
         );
       },
@@ -67,19 +56,44 @@ const UserList = () => {
   ];
 
   return (
-    <div className="userList">
-      <div style={{ height: 500, width: "100%" }}>
-        <DataGrid
-          rows={data}
-          diseableSelectionOnClick
-          columns={columns}
-          pageSize={8}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-        />
-      </div>
-    </div>
+    <Grid container spacing={2}>
+      <Grid
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        item
+        xs={12}
+      >
+        <Box
+          display="flex"
+          justifyContent="center"
+          sx={{ height: "100%", width: "100%" }}
+        >
+          <Box width="80%" height="100%">
+            <DataGrid
+              rows={users}
+              columns={columns}
+              getRowId={(row) => row._id}
+              pageSize={12}
+              rowsPerPageOptions={[12]}
+              checkboxSelection
+              disableSelectionOnClick
+              sx={{ minHeight: { xs: "650px" } }}
+            />
+          </Box>
+        </Box>
+      </Grid>
+      <Grid item xs={12}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          sx={{ height: "100%", width: "100%" }}
+        >
+          <Box width="80%" height="100%">
+            <EditUser user={temp} />
+          </Box>
+        </Box>
+      </Grid>
+    </Grid>
   );
-};
-
-export default UserList;
+}
