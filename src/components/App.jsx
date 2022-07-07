@@ -25,10 +25,10 @@ import AboutPopUp from "./partials/AboutPopUp";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Address from "./pages/Address";
+import Thanks from "./pages/Thanks";
 
 function App() {
-  const user = useSelector((state) => state.user);
-  //console.log(user);
+  const user = useSelector(state => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
@@ -46,6 +46,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/address" element={<Address />} />
+          <Route path="/thanks" element={<Thanks />} />
           <Route
             path="/dashboard"
             element={<Dashboard component={<DashboardMain />} />}
