@@ -25,8 +25,17 @@ export default function UserList() {
     {
       field: "isAdmin",
       headerName: "Administrador",
-      width: 100,
+      width: 120,
       editable: false,
+      renderCell: (params) => {
+        {
+          if (params.row.isAdmin) {
+            return "ADMINISTRADOR";
+          } else {
+            return "USUARIO";
+          }
+        }
+      },
     },
     {
       field: "action",

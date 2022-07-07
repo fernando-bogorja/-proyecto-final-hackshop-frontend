@@ -14,10 +14,11 @@ export default function EditUser({ user }) {
     name: "",
     isAdmin: "",
   });
-  console.log("FormData", formData);
+  // console.log("FormData", formData);
   const [error, setError] = useState("");
 
   const handleChange = (event) => {
+    //console.log("target name:", event.target.name);
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
