@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Box } from "@mui/material";
 //import { useState, useEffect } from "react";
 //import axios from "axios";
@@ -19,6 +19,21 @@ const Loader = () => {
         <div></div>
       </div>
     </div>
+  );
+};
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+// General scroll to element function
+
+const ScrollDemo = () => {
+  const myRef = useRef(null);
+  const executeScroll = () => scrollToRef(myRef);
+
+  return (
+    <>
+      <div ref={myRef}></div>
+      <button onClick={executeScroll}></button>
+    </>
   );
 };
 const Home = () => {
@@ -45,6 +60,7 @@ const Home = () => {
                   }}
                   key={category._id}
                 >
+                  <ScrollDemo />
                   <Box width="80%" sx={{ borderRadius: "5px" }}>
                     <Carousel key={category.name} category={category.name}>
                       {products

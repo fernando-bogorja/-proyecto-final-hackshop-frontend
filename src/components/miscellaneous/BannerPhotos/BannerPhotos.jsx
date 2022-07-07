@@ -6,7 +6,7 @@ import "./BannerPhotos.css";
 function BannerFotos() {
   const photo1 = {
     id: 1,
-    img: "https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw433eddd7/images/productsets/1512503.jpg?sw=1600",
+    img: "https://f.fcdn.app/imgs/2454f0/www.kavehome.com.uy/kaveuy/9b99/webp/catalogo/S330VA_23_2/1920-1200/butaca-bobly-tela-varese-rosa.jpg",
     title: "Todos los Espacios",
     width: "21rem",
     height: "46rem",
@@ -52,11 +52,11 @@ function BannerFotos() {
     },
     {
       id: 6,
-      img: "https://images.demandware.net/dw/image/v2/BBBV_PRD/on/demandware.static/-/Sites-master-catalog/default/dw644288a9/images/productsets/1685510.jpg?sw=1600",
+      img: "https://i0.wp.com/reizen.com.uy/wp-content/uploads/2020/02/2AB8C37E-32C1-463B-A22B-08BD726ED1EE.jpeg?w=1536&ssl=1",
       title: "Dormitorio",
       width: "21rem",
       height: "21rem",
-      backgroundPosition: "-80px 0px",
+      backgroundPosition: "0px 0px",
       backgroundSize: "cover",
     },
     {
@@ -66,7 +66,7 @@ function BannerFotos() {
       width: "11.5rem",
       height: "11.5rem",
       backgroundPosition: "-50px 0px",
-      backgroundSize: "cover",
+      backgroundSize: "100% 100%",
     },
   ];
 
@@ -131,7 +131,7 @@ function BannerFotos() {
                     color="rgb(30, 30, 30)"
                     fontFamily={theme.fonts.title}
                   >
-                    Todos los Espacios
+                    Butacas
                   </Typography>
                   <p>Explora todos nuestros diseños.</p>
                 </figcaption>
@@ -173,7 +173,7 @@ function BannerFotos() {
                     color="rgb(30, 30, 30)"
                     fontFamily={theme.fonts.title}
                   >
-                    Recibidor
+                    Racks
                   </Typography>
                   <p>Explora todos nuestros diseños.</p>
                 </figcaption>
@@ -197,7 +197,7 @@ function BannerFotos() {
                     color="rgb(30, 30, 30)"
                     fontFamily={theme.fonts.title}
                   >
-                    Living
+                    Sofás
                   </Typography>
                   <p>Explora todos nuestros diseños.</p>
                 </figcaption>
@@ -233,7 +233,7 @@ function BannerFotos() {
                     color="rgb(30, 30, 30)"
                     fontFamily={theme.fonts.title}
                   >
-                    Comedor
+                    Mesas
                   </Typography>
                   <p>Explora todos nuestros diseños.</p>
                 </figcaption>
@@ -311,7 +311,7 @@ function BannerFotos() {
                     variant="h5"
                     fontFamily={theme.fonts.title}
                   >
-                    Dormitorio
+                    Bibliotecas
                   </Typography>
                   <p>Explora todos nuestros diseños.</p>
                 </figcaption>

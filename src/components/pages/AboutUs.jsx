@@ -23,7 +23,7 @@ const AboutUs = () => {
         flexDirection="column"
         alignItems="center"
         width="100%"
-        height="100vh"
+        height={{ xl: "100vh" }}
         bgcolor={theme.white}
         sx={{
           backgroundImage: `url(${require("../../assets/header-aboutus.png")})`,
@@ -42,37 +42,41 @@ const AboutUs = () => {
         >
           ¡Sobre este proyecto!
         </Typography>
-        <Box
-          width="80%"
-          display="flex"
-          justifyContent="space-between"
-          border="4px solid red"
-        >
-          <PeopleCard
-            name="Lucía Rodriguez"
-            image={require("../../assets/linkedin-lu.png")}
-            linkedin="lurodriguezroldan"
-            github="LuuRoldan"
-          />
-          <PeopleCard
-            name="Felipe Fontana"
-            image={require("../../assets/linkedin-feli.png")}
-            linkedin="felipefontana/"
-            github="elFonTii/"
-          />
-          <PeopleCard
-            name="Federico Gorriaran"
-            image={require("../../assets/linkedin-fede.png")}
-            linkedin="federico-gorriaran/"
-            github="fedegorriaran"
-          />
-          <PeopleCard
-            name="Fernando Bogorja"
-            image={require("../../assets/linkedin-fer.png")}
-            linkedin="fernando-bogorja-rodriguez/"
-            github="fernando-bogorja"
-          />
-        </Box>
+
+        <Grid container width="100%" columns={{ xs: 12, sm: 3 }}>
+          <Box
+            width="80%"
+            display="flex"
+            flexWrap="wrap"
+            justifyContent="center"
+            border="4px solid red"
+          >
+            <PeopleCard
+              name="Lucía Rodriguez"
+              image={require("../../assets/linkedin-lu.png")}
+              linkedin="lurodriguezroldan"
+              github="LuuRoldan"
+            />
+            <PeopleCard
+              name="Felipe Fontana"
+              image={require("../../assets/linkedin-feli.png")}
+              linkedin="felipefontana/"
+              github="elFonTii/"
+            />
+            <PeopleCard
+              name="Federico Gorriaran"
+              image={require("../../assets/linkedin-fede.png")}
+              linkedin="federico-gorriaran/"
+              github="fedegorriaran"
+            />
+            <PeopleCard
+              name="Fernando Bogorja"
+              image={require("../../assets/linkedin-fer.png")}
+              linkedin="fernando-bogorja-rodriguez/"
+              github="fernando-bogorja"
+            />
+          </Box>
+        </Grid>
       </Box>
 
       <Box sx={{ width: "80%", border: "4px solid green" }}>
