@@ -72,305 +72,321 @@ function BannerFotos() {
   ];
 
   return (
-    <Box
-      width="100%"
-      display="flex"
-      flexDirection="row"
-      justifyContent="center"
-      alignItems="center"
-      backgroundColor={theme.gray}
-      my="3%"
-      py="5rem"
-    >
+    <>
       <Box
+        className="banner_servicios"
+        width="100%"
+        height="320px"
+        sx={{
+          background: `url(${require("../../../assets/banner_servicios.png")})`,
+          backgroundPosition: "0",
+          backgroundSize: "cover",
+        }}
+      ></Box>
+      <Box
+        width="100%"
         display="flex"
-        flexDirection="column"
-        alignItems="center"
+        flexDirection="row"
         justifyContent="center"
-        width="78%"
-        height="100%"
-        // backgroundColor="yellow"
+        alignItems="center"
+        backgroundColor={theme.gray}
+        mb="4.5rem"
+        py="5rem"
       >
-        <Box display="flex" alignSelf="flex-start">
-          <Typography variant="h4" color="gray" fontFamily={theme.fonts.title}>
-            Selecciona por Categoría
-          </Typography>
-        </Box>
-        <Grid
-          container
-          width="100%"
-          columns={{ xs: 12, sm: 3 }}
-          justifyContent="space-around"
-          // gap={{ xs: 0, xl: "1rem" }}
-          // backgroundColor="red"
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          width="78%"
+          height="100%"
+          // backgroundColor="yellow"
         >
-          {/* column 1 */}
-          <Box
-            className="grid"
-            display="flex"
-            flexDirection="column"
-            justifyContent="flex-end"
-            // backgroundColor="blue"
-            sx={{ width: "21rem", height: "50rem" }}
-          >
-            <HashLink smooth to="/#Butacas">
-              <figure className="effect-chico">
-                <Box
-                  className="foto foto1"
-                  width={photo1.width}
-                  height={photo1.height}
-                  textAlign="center"
-                  sx={{
-                    background: `url(${photo1.img})`,
-                    backgroundPosition: photo1.backgroundPosition,
-                    backgroundSize: photo1.backgroundSize,
-                  }}
-                >
-                  <figcaption>
-                    <Typography
-                      className="text"
-                      variant="h5"
-                      color="rgb(30, 30, 30)"
-                      fontFamily={theme.fonts.title}
-                    >
-                      Butacas
-                    </Typography>
-                    <p>Explora todos nuestros diseños.</p>
-                  </figcaption>
-                </Box>
-              </figure>
-            </HashLink>
+          <Box display="flex" alignSelf="flex-start">
+            <Typography
+              variant="h4"
+              color="gray"
+              fontFamily={theme.fonts.title}
+            >
+              Selecciona por Categoría
+            </Typography>
           </Box>
-          {/* column 2 */}
-          <Box
-            className="grid"
-            display="flex"
-            flexDirection="column"
-            justifyContent="space-between"
-            // backgroundColor="blue"
-            textAlign="center"
-            marginTop={{
-              xs: "4rem",
-              sm: "4rem",
-              md: "4rem",
-              lg: "4rem",
-              xl: "8rem",
-            }}
-            sx={{ width: "21rem", height: "46rem" }}
+          <Grid
+            container
+            width="100%"
+            columns={{ xs: 12, sm: 3 }}
+            justifyContent="space-around"
+            // gap={{ xs: 0, xl: "1rem" }}
+            // backgroundColor="red"
           >
-            <HashLink smooth to="/#Racks">
-              <figure className="effect-chico">
-                <Box
-                  className="foto foto2"
-                  width={item[0].width}
-                  height={item[0].height}
-                  sx={{
-                    background: `url(${item[0].img})`,
-                    backgroundPosition: item[0].backgroundPosition,
-                    backgroundSize: item[0].backgroundSize,
-                  }}
-                >
-                  <figcaption>
-                    <Typography
-                      className="text"
-                      variant="h5"
-                      color="rgb(30, 30, 30)"
-                      fontFamily={theme.fonts.title}
-                    >
-                      Racks
-                    </Typography>
-                    <p>Explora todos nuestros diseños.</p>
-                  </figcaption>
-                </Box>
-              </figure>
-            </HashLink>
-            <HashLink smooth to="/#Sofás">
-              <figure className="effect-chico">
-                <Box
-                  className="foto foto3"
-                  width={item[1].width}
-                  height={item[1].height}
-                  sx={{
-                    background: `url(${item[1].img})`,
-                    backgroundPosition: item[1].backgroundPosition,
-                    backgroundSize: item[1].backgroundSize,
-                  }}
-                >
-                  <figcaption>
-                    <Typography
-                      className="text"
-                      variant="h5"
-                      color="rgb(30, 30, 30)"
-                      fontFamily={theme.fonts.title}
-                    >
-                      Sofás
-                    </Typography>
-                    <p>Explora todos nuestros diseños.</p>
-                  </figcaption>
-                </Box>
-              </figure>
-            </HashLink>
-          </Box>
-          {/* column 3 */}
-          <Box
-            className="grid"
-            display="flex"
-            flexDirection="column"
-            justifyContent="space-between"
-            // backgroundColor="blue"
-            textAlign="center"
-            marginTop={{ xs: "4rem", sm: "4rem", md: "4rem", xl: "0rem" }}
-            sx={{ width: "21rem", height: "46rem" }}
-          >
-            <HashLink smooth to="/#Mesas">
-              <figure className="effect-chico">
-                <Box
-                  className=" foto foto4"
-                  width={item[2].width}
-                  height={item[2].height}
-                  sx={{
-                    background: `url(${item[2].img})`,
-                    backgroundPosition: item[2].backgroundPosition,
-                    backgroundSize: item[2].backgroundSize,
-                  }}
-                >
-                  <figcaption>
-                    <Typography
-                      className="text"
-                      variant="h5"
-                      color="rgb(30, 30, 30)"
-                      fontFamily={theme.fonts.title}
-                    >
-                      Mesas
-                    </Typography>
-                    <p>Explora todos nuestros diseños.</p>
-                  </figcaption>
-                </Box>
-              </figure>
-            </HashLink>
-
-            <figure className="effect-chico">
-              <Box
-                className="foto foto5"
-                width={item[3].width}
-                height={item[3].height}
-                sx={{
-                  background: `url(${item[3].img})`,
-                  backgroundPosition: item[3].backgroundPosition,
-                  backgroundSize: item[3].backgroundSize,
-                }}
-              >
-                <figcaption>
-                  <Typography
-                    className="text"
-                    variant="h5"
-                    color="rgb(30, 30, 30)"
-                    fontFamily={theme.fonts.title}
+            {/* column 1 */}
+            <Box
+              className="grid"
+              display="flex"
+              flexDirection="column"
+              justifyContent="flex-end"
+              // backgroundColor="blue"
+              sx={{ width: "21rem", height: "50rem" }}
+            >
+              <HashLink smooth to="/#Butacas">
+                <figure className="effect-chico">
+                  <Box
+                    className="foto foto1"
+                    width={photo1.width}
+                    height={photo1.height}
+                    textAlign="center"
+                    sx={{
+                      background: `url(${photo1.img})`,
+                      backgroundPosition: photo1.backgroundPosition,
+                      backgroundSize: photo1.backgroundSize,
+                    }}
                   >
-                    Exterior
-                  </Typography>
-                  <p>Explora todos nuestros diseños.</p>
-                </figcaption>
-              </Box>
-            </figure>
-          </Box>
-          {/* column 4 */}
-          <Box
-            className="grid"
-            width={{
-              xs: "21rem",
-              sm: "21rem",
-              md: "21rem",
-              lg: "21rem",
-              xl: "21rem",
-            }}
-            height={{ xs: "46rem", md: "46rem", lg: "46rem", xl: "46rem" }}
-            display="flex"
-            flexDirection={{
-              xs: "column",
-              sm: "column",
-              md: "column",
-              lg: "column",
-              xl: "column",
-            }}
-            justifyContent="space-between"
-            // backgroundColor="blue"
-            textAlign="center"
-            marginTop={{
-              xs: "4rem",
-              sm: "4rem",
-              md: "4rem",
-              lg: "4rem",
-              xl: "0rem",
-            }}
-          >
-            <HashLink smooth to="/#Bibliotecas">
+                    <figcaption>
+                      <Typography
+                        className="text"
+                        variant="h5"
+                        color="rgb(30, 30, 30)"
+                        fontFamily={theme.fonts.title}
+                      >
+                        Butacas
+                      </Typography>
+                      <p>Explora todos nuestros diseños.</p>
+                    </figcaption>
+                  </Box>
+                </figure>
+              </HashLink>
+            </Box>
+            {/* column 2 */}
+            <Box
+              className="grid"
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-between"
+              // backgroundColor="blue"
+              textAlign="center"
+              marginTop={{
+                xs: "4rem",
+                sm: "4rem",
+                md: "4rem",
+                lg: "4rem",
+                xl: "8rem",
+              }}
+              sx={{ width: "21rem", height: "46rem" }}
+            >
+              <HashLink smooth to="/#Racks">
+                <figure className="effect-chico">
+                  <Box
+                    className="foto foto2"
+                    width={item[0].width}
+                    height={item[0].height}
+                    sx={{
+                      background: `url(${item[0].img})`,
+                      backgroundPosition: item[0].backgroundPosition,
+                      backgroundSize: item[0].backgroundSize,
+                    }}
+                  >
+                    <figcaption>
+                      <Typography
+                        className="text"
+                        variant="h5"
+                        color="rgb(30, 30, 30)"
+                        fontFamily={theme.fonts.title}
+                      >
+                        Racks
+                      </Typography>
+                      <p>Explora todos nuestros diseños.</p>
+                    </figcaption>
+                  </Box>
+                </figure>
+              </HashLink>
+              <HashLink smooth to="/#Sofás">
+                <figure className="effect-chico">
+                  <Box
+                    className="foto foto3"
+                    width={item[1].width}
+                    height={item[1].height}
+                    sx={{
+                      background: `url(${item[1].img})`,
+                      backgroundPosition: item[1].backgroundPosition,
+                      backgroundSize: item[1].backgroundSize,
+                    }}
+                  >
+                    <figcaption>
+                      <Typography
+                        className="text"
+                        variant="h5"
+                        color="rgb(30, 30, 30)"
+                        fontFamily={theme.fonts.title}
+                      >
+                        Sofás
+                      </Typography>
+                      <p>Explora todos nuestros diseños.</p>
+                    </figcaption>
+                  </Box>
+                </figure>
+              </HashLink>
+            </Box>
+            {/* column 3 */}
+            <Box
+              className="grid"
+              display="flex"
+              flexDirection="column"
+              justifyContent="space-between"
+              // backgroundColor="blue"
+              textAlign="center"
+              marginTop={{ xs: "4rem", sm: "4rem", md: "4rem", xl: "0rem" }}
+              sx={{ width: "21rem", height: "46rem" }}
+            >
+              <HashLink smooth to="/#Mesas">
+                <figure className="effect-chico">
+                  <Box
+                    className=" foto foto4"
+                    width={item[2].width}
+                    height={item[2].height}
+                    sx={{
+                      background: `url(${item[2].img})`,
+                      backgroundPosition: item[2].backgroundPosition,
+                      backgroundSize: item[2].backgroundSize,
+                    }}
+                  >
+                    <figcaption>
+                      <Typography
+                        className="text"
+                        variant="h5"
+                        color="rgb(30, 30, 30)"
+                        fontFamily={theme.fonts.title}
+                      >
+                        Mesas
+                      </Typography>
+                      <p>Explora todos nuestros diseños.</p>
+                    </figcaption>
+                  </Box>
+                </figure>
+              </HashLink>
+
               <figure className="effect-chico">
                 <Box
-                  className="foto foto6"
-                  width={item[4].width}
-                  height={item[4].height}
+                  className="foto foto5"
+                  width={item[3].width}
+                  height={item[3].height}
                   sx={{
-                    background: `url(${item[4].img})`,
-                    backgroundPosition: item[4].backgroundPosition,
-                    backgroundSize: item[4].backgroundSize,
+                    background: `url(${item[3].img})`,
+                    backgroundPosition: item[3].backgroundPosition,
+                    backgroundSize: item[3].backgroundSize,
                   }}
                 >
                   <figcaption>
                     <Typography
                       className="text"
                       variant="h5"
-                      fontFamily={theme.fonts.title}
-                    >
-                      Bibliotecas
-                    </Typography>
-                    <p>Explora todos nuestros diseños.</p>
-                  </figcaption>
-                </Box>
-              </figure>
-            </HashLink>
-            <Box width="21rem" height="21rem">
-              <figure className="effect-chico">
-                <Box
-                  className="foto foto7"
-                  width={{
-                    xs: "21rem",
-                    md: "21rem",
-                    lg: "21rem",
-                    xl: `${item[5].width}`,
-                  }}
-                  height={{
-                    xs: "21rem",
-                    md: "21rem",
-                    lg: "21rem",
-                    xl: `${item[5].height}`,
-                  }}
-                  sx={{
-                    background: `url(${item[5].img})`,
-                    backgroundPosition: item[5].backgroundPosition,
-                    backgroundSize: item[5].backgroundSize,
-                  }}
-                >
-                  <figcaption style={{ padding: "3rem", width: "11.5rem" }}>
-                    <Typography
-                      className="text"
-                      variant="h6"
                       color="rgb(30, 30, 30)"
                       fontFamily={theme.fonts.title}
                     >
-                      Oficina
+                      Exterior
                     </Typography>
-                    <p style={{ textAlign: "center", paddingRight: "10px" }}>
-                      Explora todos nuestros diseños.
-                    </p>
+                    <p>Explora todos nuestros diseños.</p>
                   </figcaption>
                 </Box>
               </figure>
             </Box>
-          </Box>
-        </Grid>
+            {/* column 4 */}
+            <Box
+              className="grid"
+              width={{
+                xs: "21rem",
+                sm: "21rem",
+                md: "21rem",
+                lg: "21rem",
+                xl: "21rem",
+              }}
+              height={{ xs: "46rem", md: "46rem", lg: "46rem", xl: "46rem" }}
+              display="flex"
+              flexDirection={{
+                xs: "column",
+                sm: "column",
+                md: "column",
+                lg: "column",
+                xl: "column",
+              }}
+              justifyContent="space-between"
+              // backgroundColor="blue"
+              textAlign="center"
+              marginTop={{
+                xs: "4rem",
+                sm: "4rem",
+                md: "4rem",
+                lg: "4rem",
+                xl: "0rem",
+              }}
+            >
+              <HashLink smooth to="/#Bibliotecas">
+                <figure className="effect-chico">
+                  <Box
+                    className="foto foto6"
+                    width={item[4].width}
+                    height={item[4].height}
+                    sx={{
+                      background: `url(${item[4].img})`,
+                      backgroundPosition: item[4].backgroundPosition,
+                      backgroundSize: item[4].backgroundSize,
+                    }}
+                  >
+                    <figcaption>
+                      <Typography
+                        className="text"
+                        variant="h5"
+                        fontFamily={theme.fonts.title}
+                      >
+                        Bibliotecas
+                      </Typography>
+                      <p>Explora todos nuestros diseños.</p>
+                    </figcaption>
+                  </Box>
+                </figure>
+              </HashLink>
+              <Box width="21rem" height="21rem">
+                <figure className="effect-chico">
+                  <Box
+                    className="foto foto7"
+                    width={{
+                      xs: "21rem",
+                      md: "21rem",
+                      lg: "21rem",
+                      xl: `${item[5].width}`,
+                    }}
+                    height={{
+                      xs: "21rem",
+                      md: "21rem",
+                      lg: "21rem",
+                      xl: `${item[5].height}`,
+                    }}
+                    sx={{
+                      background: `url(${item[5].img})`,
+                      backgroundPosition: item[5].backgroundPosition,
+                      backgroundSize: item[5].backgroundSize,
+                    }}
+                  >
+                    <figcaption style={{ padding: "3rem", width: "11.5rem" }}>
+                      <Typography
+                        className="text"
+                        variant="h6"
+                        color="rgb(30, 30, 30)"
+                        fontFamily={theme.fonts.title}
+                      >
+                        Oficina
+                      </Typography>
+                      <p style={{ textAlign: "center", paddingRight: "10px" }}>
+                        Explora todos nuestros diseños.
+                      </p>
+                    </figcaption>
+                  </Box>
+                </figure>
+              </Box>
+            </Box>
+          </Grid>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }
 

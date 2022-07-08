@@ -41,7 +41,7 @@ const Home = () => {
                   width="100%"
                   display="flex"
                   justifyContent="center"
-                  py={3}
+                  py="2rem"
                   sx={{
                     backgroundColor: theme.white,
                   }}

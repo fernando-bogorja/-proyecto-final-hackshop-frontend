@@ -3,9 +3,10 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Divider } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { currentTheme as theme } from "../../../theme";
+
 export default function Form() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState("");
@@ -55,145 +56,150 @@ export default function Form() {
     ),
     (
       <React.Fragment>
-        <Typography variant="h6" gutterBottom>
-          Datos de Usuario
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <Grid container spacing={3}>
-            {/* Address Begin*/}
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="firstName"
-                name="firstName"
-                label="Nombre"
-                fullWidth
-                autoComplete="given-name"
-                variant="standard"
-                onChange={handleChange}
-              />
+        <Box width="90%">
+          <Typography variant="h6" gutterBottom>
+            Datos de Usuario
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <Grid container spacing={3}>
+              {/* Address Begin*/}
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  id="firstName"
+                  name="firstName"
+                  label="Nombre"
+                  fullWidth
+                  autoComplete="given-name"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  id="lastName"
+                  name="lastName"
+                  label="Apellido"
+                  fullWidth
+                  autoComplete="family-name"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  required
+                  id="phone"
+                  name="phone"
+                  label="Telefono"
+                  type="number"
+                  fullWidth
+                  autoComplete="phone number"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  id="password"
+                  name="password"
+                  label="Contraseña"
+                  fullWidth
+                  type="password"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  id="line_one"
+                  name="line_one"
+                  label="Linea de dirección 1"
+                  fullWidth
+                  autoComplete="shipping address-line1"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  id="line_two"
+                  name="line_two"
+                  label="Linea de dirección 2"
+                  fullWidth
+                  autoComplete="shipping address-line2"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  id="city"
+                  name="city"
+                  label="Ciudad"
+                  fullWidth
+                  autoComplete="shipping address-level2"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  id="department"
+                  name="department"
+                  label="Departamento"
+                  fullWidth
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  id="zipCode"
+                  name="zipCode"
+                  label="Codigo postal"
+                  type="number"
+                  fullWidth
+                  autoComplete="shipping postal-code"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  id="country"
+                  name="country"
+                  label="País"
+                  fullWidth
+                  autoComplete="shipping country"
+                  variant="standard"
+                  onChange={handleChange}
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="lastName"
-                name="lastName"
-                label="Apellido"
-                fullWidth
-                autoComplete="family-name"
-                variant="standard"
-                onChange={handleChange}
-              />
+            <Divider />
+            <Grid container spacing={3} my={2}>
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{
+                    backgroundColor: theme.black,
+                    "&:hover": { backgroundColor: theme.black_hover },
+                  }}
+                >
+                  Confirmar Crear Usuario
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={12}>
-              <TextField
-                required
-                id="phone"
-                name="phone"
-                label="Telefono"
-                type="number"
-                fullWidth
-                autoComplete="phone number"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                id="password"
-                name="password"
-                label="Contraseña"
-                fullWidth
-                type="password"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                required
-                id="line_one"
-                name="line_one"
-                label="Linea de dirección 1"
-                fullWidth
-                autoComplete="shipping address-line1"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                id="line_two"
-                name="line_two"
-                label="Linea de dirección 2"
-                fullWidth
-                autoComplete="shipping address-line2"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="city"
-                name="city"
-                label="Ciudad"
-                fullWidth
-                autoComplete="shipping address-level2"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                id="department"
-                name="department"
-                label="Departamento"
-                fullWidth
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="zipCode"
-                name="zipCode"
-                label="Codigo postal"
-                type="number"
-                fullWidth
-                autoComplete="shipping postal-code"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                required
-                id="country"
-                name="country"
-                label="País"
-                fullWidth
-                autoComplete="shipping country"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-          </Grid>
-          <Divider />
-          <Grid container spacing={3} my={2}>
-            <Grid item xs={12}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-              >
-                Confirmar Crear Usuario
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
+          </form>
+        </Box>
       </React.Fragment>
     )
   );

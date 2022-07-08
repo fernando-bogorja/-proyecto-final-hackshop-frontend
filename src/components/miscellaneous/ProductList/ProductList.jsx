@@ -7,11 +7,11 @@ import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import EditProduct from "../Dashboard/EditProduct/EditProduct";
+import { currentTheme as theme } from "../../../theme";
 
 export default function ProductList() {
   const [products] = useGetProducts();
   const [temp, setTemp] = useState({});
-
   const handleClick = (params) => {
     setTemp(params);
   };
@@ -27,7 +27,7 @@ export default function ProductList() {
     {
       field: "images",
       headerName: "Imágen",
-      width: 60,
+      width: 80,
       renderCell: (params) => {
         return (
           <div>
@@ -53,11 +53,30 @@ export default function ProductList() {
               style={{ margin: "5px" }}
               size="small"
               variant="outlined"
+              sx={{
+                color: theme.black,
+                borderColor: theme.black,
+                "&:hover": {
+                  color: theme.black_hover,
+                  borderColor: theme.black_hover,
+                },
+              }}
             >
               Editar
             </Button>
             {/* </Link> */}
-            <Button size="small" variant="outlined">
+            <Button
+              size="small"
+              variant="outlined"
+              sx={{
+                color: theme.black,
+                borderColor: theme.black,
+                "&:hover": {
+                  color: theme.black_hover,
+                  borderColor: theme.black_hover,
+                },
+              }}
+            >
               Borrar
             </Button>
           </>

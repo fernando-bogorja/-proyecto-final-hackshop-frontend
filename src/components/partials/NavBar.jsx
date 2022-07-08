@@ -151,7 +151,8 @@ export default function PrimarySearchAppBar() {
     location.pathname === "/dashboard/products" ||
     location.pathname === "/dashboard/createProductForm" ||
     location.pathname === "/dashboard/categories" ||
-    location.pathname === "/dashboard/users"
+    location.pathname === "/dashboard/users" ||
+    location.pathname === "/dashboard/createUserForm"
   ) {
     background = theme.black30;
   }
