@@ -10,9 +10,8 @@ import useDeleteOrder from "../../../../hooks/useDeleteOrder";
 
 export default function UserList() {
   const deleteOrder = useDeleteOrder();
-
-  const handleClick = (id) => {
-    return deleteOrder(id);
+  const handleClick = id => {
+    deleteOrder(id);
   };
   const [orders] = useGetOrders();
 
@@ -23,7 +22,7 @@ export default function UserList() {
       headerName: "Comprador",
       width: 100,
       editable: false,
-      renderCell: (params) => {
+      renderCell: params => {
         return <>{params.row.boughtBy.name}</>;
       },
     },
@@ -32,7 +31,7 @@ export default function UserList() {
       headerName: "Fecha",
       width: 100,
       editable: false,
-      renderCell: (params) => {
+      renderCell: params => {
         return (
           <>
             {new Date(params.row.createdAt).toLocaleDateString("es-AR", {
@@ -49,7 +48,7 @@ export default function UserList() {
       headerName: "Artículos",
       width: 70,
       editable: false,
-      renderCell: (params) => {
+      renderCell: params => {
         return <>{params.row.shopList.length}</>;
       },
     },
@@ -58,7 +57,7 @@ export default function UserList() {
       headerName: "Monto",
       width: 90,
       editable: false,
-      renderCell: (params) => {
+      renderCell: params => {
         return <>${params.row.total}</>;
       },
     },
@@ -67,7 +66,7 @@ export default function UserList() {
       headerName: "Acciones",
       width: 200,
       editable: false,
-      renderCell: (params) => {
+      renderCell: params => {
         return (
           <>
             <Button
@@ -109,7 +108,7 @@ export default function UserList() {
             <DataGrid
               rows={orders}
               columns={columns}
-              getRowId={(row) => row._id}
+              getRowId={row => row._id}
               pageSize={12}
               rowsPerPageOptions={[12]}
               checkboxSelection

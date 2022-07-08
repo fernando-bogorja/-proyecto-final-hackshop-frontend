@@ -6,14 +6,16 @@ export default function useGetOrders() {
   const [orders, setOrders] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
+  const fetchProducts = async () => {
+    const response = await axios.get(`${global.api}/orders`);
+    setOrders(response.data.orders);
+  };
+
   useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await axios.get(`${global.api}/orders`);
-      setOrders(response.data.orders);
-      setLoading(false);
-    };
+    setLoading(true);
+    setLoading(false);
     fetchProducts();
   }, []);
 
-  return [orders, isLoading];
+  return [orders, isLoading, fetchProducts];
 }

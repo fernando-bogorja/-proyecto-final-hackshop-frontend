@@ -1,29 +1,21 @@
 import axios from "axios";
 import global from "../global";
-//import { toast } from "react-toastify";
+import { toast } from "react-toastify";
+import { toastConfig } from "../theme";
+import useGetOrders from "./useGetOrders";
 
 export default function useDeleteOrder() {
-  /*
-  const deleteOrder = async (id) => {
-    axios.delete(`${global.api}/orders/delete/`, {
-      params: { id },
+  const [orders] = useGetOrders();
+  return async function (id) {
+    //The id is pass throught the body of the request
+    const res = await axios.delete(`${global.api}/orders/delete`, {
+      data: {
+        id: id
+      }
     });
-    toast.info("Orden Borrada");
-    console.log("hakuna matata");
-  };
-  */
-  const deleteOrder = async (id) => {
-    const deleted = await axios
-      .delete(`${global.api}/orders/delete`, {
-        id: id,
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-    console.log("id", "#" + id + "#");
-  };
-  return deleteOrder;
+    window.location.reload();
+    if (res.data.message) return toast(res.data.message, toastConfig);
+
+    return null;
+  }
 }
