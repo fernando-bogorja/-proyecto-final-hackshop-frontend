@@ -1,13 +1,14 @@
 import { useEffect, useState, useCallback } from "react";
 import { ControlledMenu, MenuItem, useMenuState } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const logout = ({ hover }) => (hover ? "logout-hover" : "logout");
 
 export default function ContextMenu() {
   const [menuProps, toggleMenu] = useMenuState();
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
+  const navigate = useNavigate();
 
   document.addEventListener(
     "contextmenu",
@@ -21,6 +22,10 @@ export default function ContextMenu() {
     )
   );
 
+  const goTo = path => {
+    navigate(path);
+  };
+
   return (
     <ControlledMenu
       {...menuProps}
@@ -29,16 +34,15 @@ export default function ContextMenu() {
       menuClassName="context-menu"
       style={{ zIndex: 11000 }}
     >
-      <MenuItem href="/profile" className="link-none">
+      <MenuItem onClick={goTo("/profile")} className="link-none">
         Mi perfil
       </MenuItem>
-      <MenuItem href="/cart" className="link-none">
+      <MenuItem onClick={goTo("/cart")} className="link-none">
         Mi carrito
       </MenuItem>
-      <MenuItem href="/checkout" className="link-none">
+      <MenuItem onClick={goTo("/checkout")} className="link-none">
         Ir al checkout
       </MenuItem>
-      <MenuItem className={`${logout} link-none`}>Cerrar sesión</MenuItem>
     </ControlledMenu>
   );
 }
