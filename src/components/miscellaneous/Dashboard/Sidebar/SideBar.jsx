@@ -54,6 +54,11 @@ const categories = [
     icon: <FontAwesomeIcon icon={faUserPlus} color={theme.white} />,
     link: "/dashboard/createUserForm",
   },
+  {
+    name: "Lista de Ordenes",
+    icon: <FontAwesomeIcon icon={faWallet} color={theme.white} />,
+    link: "/dashboard/orders",
+  },
 ];
 
 const drawerWidth = 240;
