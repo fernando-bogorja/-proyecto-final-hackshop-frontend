@@ -19,7 +19,7 @@ export default function Address() {
   const [user, setUser, logout, signup, addAddress] = useUserHook();
   const redirect = useFastRedirect("/profile");
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const send = {
@@ -55,6 +55,7 @@ export default function Address() {
                 component="h3"
                 fontSize={{ xs: "28px", md: "40px" }}
                 fontFamily={theme.fonts.title}
+                marginBottom="3rem"
               >
                 Añadir una dirección de envío
               </Typography>
@@ -175,6 +176,7 @@ export default function Address() {
                           sx={{
                             backgroundColor: theme.black,
                             color: theme.white,
+                            mt: "3rem",
                             py: "10px",
                             ":hover": {
                               backgroundColor: theme.black_hover,

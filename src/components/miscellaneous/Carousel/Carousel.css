@@ -27,6 +27,7 @@ h2.carousel-title {
   font-weight: bold;
   width: 95%;
   color: rgb(54, 54, 54);
+  margin-top: 2rem;
 }
 
 h4.carousel-subtitle {
@@ -34,17 +35,18 @@ h4.carousel-subtitle {
   font-weight: 300;
   width: 95%;
   color: rgb(175, 175, 175);
+  padding-top: 0.6rem;
 }
 
 .carousel .divider {
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .carousel .divider .line {
   width: 20%;
   margin-left: 2.4em;
-  height: 2px;
+  height: 1px;
   background-color: #000;
 }

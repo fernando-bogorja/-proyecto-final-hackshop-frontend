@@ -82,7 +82,7 @@ export default function Cart() {
                     alt="empty cart"
                     style={{ width: "25%" }}
                   />
-                  <Typography py={3} level="h3" fontSize={25}>
+                  <Typography py={3} level="h3" fontSize={22}>
                     Oops, todo muy vacío por aquí
                   </Typography>
                   <Link
@@ -91,8 +91,10 @@ export default function Cart() {
                     style={{
                       backgroundColor: theme.black,
                       color: theme.white,
-                      width: "20%",
-                      padding: "20px",
+                      width: { xs: "10rem", lg: "20rem" },
+
+                      marginTop: "4rem",
+                      padding: "10px",
                       borderRadius: "10px",
                       ":hover": { backgroundColor: theme.black_hover },
                     }}

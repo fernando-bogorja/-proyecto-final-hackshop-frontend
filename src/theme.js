@@ -6,7 +6,7 @@ const theme = {
     black30: "rgb(30, 30, 30)",
     transp: "transparent",
     white: "#fff",
-    gray: "rgb(245,245,245)",
+    gray: "rgb(230,230,230)",
     black_hover: "#575757",
     text: "rgba(128, 128, 128, 0.9)",
     green: "#40BD66",

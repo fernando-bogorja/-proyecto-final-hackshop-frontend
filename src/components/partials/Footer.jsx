@@ -25,8 +25,12 @@ const Footer = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        padding={2}
+        paddingTop={5}
+        paddingBottom={7}
+        paddingLeft={2}
+        paddingRight={2}
         marginTop="auto"
+        marginBottom="20%"
         sx={{
           width: "100%",
           backgroundColor: theme.black30,
@@ -62,7 +66,7 @@ const Footer = () => {
                 variant="h6"
                 fontSize={18}
                 color={theme.gray}
-                fontFamily={theme.fonts.title}
+                fontFamily="Raleway"
                 mt={12}
                 mb={1}
               >
@@ -72,10 +76,10 @@ const Footer = () => {
                 <TextField
                   id="outlined-basic"
                   label="Correo electrónico"
-                  variant="filled"
+                  variant="outlined"
                   size="small"
                   sx={{
-                    backgroundColor: "white",
+                    backgroundColor: "#575757",
                     borderRadius: "5px",
                     width: "65%",
                   }}
@@ -170,7 +174,8 @@ const Footer = () => {
                   <Typography
                     color={theme.white}
                     className={effects.zoom}
-                    fontFamily={theme.fonts.title}
+                    fontFamily="Raleway"
+                    fontWeight="500"
                   >
                     <Link href="/" className={`link-none`}>
                       Inicio
@@ -179,7 +184,8 @@ const Footer = () => {
                   <Typography
                     color={theme.white}
                     className={effects.zoom}
-                    fontFamily={theme.fonts.title}
+                    fontFamily="Raleway"
+                    fontWeight="500"
                   >
                     <Link href="/" className={`link-none`}>
                       Sobre este proyecto
@@ -188,7 +194,8 @@ const Footer = () => {
                   <Typography
                     color={theme.white}
                     className={effects.zoom}
-                    fontFamily={theme.fonts.title}
+                    fontFamily="Raleway"
+                    fontWeight="500"
                   >
                     <Link href="/about" className={`link-none`}>
                       Carrito
@@ -224,7 +231,8 @@ const Footer = () => {
                     color={theme.gray}
                     mt={{ xs: 0, sm: 2, lg: 12 }}
                     mb={1}
-                    fontFamily={theme.fonts.title}
+                    fontFamily="Raleway"
+                    fontWeight="500"
                   >
                     Medios de pago
                   </Typography>

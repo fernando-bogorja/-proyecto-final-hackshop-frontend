@@ -79,7 +79,7 @@ function BannerFotos() {
         height="320px"
         sx={{
           background: `url(${require("../../../assets/banner_servicios.png")})`,
-          backgroundPosition: "0",
+          backgroundPosition: "50% 0%",
           backgroundSize: "cover",
         }}
       ></Box>
