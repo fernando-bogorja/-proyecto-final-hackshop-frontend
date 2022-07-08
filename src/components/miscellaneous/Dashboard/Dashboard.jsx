@@ -7,6 +7,8 @@ import SignIn from "../../pages/Signin";
 import { userData } from "./dummyData";
 import useUserHook from "../../../hooks/User";
 import { Navigate } from "react-router-dom";
+
+import ProductList from "../ProductList/ProductList";
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -37,7 +39,8 @@ function Dashboard(props) {
         <Box
           display="flex"
           component="main"
-          mt={10}
+          mt="128px"
+          mb="30px"
           sx={{
             flexDirection: "column",
             flexGrow: 1,

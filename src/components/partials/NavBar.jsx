@@ -159,7 +159,22 @@ export default function PrimarySearchAppBar() {
 
   let background;
   const location = useLocation();
+<<<<<<< HEAD
+  if (
+    location.pathname === "/cart" ||
+    location.pathname === "/profile" ||
+    location.pathname === "/profile/address" ||
+    location.pathname === "/signup" ||
+    location.pathname === "/dashboard" ||
+    location.pathname === "/dashboard/products" ||
+    location.pathname === "/dashboard/createProductForm" ||
+    location.pathname === "/dashboard/categories" ||
+    location.pathname === "/dashboard/users" ||
+    location.pathname === "/dashboard/createUserForm"
+  ) {
+=======
   if (willIncludeBackground(location.pathname)) {
+>>>>>>> 294751ea91d337d019d125f7302c362043bcb27d
     background = theme.black30;
   }
 
