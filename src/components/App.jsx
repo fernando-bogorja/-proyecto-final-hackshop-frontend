@@ -13,6 +13,7 @@ import SignIn from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Checkout from "./pages/Checkout";
 import ProductList from "./miscellaneous/ProductList/ProductList";
+import ListAllOrders from "./miscellaneous/Dashboard/ListAllOrders/ListAllOrders";
 import Categories from "./miscellaneous/Dashboard/Categories/Categories";
 import UserList from "./miscellaneous/Dashboard/userList/UserList";
 import CreateUserForm from "./miscellaneous/CreateUserForm/CreateUserForm";
@@ -28,7 +29,7 @@ import Address from "./pages/Address";
 import Thanks from "./pages/Thanks";
 
 function App() {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
@@ -73,6 +74,10 @@ function App() {
             element={<Dashboard component={<CreateProductForm />} />}
           />
           <Route path="/dashboard/products" element={<Dashboard />} />
+          <Route
+            path="/dashboard/orders"
+            element={<Dashboard component={<ListAllOrders />} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

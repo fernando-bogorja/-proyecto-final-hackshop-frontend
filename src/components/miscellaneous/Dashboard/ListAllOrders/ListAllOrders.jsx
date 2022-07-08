@@ -1,41 +1,65 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
-import useGetUsers from "../../../../hooks/useGetUsers";
-import { useState } from "react";
+import useGetOrders from "../../../../hooks/useGetOrders";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import EditUser from "../../Dashboard/EditUser/EditUser";
-import { useNavigate } from "react-router-dom";
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import useDeleteOrder from "../../../../hooks/useDeleteOrder";
+//import { useNavigate } from "react-router-dom";
 
 export default function UserList() {
-  const [users] = useGetUsers();
-  const [temp, setTemp] = useState({});
-  const handleClick = (params) => {
-    setTemp(params);
+  const deleteOrder = useDeleteOrder();
+
+  const handleClick = (id) => {
+    return deleteOrder(id);
   };
-  const navigate = useNavigate();
+  const [orders] = useGetOrders();
+
   const columns = [
     { field: "_id", headerName: "ID", width: 220 },
     {
-      field: "name",
-      headerName: "Nombre",
-      width: 500,
-      editable: false,
-    },
-    {
-      field: "isAdmin",
-      headerName: "Administrador",
-      width: 120,
+      field: "boughtBy",
+      headerName: "Comprador",
+      width: 100,
       editable: false,
       renderCell: (params) => {
-        {
-          if (params.row.isAdmin) {
-            return "ADMINISTRADOR";
-          } else {
-            return "USUARIO";
-          }
-        }
+        return <>{params.row.boughtBy.name}</>;
+      },
+    },
+    {
+      field: "Fecha",
+      headerName: "Fecha",
+      width: 100,
+      editable: false,
+      renderCell: (params) => {
+        return (
+          <>
+            {new Date(params.row.createdAt).toLocaleDateString("es-AR", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+          </>
+        );
+      },
+    },
+    {
+      field: "Artículos",
+      headerName: "Artículos",
+      width: 70,
+      editable: false,
+      renderCell: (params) => {
+        return <>{params.row.shopList.length}</>;
+      },
+    },
+    {
+      field: "Monto",
+      headerName: "Monto",
+      width: 90,
+      editable: false,
+      renderCell: (params) => {
+        return <>${params.row.total}</>;
       },
     },
     {
@@ -47,22 +71,18 @@ export default function UserList() {
         return (
           <>
             <Button
-              onClick={() => handleClick(params.row)}
+              //onClick={() => handleClick(params.row)}
               style={{ margin: "5px" }}
               size="small"
               variant="outlined"
             >
-              Editar
+              <RemoveRedEyeOutlinedIcon />
             </Button>
             <Button
-              onClick={() => navigate("/orders")}
-              style={{ margin: "5px" }}
               size="small"
+              onClick={() => handleClick(params.row._id)}
               variant="outlined"
             >
-              Ordenes
-            </Button>
-            <Button size="small" variant="outlined">
               Borrar
             </Button>
           </>
@@ -87,7 +107,7 @@ export default function UserList() {
         >
           <Box width="80%" height="100%">
             <DataGrid
-              rows={users}
+              rows={orders}
               columns={columns}
               getRowId={(row) => row._id}
               pageSize={12}
@@ -96,17 +116,6 @@ export default function UserList() {
               disableSelectionOnClick
               sx={{ minHeight: { xs: "650px" } }}
             />
-          </Box>
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <Box
-          display="flex"
-          justifyContent="center"
-          sx={{ height: "100%", width: "100%" }}
-        >
-          <Box width="80%" height="100%">
-            <EditUser user={temp} />
           </Box>
         </Box>
       </Grid>
