@@ -10,6 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { Link } from "react-router-dom";
 import useUserHook from "../../hooks/User";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -23,13 +24,6 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./NavBar.css";
 
-const pages = [
-  {
-    name: "Dashboard",
-    path: "dashboard",
-  },
-];
-
 const withBackgroundPages = [
   "/cart",
   "/profile",
@@ -37,7 +31,9 @@ const withBackgroundPages = [
   "/checkout",
   "/thanks",
   "/signup",
+  "/signin",
   "/dashboard",
+  "/product",
 ];
 
 const willIncludeBackground = currentPath => {
@@ -46,6 +42,7 @@ const willIncludeBackground = currentPath => {
 };
 
 export default function PrimarySearchAppBar() {
+  const navigate = useNavigate();
   const { cartTotalQuantity } = useSelector(state => state.cart);
   const [user, handleSetUser, handleLogoutUser] = useUserHook();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -93,10 +90,15 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Mi perfil</MenuItem>
-      <Link to="/dashboard" style={{ textDecoration: "none", color: "black" }}>
-        <MenuItem onClick={handleMenuClose}>Panel de Control</MenuItem>
-      </Link>
+      <MenuItem onClick={() => navigate("/profile")}>Mi perfil</MenuItem>
+      {user.data.isAdmin && (
+        <Link
+          to="/dashboard"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <MenuItem onClick={handleMenuClose}>Dashboard</MenuItem>
+        </Link>
+      )}
       <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
     </Menu>
   );
@@ -213,18 +215,7 @@ export default function PrimarySearchAppBar() {
                   width: "70%",
                 }}
                 ml={2}
-              >
-                {pages.map(page => (
-                  <Link
-                    className="nav-link"
-                    to={`/${page.path.toLowerCase()}`}
-                    key={page.name}
-                    sx={{ my: 2, display: "block" }}
-                  >
-                    <Typography color={theme.white}>{page.name}</Typography>
-                  </Link>
-                ))}
-              </Box>
+              ></Box>
               <Box sx={{ flexGrow: 1 }} />
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <IconButton

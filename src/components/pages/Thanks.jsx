@@ -37,7 +37,7 @@ export default function Thanks() {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
-        height="100vh"
+        minHeight="100vh"
         width="100%"
         bgcolor={theme.gray}
       >
@@ -45,7 +45,7 @@ export default function Thanks() {
           minHeight="60%"
           width={{ xs: "90%", sm: "60%", lg: "40%", xl: "35%" }}
           bgcolor={theme.white}
-          mt={10}
+          my={15}
         >
           <Box
             width="100%"

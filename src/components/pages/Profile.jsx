@@ -15,39 +15,11 @@ function createData(id, address, status, date, total) {
   return { id, address, status, date, total };
 }
 
-const rows = [
-  createData(
-    1,
-    "18 de Julio - 65100 (Young, Río Negro - Uruguay)",
-    "Entregado",
-    "22/01/22",
-    "USD 1500"
-  ),
-  createData(
-    2,
-    "18 de Julio - 65100 (Young, Río Negro - Uruguay)",
-    "Entregado",
-    "22/01/22",
-    "USD 1500"
-  ),
-  createData(
-    3,
-    "18 de Julio - 65100 (Young, Río Negro - Uruguay)",
-    "Entregado",
-    "22/01/22",
-    "USD 1500"
-  ),
-  createData(
-    4,
-    "18 de Julio - 65100 (Young, Río Negro - Uruguay)",
-    "Entregado",
-    "22/01/22",
-    "USD 1500"
-  ),
-];
-
 export default function Profile() {
   const [user] = useUserHook();
+  console.log(user);
+  let rows = [];
+
   if (user.data) {
     const personalInformation = {
       title: "Información personal",
@@ -75,6 +47,27 @@ export default function Profile() {
           "País: " + user.data.address.country,
         ],
       };
+    }
+    if (user.data.orders) {
+      rows = user.data.orders.map(order => {
+        let address =
+          user.data.address.line_one + " " + user.data.address.line_two;
+        let creationDate = new Date(order.createdAt).toLocaleDateString(
+          "es-AR",
+          {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          }
+        );
+        return createData(
+          order._id,
+          address,
+          order.status,
+          creationDate,
+          order.total
+        );
+      });
     }
 
     return (
@@ -174,7 +167,7 @@ const DataTable = ({ rows }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map(row => (
             <TableRow
               key={row.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

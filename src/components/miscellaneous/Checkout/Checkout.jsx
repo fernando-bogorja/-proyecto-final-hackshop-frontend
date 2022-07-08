@@ -31,9 +31,9 @@ export default function Checkout({ token }) {
       >
         <Box width="78%" display="flex" justifyContent="center">
           <Grid container spacing={3}>
-            <Grid item lg={12}>
+            <Grid item xs={12}>
               <Box
-                width="45%"
+                width={{ xs: "100%", lg: "45%" }}
                 sx={{ borderBottom: `3px solid ${theme.black}` }}
               >
                 <Typography
@@ -44,7 +44,7 @@ export default function Checkout({ token }) {
                 >
                   Checkout
                 </Typography>
-                <Typography variant="body1" my={3}>
+                <Typography variant="body1" my={3} color={theme.text}>
                   A continuación usted está a punto de simular una compra en
                   nuestro sistema, por cuestiones de tiempo el procesamiento de
                   pagos quedó fuera del alcance de este proyecto.
@@ -69,7 +69,7 @@ export default function Checkout({ token }) {
 }
 
 const PaymentForm = ({ articles, address, user, total }) => {
-  const { sendOrder } = useMakeOrder();
+  const { sendOrder, clear } = useMakeOrder();
   let articlesIds = [];
 
   React.useEffect(() => {
@@ -87,10 +87,11 @@ const PaymentForm = ({ articles, address, user, total }) => {
       total: total.toString(),
       boughtBy: user._id,
     });
+    clear();
   };
   return (
     <Grid container spacing={20}>
-      <Grid item xs={6} justifyContent="center">
+      <Grid item xs={12} lg={6} justifyContent="center">
         <Box width="100%" display="flex" justifyContent="center">
           <Box width={{ sx: "100%" }} display="flex" justifyContent="center">
             <Grid container spacing={3}>
@@ -129,7 +130,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
                   <TextField
                     type="text"
@@ -141,7 +142,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
                   <TextField
                     type="text"
@@ -153,7 +154,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={12}>
                 <Typography
                   variant="h6"
                   fontWeight="bold"
@@ -164,7 +165,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   Datos de envío
                 </Typography>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={12}>
                 <FormControl fullWidth>
                   <TextField
                     type="text"
@@ -188,7 +189,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={12} sm={5}>
                 <FormControl fullWidth>
                   <TextField
                     type="text"
@@ -200,7 +201,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={12} sm={5}>
                 <FormControl fullWidth>
                   <TextField
                     type="text"
@@ -212,7 +213,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={12} sm={2}>
                 <FormControl fullWidth>
                   <TextField
                     type="text"
@@ -235,7 +236,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   Datos de pago
                 </Typography>
               </Grid>
-              <Grid item xs={7}>
+              <Grid item xs={12} sm={7}>
                 <FormControl fullWidth>
                   <TextField
                     type="text"
@@ -247,7 +248,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item xs={4} sm={2}>
                 <FormControl fullWidth>
                   <TextField
                     type="text"
@@ -259,7 +260,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
                   />
                 </FormControl>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item xs={8} sm={3}>
                 <FormControl fullWidth>
                   <TextField
                     id="date"
@@ -278,7 +279,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={6} justifyContent="center">
+      <Grid item xs={12} lg={6} justifyContent="center">
         <Box
           width="100%"
           display="flex"
@@ -309,12 +310,12 @@ const PaymentForm = ({ articles, address, user, total }) => {
                 <Typography
                   variant="body1"
                   fontFamily={theme.fonts.title}
-                  fontSize={20}
+                  fontSize={{ xs: 15, md: 20 }}
                 >
                   {article.name}
                 </Typography>
-                <Typography variant="body1" fontSize={20}>
-                  $ {article.price}
+                <Typography variant="body1" fontSize={{ xs: 15, md: 20 }}>
+                  ${article.price}
                 </Typography>
               </Box>
               <Typography variant="body1">x{article.cartQuantity}</Typography>
@@ -331,22 +332,25 @@ const PaymentForm = ({ articles, address, user, total }) => {
             <Typography
               variant="body1"
               fontFamily={theme.fonts.title}
-              fontSize={20}
+              fontSize={{ xs: 15, md: 20 }}
               textAlign="right"
               fontWeight="bold"
               marginRight={10}
             >
               Total:
             </Typography>
-            <Typography variant="body1" textAlign="right" fontSize={20}>
+            <Typography
+              variant="body1"
+              textAlign="right"
+              fontSize={{ xs: 15, md: 20 }}
+            >
               ${total}
             </Typography>
           </Box>
           <Box width="100%" my={1} height="2px" bgcolor={theme.black}></Box>
           <Box width="100%" display="flex" justifyContent="flex-end">
-            <Link
+            <a
               className={`link-none ${effects.zoom}`}
-              to="/thanks"
               onClick={handleBuy}
               style={{
                 backgroundColor: theme.black,
@@ -357,7 +361,7 @@ const PaymentForm = ({ articles, address, user, total }) => {
               }}
             >
               CONFIRMAR COMPRA
-            </Link>
+            </a>
           </Box>
         </Box>
       </Grid>

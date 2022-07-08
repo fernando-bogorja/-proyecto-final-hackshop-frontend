@@ -22,6 +22,10 @@ const userSlice = createSlice({
             state.data.address = action.payload;
             toast(`Dirección agregada con éxito`, toastConfig);
         },
+        addOrder: (state, action) => {
+            state.data.orders.push(action.payload);
+            toast(`Pedido realizado con éxito`, toastConfig);
+        },
         logoutUser: (state, action) => {
             state.token = null;
             state.data = null;
@@ -33,6 +37,6 @@ const userSlice = createSlice({
     },
 });
 
-export const { setUser, logoutUser, registerUser, addAddress, handleError } = userSlice.actions;
+export const { setUser, logoutUser, registerUser, addAddress, handleError, addOrder } = userSlice.actions;
 
 export default userSlice.reducer;
