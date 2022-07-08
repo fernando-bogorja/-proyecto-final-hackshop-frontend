@@ -23,7 +23,6 @@ const AboutUs = () => {
         flexDirection="column"
         alignItems="center"
         width="100%"
-        height={{ xl: "100vh" }}
         bgcolor={theme.white}
         sx={{
           backgroundImage: `url(${require("../../assets/header-aboutus.png")})`,
@@ -54,7 +53,6 @@ const AboutUs = () => {
             display="flex"
             flexWrap="wrap"
             justifyContent="center"
-            border="4px solid red"
           >
             <PeopleCard
               name="Lucía Rodriguez"
@@ -84,9 +82,15 @@ const AboutUs = () => {
         </Grid>
       </Box>
 
-      <Box sx={{ width: "80%", border: "4px solid green" }}>
+      <Box sx={{ width: "80%" }}>
         <Grid container>
-          <Grid item xs={12} my={20} border="2px solid blue">
+          <Grid justifyContent="center" item xs={12} my={20}>
+            <Box display="flex" justifyContent="flex-start" py={10}>
+              <Typography fontFamily={theme.fonts.title} variant="h2">
+                ¿Como nace este proyecto?
+              </Typography>
+            </Box>
+
             <Box
               width="100%"
               display="flex"
@@ -102,9 +106,21 @@ const AboutUs = () => {
                 bgcolor={theme.white}
                 borderRadius="10px"
                 textAlign="justify"
+                sx={{
+                  flexDirection: {
+                    sm: "row",
+                    xl: "column",
+                  },
+                  alignItems: "center",
+                }}
               >
-                <Box maxWidth="80%">
-                  <Typography variant="body1" color={theme.text}>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  maxWidth={{ xs: "100%", md: "80%" }}
+                  textAlign="left"
+                >
+                  <Typography variant="body1" color={theme.text} fontSize={20}>
                     Esta página surge como resultado del proyecto final
                     realizado en Hack Academy, en el marco de su Coding Bootcamp
                     de full-stack Web Developer. El mismo consiste en un curso
@@ -123,8 +139,8 @@ const AboutUs = () => {
               </Box>
               <Box
                 display="flex"
-                justifyContent="flex-end"
-                alignItems="flex-start"
+                justifyContent="center"
+                alignItems="initial"
                 width={{ xs: "100%", md: "50%" }}
                 py={{ xs: 2, md: 0 }}
                 bgcolor={theme.white}
@@ -139,12 +155,18 @@ const AboutUs = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} my={20} border="2px solid blue">
+          <Grid item xs={12} my={20}>
+            <Box display="flex" justifyContent="flex-start" py={5}>
+              <Typography fontFamily={theme.fonts.title} variant="h2">
+                El inicio...
+              </Typography>
+            </Box>
             <Box
               width="100%"
               display="flex"
               flexWrap="wrap"
               justifyContent="space-between"
+              maxWidth={{ xs: "100%", md: "90%" }}
             >
               <Box
                 width={{ xs: "100%", md: "50%" }}
@@ -154,7 +176,7 @@ const AboutUs = () => {
                 borderRadius="10px"
               >
                 <img
-                  width="450px"
+                  width="430px"
                   srcSet={require("../../assets/figma.png")}
                   alt="logo-reizen"
                 />
@@ -167,12 +189,13 @@ const AboutUs = () => {
                 borderRadius="10px"
                 textAlign="center"
               >
-                {" "}
-                <Typography variant="h4">El inicio del proyecto</Typography>
                 <Typography
                   color={theme.text}
                   sx={{ lineHeight: "30px" }}
                   variant="body1"
+                  fontSize={20}
+                  textAlign="right"
+                  width={{ md: "100%" }}
                 >
                   Para el desarrollo de las ideas iniciales, el equipo optó por
                   utilizar la herramienta Figma ya que con ella es fácil
@@ -186,27 +209,58 @@ const AboutUs = () => {
                   varios sitios similares en cuanto a temática y contenido
                   tratando de, con cada parte, formar un todo armonioso. En
                   cuanto a la metodología de trabajo utilizada encontramos en la
-                  herramienta "xxxxxxxxxxxxx GitHub" una buena forma de dividir
-                  y asignar las tareas, siguiendo la metodología SCRUM. A su
-                  vez, utilizamos Discord quién brinda una comunicación fluida
-                  entre los integrantes del equipo y con los instructores.
-                  Gracias a todo esto el proyecto fue creado y organizado de
-                  manera 100% remota. El trabajo fue dividido en dos partes, por
-                  un lado el código del back-end y por otro el del front-end.
-                  Para los cuales fueron creados dos repositorios en GitHub. Al
-                  comenzar a pasar las ideas a código, decidimos planear la
-                  estructura básica del back-end (rutas, modelos, controladore)
-                  entre todos, para luego poder conectar las distintas partes
-                  del front-end de manera individual y más fluída. El equipo
-                  trabajó muy cómodo desde este marco y el grupo humano fue muy
-                  contributivo, alegre y solidario entre si, lo que permitió
-                  llegar a un buen avance para cada Demo y a un mejor resultado
-                  final.
+                  herramienta "Project boards de GitHub" una buena forma de
+                  dividir y asignar las tareas, siguiendo la metodología SCRUM.
+                  A su vez, utilizamos Discord quién brinda una comunicación
+                  fluida entre los integrantes del equipo y con los
+                  instructores. Gracias a todo esto el proyecto fue creado y
+                  organizado de manera 100% remota. El trabajo fue dividido en
+                  dos partes, por un lado el código del back-end y por otro el
+                  del front-end. Para los cuales fueron creados dos repositorios
+                  en GitHub. Al comenzar a pasar las ideas a código, decidimos
+                  planear la estructura básica del back-end (rutas, modelos,
+                  controladore) entre todos, para luego poder conectar las
+                  distintas partes del front-end de manera individual y más
+                  fluída. El equipo trabajó muy cómodo desde este marco y el
+                  grupo humano fue muy contributivo, alegre y solidario entre
+                  si, lo que permitió llegar a un buen avance para cada Demo y a
+                  un mejor resultado final.
                 </Typography>
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} my={20} border="2px solid blue">
+
+          <Grid item xs={12} my={20}>
+            <Box
+              width="100%"
+              display="flex"
+              flexWrap="wrap"
+              justifyContent="flex-start"
+            >
+              <Typography
+                textAlign="center"
+                fontFamily={theme.fonts.title}
+                variant="h2"
+              >
+                MER...
+              </Typography>
+              <img
+                width="100%"
+                srcSet={require("../../assets/ecommerce-mer.png")}
+                alt="mer-reizen"
+              />
+            </Box>
+          </Grid>
+          <Grid item xs={12} my={20}>
+            <Box display="flex" justifyContent="flex-start" py={5}>
+              <Typography
+                textAlign="center"
+                fontFamily={theme.fonts.title}
+                variant="h2"
+              >
+                Proceso final...
+              </Typography>
+            </Box>
             <Box
               width="100%"
               display="flex"
@@ -219,10 +273,9 @@ const AboutUs = () => {
                 minHeight="300px"
                 bgcolor={theme.white}
                 borderRadius="10px"
-                textAlign="justify"
+                textAlign="left"
               >
-                <Typography variant="h4">Proceso final</Typography>
-                <Typography variant="body1" color={theme.text}>
+                <Typography variant="body1" color={theme.text} fontSize={20}>
                   Durante los últimos días del desarrollo, se fueron puliendo
                   funcionalidades, tales como la del carrito de compras y el
                   login. A su vez se fueron adecuando las partes del front-end
@@ -234,62 +287,48 @@ const AboutUs = () => {
               </Box>
               <Box
                 display="flex"
-                justifyContent="flex-end"
+                justifyContent="center"
                 width={{ xs: "100%", md: "50%" }}
                 py={{ xs: 2, md: 0 }}
                 minHeight="300px"
                 bgcolor={theme.white}
                 borderRadius="10px"
-                textAlign="justify"
               >
                 <img
                   style={{ objectFit: "contain" }}
-                  width="450px"
+                  width="630px"
                   srcSet={require("../../assets/mockup.png")}
                   alt="logo-reizen"
                 />
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} my={20} border="2px solid blue">
-            <Box
-              width="100%"
-              display="flex"
-              flexWrap="wrap"
-              justifyContent="space-between"
-            >
-              <Typography variant="h4">MER</Typography>
-              <img
-                width="100%"
-                srcSet={require("../../assets/ecommerce-mer.png")}
-                alt="mer-reizen"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} my={20} border="2px solid blue">
-            <Box
-              width="100%"
-              display="flex"
-              flexWrap="wrap"
-              justifyContent="space-between"
-            >
-              <Box
-                width={{ xs: "100%", md: "50%" }}
-                py={{ xs: 2, md: 0 }}
-                minHeight="300px"
-                bgcolor={theme.white}
-                borderRadius="10px"
-                textAlign="justify"
-              ></Box>
-              <Box
-                width={{ xs: "100%", md: "50%" }}
-                py={{ xs: 2, md: 0 }}
-                minHeight="300px"
-                bgcolor={theme.white}
-                borderRadius="10px"
-                textAlign="justify"
+          <Grid item xs={12} my={20}>
+            <Box display="flex" justifyContent="flex-start" py={5}>
+              <Typography
+                textAlign="center"
+                fontFamily={theme.fonts.title}
+                variant="h2"
               >
-                <Typography variant="body1" color={theme.text}>
+                Resultado..
+              </Typography>
+            </Box>
+            <Box
+              width="100%"
+              display="flex"
+              flexWrap="wrap"
+              justifyContent="center"
+            >
+              <Box
+                display="flex"
+                width={{ xs: "100%" }}
+                py={{ xs: 2, md: 0 }}
+                minHeight="300px"
+                bgcolor={theme.white}
+                borderRadius="10px"
+                textAlign="left"
+              >
+                <Typography variant="body1" color={theme.text} fontSize={20}>
                   Ha sido realmente una experiencia muy linda y gratificante y
                   estamos muy contentos con el resultado logrado. Llegamos a la
                   conclusión, luego de estos meses de trabajo intenso, de que no
@@ -301,7 +340,7 @@ const AboutUs = () => {
                   vidas. Muchas gracias por tomarse el tiempo de leer esta
                   pequeña reseña de lo que fue el proceso de nuestro proyecto
                   final. Esperamos que éste sea el primero de muchos proyectos
-                  por venir. Feli Fer Fede Lu
+                  por venir.
                 </Typography>
               </Box>
             </Box>

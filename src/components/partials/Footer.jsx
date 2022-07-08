@@ -187,7 +187,7 @@ const Footer = () => {
                     fontFamily="Raleway"
                     fontWeight="500"
                   >
-                    <Link href="/" className={`link-none`}>
+                    <Link href="/about" className={`link-none`}>
                       Sobre este proyecto
                     </Link>
                   </Typography>
@@ -197,7 +197,7 @@ const Footer = () => {
                     fontFamily="Raleway"
                     fontWeight="500"
                   >
-                    <Link href="/about" className={`link-none`}>
+                    <Link href="/cart" className={`link-none`}>
                       Carrito
                     </Link>
                   </Typography>
