@@ -5,11 +5,11 @@ import { currentTheme as theme } from "../../theme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import { Link, useParams, Navigate } from "react-router-dom";
-import Loader from "../miscellaneous/Loader";
+//import Loader from "../miscellaneous/Loader";
 import axios from "axios";
 import global from "../../global";
 
-const useGetOrder = id => {
+const useGetOrder = (id) => {
   const [order, setOrder] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
 
@@ -179,7 +179,7 @@ export default function Thanks() {
                 p={1.5}
                 sx={{ borderRadius: "5px", border: `2px solid ${theme.text}` }}
               >
-                <Link to="/" className="link-none">
+                <Link to="/profile" className="link-none">
                   <Typography variant="body1" color={theme.black}>
                     Ver mis ordenes
                   </Typography>
