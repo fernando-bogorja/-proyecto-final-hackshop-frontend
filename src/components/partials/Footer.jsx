@@ -232,7 +232,7 @@ const Footer = () => {
                     mt={{ xs: 0, sm: 2, lg: 12 }}
                     mb={1}
                     fontFamily="Raleway"
-                    fontWeight="500"
+                    fontWeight="400"
                   >
                     Medios de pago
                   </Typography>
