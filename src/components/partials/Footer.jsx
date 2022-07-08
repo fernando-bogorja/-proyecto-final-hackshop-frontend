@@ -36,6 +36,7 @@ const Footer = () => {
         <Box
           display="flex"
           alignItems="center"
+          py={10}
           sx={{
             width: "80%",
             height: "100%",
@@ -51,14 +52,21 @@ const Footer = () => {
             <Grid
               item
               sx={{
-                display: { xs: "block", sm: "none", xs: "none", md: "block" },
+                display: { xs: "none", lg: "block" },
               }}
-              md={3}
+              md={0}
               lg={4}
               xl={4}
             >
-              <Typography variant="h6" fontSize={18} color="white">
-                Suscribíte y recibí nuestras novedades!
+              <Typography
+                variant="h6"
+                fontSize={18}
+                color={theme.gray}
+                fontFamily={theme.fonts.title}
+                mt={12}
+                mb={1}
+              >
+                ¡Suscríbete para recibir nuestras novedades!
               </Typography>
               <Box display="flex" flexDirection="row" alignItems="center">
                 <TextField
@@ -72,23 +80,23 @@ const Footer = () => {
                     width: "65%",
                   }}
                 />
-                <Box width="35%">
-                  <AppButton onClick={handleClick} color="white">
+                <Box width="35%" ml={1}>
+                  <AppButton onClick={handleClick} color={theme.gray}>
                     Suscribirme
                   </AppButton>
                 </Box>
               </Box>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
+            <Grid item xs={12} sm={12} lg={4} xl={4}>
               <Box
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
               >
-                <Box className="box-icon-logo">
+                <Box className="box-icon-logo" mb={3}>
                   <img
-                    style={{ width: "100px" }}
+                    style={{ width: "185px" }}
                     srcSet={require("../../assets/reizen-logo.png")}
                     alt="logo"
                   />
@@ -101,7 +109,7 @@ const Footer = () => {
                   width="100%"
                   my={2}
                 >
-                  <Box>
+                  <Box mx={1.5}>
                     <Link
                       href="/"
                       style={{
@@ -111,7 +119,7 @@ const Footer = () => {
                       <Instagram fontSize="large" />
                     </Link>
                   </Box>
-                  <Box>
+                  <Box mx={1.5}>
                     <Link
                       href="/"
                       style={{
@@ -121,7 +129,7 @@ const Footer = () => {
                       <LinkedIn fontSize="large" />
                     </Link>
                   </Box>
-                  <Box>
+                  <Box mx={1.5}>
                     <Link
                       href="/"
                       style={{
@@ -131,7 +139,7 @@ const Footer = () => {
                       <Facebook fontSize="large" />
                     </Link>
                   </Box>
-                  <Box>
+                  <Box mx={1.5}>
                     <Link
                       href="/"
                       style={{
@@ -145,6 +153,7 @@ const Footer = () => {
                 <Box
                   className="box-links"
                   display="flex"
+                  mt={2}
                   sx={{
                     flexDirection: {
                       xs: "column",
@@ -158,30 +167,37 @@ const Footer = () => {
                   justifyContent="space-between"
                   width="65%"
                 >
-                  <Typography color={theme.white} className={effects.zoom}>
+                  <Typography
+                    color={theme.white}
+                    className={effects.zoom}
+                    fontFamily={theme.fonts.title}
+                  >
                     <Link href="/" className={`link-none`}>
-                      Home
+                      Inicio
                     </Link>
                   </Typography>
-                  <Typography color={theme.white} className={effects.zoom}>
+                  <Typography
+                    color={theme.white}
+                    className={effects.zoom}
+                    fontFamily={theme.fonts.title}
+                  >
+                    <Link href="/" className={`link-none`}>
+                      Sobre este proyecto
+                    </Link>
+                  </Typography>
+                  <Typography
+                    color={theme.white}
+                    className={effects.zoom}
+                    fontFamily={theme.fonts.title}
+                  >
                     <Link href="/about" className={`link-none`}>
-                      Nosotros
-                    </Link>
-                  </Typography>
-                  <Typography color={theme.white} className={effects.zoom}>
-                    <Link href="/" className={`link-none`}>
-                      Blog
-                    </Link>
-                  </Typography>
-                  <Typography color={theme.white} className={effects.zoom}>
-                    <Link href="/" className={`link-none`}>
-                      Contacto
+                      Carrito
                     </Link>
                   </Typography>
                 </Box>
               </Box>
             </Grid>
-            <Grid item xs={12} sm={12} md={3} lg={4} xl={4}>
+            <Grid item xs={12} sm={12} lg={4} xl={4}>
               <Box
                 display="flex"
                 flexDirection="column"
@@ -194,10 +210,7 @@ const Footer = () => {
                     display: "flex",
                     width: {
                       xs: "100%",
-                      sm: "100%",
-                      md: "50%",
                       lg: "50%",
-                      xl: "50%",
                     },
                     flexDirection: "column",
                     justifyContent: "center",
@@ -208,7 +221,10 @@ const Footer = () => {
                     variant="h6"
                     textAlign="center"
                     fontSize={18}
-                    color="white"
+                    color={theme.gray}
+                    mt={{ xs: 0, sm: 2, lg: 12 }}
+                    mb={1}
+                    fontFamily={theme.fonts.title}
                   >
                     Medios de pago
                   </Typography>
@@ -218,7 +234,7 @@ const Footer = () => {
                     justifyContent="center"
                     flexDirection="row"
                   >
-                    <Box>
+                    <Box mx={1}>
                       <img
                         style={{ width: "50px" }}
                         srcSet={require("../../assets/logos/icon-mastercard.png")}
@@ -226,7 +242,7 @@ const Footer = () => {
                         className={effects.zoom}
                       />
                     </Box>
-                    <Box>
+                    <Box mx={1}>
                       <img
                         style={{ width: "50px" }}
                         srcSet={require("../../assets/logos/icon-visa.png")}
@@ -234,7 +250,7 @@ const Footer = () => {
                         className={effects.zoom}
                       />
                     </Box>
-                    <Box>
+                    <Box mx={1}>
                       <img
                         style={{ width: "50px" }}
                         srcSet={require("../../assets/logos/icon-paypal.png")}

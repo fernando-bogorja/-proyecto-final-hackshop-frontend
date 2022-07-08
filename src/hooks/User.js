@@ -41,7 +41,9 @@ export default function useUserHook() {
 
   const handleAddAddress = (address) => {
     axios.post(`${global.api}/address/create`, address).then((res) => {
-      dispatch(addAddress());
+      dispatch(addAddress(
+        address
+      ));
     }).catch(() => {
       dispatch(handleError("Error al agregar dirección"));
     });

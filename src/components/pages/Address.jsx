@@ -13,10 +13,13 @@ import useUserHook from "../../hooks/User";
 import { Navigate } from "react-router-dom";
 import { currentTheme as theme, effects } from "../../theme";
 import FormControl from "@mui/material/FormControl";
+import { useFastRedirect } from "../../hooks/useRedirect";
 
-export default function Signup() {
+export default function Address() {
   const [user, setUser, logout, signup, addAddress] = useUserHook();
-  const handleSubmit = (event) => {
+  const redirect = useFastRedirect("/profile");
+
+  const handleSubmit = event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const send = {
@@ -30,6 +33,7 @@ export default function Signup() {
       user: user.data._id,
     };
     addAddress(send);
+    redirect();
   };
 
   React.useEffect(() => {

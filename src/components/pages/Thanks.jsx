@@ -5,29 +5,30 @@ import { currentTheme as theme } from "../../theme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import { Link, useParams, Navigate } from "react-router-dom";
+import Loader from "../miscellaneous/Loader";
 import axios from "axios";
 import global from "../../global";
 
 const useGetOrder = id => {
   const [order, setOrder] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+
+  const getOrder = async () => {
+    setLoading(true);
+    const response = await axios.get(`${global.api}/orders/${id}`);
+    setOrder(response.data.order);
+    setLoading(false);
+  };
 
   React.useEffect(() => {
-    axios
-      .get(`${global.api}/orders/${id}`)
-      .then(res => {
-        setOrder(res.data.order);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    getOrder();
   }, [id]);
-
-  return order;
+  return { order, loading };
 };
 
 export default function Thanks() {
   const { orderId } = useParams();
-  const order = useGetOrder(orderId);
+  const { order, loading } = useGetOrder(orderId);
 
   if (order) {
     return (
@@ -189,7 +190,5 @@ export default function Thanks() {
         </Box>
       </Box>
     );
-  } else {
-    return <Navigate to="/not-found" />;
   }
 }

@@ -3,25 +3,10 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { currentTheme as theme } from "../../theme";
 import { useNavigate } from "react-router-dom";
-
-const useRedirect = () => {
-  const [counter, setCounter] = React.useState(5);
-  const navigate = useNavigate();
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCounter(counter - 1);
-    }, 1000);
-    if (counter === 0) {
-      navigate("/");
-    }
-  }, [counter]);
-
-  return counter;
-};
+import { useRedirect } from "../../hooks/useRedirect";
 
 export default function NotFound() {
-  const counter = useRedirect();
+  const counter = useRedirect(5);
   return (
     <Box
       display="flex"

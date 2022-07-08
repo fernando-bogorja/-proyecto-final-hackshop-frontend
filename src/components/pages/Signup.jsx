@@ -11,10 +11,12 @@ import useUserHook from "../../hooks/User";
 import { Navigate } from "react-router-dom";
 import { currentTheme as theme, effects } from "../../theme";
 import FormControl from "@mui/material/FormControl";
+import { useFastRedirect } from "../../hooks/useRedirect";
 
 export default function Signup() {
   const [user, handleSetUser, handleLogout, handleSignup] = useUserHook();
   const [asAdmin, setAsAdmin] = React.useState(false);
+  const redirect = useFastRedirect("/signin");
   const handleSubmit = event => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -27,6 +29,7 @@ export default function Signup() {
       isAdmin: asAdmin,
     };
     handleSignup(send);
+    redirect();
   };
 
   if (user.data) {
