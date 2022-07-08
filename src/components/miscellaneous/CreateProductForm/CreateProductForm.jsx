@@ -26,6 +26,7 @@ export default function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     formData.category = "62c34c60f34be21cdf0c3f1c";
+    formData.featured = true;
     createProduct(formData);
   };
 
@@ -176,18 +177,6 @@ export default function Form() {
                 id="tall"
                 name="tall"
                 label="tall"
-                type="text"
-                fullWidth
-                autoComplete="shipping address-line2"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                id="featured"
-                name="featured"
-                label="featured"
                 type="text"
                 fullWidth
                 autoComplete="shipping address-line2"
