@@ -8,8 +8,10 @@ import { useState, useEffect } from "react";
 import { InputLabel, Select, MenuItem } from "@mui/material";
 import { Box } from "@mui/system";
 import { currentTheme as theme } from "../../../../theme";
+import useCrudProducts from "../../../../hooks/useCrudProducts";
 
 export default function EditProduct({ product }) {
+  const { editProduct } = useCrudProducts();
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -25,7 +27,7 @@ export default function EditProduct({ product }) {
   });
   const [error, setError] = useState("");
 
-  const validateInput = (value) => {
+  const validateInput = value => {
     //regex only for letters and numbers
     const regex = /^[a-zA-Z0-9]+$/;
     if (value.length > 0) {
@@ -34,8 +36,16 @@ export default function EditProduct({ product }) {
     return false;
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = event => {
+    editProduct({
+      ...formData,
+      [event.target.name]: event.target.value,
+      id: product._id,
+    });
   };
 
   useEffect(() => {
@@ -50,7 +60,7 @@ export default function EditProduct({ product }) {
     ),
     (
       <Box display="flex" justifyContent="center" width="100%">
-        <form>
+        <form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             {/* Address Begin*/}
             <Grid item xs={12}>

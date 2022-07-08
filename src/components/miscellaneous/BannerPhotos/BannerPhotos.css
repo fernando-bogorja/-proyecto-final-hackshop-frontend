@@ -97,7 +97,13 @@ figure.effect-chico .foto {
 }
 
 figure.effect-chico:hover .foto {
-  opacity: 0.5;
+  opacity: 0.8;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+figure.effect-chico:hover .foto figcaption {
+  backdrop-filter: blur(3px);
   -webkit-transform: scale(1);
   transform: scale(1);
 }

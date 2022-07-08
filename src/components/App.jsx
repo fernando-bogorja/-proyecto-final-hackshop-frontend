@@ -13,9 +13,9 @@ import SignIn from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Checkout from "./pages/Checkout";
 import ProductList from "./miscellaneous/ProductList/ProductList";
+import ListAllOrders from "./miscellaneous/Dashboard/ListAllOrders/ListAllOrders";
 import Categories from "./miscellaneous/Dashboard/Categories/Categories";
 import UserList from "./miscellaneous/Dashboard/userList/UserList";
-import CreateUserForm from "./miscellaneous/CreateUserForm/CreateUserForm";
 import CreateProductForm from "./miscellaneous/CreateProductForm/CreateProductForm";
 import { useSelector } from "react-redux";
 import ContextMenu from "./miscellaneous/ContextMenu/ContextMenu";
@@ -65,14 +65,14 @@ function App() {
             element={<Dashboard component={<UserList />} />}
           />
           <Route
-            path="/dashboard/createUserForm"
-            element={<Dashboard component={<CreateUserForm />} />}
-          />
-          <Route
             path="/dashboard/createProductForm"
             element={<Dashboard component={<CreateProductForm />} />}
           />
           <Route path="/dashboard/products" element={<Dashboard />} />
+          <Route
+            path="/dashboard/orders"
+            element={<Dashboard component={<ListAllOrders />} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
