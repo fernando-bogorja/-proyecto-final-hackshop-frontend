@@ -344,7 +344,11 @@ function BannerFotos() {
                   </Box>
                 </figure>
               </HashLink>
-              <Box width="21rem" height="21rem">
+              <Box
+                width="21rem"
+                display={{ xs: "none", md: "block" }}
+                height="21rem"
+              >
                 <figure className="effect-chico">
                   <Box
                     className="foto foto7"
