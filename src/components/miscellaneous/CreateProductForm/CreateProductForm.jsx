@@ -6,8 +6,11 @@ import Button from "@mui/material/Button";
 import { Divider } from "@mui/material";
 import { useState, useEffect } from "react";
 import { currentTheme as theme } from "../../../theme";
+import useCrudProducts from "../../../hooks/useCrudProducts";
 import axios from "axios";
 export default function Form() {
+  const { createProduct } = useCrudProducts();
+
   const [formData, setFormData] = useState({});
   const [error, setError] = useState("");
 
@@ -22,26 +25,12 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, email, phone, address, city, zip, country } = formData;
-    if (
-      validateInput(name) &&
-      validateInput(email) &&
-      validateInput(phone) &&
-      validateInput(address) &&
-      validateInput(city) &&
-      validateInput(zip) &&
-      validateInput(country)
-    );
-    else {
-      //console.log("VALID");
-      setError("Por favor, rellene todos los campos correctamente");
-      //console.log("INVALID");
-    }
+    formData.category = "62c34c60f34be21cdf0c3f1c";
+    createProduct(formData);
   };
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
-    // console.log(formData);
   };
 
   useEffect(() => {
@@ -110,6 +99,102 @@ export default function Form() {
                 onChange={handleChange}
               />
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="description"
+                name="description"
+                label="Descripción"
+                type="text"
+                fullWidth
+                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="image"
+                name="image"
+                label="Link Imagen"
+                type="text"
+                fullWidth
+                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="upholstery"
+                name="upholstery"
+                label="upholstery"
+                type="text"
+                fullWidth
+                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="size"
+                name="size"
+                label="size"
+                type="text"
+                fullWidth
+                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="length"
+                name="length"
+                label="length"
+                type="text"
+                fullWidth
+                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="depth"
+                name="depth"
+                label="depth"
+                type="text"
+                fullWidth
+                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="tall"
+                name="tall"
+                label="tall"
+                type="text"
+                fullWidth
+                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                id="featured"
+                name="featured"
+                label="featured"
+                type="text"
+                fullWidth
+                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
           </Grid>
           <Divider />
           <Grid container spacing={3} my={2}>
@@ -117,6 +202,7 @@ export default function Form() {
               <Button
                 type="submit"
                 fullWidth
+                //onSubmit={}
                 variant="contained"
                 sx={{
                   backgroundColor: theme.black,
