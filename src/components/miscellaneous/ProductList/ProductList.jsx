@@ -12,7 +12,7 @@ import { currentTheme as theme } from "../../../theme";
 export default function ProductList() {
   const [products] = useGetProducts();
   const [temp, setTemp] = useState({});
-  const handleClick = (params) => {
+  const handleClick = params => {
     setTemp(params);
   };
 
@@ -28,13 +28,14 @@ export default function ProductList() {
       field: "images",
       headerName: "Imágen",
       width: 80,
-      renderCell: (params) => {
+      renderCell: params => {
         return (
           <div>
             <img
               className="productListImage"
               src={params.row.images[0]}
-              alt=""
+              alt="product"
+              width="50px"
             />
           </div>
         );
@@ -44,7 +45,7 @@ export default function ProductList() {
       field: "action",
       headerName: "Acciones",
       width: 400,
-      renderCell: (params) => {
+      renderCell: params => {
         return (
           <>
             {/* <Link to={`/user/` + params.row.id}> */}
@@ -103,7 +104,7 @@ export default function ProductList() {
             <DataGrid
               rows={products}
               columns={columns}
-              getRowId={(row) => row._id}
+              getRowId={row => row._id}
               pageSize={12}
               rowsPerPageOptions={[12]}
               checkboxSelection

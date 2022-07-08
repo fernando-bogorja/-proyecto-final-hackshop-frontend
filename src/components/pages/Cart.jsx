@@ -63,7 +63,7 @@ export default function Cart() {
             }}
           >
             {cart.cartItems.length > 0 ? (
-              cart.cartItems.map((article) => (
+              cart.cartItems.map(article => (
                 <Grid item xs={12} md={12} lg={12} key={article._id}>
                   <ArticleCard article={article} />
                 </Grid>
@@ -77,12 +77,23 @@ export default function Cart() {
                   justifyContent="center"
                   width="100%"
                 >
-                  <img
-                    src={require("../../assets/empty-cart.gif")}
-                    alt="empty cart"
-                    style={{ width: "25%" }}
-                  />
-                  <Typography py={3} level="h3" fontSize={22}>
+                  <Box
+                    width={{ xs: "100%", sm: "50%", lg: "25%" }}
+                    display="flex"
+                    justifyContent="center"
+                  >
+                    <img
+                      src={require("../../assets/empty-cart.gif")}
+                      alt="empty cart"
+                      style={{ width: "100%" }}
+                    />
+                  </Box>
+                  <Typography
+                    py={3}
+                    level="h3"
+                    fontSize={22}
+                    textAlign="center"
+                  >
                     Oops, todo muy vacío por aquí
                   </Typography>
                   <Link

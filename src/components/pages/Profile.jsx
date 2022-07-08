@@ -1,6 +1,6 @@
 import useUserHook from "../../hooks/User";
 import { Box, Button, Grid, Typography } from "@mui/material";
-import { currentTheme as theme } from "../../theme";
+import { currentTheme as theme, effects } from "../../theme";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import { Link, Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 
 function createData(id, address, status, date, total) {
   return { id, address, status, date, total };
@@ -108,14 +109,52 @@ export default function Profile() {
                 justifyContent="center"
                 flexDirection="column"
               >
-                <Typography
-                  variant="h5"
-                  textAlign="left"
-                  fontFamily={theme.fonts.title}
-                >
-                  Mis Pedidos
-                </Typography>
-                <DataTable rows={rows} />
+                {rows.length > 0 ? (
+                  <Box>
+                    <Typography
+                      variant="h5"
+                      textAlign="left"
+                      fontFamily={theme.fonts.title}
+                    >
+                      Mis Pedidos
+                    </Typography>
+                    <DataTable rows={rows} />
+                  </Box>
+                ) : (
+                  <Box
+                    width={{ xs: "100%", xl: "70%" }}
+                    minHeight="300px"
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center"
+                    bgcolor="#fafafa"
+                    sx={{ borderRadius: "15px" }}
+                  >
+                    <Typography
+                      variant="h5"
+                      fontFamily={theme.fonts.title}
+                      color={theme.text}
+                      textAlign="center"
+                      fontWeight="bold"
+                      mb={3}
+                    >
+                      No tienes pedidos
+                    </Typography>
+                    <Link
+                      to="/"
+                      className={`link-none ${effects.zoom}`}
+                      style={{
+                        backgroundColor: theme.text,
+                        color: theme.white,
+                        padding: "12px 20px",
+                        borderRadius: "5px",
+                      }}
+                    >
+                      Comprar productos
+                    </Link>
+                  </Box>
+                )}
               </Box>
             </Grid>
             <Grid
@@ -197,7 +236,7 @@ const InfoContainer = ({ information, user }) => {
       </Typography>
       <Box mt={2}>
         {information.data.map((data, index) => (
-          <Box width="100%" key={index}>
+          <Box width="100%" key={index} my={0.5}>
             <Typography variant="p" fontSize={14} textAlign="left">
               {data}
             </Typography>
