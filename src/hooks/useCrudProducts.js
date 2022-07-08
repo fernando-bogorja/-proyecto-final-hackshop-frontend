@@ -6,6 +6,7 @@ import { toastConfig } from '../theme';
 import { toast } from 'react-toastify'
 
 export default function useCrudProducts() {
+    const [categories, setCategories] = React.useState([]);
     const editProduct = async (product) => {
         await axios.put(`${global.api}/products/update`, product);
         toast("Producto editado correctamente", toastConfig);
@@ -16,5 +17,11 @@ export default function useCrudProducts() {
         toast("Producto creado correctamente", toastConfig);
     }
 
-    return { createProduct, editProduct }
+    React.useEffect(() => {
+        axios.get(`${global.api}/category`)
+            .then(res => { setCategories(res.data) }
+            ).catch(err => console.log(err));
+    });
+
+    return { createProduct, editProduct, categories }
 }

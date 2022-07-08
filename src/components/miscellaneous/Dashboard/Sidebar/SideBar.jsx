@@ -50,11 +50,6 @@ const categories = [
     link: "/dashboard/users",
   },
   {
-    name: "Agregar usuario",
-    icon: <FontAwesomeIcon icon={faUserPlus} color={theme.white} />,
-    link: "/dashboard/createUserForm",
-  },
-  {
     name: "Lista de Ordenes",
     icon: <FontAwesomeIcon icon={faWallet} color={theme.white} />,
     link: "/dashboard/orders",

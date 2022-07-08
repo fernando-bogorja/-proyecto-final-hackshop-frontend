@@ -3,18 +3,22 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Divider } from "@mui/material";
 import { useState, useEffect } from "react";
 import { currentTheme as theme } from "../../../theme";
 import useCrudProducts from "../../../hooks/useCrudProducts";
-import axios from "axios";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 export default function Form() {
-  const { createProduct } = useCrudProducts();
+  const { createProduct, categories } = useCrudProducts();
 
   const [formData, setFormData] = useState({});
   const [error, setError] = useState("");
+  const [images, setImages] = useState([]);
+  const [category, setCategory] = useState("");
 
-  const validateInput = (value) => {
+  const validateInput = value => {
     //regex only for letters and numbers
     const regex = /^[a-zA-Z0-9]+$/;
     if (value.length > 0) {
@@ -23,15 +27,19 @@ export default function Form() {
     return false;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    formData.category = "62c34c60f34be21cdf0c3f1c";
-    formData.featured = true;
+    formData.category = category;
     createProduct(formData);
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
+    setImages(event.target.images);
     setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleChangeCategory = event => {
+    setCategory(event.target.value);
   };
 
   useEffect(() => {
@@ -80,6 +88,7 @@ export default function Form() {
             <Grid item xs={12} sm={6}>
               <TextField
                 required
+                required
                 id="madeIn"
                 name="madeIn"
                 label="Lugar de Fabricación"
@@ -90,102 +99,131 @@ export default function Form() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 id="stock"
                 name="stock"
                 label="Stock"
                 type="number"
                 fullWidth
-                autoComplete="shipping address-line2"
                 variant="standard"
                 onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 id="description"
+                z
                 name="description"
                 label="Descripción"
                 type="text"
                 fullWidth
-                autoComplete="shipping address-line2"
                 variant="standard"
                 onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                id="image"
-                name="image"
-                label="Link Imagen"
-                type="text"
-                fullWidth
-                autoComplete="shipping address-line2"
-                variant="standard"
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
+                required
                 id="upholstery"
                 name="upholstery"
-                label="upholstery"
+                label="Tapizado"
                 type="text"
                 fullWidth
-                autoComplete="shipping address-line2"
                 variant="standard"
                 onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 id="size"
                 name="size"
-                label="size"
+                label="Tamaño"
                 type="text"
                 fullWidth
-                autoComplete="shipping address-line2"
                 variant="standard"
                 onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 id="length"
                 name="length"
-                label="length"
+                label="Largo"
                 type="text"
                 fullWidth
-                autoComplete="shipping address-line2"
                 variant="standard"
                 onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 id="depth"
                 name="depth"
-                label="depth"
+                label="Profundidad"
                 type="text"
                 fullWidth
-                autoComplete="shipping address-line2"
                 variant="standard"
                 onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                required
                 id="tall"
                 name="tall"
-                label="tall"
+                label="Altura"
                 type="text"
                 fullWidth
-                autoComplete="shipping address-line2"
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={category}
+                  label="Categoria"
+                  onChange={handleChangeCategory}
+                  variant="standard"
+                >
+                  {categories.map(category => (
+                    <MenuItem value={category._id}>{category.name}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                id="images"
+                name="images"
+                label="Primera imágen"
+                type="text"
+                fullWidth
+                variant="standard"
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                id="images"
+                name="images"
+                label="Segunda imágen"
+                type="text"
+                fullWidth
                 variant="standard"
                 onChange={handleChange}
               />
             </Grid>
           </Grid>
-          <Divider />
           <Grid container spacing={3} my={2}>
             <Grid item xs={12}>
               <Button

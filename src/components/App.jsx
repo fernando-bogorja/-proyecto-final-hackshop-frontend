@@ -16,7 +16,6 @@ import ProductList from "./miscellaneous/ProductList/ProductList";
 import ListAllOrders from "./miscellaneous/Dashboard/ListAllOrders/ListAllOrders";
 import Categories from "./miscellaneous/Dashboard/Categories/Categories";
 import UserList from "./miscellaneous/Dashboard/userList/UserList";
-import CreateUserForm from "./miscellaneous/CreateUserForm/CreateUserForm";
 import CreateProductForm from "./miscellaneous/CreateProductForm/CreateProductForm";
 import { useSelector } from "react-redux";
 import ContextMenu from "./miscellaneous/ContextMenu/ContextMenu";
@@ -29,7 +28,7 @@ import Address from "./pages/Address";
 import Thanks from "./pages/Thanks";
 
 function App() {
-  const user = useSelector((state) => state.user);
+  const user = useSelector(state => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
@@ -64,10 +63,6 @@ function App() {
           <Route
             path="/dashboard/users"
             element={<Dashboard component={<UserList />} />}
-          />
-          <Route
-            path="/dashboard/createUserForm"
-            element={<Dashboard component={<CreateUserForm />} />}
           />
           <Route
             path="/dashboard/createProductForm"
