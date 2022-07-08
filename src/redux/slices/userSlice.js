@@ -19,6 +19,7 @@ const userSlice = createSlice({
             toast(`Usuario registrado con éxito`, toastConfig);
         },
         addAddress: (state, action) => {
+            state.data.address = action.payload;
             toast(`Dirección agregada con éxito`, toastConfig);
         },
         logoutUser: (state, action) => {

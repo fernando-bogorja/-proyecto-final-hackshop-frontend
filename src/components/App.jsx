@@ -46,7 +46,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/address" element={<Address />} />
-          <Route path="/thanks" element={<Thanks />} />
+          <Route path="/thanks/:orderId" element={<Thanks />} />
           <Route
             path="/dashboard"
             element={<Dashboard component={<DashboardMain />} />}

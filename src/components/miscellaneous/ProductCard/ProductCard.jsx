@@ -15,14 +15,19 @@ import SuperChip from "../MiniChip/SuperChip";
 import useCartHook from "../../../hooks/Cart";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { currentTheme as theme, effects } from "../../../theme";
+import { currentTheme as theme, effects, toastConfig } from "../../../theme";
+import { toast } from "react-toastify";
 
 export default function ProductCard({ product }) {
   const [cart, addToCart] = useCartHook();
-  const isInCart = cart.cartItems.some((item) => item._id === product._id);
+  const isInCart = cart.cartItems.some(item => item._id === product._id);
 
   const handleAddToCart = () => {
     addToCart(product);
+  };
+
+  const handleAddToFavorite = () => {
+    toast.error("Funcionalidad fuera del alcance del proyecto", toastConfig);
   };
 
   return (
@@ -41,14 +46,11 @@ export default function ProductCard({ product }) {
         aria-label="hearth Bahamas Islands"
         variant="plain"
         size="sm"
+        onClick={handleAddToFavorite}
       >
         <FavoriteBorderRoundedIcon />
       </IconButton>
-      <Link
-        to={{
-          pathname: `product/` + product.slug,
-        }}
-      >
+      <Link to={`/product/${product.slug}`}>
         <AspectRatio
           minHeight="120px"
           maxHeight="200px"

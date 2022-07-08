@@ -30,8 +30,23 @@ const pages = [
   },
 ];
 
+const withBackgroundPages = [
+  "/cart",
+  "/profile",
+  "/profile/address",
+  "/checkout",
+  "/thanks",
+  "/signup",
+  "/dashboard",
+];
+
+const willIncludeBackground = currentPath => {
+  //if some of the rendereable pages items includes the current path
+  return withBackgroundPages.some(path => currentPath.includes(path));
+};
+
 export default function PrimarySearchAppBar() {
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const { cartTotalQuantity } = useSelector(state => state.cart);
   const [user, handleSetUser, handleLogoutUser] = useUserHook();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -39,7 +54,7 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
+  const handleProfileMenuOpen = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -52,7 +67,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
+  const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -142,6 +157,7 @@ export default function PrimarySearchAppBar() {
 
   let background;
   const location = useLocation();
+<<<<<<< HEAD
   if (
     location.pathname === "/cart" ||
     location.pathname === "/profile" ||
@@ -154,6 +170,9 @@ export default function PrimarySearchAppBar() {
     location.pathname === "/dashboard/users" ||
     location.pathname === "/dashboard/createUserForm"
   ) {
+=======
+  if (willIncludeBackground(location.pathname)) {
+>>>>>>> 294751ea91d337d019d125f7302c362043bcb27d
     background = theme.black30;
   }
 
@@ -210,7 +229,7 @@ export default function PrimarySearchAppBar() {
                 }}
                 ml={2}
               >
-                {pages.map((page) => (
+                {pages.map(page => (
                   <Link
                     className="nav-link"
                     to={`/${page.path.toLowerCase()}`}

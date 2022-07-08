@@ -11,21 +11,10 @@ import useGetProducts from "../../hooks/useGetProducts";
 import BannerPhotos from "../miscellaneous/BannerPhotos/BannerPhotos";
 import Typography from "@mui/material/Typography";
 import { currentTheme as theme, effects } from "../../theme";
-
-const Loader = () => {
-  return (
-    <div className="loader">
-      <div className="lds-ripple">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  );
-};
+import Loader from "../miscellaneous/Loader";
 
 const Home = () => {
   const [products, categories, isLoading] = useGetProducts();
-  // console.log(useGetProducts());
   return (
     <div>
       {isLoading ? (
@@ -36,7 +25,7 @@ const Home = () => {
             <Header />
             <BannerPhotos />
             <React.Suspense fallback={<Loader />}>
-              {categories.map((category) => (
+              {categories.map(category => (
                 <Box
                   width="100%"
                   display="flex"
@@ -55,9 +44,9 @@ const Home = () => {
                     <Carousel key={category.name} category={category.name}>
                       {products
                         .filter(
-                          (product) => product.category._id === category._id
+                          product => product.category._id === category._id
                         )
-                        .map((product) => (
+                        .map(product => (
                           <ProductCard key={product._id} product={product} />
                         ))}
                     </Carousel>
