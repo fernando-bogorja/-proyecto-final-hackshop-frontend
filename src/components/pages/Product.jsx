@@ -62,15 +62,15 @@ function Product() {
     <Box
       display="flex"
       justifyContent="center"
-      alignItems="center"
+      align-items="flex-start"
       my={20}
       sx={{
         width: "100%",
       }}
     >
-      <Box display="flex" alignItems="center" sx={{ width: "78%" }}>
+      <Box display="flex" alignItems="flex-star" sx={{ width: "78%" }}>
         <Grid
-          justifyContent="center"
+          justifyContent="flex-start"
           container
           spacing={2}
           columns={12}
@@ -86,7 +86,7 @@ function Product() {
                   maxWidth: 360,
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
+                  alignItems: "flex-start",
                   padding: "0px",
                 }}
               >
@@ -95,7 +95,7 @@ function Product() {
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "center",
+                      alignItems: "flex-start",
                       width: "100%",
                       height: "100%",
                     }}
@@ -122,9 +122,9 @@ function Product() {
             <Box
               sx={{
                 height: "100%",
-                width: "35rem",
+                width: "70%",
                 display: "flex",
-                justifyContent: "flex-start",
+                justifyContent: "center",
                 alignItems: "flex-start",
                 flexDirection: "column",
                 position: "relative",
@@ -142,7 +142,7 @@ function Product() {
               )}
               <Box
                 display="flex"
-                justifyContent="center"
+                justifyContent="flex-start"
                 alignItems="flex-start"
                 top="0"
                 left="0"
@@ -151,14 +151,14 @@ function Product() {
                 <Button
                   sx={{
                     height: "100%",
-                    width: "100%",
+                    width: "10%",
                     borderRadius: "8%",
                     backgroundColor: theme.black,
                   }}
                   onClick={() => setIs3D(!is3D)}
                 >
                   <img
-                    style={{ width: "30px" }}
+                    style={{ width: "50%" }}
                     srcSet={require("../../assets/cubo.png")}
                     alt="logo"
                   />
@@ -170,10 +170,24 @@ function Product() {
                   /> */}
                 </Button>
               </Box>
-              <Typography variant="h5" py={3} fontFamily={theme.fonts.title}>
+              <Typography
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "flex-start",
+                }}
+                variant="h5"
+                py={3}
+                fontFamily={theme.fonts.title}
+              >
                 Descripción
               </Typography>
-              <Typography variant="body1" width="100%" color={theme.text}>
+              <Typography
+                variant="body1"
+                width="100%"
+                color={theme.text}
+                mb="2"
+              >
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. A,
                 autem. Unde, voluptates ea et, ullam similique iusto
                 necessitatibus illo odio recusandae asperiores commodi ipsam
@@ -187,7 +201,7 @@ function Product() {
           <Grid
             item
             display="flex"
-            justifyContent="flex-end"
+            justifyContent="center"
             xl={4}
             lg={4}
             md={12}
@@ -221,7 +235,6 @@ function Product() {
               <Box
                 width="100%"
                 display="flex"
-                alignItems="flex-start"
                 justifyContent="space-between"
                 flexDirection="column"
                 mt={4}
@@ -243,7 +256,7 @@ function Product() {
                   sx={{
                     width: "100%",
                     display: "flex",
-                    justifyContent: "space-between",
+                    justifyContent: "center",
                   }}
                   icon={faCow}
                   label="Tapizado"
@@ -286,7 +299,7 @@ function Product() {
               <Box
                 display="flex"
                 justifyContent="flex-end"
-                width={{ xs: "97%", xl: "100%" }}
+                width={{ xs: "100%", xl: "100%" }}
               >
                 <AppButton
                   onClick={() => handleAddToCart()}
@@ -356,7 +369,7 @@ const PriceBox = ({ price, discount }) => {
       display="flex"
       justifyContent="space-between"
       alignItems="center"
-      width={{ xs: "97%", xl: "85%" }}
+      width={{ xs: "97%", xl: "100%" }}
       my={2}
       mb={2}
     >
