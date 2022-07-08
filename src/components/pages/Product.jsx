@@ -54,7 +54,7 @@ function Product() {
     getProduct();
     setActualImg(productImages[0]);
   }, [(pochoclo = productImages[0])]);
-  const handleClickForChangeImage = img => {
+  const handleClickForChangeImage = (img) => {
     return setActualImg(img);
   };
 
@@ -68,14 +68,13 @@ function Product() {
         width: "100%",
       }}
     >
-      <Box display="flex" alignItems="center" sx={{ width: "80%" }}>
+      <Box display="flex" alignItems="center" sx={{ width: "78%" }}>
         <Grid
           justifyContent="center"
           container
           spacing={2}
           columns={12}
           sx={{
-            backgroundColor: theme.white,
             padding: "20px 0",
             width: "100%",
           }}
@@ -109,10 +108,10 @@ function Product() {
                       alt={productImages[index]}
                       width="100%"
                       height="100%"
-                      style={{
-                        border: `2px solid ${theme.gray}`,
-                        borderRadius: "50%",
-                      }}
+                      // style={{
+                      //   border: `2px solid ${theme.gray}`,
+                      //   borderRadius: "50%",
+                      // }}
                     />
                   </Button>
                 ))}
@@ -123,10 +122,10 @@ function Product() {
             <Box
               sx={{
                 height: "100%",
-                width: "100%",
+                width: "35rem",
                 display: "flex",
                 justifyContent: "flex-start",
-                alignItems: "center",
+                alignItems: "flex-start",
                 flexDirection: "column",
                 position: "relative",
               }}
@@ -138,37 +137,43 @@ function Product() {
                   src={actualImg}
                   srcSet={actualImg}
                   alt={pochoclo}
-                  width="60%"
+                  width="100%"
                 />
               )}
               <Box
                 display="flex"
                 justifyContent="center"
-                alignItems="center"
-                position="absolute"
+                alignItems="flex-start"
                 top="0"
                 left="0"
-                sx={{ width: "50px", height: "50px", borderRadius: "15%" }}
+                sx={{ height: "50px", borderRadius: "15%" }}
               >
                 <Button
                   sx={{
                     height: "100%",
                     width: "100%",
-                    borderRadius: "15%",
-                    backgroundColor: theme.gray,
+                    borderRadius: "8%",
+                    backgroundColor: theme.black,
                   }}
                   onClick={() => setIs3D(!is3D)}
                 >
-                  {" "}
+                  <img
+                    style={{ width: "30px" }}
+                    srcSet={require("../../assets/cubo.png")}
+                    alt="logo"
+                  />
+                  {/* {" "}
                   <FontAwesomeIcon
                     icon={faCube}
                     size="2x"
                     color={theme.black}
-                  />
+                  /> */}
                 </Button>
               </Box>
-              <Typography variant="h5">Descripción</Typography>
-              <Typography variant="body1">
+              <Typography variant="h5" py={3} fontFamily={theme.fonts.title}>
+                Descripción
+              </Typography>
+              <Typography variant="body1" width="100%" color={theme.text}>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. A,
                 autem. Unde, voluptates ea et, ullam similique iusto
                 necessitatibus illo odio recusandae asperiores commodi ipsam
@@ -179,13 +184,22 @@ function Product() {
             </Box>
             {/* alt={pochoclo} src={actualImg} */}
           </Grid>
-          <Grid item xl={4} lg={4} md={12} sm={12} xs={12}>
+          <Grid
+            item
+            display="flex"
+            justifyContent="flex-end"
+            xl={4}
+            lg={4}
+            md={12}
+            sm={12}
+            xs={12}
+          >
             <Box display="flex" flexDirection="column">
               <Typography
                 variant="h5"
-                color="textPrimary"
+                color={theme.black}
                 gutterBottom
-                fontFamily={"Abhaya Libre"}
+                fontFamily={theme.fonts.title}
               >
                 {product.name}
               </Typography>
@@ -195,25 +209,42 @@ function Product() {
                 alignItems="center"
               >
                 <FontAwesomeIcon icon={faStar} size="1x" color={theme.black} />
-                <Typography variant="body1">5.1</Typography>
+                <Typography
+                  variant="body1"
+                  paddingLeft={1}
+                  paddingTop={"2px"}
+                  color={theme.text}
+                >
+                  5.1
+                </Typography>
               </Box>
               <Box
                 width="100%"
                 display="flex"
-                justifyContent="flex-start"
+                alignItems="flex-start"
+                justifyContent="space-between"
                 flexDirection="column"
                 mt={4}
               >
                 <Typography
-                  sx={{ textAlign: "justify", fontWeight: 600 }}
+                  sx={{
+                    selfAlign: "left",
+                    fontWeight: 700,
+                    fontFamily: "Raleway",
+                    fontSize: "1rem",
+                  }}
                   variant="subtitle2"
-                  align="center"
-                  color="textPrimary"
+                  color={theme.black}
                   paragraph
                 >
                   Detalles del producto
                 </Typography>
                 <DetailBox
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
                   icon={faCow}
                   label="Tapizado"
                   value={product.upholstery}
@@ -255,7 +286,7 @@ function Product() {
               <Box
                 display="flex"
                 justifyContent="flex-end"
-                width={{ xs: "97%", xl: "85%" }}
+                width={{ xs: "97%", xl: "100%" }}
               >
                 <AppButton
                   onClick={() => handleAddToCart()}
@@ -279,11 +310,11 @@ const DetailBox = ({ label, value, icon }) => {
       display="flex"
       justifyContent="flex-start"
       alignItems="center"
-      width={{ xs: "97%", xl: "85%" }}
+      width={{ xs: "97%", xl: "100%" }}
       sx={{
         borderBottom: "1px solid #000",
       }}
-      mb={2}
+      mb={4}
     >
       <Box
         width="50%"

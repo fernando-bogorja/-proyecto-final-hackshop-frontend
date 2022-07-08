@@ -266,6 +266,14 @@ const Footer = () => {
                         className={effects.zoom}
                       />
                     </Box>
+                    <Box mx={1}>
+                      <img
+                        style={{ width: "50px" }}
+                        srcSet={require("../../assets/logos/icon-santander.png")}
+                        alt="logo"
+                        className={effects.zoom}
+                      />
+                    </Box>
                   </Box>
                 </Box>
               </Box>
