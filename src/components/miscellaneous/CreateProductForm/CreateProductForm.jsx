@@ -88,9 +88,8 @@ export default function Form() {
             <Grid item xs={12} sm={6}>
               <TextField
                 required
-                required
-                id="madeIn"
-                name="madeIn"
+                id="made_in"
+                name="made_in"
                 label="Lugar de Fabricación"
                 fullWidth
                 variant="standard"
