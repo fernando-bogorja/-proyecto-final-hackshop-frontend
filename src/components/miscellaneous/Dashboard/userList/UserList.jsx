@@ -5,13 +5,14 @@ import useGetUsers from "../../../../hooks/useGetUsers";
 import { useState } from "react";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import EditUser from "../../Dashboard/EditUser/EditUser";
 import { useNavigate } from "react-router-dom";
+import { toastConfig } from "../../../../theme";
+import { toast } from "react-toastify";
 
 export default function UserList() {
   const [users] = useGetUsers();
   const [temp, setTemp] = useState({});
-  const handleClick = (params) => {
+  const handleClick = params => {
     setTemp(params);
   };
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function UserList() {
       headerName: "Administrador",
       width: 120,
       editable: false,
-      renderCell: (params) => {
+      renderCell: params => {
         {
           if (params.row.isAdmin) {
             return "ADMINISTRADOR";
@@ -43,17 +44,9 @@ export default function UserList() {
       headerName: "Acciones",
       width: 200,
       editable: false,
-      renderCell: (params) => {
+      renderCell: params => {
         return (
           <>
-            <Button
-              onClick={() => handleClick(params.row)}
-              style={{ margin: "5px" }}
-              size="small"
-              variant="outlined"
-            >
-              Editar
-            </Button>
             <Button
               onClick={() => navigate("/orders")}
               style={{ margin: "5px" }}
@@ -89,12 +82,12 @@ export default function UserList() {
             <DataGrid
               rows={users}
               columns={columns}
-              getRowId={(row) => row._id}
+              getRowId={row => row._id}
               pageSize={12}
               rowsPerPageOptions={[12]}
               checkboxSelection
               disableSelectionOnClick
-              sx={{ minHeight: { xs: "650px" } }}
+              sx={{ minHeight: { xs: "500px" } }}
             />
           </Box>
         </Box>
@@ -104,11 +97,7 @@ export default function UserList() {
           display="flex"
           justifyContent="center"
           sx={{ height: "100%", width: "100%" }}
-        >
-          <Box width="80%" height="100%">
-            <EditUser user={temp} />
-          </Box>
-        </Box>
+        ></Box>
       </Grid>
     </Grid>
   );

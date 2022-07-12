@@ -62,6 +62,15 @@ export default function UserList() {
       },
     },
     {
+      field: "Estado",
+      headerName: "Estado",
+      width: 120,
+      editable: false,
+      renderCell: params => {
+        return <>{params.row.status.toUpperCase()}</>;
+      },
+    },
+    {
       field: "action",
       headerName: "Acciones",
       width: 200,
