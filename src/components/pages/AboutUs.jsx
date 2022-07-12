@@ -4,6 +4,7 @@ import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
 import { currentTheme as theme, effects } from "../../theme";
+import "./AboutUs.css";
 
 const AboutUs = () => {
   return (
@@ -32,12 +33,13 @@ const AboutUs = () => {
       >
         <Typography
           component="h4"
-          fontSize={50}
+          fontSize={60}
           textAlign="center"
+          paddingTop={1}
           paddingBottom="30px"
           color={theme.white}
-          fontFamily={theme.fonts.title}
-          fontWeight="bold"
+          fontFamily="Bodoni Moda"
+          fontWeight="500"
         >
           ¡Sobre este proyecto!
         </Typography>
@@ -82,11 +84,11 @@ const AboutUs = () => {
         </Grid>
       </Box>
 
-      <Box sx={{ width: "80%" }}>
-        <Grid container>
-          <Grid justifyContent="center" item xs={12} my={20}>
-            <Box display="flex" justifyContent="flex-start" py={10}>
-              <Typography fontFamily={theme.fonts.title} variant="h2">
+      <Box display="flex" sx={{ width: "78%" }}>
+        <Grid container display="flex" justifyContent="center">
+          <Grid justifyContent="center" item xs={12} marginBottom={10}>
+            <Box display="flex" justifyContent="flex-start" pt={15}>
+              <Typography fontFamily={theme.fonts.title} variant="h3">
                 ¿Como nace este proyecto?
               </Typography>
             </Box>
@@ -95,13 +97,13 @@ const AboutUs = () => {
               width="100%"
               display="flex"
               flexWrap="wrap"
-              justifyContent="space-between"
+              justifyContent="center"
             >
               <Box
                 display="flex"
                 justifyContent="flex-start"
                 width={{ xs: "100%", md: "50%" }}
-                py={{ xs: 2, md: 0 }}
+                py={{ xs: 2, md: 10 }}
                 minHeight="300px"
                 bgcolor={theme.white}
                 borderRadius="10px"
@@ -111,29 +113,40 @@ const AboutUs = () => {
                     sm: "row",
                     xl: "column",
                   },
-                  alignItems: "center",
+                  alignItems: "flex-start",
                 }}
               >
                 <Box
                   display="flex"
-                  justifyContent="center"
+                  justifyContent="flex-start"
                   maxWidth={{ xs: "100%", md: "80%" }}
                   textAlign="left"
                 >
-                  <Typography variant="body1" color={theme.text} fontSize={20}>
+                  <Typography
+                    fontFamily={theme.fonts.text}
+                    color={theme.text}
+                    variant="body1"
+                    fontSize={18}
+                  >
                     Esta página surge como resultado del proyecto final
-                    realizado en Hack Academy, en el marco de su Coding Bootcamp
-                    de full-stack Web Developer. El mismo consiste en un curso
-                    de fuerte carga teórico-práctica, con una duración de 3
-                    meses, el cual implica unas 600 horas de dedicación
-                    intensiva. Como consigna se nos solicitó la implementación
-                    de un sitio e-commerce, para el cual el equipo tomó como
-                    temática la mueblería de diseño. Se contó con un plazo de 3
-                    semanas para realizarlo y cada uno de los integrantes
-                    invirtió aproximadamente 150hs de trabajo. Cómo puntapié
-                    inicial tomamos un emprendimiento existente, llamado Reizen
-                    que, con el permiso de sus creadoras, parte de su branding
-                    fue utilizado para que el sitio se viera mas real.
+                    realizado en Hack Academy, en el marco de su
+                    <b style={{ color: theme.black }}>
+                      {" "}
+                      Coding Bootcamp de full-stack Web Developer
+                    </b>
+                    . El mismo consiste en un curso de fuerte carga
+                    teórico-práctica, con una duración de 3 meses, el cual
+                    implica unas 600 horas de dedicación intensiva. Como
+                    consigna se nos solicitó la implementación de un{" "}
+                    <b style={{ color: theme.black }}> sitio e-commerce</b>,
+                    para el cual el equipo tomó como temática la mueblería de
+                    diseño. Se contó con un plazo de 3 semanas para realizarlo y
+                    cada uno de los integrantes invirtió aproximadamente{" "}
+                    <b style={{ color: theme.black }}> 150hs de trabajo</b>.
+                    Cómo puntapié inicial tomamos un emprendimiento existente,
+                    llamado <b style={{ color: theme.black }}>Reizen</b> que,
+                    con el permiso de sus creadoras, parte de su branding fue
+                    utilizado para que el sitio se viera mas real.
                   </Typography>
                 </Box>
               </Box>
@@ -141,21 +154,23 @@ const AboutUs = () => {
                 display="flex"
                 justifyContent="center"
                 alignItems="initial"
-                width={{ xs: "100%", md: "50%" }}
-                py={{ xs: 2, md: 0 }}
+                width={{ xs: "70%", md: "50%" }}
+                pt={{ xs: 20, md: 0 }}
+                pb={{ xs: 20, md: 0 }}
                 bgcolor={theme.white}
                 borderRadius="10px"
               >
                 <img
                   style={{ objectFit: "contain" }}
-                  width="100%"
+                  width="60%"
                   srcSet={require("../../assets/logo_sin_fondo_negro_reizen.png")}
                   alt="logo-reizen"
                 />
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={12} my={20}>
+          <hr class="shine" style={{ width: "400px" }}></hr>
+          <Grid item xs={12} mb={10}>
             <Box display="flex" justifyContent="flex-start" py={5}>
               <Typography fontFamily={theme.fonts.title} variant="h2">
                 El inicio...
@@ -166,24 +181,26 @@ const AboutUs = () => {
               display="flex"
               flexWrap="wrap"
               justifyContent="space-between"
-              maxWidth={{ xs: "100%", md: "90%" }}
+              alignItems="center"
+              maxWidth={{ xs: "100%", md: "100%" }}
+              marginBottom="8%"
             >
               <Box
                 width={{ xs: "100%", md: "50%" }}
-                py={{ xs: 2, md: 0 }}
+                py={{ xs: 2, md: 3 }}
                 minHeight="300px"
                 bgcolor={theme.white}
                 borderRadius="10px"
               >
                 <img
-                  width="430px"
+                  width="60%"
                   srcSet={require("../../assets/figma.png")}
                   alt="logo-reizen"
                 />
               </Box>
               <Box
                 width={{ xs: "100%", md: "50%" }}
-                py={{ xs: 2, md: 0 }}
+                py={{ xs: 5, md: 3 }}
                 minHeight="300px"
                 bgcolor={theme.white}
                 borderRadius="10px"
@@ -192,57 +209,76 @@ const AboutUs = () => {
                 <Typography
                   color={theme.text}
                   sx={{ lineHeight: "30px" }}
+                  fontFamily={theme.fonts.text}
                   variant="body1"
-                  fontSize={20}
-                  textAlign="right"
+                  fontSize={18}
+                  textAlign="left"
                   width={{ md: "100%" }}
                 >
                   Para el desarrollo de las ideas iniciales, el equipo optó por
-                  utilizar la herramienta Figma ya que con ella es fácil
-                  interactuar entre los integrantes en tiempo real.. En primer
-                  lugar, desarrollamos un MER (Modelo Entidad - Relación) Para
-                  tener claro cuáles serian las partes que formarían el proyecto
-                  y su estructura. Luego de esto se decidió la base de datos a
-                  utilizar, resultando la elegida, MongoDB. A partir de aquí los
-                  esquemas definidos fueron: Usuario, Producto, Categoría, Orden
-                  y Dirección de envío. Las ideas de diseño fueron tomadas de
-                  varios sitios similares en cuanto a temática y contenido
-                  tratando de, con cada parte, formar un todo armonioso. En
-                  cuanto a la metodología de trabajo utilizada encontramos en la
-                  herramienta "Project boards de GitHub" una buena forma de
-                  dividir y asignar las tareas, siguiendo la metodología SCRUM.
-                  A su vez, utilizamos Discord quién brinda una comunicación
-                  fluida entre los integrantes del equipo y con los
-                  instructores. Gracias a todo esto el proyecto fue creado y
-                  organizado de manera 100% remota. El trabajo fue dividido en
-                  dos partes, por un lado el código del back-end y por otro el
-                  del front-end. Para los cuales fueron creados dos repositorios
-                  en GitHub. Al comenzar a pasar las ideas a código, decidimos
-                  planear la estructura básica del back-end (rutas, modelos,
-                  controladore) entre todos, para luego poder conectar las
-                  distintas partes del front-end de manera individual y más
-                  fluída. El equipo trabajó muy cómodo desde este marco y el
-                  grupo humano fue muy contributivo, alegre y solidario entre
-                  si, lo que permitió llegar a un buen avance para cada Demo y a
-                  un mejor resultado final.
+                  utilizar la herramienta{" "}
+                  <b style={{ color: theme.black }}>Figma</b> ya que con ella es
+                  fácil interactuar entre los integrantes en tiempo real. En
+                  primer lugar, desarrollamos un{" "}
+                  <b style={{ color: theme.black }}>MER</b> (Modelo Entidad -
+                  Relación) para tener claro cuáles serian las partes que
+                  formarían{" "}
+                  <b style={{ color: theme.black }}>
+                    el proyecto y su estructura
+                  </b>
+                  . Luego de esto se decidió la base de datos a utilizar,
+                  resultando la elegida,{" "}
+                  <b style={{ color: theme.black }}>MongoDB</b>. A partir de
+                  aquí los esquemas definidos fueron:{" "}
+                  <b style={{ color: theme.black }}>
+                    Usuario, Producto, Categoría, Orden y Dirección de envío
+                  </b>
+                  .<br></br>
+                  <p style={{ paddingTop: "3%" }}>
+                    Las ideas de diseño fueron tomadas de varios sitios
+                    similares en cuanto a temática y contenido tratando de, con
+                    cada parte, formar un todo armonioso. En cuanto a la{" "}
+                    <b style={{ color: theme.black }}>metodología de trabajo</b>{" "}
+                    utilizada encontramos en la herramienta{" "}
+                    <b style={{ color: theme.black }}>
+                      "Project boards de GitHub"
+                    </b>{" "}
+                    una buena forma de dividir y asignar las tareas, siguiendo
+                    la metodología SCRUM. A su vez, utilizamos Discord quién
+                    brinda una comunicación fluida entre los integrantes del
+                    equipo y con los instructores. Gracias a todo esto{" "}
+                    <b style={{ color: theme.black }}>
+                      el proyecto fue creado y organizado
+                    </b>{" "}
+                    de manera <b style={{ color: theme.black }}>100% remota</b>.{" "}
+                  </p>{" "}
+                  <p style={{ paddingTop: "3%" }}>
+                    El trabajo fue dividido en{" "}
+                    <b style={{ color: theme.black }}>dos partes</b>, por un
+                    lado el código del{"  "}
+                    <b style={{ color: theme.black }}>back-end</b> y por otro el
+                    del <b style={{ color: theme.black }}>front-end</b>. Para
+                    los cuales fueron creados dos repositorios en GitHub.
+                  </p>
                 </Typography>
               </Box>
             </Box>
           </Grid>
-
+          <hr class="shine" style={{ width: "400px" }}></hr>
           <Grid item xs={12} my={20}>
             <Box
               width="100%"
               display="flex"
               flexWrap="wrap"
               justifyContent="flex-start"
+              mb={5}
             >
               <Typography
                 textAlign="center"
                 fontFamily={theme.fonts.title}
                 variant="h2"
               >
-                MER...
+                MER
               </Typography>
               <img
                 width="100%"
@@ -251,14 +287,15 @@ const AboutUs = () => {
               />
             </Box>
           </Grid>
+          <hr class="shine" style={{ width: "400px" }}></hr>
           <Grid item xs={12} my={20}>
-            <Box display="flex" justifyContent="flex-start" py={5}>
+            <Box display="flex" justifyContent="flex-start" mb={5}>
               <Typography
                 textAlign="center"
                 fontFamily={theme.fonts.title}
                 variant="h2"
               >
-                Proceso final...
+                Proceso
               </Typography>
             </Box>
             <Box
@@ -268,21 +305,57 @@ const AboutUs = () => {
               justifyContent="space-between"
             >
               <Box
-                width={{ xs: "100%", md: "50%" }}
+                width={{ xs: "100%", md: "38%" }}
                 py={{ xs: 2, md: 0 }}
                 minHeight="300px"
                 bgcolor={theme.white}
                 borderRadius="10px"
                 textAlign="left"
               >
-                <Typography variant="body1" color={theme.text} fontSize={20}>
-                  Durante los últimos días del desarrollo, se fueron puliendo
-                  funcionalidades, tales como la del carrito de compras y el
-                  login. A su vez se fueron adecuando las partes del front-end
-                  al diseño propuesto, se eligieron fuentes, íconos, imágenes,
-                  tamaño de los componentes, etc . lo cual implicó mucha
-                  dedicación en los detalles para que el proyecto sea responsive
-                  y para asegurar una mejor experiencia del usuario.
+                <Typography
+                  variant="body1"
+                  color={theme.text}
+                  fontFamily={theme.fonts.text}
+                  fontSize={18}
+                >
+                  <p style={{ paddingTop: "3%" }}>
+                    Al comenzar a pasar las ideas a código, decidimos planear la{" "}
+                    <b style={{ color: theme.black }}>estructura básica</b> del
+                    back-end (
+                    <b style={{ color: theme.black }}>
+                      rutas, modelos, controladore
+                    </b>
+                    ) entre todos, para luego poder conectar las distintas
+                    partes del front-end de manera individual y más fluída. El{" "}
+                    <b style={{ color: theme.black }}>equipo</b> trabajó muy
+                    cómodo desde este marco y el grupo humano fue muy{" "}
+                    <b style={{ color: theme.black }}>
+                      contributivo, alegre y solidario
+                    </b>{" "}
+                    entre si, lo que permitió llegar a un buen avance para cada
+                    Demo y a un mejor resultado final.
+                  </p>
+                  <p style={{ paddingTop: "3%" }}>
+                    Durante los{" "}
+                    <b style={{ color: theme.black }}>
+                      últimos días del desarrollo
+                    </b>
+                    , se fueron puliendo funcionalidades, tales como la del
+                    carrito de compras y el login. A su vez{" "}
+                    <b style={{ color: theme.black }}>
+                      se fueron adecuando las partes del front-end al diseño
+                      propuesto
+                    </b>
+                    , se eligieron fuentes, íconos, imágenes, tamaño de los
+                    componentes, etc . lo cual implicó mucha dedicación en los
+                    detalles para que el proyecto sea{" "}
+                    <b style={{ color: theme.black }}>responsive</b> y para
+                    asegurar una{" "}
+                    <b style={{ color: theme.black }}>
+                      mejor experiencia del usuario
+                    </b>
+                    .
+                  </p>
                 </Typography>
               </Box>
               <Box
@@ -296,13 +369,14 @@ const AboutUs = () => {
               >
                 <img
                   style={{ objectFit: "contain" }}
-                  width="630px"
+                  width="100%"
                   srcSet={require("../../assets/mockup.png")}
                   alt="logo-reizen"
                 />
               </Box>
             </Box>
           </Grid>
+          <hr class="shine" style={{ width: "400px" }}></hr>
           <Grid item xs={12} my={20}>
             <Box display="flex" justifyContent="flex-start" py={5}>
               <Typography
@@ -317,34 +391,78 @@ const AboutUs = () => {
               width="100%"
               display="flex"
               flexWrap="wrap"
-              justifyContent="center"
+              justifyContent="space-between"
+              alignItems="center"
+              maxWidth={{ xs: "100%", md: "100%" }}
             >
               <Box
-                display="flex"
-                width={{ xs: "100%" }}
+                width={{ xs: "100%", md: "50%" }}
                 py={{ xs: 2, md: 0 }}
                 minHeight="300px"
                 bgcolor={theme.white}
                 borderRadius="10px"
-                textAlign="left"
               >
-                <Typography variant="body1" color={theme.text} fontSize={20}>
-                  Ha sido realmente una experiencia muy linda y gratificante y
-                  estamos muy contentos con el resultado logrado. Llegamos a la
-                  conclusión, luego de estos meses de trabajo intenso, de que no
-                  importa la cultura idioma o rama de experticia previa de cada
-                  uno, los lenguajes de programación son universales. Este
-                  proyecto no es sólo una unión de código, sino también de
-                  voluntades y de esfuerzo de cuatro personas con una meta en
-                  común: superarse y abrirse paso en una nueva etapa de sus
-                  vidas. Muchas gracias por tomarse el tiempo de leer esta
-                  pequeña reseña de lo que fue el proceso de nuestro proyecto
-                  final. Esperamos que éste sea el primero de muchos proyectos
-                  por venir.
+                <img
+                  width="90%"
+                  srcSet={require("../../assets/hello_world.jpg")}
+                  alt="logo-reizen"
+                />
+              </Box>
+              <Box
+                width={{ xs: "100%", md: "50%" }}
+                py={{ xs: 2, md: 0 }}
+                minHeight="300px"
+                bgcolor={theme.white}
+                borderRadius="10px"
+                textAlign="center"
+              >
+                <Typography
+                  color={theme.text}
+                  sx={{ lineHeight: "30px" }}
+                  fontFamily={theme.fonts.text}
+                  variant="body1"
+                  fontSize={18}
+                  textAlign="left"
+                  width={{ md: "100%" }}
+                >
+                  Ha sido realmente una{" "}
+                  <b style={{ color: theme.black }}>
+                    experiencia muy linda y gratificante
+                  </b>{" "}
+                  y estamos muy contentos con el resultado logrado . Llegamos a
+                  la conclusión, luego de estos meses de trabajo intenso, de que
+                  no importa la cultura idioma o rama de experticia previa de
+                  cada uno,{" "}
+                  <b style={{ color: theme.black }}>
+                    los lenguajes de programación son universales
+                  </b>
+                  .
+                  <p style={{ paddingTop: "3%" }}>
+                    Este proyecto no es sólo una unión de código, sino también
+                    de voluntades y de esfuerzo de cuatro personas con una meta
+                    en común: superarse y abrirse paso en una nueva etapa de sus
+                    vidas.{" "}
+                    <b style={{ color: theme.black }}>
+                      Muchas gracias por tomarse el tiempo de leer
+                    </b>{" "}
+                    esta pequeña reseña de lo que fue el proceso de nuestro
+                    proyecto final. Esperamos que éste sea el primero de muchos
+                    proyectos por venir.
+                  </p>
+                  <p
+                    style={{
+                      paddingTop: "20%",
+                      color: theme.black,
+                      textAlign: "right",
+                    }}
+                  >
+                    <b>Felipe, Federico, Fernando y Lucía.</b>
+                  </p>
                 </Typography>
               </Box>
             </Box>
           </Grid>
+          <hr class="shine" style={{ width: "400px" }}></hr>
         </Grid>
       </Box>
     </Box>
@@ -365,11 +483,12 @@ const PeopleCard = ({ image, name, linkedin, github }) => {
         fontSize="25px"
         color={theme.white}
         fontFamily={theme.fonts.title}
-        fontWeight="bold"
+        fontWeight="400"
       >
         {name}
       </Typography>
       <Typography
+        fontFamily="Raleway"
         textAlign="center"
         variant="body1"
         color={theme.white}

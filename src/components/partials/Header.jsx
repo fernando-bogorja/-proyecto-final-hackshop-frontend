@@ -22,13 +22,13 @@ export default function Header() {
           flexDirection="row"
           justifyContent="space-between"
         >
-          <Box className="title" width={{ xs: "100%", xl: "60%" }}>
+          <Box className="title" width={{ xs: "60%", xl: "55%" }}>
             <Typography
               variant="p"
               fontSize="1rem"
               fontFamily="Raleway"
               color="rgba(128, 128, 128, 0.9)"
-              sx={{ fontWeight: "500" }}
+              sx={{ maxWidth: "60%", fontWeight: "500" }}
             >
               INTERIOR-EXTERIOR
             </Typography>
@@ -36,7 +36,7 @@ export default function Header() {
               variant="h1"
               color="rgb(255,255,255)"
               fontFamily="Bodoni Moda"
-              fontSize={{ xs: "5rem", sm: "6rem", md: "7.7rem", xl: "10rem" }}
+              fontSize={{ xs: "5rem", sm: "5rem", md: "7.7rem", xl: "10rem" }}
               lineHeight="0.95"
               letterSpacing="-0.01562em"
               sx={{ paddingBottom: "2rem", paddingTop: "4rem" }}

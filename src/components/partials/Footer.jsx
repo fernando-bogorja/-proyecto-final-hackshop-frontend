@@ -19,7 +19,7 @@ const Footer = () => {
   const handleClick = () => {
     toast.info("Gracias por Suscribirse");
   };
-  if (location.pathname === "/") {
+  if (location.pathname === "/" || location.pathname === "/about") {
     return (
       <Box
         display="flex"

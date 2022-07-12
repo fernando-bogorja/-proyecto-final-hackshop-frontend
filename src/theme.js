@@ -12,6 +12,7 @@ const theme = {
     green: "#40BD66",
     fonts: {
       title: "Bodoni Moda",
+      text: "Raleway",
     },
   },
   dark: {

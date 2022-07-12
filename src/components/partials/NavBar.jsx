@@ -36,14 +36,14 @@ const withBackgroundPages = [
   "/product",
 ];
 
-const willIncludeBackground = currentPath => {
+const willIncludeBackground = (currentPath) => {
   //if some of the rendereable pages items includes the current path
-  return withBackgroundPages.some(path => currentPath.includes(path));
+  return withBackgroundPages.some((path) => currentPath.includes(path));
 };
 
 export default function PrimarySearchAppBar() {
   const navigate = useNavigate();
-  const { cartTotalQuantity } = useSelector(state => state.cart);
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
   const [user, handleSetUser, handleLogoutUser] = useUserHook();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -51,7 +51,7 @@ export default function PrimarySearchAppBar() {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = event => {
+  const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -64,7 +64,7 @@ export default function PrimarySearchAppBar() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = event => {
+  const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -213,7 +213,13 @@ export default function PrimarySearchAppBar() {
                   color="inherit"
                   disableRipple={true}
                 >
-                  <Typography ml={1} variant="p" fontSize={14} color="inherit">
+                  <Typography
+                    ml={1}
+                    fontFamily={theme.fonts.text}
+                    variant="p"
+                    fontSize={14}
+                    color="inherit"
+                  >
                     {/* if user is logged in, show his name */}
                     {user.data ? (
                       <Link
@@ -221,14 +227,20 @@ export default function PrimarySearchAppBar() {
                         onClick={handleProfileMenuOpen}
                         className="link-none"
                       >
-                        <Typography color={theme.white}>
+                        <Typography
+                          fontFamily={theme.fonts.text}
+                          color={theme.white}
+                        >
                           {" "}
                           {user.data.name + " " + user.data.lastName}{" "}
                         </Typography>
                       </Link>
                     ) : (
                       <Link to="/signin" className="link-none">
-                        <Typography color={theme.white}>
+                        <Typography
+                          color={theme.white}
+                          fontFamily={theme.fonts.text}
+                        >
                           Iniciar sesión
                         </Typography>
                       </Link>
