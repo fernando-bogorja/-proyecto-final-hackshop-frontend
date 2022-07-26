@@ -69,7 +69,8 @@ export default function PrimarySearchAppBar() {
   };
 
   const handleLogout = () => {
-    handleLogoutUser();
+    handleLogoutUser(null);
+    navigate("/signin", { replace: true });
     handleMenuClose();
   };
 

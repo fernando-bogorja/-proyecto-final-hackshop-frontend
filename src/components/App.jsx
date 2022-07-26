@@ -26,13 +26,15 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Address from "./pages/Address";
 import Thanks from "./pages/Thanks";
+import Modal from "./miscellaneous/Modal/Modal";
 
 function App() {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   return (
     <div className="App">
       {/* SIGNIN / SIGNUP ROUTES */}
       <div className="div">
+        <Modal />
         <ToastContainer />
         <ContextMenu />
         <AboutPopUp />

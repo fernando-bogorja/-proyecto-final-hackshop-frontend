@@ -1,3 +1,8 @@
+import * as React from "react";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import { Box } from "@mui/system";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
@@ -463,11 +468,183 @@ const AboutUs = () => {
             </Box>
           </Grid>
           <hr class="shine" style={{ width: "400px" }}></hr>
+          <Grid item xs={12} my={20}>
+            <Box display="flex" justifyContent="flex-start" py={5}>
+              <Typography fontFamily={theme.fonts.title} variant="h2">
+                Tecnoligías
+              </Typography>
+            </Box>
+            <Box width="100%">
+              <List
+                sx={{
+                  width: "100%",
+                  height: "200px",
+                  display: "flex",
+                  alignContent: "space-between",
+                  flexWrap: { xs: "nowrap", lg: "wrap" },
+                }}
+              >
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/javascript.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="JavaScript"
+                    sx={{ textAlign: "right" }}
+                  />
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/node-js.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Node.js" sx={{ textAlign: "right" }} />
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon textAlign="center">
+                    <img
+                      style={{ width: "55px" }}
+                      srcSet={require("../../assets/express.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Express.js"
+                    sx={{ textAlign: "right" }}
+                  />
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/mongodb.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="MongoDB" sx={{ textAlign: "right" }} />
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/react.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="React.js"
+                    sx={{ textAlign: "right" }}
+                  />
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/redux.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Redux" sx={{ textAlign: "right" }} />
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/logo-vercel.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Vercel" sx={{ textAlign: "right" }} />
+                </ListItemButton>
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/git.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="Git" sx={{ textAlign: "right" }} />
+                </ListItemButton>
+                {/* <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/github.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary="GitHub" sx={{ textAlign: "right" }} />
+                </ListItemButton> */}
+                <ListItemButton
+                  sx={{
+                    width: "20%",
+                  }}
+                >
+                  <ListItemIcon>
+                    <img
+                      style={{ width: "30px" }}
+                      srcSet={require("../../assets/material-ui-1.png")}
+                      alt="logo"
+                    />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Material UI"
+                    sx={{ textAlign: "right" }}
+                  />
+                </ListItemButton>
+              </List>
+            </Box>
+          </Grid>
         </Grid>
       </Box>
     </Box>
   );
 };
+
 const PeopleCard = ({ image, name, linkedin, github }) => {
   return (
     <Box padding={2} margin={2} sx={{ borderRadius: "8px" }}>
@@ -525,6 +702,7 @@ const PeopleCard = ({ image, name, linkedin, github }) => {
           />
         </a>
       </Box>
+      s
     </Box>
   );
 };

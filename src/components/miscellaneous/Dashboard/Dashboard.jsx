@@ -15,7 +15,7 @@ function Dashboard(props) {
   const { window, component, token } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [user] = useUserHook();
-  //console.log("DASHBOARD");
+  // console.log([user]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -53,7 +53,6 @@ function Dashboard(props) {
       </Box>
     );
   }
-  return <Navigate to="/signin" />;
 }
 
 Dashboard.propTypes = {
